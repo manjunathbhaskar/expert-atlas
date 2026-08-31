@@ -1,0 +1,7927 @@
+probe_set_id: probe_set_v1
+version: '1.0'
+translation_reviewed: false
+factors:
+  topic:
+  - cooking
+  - history
+  - law
+  - math_proof
+  - medicine
+  - music_theory
+  - poetry
+  - python
+  - rust
+  - sql
+  lang:
+  - en
+  - zh
+  - de
+  - ja
+  register:
+  - formal
+  - casual
+  format:
+  - prose
+  - json
+  - bulleted
+n_cells: 240
+n_prompts: 480
+notes: Payloads (code/notation/scenario) are byte-identical across all language cells. This is the within-subjects control that separates syntax affinity from language affinity. See probes/README.md.
+prompts:
+- prompt_id: 0
+  text: "Consider the following:\n\ndef fib(n):\n    if n <= 1:\n        return n\n    return fib(n - 1) + fib(n - 2)\n\nExplain the time complexity of this function and how memoisation changes it."
+  topic: python
+  lang: en
+  register: formal
+  format: prose
+  stem: 0
+  split: A
+  sha1: d539348ce796
+- prompt_id: 1
+  text: "Consider the following:\n\ndef dedupe(items):\n    seen = set()\n    return [x for x in items if not (x in seen or seen.add(x))]\n\nDescribe why this preserves order, and one case where it fails."
+  topic: python
+  lang: en
+  register: formal
+  format: prose
+  stem: 1
+  split: B
+  sha1: ce4bb961e015
+- prompt_id: 2
+  text: "Consider the following:\n\ndef fib(n):\n    if n <= 1:\n        return n\n    return fib(n - 1) + fib(n - 2)\n\nExplain the time complexity of this function and how memoisation changes it.\nAnswer as a JSON object with keys: \"complexity\", \"with_memoisation\", \"reason\""
+  topic: python
+  lang: en
+  register: formal
+  format: json
+  stem: 0
+  split: A
+  sha1: fe0de579fa7c
+- prompt_id: 3
+  text: "Consider the following:\n\ndef dedupe(items):\n    seen = set()\n    return [x for x in items if not (x in seen or seen.add(x))]\n\nDescribe why this preserves order, and one case where it fails.\nAnswer as a JSON object with keys: \"order_preserved\", \"failure_case\""
+  topic: python
+  lang: en
+  register: formal
+  format: json
+  stem: 1
+  split: B
+  sha1: 44c3a6a73b35
+- prompt_id: 4
+  text: "Consider the following:\n\ndef fib(n):\n    if n <= 1:\n        return n\n    return fib(n - 1) + fib(n - 2)\n\nExplain the time complexity of this function and how memoisation changes it.\nAnswer as a bulleted list covering: complexity, why, fix"
+  topic: python
+  lang: en
+  register: formal
+  format: bulleted
+  stem: 0
+  split: A
+  sha1: d023718948dc
+- prompt_id: 5
+  text: "Consider the following:\n\ndef dedupe(items):\n    seen = set()\n    return [x for x in items if not (x in seen or seen.add(x))]\n\nDescribe why this preserves order, and one case where it fails.\nAnswer as a bulleted list covering: mechanism, failure"
+  topic: python
+  lang: en
+  register: formal
+  format: bulleted
+  stem: 1
+  split: B
+  sha1: 04679fdc9b1a
+- prompt_id: 6
+  text: "ok so i've got this:\n\ndef fib(n):\n    if n <= 1:\n        return n\n    return fib(n - 1) + fib(n - 2)\n\nExplain the time complexity of this function and how memoisation changes it.\nany idea?"
+  topic: python
+  lang: en
+  register: casual
+  format: prose
+  stem: 0
+  split: A
+  sha1: 50b6a7b4aeaa
+- prompt_id: 7
+  text: "ok so i've got this:\n\ndef dedupe(items):\n    seen = set()\n    return [x for x in items if not (x in seen or seen.add(x))]\n\nDescribe why this preserves order, and one case where it fails.\nany idea?"
+  topic: python
+  lang: en
+  register: casual
+  format: prose
+  stem: 1
+  split: B
+  sha1: b5a818af6396
+- prompt_id: 8
+  text: "ok so i've got this:\n\ndef fib(n):\n    if n <= 1:\n        return n\n    return fib(n - 1) + fib(n - 2)\n\nExplain the time complexity of this function and how memoisation changes it.\nAnswer as a JSON object with keys: \"complexity\", \"with_memoisation\", \"reason\"\nany idea?"
+  topic: python
+  lang: en
+  register: casual
+  format: json
+  stem: 0
+  split: A
+  sha1: 379d20a229e7
+- prompt_id: 9
+  text: "ok so i've got this:\n\ndef dedupe(items):\n    seen = set()\n    return [x for x in items if not (x in seen or seen.add(x))]\n\nDescribe why this preserves order, and one case where it fails.\nAnswer as a JSON object with keys: \"order_preserved\", \"failure_case\"\nany idea?"
+  topic: python
+  lang: en
+  register: casual
+  format: json
+  stem: 1
+  split: B
+  sha1: bb4abe63ab76
+- prompt_id: 10
+  text: "ok so i've got this:\n\ndef fib(n):\n    if n <= 1:\n        return n\n    return fib(n - 1) + fib(n - 2)\n\nExplain the time complexity of this function and how memoisation changes it.\nAnswer as a bulleted list covering: complexity, why, fix\nany idea?"
+  topic: python
+  lang: en
+  register: casual
+  format: bulleted
+  stem: 0
+  split: A
+  sha1: c2fac5b06c17
+- prompt_id: 11
+  text: "ok so i've got this:\n\ndef dedupe(items):\n    seen = set()\n    return [x for x in items if not (x in seen or seen.add(x))]\n\nDescribe why this preserves order, and one case where it fails.\nAnswer as a bulleted list covering: mechanism, failure\nany idea?"
+  topic: python
+  lang: en
+  register: casual
+  format: bulleted
+  stem: 1
+  split: B
+  sha1: cf9922a9bbc8
+- prompt_id: 12
+  text: "请看以下内容：\n\ndef fib(n):\n    if n <= 1:\n        return n\n    return fib(n - 1) + fib(n - 2)\n\n请解释这个函数的时间复杂度，以及记忆化会如何改变它。"
+  topic: python
+  lang: zh
+  register: formal
+  format: prose
+  stem: 0
+  split: A
+  sha1: 5dba1e650c8b
+- prompt_id: 13
+  text: "请看以下内容：\n\ndef dedupe(items):\n    seen = set()\n    return [x for x in items if not (x in seen or seen.add(x))]\n\n说明它为什么能保持顺序，以及一种会失败的情况。"
+  topic: python
+  lang: zh
+  register: formal
+  format: prose
+  stem: 1
+  split: B
+  sha1: 05a4a42f5dbc
+- prompt_id: 14
+  text: "请看以下内容：\n\ndef fib(n):\n    if n <= 1:\n        return n\n    return fib(n - 1) + fib(n - 2)\n\n请解释这个函数的时间复杂度，以及记忆化会如何改变它。\n请用带以下键的 JSON 对象回答： \"complexity\", \"with_memoisation\", \"reason\""
+  topic: python
+  lang: zh
+  register: formal
+  format: json
+  stem: 0
+  split: A
+  sha1: cd27f5649335
+- prompt_id: 15
+  text: "请看以下内容：\n\ndef dedupe(items):\n    seen = set()\n    return [x for x in items if not (x in seen or seen.add(x))]\n\n说明它为什么能保持顺序，以及一种会失败的情况。\n请用带以下键的 JSON 对象回答： \"order_preserved\", \"failure_case\""
+  topic: python
+  lang: zh
+  register: formal
+  format: json
+  stem: 1
+  split: B
+  sha1: 1d78b2572f38
+- prompt_id: 16
+  text: "请看以下内容：\n\ndef fib(n):\n    if n <= 1:\n        return n\n    return fib(n - 1) + fib(n - 2)\n\n请解释这个函数的时间复杂度，以及记忆化会如何改变它。\n请用要点列表回答，涵盖： complexity, why, fix"
+  topic: python
+  lang: zh
+  register: formal
+  format: bulleted
+  stem: 0
+  split: A
+  sha1: 9b152d3de1e2
+- prompt_id: 17
+  text: "请看以下内容：\n\ndef dedupe(items):\n    seen = set()\n    return [x for x in items if not (x in seen or seen.add(x))]\n\n说明它为什么能保持顺序，以及一种会失败的情况。\n请用要点列表回答，涵盖： mechanism, failure"
+  topic: python
+  lang: zh
+  register: formal
+  format: bulleted
+  stem: 1
+  split: B
+  sha1: 0f8fae134c49
+- prompt_id: 18
+  text: "我这有个东西：\n\ndef fib(n):\n    if n <= 1:\n        return n\n    return fib(n - 1) + fib(n - 2)\n\n请解释这个函数的时间复杂度，以及记忆化会如何改变它。\n有什么想法吗？"
+  topic: python
+  lang: zh
+  register: casual
+  format: prose
+  stem: 0
+  split: A
+  sha1: 23f2814bd841
+- prompt_id: 19
+  text: "我这有个东西：\n\ndef dedupe(items):\n    seen = set()\n    return [x for x in items if not (x in seen or seen.add(x))]\n\n说明它为什么能保持顺序，以及一种会失败的情况。\n有什么想法吗？"
+  topic: python
+  lang: zh
+  register: casual
+  format: prose
+  stem: 1
+  split: B
+  sha1: 1584ab9cc37d
+- prompt_id: 20
+  text: "我这有个东西：\n\ndef fib(n):\n    if n <= 1:\n        return n\n    return fib(n - 1) + fib(n - 2)\n\n请解释这个函数的时间复杂度，以及记忆化会如何改变它。\n请用带以下键的 JSON 对象回答： \"complexity\", \"with_memoisation\", \"reason\"\n有什么想法吗？"
+  topic: python
+  lang: zh
+  register: casual
+  format: json
+  stem: 0
+  split: A
+  sha1: 838909975d4d
+- prompt_id: 21
+  text: "我这有个东西：\n\ndef dedupe(items):\n    seen = set()\n    return [x for x in items if not (x in seen or seen.add(x))]\n\n说明它为什么能保持顺序，以及一种会失败的情况。\n请用带以下键的 JSON 对象回答： \"order_preserved\", \"failure_case\"\n有什么想法吗？"
+  topic: python
+  lang: zh
+  register: casual
+  format: json
+  stem: 1
+  split: B
+  sha1: 8f4edadebfee
+- prompt_id: 22
+  text: "我这有个东西：\n\ndef fib(n):\n    if n <= 1:\n        return n\n    return fib(n - 1) + fib(n - 2)\n\n请解释这个函数的时间复杂度，以及记忆化会如何改变它。\n请用要点列表回答，涵盖： complexity, why, fix\n有什么想法吗？"
+  topic: python
+  lang: zh
+  register: casual
+  format: bulleted
+  stem: 0
+  split: A
+  sha1: 6bb4bb43e8e8
+- prompt_id: 23
+  text: "我这有个东西：\n\ndef dedupe(items):\n    seen = set()\n    return [x for x in items if not (x in seen or seen.add(x))]\n\n说明它为什么能保持顺序，以及一种会失败的情况。\n请用要点列表回答，涵盖： mechanism, failure\n有什么想法吗？"
+  topic: python
+  lang: zh
+  register: casual
+  format: bulleted
+  stem: 1
+  split: B
+  sha1: d3ba7b74b157
+- prompt_id: 24
+  text: "Betrachten Sie Folgendes:\n\ndef fib(n):\n    if n <= 1:\n        return n\n    return fib(n - 1) + fib(n - 2)\n\nErkläre die Zeitkomplexität dieser Funktion und wie Memoisierung sie verändert."
+  topic: python
+  lang: de
+  register: formal
+  format: prose
+  stem: 0
+  split: A
+  sha1: 69d59be3dcca
+- prompt_id: 25
+  text: "Betrachten Sie Folgendes:\n\ndef dedupe(items):\n    seen = set()\n    return [x for x in items if not (x in seen or seen.add(x))]\n\nBeschreibe, warum die Reihenfolge erhalten bleibt, und einen Fehlerfall."
+  topic: python
+  lang: de
+  register: formal
+  format: prose
+  stem: 1
+  split: B
+  sha1: d37bcf48fcb1
+- prompt_id: 26
+  text: "Betrachten Sie Folgendes:\n\ndef fib(n):\n    if n <= 1:\n        return n\n    return fib(n - 1) + fib(n - 2)\n\nErkläre die Zeitkomplexität dieser Funktion und wie Memoisierung sie verändert.\nAntworte als JSON-Objekt mit den Schlüsseln: \"complexity\", \"with_memoisation\", \"reason\""
+  topic: python
+  lang: de
+  register: formal
+  format: json
+  stem: 0
+  split: A
+  sha1: 6aa69821a8e4
+- prompt_id: 27
+  text: "Betrachten Sie Folgendes:\n\ndef dedupe(items):\n    seen = set()\n    return [x for x in items if not (x in seen or seen.add(x))]\n\nBeschreibe, warum die Reihenfolge erhalten bleibt, und einen Fehlerfall.\nAntworte als JSON-Objekt mit den Schlüsseln: \"order_preserved\", \"failure_case\""
+  topic: python
+  lang: de
+  register: formal
+  format: json
+  stem: 1
+  split: B
+  sha1: d095a0115af7
+- prompt_id: 28
+  text: "Betrachten Sie Folgendes:\n\ndef fib(n):\n    if n <= 1:\n        return n\n    return fib(n - 1) + fib(n - 2)\n\nErkläre die Zeitkomplexität dieser Funktion und wie Memoisierung sie verändert.\nAntworte als Aufzählung zu: complexity, why, fix"
+  topic: python
+  lang: de
+  register: formal
+  format: bulleted
+  stem: 0
+  split: A
+  sha1: 9ac3b914e7ab
+- prompt_id: 29
+  text: "Betrachten Sie Folgendes:\n\ndef dedupe(items):\n    seen = set()\n    return [x for x in items if not (x in seen or seen.add(x))]\n\nBeschreibe, warum die Reihenfolge erhalten bleibt, und einen Fehlerfall.\nAntworte als Aufzählung zu: mechanism, failure"
+  topic: python
+  lang: de
+  register: formal
+  format: bulleted
+  stem: 1
+  split: B
+  sha1: 66d7d1089e32
+- prompt_id: 30
+  text: "also ich hab hier das:\n\ndef fib(n):\n    if n <= 1:\n        return n\n    return fib(n - 1) + fib(n - 2)\n\nErkläre die Zeitkomplexität dieser Funktion und wie Memoisierung sie verändert.\nirgendeine Idee?"
+  topic: python
+  lang: de
+  register: casual
+  format: prose
+  stem: 0
+  split: A
+  sha1: 605396f857c9
+- prompt_id: 31
+  text: "also ich hab hier das:\n\ndef dedupe(items):\n    seen = set()\n    return [x for x in items if not (x in seen or seen.add(x))]\n\nBeschreibe, warum die Reihenfolge erhalten bleibt, und einen Fehlerfall.\nirgendeine Idee?"
+  topic: python
+  lang: de
+  register: casual
+  format: prose
+  stem: 1
+  split: B
+  sha1: 674eada44f59
+- prompt_id: 32
+  text: "also ich hab hier das:\n\ndef fib(n):\n    if n <= 1:\n        return n\n    return fib(n - 1) + fib(n - 2)\n\nErkläre die Zeitkomplexität dieser Funktion und wie Memoisierung sie verändert.\nAntworte als JSON-Objekt mit den Schlüsseln: \"complexity\", \"with_memoisation\", \"reason\"\nirgendeine Idee?"
+  topic: python
+  lang: de
+  register: casual
+  format: json
+  stem: 0
+  split: A
+  sha1: 3aa900c6358c
+- prompt_id: 33
+  text: "also ich hab hier das:\n\ndef dedupe(items):\n    seen = set()\n    return [x for x in items if not (x in seen or seen.add(x))]\n\nBeschreibe, warum die Reihenfolge erhalten bleibt, und einen Fehlerfall.\nAntworte als JSON-Objekt mit den Schlüsseln: \"order_preserved\", \"failure_case\"\nirgendeine Idee?"
+  topic: python
+  lang: de
+  register: casual
+  format: json
+  stem: 1
+  split: B
+  sha1: 37d8d5b10aef
+- prompt_id: 34
+  text: "also ich hab hier das:\n\ndef fib(n):\n    if n <= 1:\n        return n\n    return fib(n - 1) + fib(n - 2)\n\nErkläre die Zeitkomplexität dieser Funktion und wie Memoisierung sie verändert.\nAntworte als Aufzählung zu: complexity, why, fix\nirgendeine Idee?"
+  topic: python
+  lang: de
+  register: casual
+  format: bulleted
+  stem: 0
+  split: A
+  sha1: 37b587ee0c87
+- prompt_id: 35
+  text: "also ich hab hier das:\n\ndef dedupe(items):\n    seen = set()\n    return [x for x in items if not (x in seen or seen.add(x))]\n\nBeschreibe, warum die Reihenfolge erhalten bleibt, und einen Fehlerfall.\nAntworte als Aufzählung zu: mechanism, failure\nirgendeine Idee?"
+  topic: python
+  lang: de
+  register: casual
+  format: bulleted
+  stem: 1
+  split: B
+  sha1: 4d80a40736f4
+- prompt_id: 36
+  text: "以下を検討してください。\n\ndef fib(n):\n    if n <= 1:\n        return n\n    return fib(n - 1) + fib(n - 2)\n\nこの関数の時間計算量と、メモ化によってどう変わるかを説明してください。"
+  topic: python
+  lang: ja
+  register: formal
+  format: prose
+  stem: 0
+  split: A
+  sha1: 11c2004d5bcd
+- prompt_id: 37
+  text: "以下を検討してください。\n\ndef dedupe(items):\n    seen = set()\n    return [x for x in items if not (x in seen or seen.add(x))]\n\n順序が保たれる理由と、失敗する場合を一つ説明してください。"
+  topic: python
+  lang: ja
+  register: formal
+  format: prose
+  stem: 1
+  split: B
+  sha1: 6e4f30c34dcc
+- prompt_id: 38
+  text: "以下を検討してください。\n\ndef fib(n):\n    if n <= 1:\n        return n\n    return fib(n - 1) + fib(n - 2)\n\nこの関数の時間計算量と、メモ化によってどう変わるかを説明してください。\n次のキーを持つ JSON オブジェクトで答えてください。 \"complexity\", \"with_memoisation\", \"reason\""
+  topic: python
+  lang: ja
+  register: formal
+  format: json
+  stem: 0
+  split: A
+  sha1: 7953aa198150
+- prompt_id: 39
+  text: "以下を検討してください。\n\ndef dedupe(items):\n    seen = set()\n    return [x for x in items if not (x in seen or seen.add(x))]\n\n順序が保たれる理由と、失敗する場合を一つ説明してください。\n次のキーを持つ JSON オブジェクトで答えてください。 \"order_preserved\", \"failure_case\""
+  topic: python
+  lang: ja
+  register: formal
+  format: json
+  stem: 1
+  split: B
+  sha1: bee1bd8fc480
+- prompt_id: 40
+  text: "以下を検討してください。\n\ndef fib(n):\n    if n <= 1:\n        return n\n    return fib(n - 1) + fib(n - 2)\n\nこの関数の時間計算量と、メモ化によってどう変わるかを説明してください。\n次の項目を箇条書きで答えてください。 complexity, why, fix"
+  topic: python
+  lang: ja
+  register: formal
+  format: bulleted
+  stem: 0
+  split: A
+  sha1: 45fa1d8987ed
+- prompt_id: 41
+  text: "以下を検討してください。\n\ndef dedupe(items):\n    seen = set()\n    return [x for x in items if not (x in seen or seen.add(x))]\n\n順序が保たれる理由と、失敗する場合を一つ説明してください。\n次の項目を箇条書きで答えてください。 mechanism, failure"
+  topic: python
+  lang: ja
+  register: formal
+  format: bulleted
+  stem: 1
+  split: B
+  sha1: 2fbf13e4c113
+- prompt_id: 42
+  text: "これなんだけど：\n\ndef fib(n):\n    if n <= 1:\n        return n\n    return fib(n - 1) + fib(n - 2)\n\nこの関数の時間計算量と、メモ化によってどう変わるかを説明してください。\nどう思う？"
+  topic: python
+  lang: ja
+  register: casual
+  format: prose
+  stem: 0
+  split: A
+  sha1: cb92430888af
+- prompt_id: 43
+  text: "これなんだけど：\n\ndef dedupe(items):\n    seen = set()\n    return [x for x in items if not (x in seen or seen.add(x))]\n\n順序が保たれる理由と、失敗する場合を一つ説明してください。\nどう思う？"
+  topic: python
+  lang: ja
+  register: casual
+  format: prose
+  stem: 1
+  split: B
+  sha1: 17587aaa1cc2
+- prompt_id: 44
+  text: "これなんだけど：\n\ndef fib(n):\n    if n <= 1:\n        return n\n    return fib(n - 1) + fib(n - 2)\n\nこの関数の時間計算量と、メモ化によってどう変わるかを説明してください。\n次のキーを持つ JSON オブジェクトで答えてください。 \"complexity\", \"with_memoisation\", \"reason\"\nどう思う？"
+  topic: python
+  lang: ja
+  register: casual
+  format: json
+  stem: 0
+  split: A
+  sha1: 541e63a5ca4a
+- prompt_id: 45
+  text: "これなんだけど：\n\ndef dedupe(items):\n    seen = set()\n    return [x for x in items if not (x in seen or seen.add(x))]\n\n順序が保たれる理由と、失敗する場合を一つ説明してください。\n次のキーを持つ JSON オブジェクトで答えてください。 \"order_preserved\", \"failure_case\"\nどう思う？"
+  topic: python
+  lang: ja
+  register: casual
+  format: json
+  stem: 1
+  split: B
+  sha1: 70734dfed89f
+- prompt_id: 46
+  text: "これなんだけど：\n\ndef fib(n):\n    if n <= 1:\n        return n\n    return fib(n - 1) + fib(n - 2)\n\nこの関数の時間計算量と、メモ化によってどう変わるかを説明してください。\n次の項目を箇条書きで答えてください。 complexity, why, fix\nどう思う？"
+  topic: python
+  lang: ja
+  register: casual
+  format: bulleted
+  stem: 0
+  split: A
+  sha1: 3ee250633bd4
+- prompt_id: 47
+  text: "これなんだけど：\n\ndef dedupe(items):\n    seen = set()\n    return [x for x in items if not (x in seen or seen.add(x))]\n\n順序が保たれる理由と、失敗する場合を一つ説明してください。\n次の項目を箇条書きで答えてください。 mechanism, failure\nどう思う？"
+  topic: python
+  lang: ja
+  register: casual
+  format: bulleted
+  stem: 1
+  split: B
+  sha1: 082705e75056
+- prompt_id: 48
+  text: "Consider the following:\n\nfn longest<'a>(a: &'a str, b: &'a str) -> &'a str {\n    if a.len() > b.len() { a } else { b }\n}\n\nExplain what the lifetime annotation guarantees here."
+  topic: rust
+  lang: en
+  register: formal
+  format: prose
+  stem: 0
+  split: A
+  sha1: 92dee24d300a
+- prompt_id: 49
+  text: "Consider the following:\n\nlet total: u32 = values\n    .iter()\n    .filter(|v| **v % 2 == 0)\n    .sum();\n\nExplain why this compiles without an explicit loop and what iter() yields."
+  topic: rust
+  lang: en
+  register: formal
+  format: prose
+  stem: 1
+  split: B
+  sha1: 09abefe2f263
+- prompt_id: 50
+  text: "Consider the following:\n\nfn longest<'a>(a: &'a str, b: &'a str) -> &'a str {\n    if a.len() > b.len() { a } else { b }\n}\n\nExplain what the lifetime annotation guarantees here.\nAnswer as a JSON object with keys: \"guarantee\", \"without_annotation\""
+  topic: rust
+  lang: en
+  register: formal
+  format: json
+  stem: 0
+  split: A
+  sha1: f9800cee05db
+- prompt_id: 51
+  text: "Consider the following:\n\nlet total: u32 = values\n    .iter()\n    .filter(|v| **v % 2 == 0)\n    .sum();\n\nExplain why this compiles without an explicit loop and what iter() yields.\nAnswer as a JSON object with keys: \"iterator_chain\", \"yielded_type\""
+  topic: rust
+  lang: en
+  register: formal
+  format: json
+  stem: 1
+  split: B
+  sha1: f21fc64ef722
+- prompt_id: 52
+  text: "Consider the following:\n\nfn longest<'a>(a: &'a str, b: &'a str) -> &'a str {\n    if a.len() > b.len() { a } else { b }\n}\n\nExplain what the lifetime annotation guarantees here.\nAnswer as a bulleted list covering: guarantee, counterexample"
+  topic: rust
+  lang: en
+  register: formal
+  format: bulleted
+  stem: 0
+  split: A
+  sha1: 11891a8627cf
+- prompt_id: 53
+  text: "Consider the following:\n\nlet total: u32 = values\n    .iter()\n    .filter(|v| **v % 2 == 0)\n    .sum();\n\nExplain why this compiles without an explicit loop and what iter() yields.\nAnswer as a bulleted list covering: chain, type"
+  topic: rust
+  lang: en
+  register: formal
+  format: bulleted
+  stem: 1
+  split: B
+  sha1: efa75b096f49
+- prompt_id: 54
+  text: "ok so i've got this:\n\nfn longest<'a>(a: &'a str, b: &'a str) -> &'a str {\n    if a.len() > b.len() { a } else { b }\n}\n\nExplain what the lifetime annotation guarantees here.\nany idea?"
+  topic: rust
+  lang: en
+  register: casual
+  format: prose
+  stem: 0
+  split: A
+  sha1: fdf7cfa1322b
+- prompt_id: 55
+  text: "ok so i've got this:\n\nlet total: u32 = values\n    .iter()\n    .filter(|v| **v % 2 == 0)\n    .sum();\n\nExplain why this compiles without an explicit loop and what iter() yields.\nany idea?"
+  topic: rust
+  lang: en
+  register: casual
+  format: prose
+  stem: 1
+  split: B
+  sha1: b88e4568d269
+- prompt_id: 56
+  text: "ok so i've got this:\n\nfn longest<'a>(a: &'a str, b: &'a str) -> &'a str {\n    if a.len() > b.len() { a } else { b }\n}\n\nExplain what the lifetime annotation guarantees here.\nAnswer as a JSON object with keys: \"guarantee\", \"without_annotation\"\nany idea?"
+  topic: rust
+  lang: en
+  register: casual
+  format: json
+  stem: 0
+  split: A
+  sha1: 35ca0513c71f
+- prompt_id: 57
+  text: "ok so i've got this:\n\nlet total: u32 = values\n    .iter()\n    .filter(|v| **v % 2 == 0)\n    .sum();\n\nExplain why this compiles without an explicit loop and what iter() yields.\nAnswer as a JSON object with keys: \"iterator_chain\", \"yielded_type\"\nany idea?"
+  topic: rust
+  lang: en
+  register: casual
+  format: json
+  stem: 1
+  split: B
+  sha1: b4a3d6f006b7
+- prompt_id: 58
+  text: "ok so i've got this:\n\nfn longest<'a>(a: &'a str, b: &'a str) -> &'a str {\n    if a.len() > b.len() { a } else { b }\n}\n\nExplain what the lifetime annotation guarantees here.\nAnswer as a bulleted list covering: guarantee, counterexample\nany idea?"
+  topic: rust
+  lang: en
+  register: casual
+  format: bulleted
+  stem: 0
+  split: A
+  sha1: 95f05159dcde
+- prompt_id: 59
+  text: "ok so i've got this:\n\nlet total: u32 = values\n    .iter()\n    .filter(|v| **v % 2 == 0)\n    .sum();\n\nExplain why this compiles without an explicit loop and what iter() yields.\nAnswer as a bulleted list covering: chain, type\nany idea?"
+  topic: rust
+  lang: en
+  register: casual
+  format: bulleted
+  stem: 1
+  split: B
+  sha1: 87cca72e5e34
+- prompt_id: 60
+  text: "请看以下内容：\n\nfn longest<'a>(a: &'a str, b: &'a str) -> &'a str {\n    if a.len() > b.len() { a } else { b }\n}\n\n请解释这里的生命周期标注保证了什么。"
+  topic: rust
+  lang: zh
+  register: formal
+  format: prose
+  stem: 0
+  split: A
+  sha1: a4a0596b3efc
+- prompt_id: 61
+  text: "请看以下内容：\n\nlet total: u32 = values\n    .iter()\n    .filter(|v| **v % 2 == 0)\n    .sum();\n\n请解释为什么它不需要显式循环即可编译，以及 iter() 产生什么。"
+  topic: rust
+  lang: zh
+  register: formal
+  format: prose
+  stem: 1
+  split: B
+  sha1: 4c935d76ff84
+- prompt_id: 62
+  text: "请看以下内容：\n\nfn longest<'a>(a: &'a str, b: &'a str) -> &'a str {\n    if a.len() > b.len() { a } else { b }\n}\n\n请解释这里的生命周期标注保证了什么。\n请用带以下键的 JSON 对象回答： \"guarantee\", \"without_annotation\""
+  topic: rust
+  lang: zh
+  register: formal
+  format: json
+  stem: 0
+  split: A
+  sha1: 91d45731ed99
+- prompt_id: 63
+  text: "请看以下内容：\n\nlet total: u32 = values\n    .iter()\n    .filter(|v| **v % 2 == 0)\n    .sum();\n\n请解释为什么它不需要显式循环即可编译，以及 iter() 产生什么。\n请用带以下键的 JSON 对象回答： \"iterator_chain\", \"yielded_type\""
+  topic: rust
+  lang: zh
+  register: formal
+  format: json
+  stem: 1
+  split: B
+  sha1: f5a5efc3bdbf
+- prompt_id: 64
+  text: "请看以下内容：\n\nfn longest<'a>(a: &'a str, b: &'a str) -> &'a str {\n    if a.len() > b.len() { a } else { b }\n}\n\n请解释这里的生命周期标注保证了什么。\n请用要点列表回答，涵盖： guarantee, counterexample"
+  topic: rust
+  lang: zh
+  register: formal
+  format: bulleted
+  stem: 0
+  split: A
+  sha1: 695e02ad6a2c
+- prompt_id: 65
+  text: "请看以下内容：\n\nlet total: u32 = values\n    .iter()\n    .filter(|v| **v % 2 == 0)\n    .sum();\n\n请解释为什么它不需要显式循环即可编译，以及 iter() 产生什么。\n请用要点列表回答，涵盖： chain, type"
+  topic: rust
+  lang: zh
+  register: formal
+  format: bulleted
+  stem: 1
+  split: B
+  sha1: c8c4013073a5
+- prompt_id: 66
+  text: "我这有个东西：\n\nfn longest<'a>(a: &'a str, b: &'a str) -> &'a str {\n    if a.len() > b.len() { a } else { b }\n}\n\n请解释这里的生命周期标注保证了什么。\n有什么想法吗？"
+  topic: rust
+  lang: zh
+  register: casual
+  format: prose
+  stem: 0
+  split: A
+  sha1: 6e197d1f4620
+- prompt_id: 67
+  text: "我这有个东西：\n\nlet total: u32 = values\n    .iter()\n    .filter(|v| **v % 2 == 0)\n    .sum();\n\n请解释为什么它不需要显式循环即可编译，以及 iter() 产生什么。\n有什么想法吗？"
+  topic: rust
+  lang: zh
+  register: casual
+  format: prose
+  stem: 1
+  split: B
+  sha1: ef7ff2c22f00
+- prompt_id: 68
+  text: "我这有个东西：\n\nfn longest<'a>(a: &'a str, b: &'a str) -> &'a str {\n    if a.len() > b.len() { a } else { b }\n}\n\n请解释这里的生命周期标注保证了什么。\n请用带以下键的 JSON 对象回答： \"guarantee\", \"without_annotation\"\n有什么想法吗？"
+  topic: rust
+  lang: zh
+  register: casual
+  format: json
+  stem: 0
+  split: A
+  sha1: 6c4ac9bfdf63
+- prompt_id: 69
+  text: "我这有个东西：\n\nlet total: u32 = values\n    .iter()\n    .filter(|v| **v % 2 == 0)\n    .sum();\n\n请解释为什么它不需要显式循环即可编译，以及 iter() 产生什么。\n请用带以下键的 JSON 对象回答： \"iterator_chain\", \"yielded_type\"\n有什么想法吗？"
+  topic: rust
+  lang: zh
+  register: casual
+  format: json
+  stem: 1
+  split: B
+  sha1: 1cf721eb1e63
+- prompt_id: 70
+  text: "我这有个东西：\n\nfn longest<'a>(a: &'a str, b: &'a str) -> &'a str {\n    if a.len() > b.len() { a } else { b }\n}\n\n请解释这里的生命周期标注保证了什么。\n请用要点列表回答，涵盖： guarantee, counterexample\n有什么想法吗？"
+  topic: rust
+  lang: zh
+  register: casual
+  format: bulleted
+  stem: 0
+  split: A
+  sha1: d23e299dea07
+- prompt_id: 71
+  text: "我这有个东西：\n\nlet total: u32 = values\n    .iter()\n    .filter(|v| **v % 2 == 0)\n    .sum();\n\n请解释为什么它不需要显式循环即可编译，以及 iter() 产生什么。\n请用要点列表回答，涵盖： chain, type\n有什么想法吗？"
+  topic: rust
+  lang: zh
+  register: casual
+  format: bulleted
+  stem: 1
+  split: B
+  sha1: 898e4a00d8a9
+- prompt_id: 72
+  text: "Betrachten Sie Folgendes:\n\nfn longest<'a>(a: &'a str, b: &'a str) -> &'a str {\n    if a.len() > b.len() { a } else { b }\n}\n\nErkläre, was die Lifetime-Annotation hier garantiert."
+  topic: rust
+  lang: de
+  register: formal
+  format: prose
+  stem: 0
+  split: A
+  sha1: 1c041e6171f5
+- prompt_id: 73
+  text: "Betrachten Sie Folgendes:\n\nlet total: u32 = values\n    .iter()\n    .filter(|v| **v % 2 == 0)\n    .sum();\n\nErkläre, warum das ohne explizite Schleife kompiliert und was iter() liefert."
+  topic: rust
+  lang: de
+  register: formal
+  format: prose
+  stem: 1
+  split: B
+  sha1: b272b068674a
+- prompt_id: 74
+  text: "Betrachten Sie Folgendes:\n\nfn longest<'a>(a: &'a str, b: &'a str) -> &'a str {\n    if a.len() > b.len() { a } else { b }\n}\n\nErkläre, was die Lifetime-Annotation hier garantiert.\nAntworte als JSON-Objekt mit den Schlüsseln: \"guarantee\", \"without_annotation\""
+  topic: rust
+  lang: de
+  register: formal
+  format: json
+  stem: 0
+  split: A
+  sha1: 350269a05110
+- prompt_id: 75
+  text: "Betrachten Sie Folgendes:\n\nlet total: u32 = values\n    .iter()\n    .filter(|v| **v % 2 == 0)\n    .sum();\n\nErkläre, warum das ohne explizite Schleife kompiliert und was iter() liefert.\nAntworte als JSON-Objekt mit den Schlüsseln: \"iterator_chain\", \"yielded_type\""
+  topic: rust
+  lang: de
+  register: formal
+  format: json
+  stem: 1
+  split: B
+  sha1: 1f02a9cb3f63
+- prompt_id: 76
+  text: "Betrachten Sie Folgendes:\n\nfn longest<'a>(a: &'a str, b: &'a str) -> &'a str {\n    if a.len() > b.len() { a } else { b }\n}\n\nErkläre, was die Lifetime-Annotation hier garantiert.\nAntworte als Aufzählung zu: guarantee, counterexample"
+  topic: rust
+  lang: de
+  register: formal
+  format: bulleted
+  stem: 0
+  split: A
+  sha1: cf3736ea9a32
+- prompt_id: 77
+  text: "Betrachten Sie Folgendes:\n\nlet total: u32 = values\n    .iter()\n    .filter(|v| **v % 2 == 0)\n    .sum();\n\nErkläre, warum das ohne explizite Schleife kompiliert und was iter() liefert.\nAntworte als Aufzählung zu: chain, type"
+  topic: rust
+  lang: de
+  register: formal
+  format: bulleted
+  stem: 1
+  split: B
+  sha1: 8dbd8379940c
+- prompt_id: 78
+  text: "also ich hab hier das:\n\nfn longest<'a>(a: &'a str, b: &'a str) -> &'a str {\n    if a.len() > b.len() { a } else { b }\n}\n\nErkläre, was die Lifetime-Annotation hier garantiert.\nirgendeine Idee?"
+  topic: rust
+  lang: de
+  register: casual
+  format: prose
+  stem: 0
+  split: A
+  sha1: e3b0e3387b34
+- prompt_id: 79
+  text: "also ich hab hier das:\n\nlet total: u32 = values\n    .iter()\n    .filter(|v| **v % 2 == 0)\n    .sum();\n\nErkläre, warum das ohne explizite Schleife kompiliert und was iter() liefert.\nirgendeine Idee?"
+  topic: rust
+  lang: de
+  register: casual
+  format: prose
+  stem: 1
+  split: B
+  sha1: 885422ba20cd
+- prompt_id: 80
+  text: "also ich hab hier das:\n\nfn longest<'a>(a: &'a str, b: &'a str) -> &'a str {\n    if a.len() > b.len() { a } else { b }\n}\n\nErkläre, was die Lifetime-Annotation hier garantiert.\nAntworte als JSON-Objekt mit den Schlüsseln: \"guarantee\", \"without_annotation\"\nirgendeine Idee?"
+  topic: rust
+  lang: de
+  register: casual
+  format: json
+  stem: 0
+  split: A
+  sha1: 65304792eade
+- prompt_id: 81
+  text: "also ich hab hier das:\n\nlet total: u32 = values\n    .iter()\n    .filter(|v| **v % 2 == 0)\n    .sum();\n\nErkläre, warum das ohne explizite Schleife kompiliert und was iter() liefert.\nAntworte als JSON-Objekt mit den Schlüsseln: \"iterator_chain\", \"yielded_type\"\nirgendeine Idee?"
+  topic: rust
+  lang: de
+  register: casual
+  format: json
+  stem: 1
+  split: B
+  sha1: a15a3b1bfff8
+- prompt_id: 82
+  text: "also ich hab hier das:\n\nfn longest<'a>(a: &'a str, b: &'a str) -> &'a str {\n    if a.len() > b.len() { a } else { b }\n}\n\nErkläre, was die Lifetime-Annotation hier garantiert.\nAntworte als Aufzählung zu: guarantee, counterexample\nirgendeine Idee?"
+  topic: rust
+  lang: de
+  register: casual
+  format: bulleted
+  stem: 0
+  split: A
+  sha1: 5d134273592b
+- prompt_id: 83
+  text: "also ich hab hier das:\n\nlet total: u32 = values\n    .iter()\n    .filter(|v| **v % 2 == 0)\n    .sum();\n\nErkläre, warum das ohne explizite Schleife kompiliert und was iter() liefert.\nAntworte als Aufzählung zu: chain, type\nirgendeine Idee?"
+  topic: rust
+  lang: de
+  register: casual
+  format: bulleted
+  stem: 1
+  split: B
+  sha1: 7afa1aef93bf
+- prompt_id: 84
+  text: "以下を検討してください。\n\nfn longest<'a>(a: &'a str, b: &'a str) -> &'a str {\n    if a.len() > b.len() { a } else { b }\n}\n\nここでのライフタイム注釈が何を保証するのか説明してください。"
+  topic: rust
+  lang: ja
+  register: formal
+  format: prose
+  stem: 0
+  split: A
+  sha1: 84b0d860264e
+- prompt_id: 85
+  text: "以下を検討してください。\n\nlet total: u32 = values\n    .iter()\n    .filter(|v| **v % 2 == 0)\n    .sum();\n\n明示的なループなしでコンパイルできる理由と iter() が返すものを説明してください。"
+  topic: rust
+  lang: ja
+  register: formal
+  format: prose
+  stem: 1
+  split: B
+  sha1: 49d268364d09
+- prompt_id: 86
+  text: "以下を検討してください。\n\nfn longest<'a>(a: &'a str, b: &'a str) -> &'a str {\n    if a.len() > b.len() { a } else { b }\n}\n\nここでのライフタイム注釈が何を保証するのか説明してください。\n次のキーを持つ JSON オブジェクトで答えてください。 \"guarantee\", \"without_annotation\""
+  topic: rust
+  lang: ja
+  register: formal
+  format: json
+  stem: 0
+  split: A
+  sha1: 06b11c70ecb6
+- prompt_id: 87
+  text: "以下を検討してください。\n\nlet total: u32 = values\n    .iter()\n    .filter(|v| **v % 2 == 0)\n    .sum();\n\n明示的なループなしでコンパイルできる理由と iter() が返すものを説明してください。\n次のキーを持つ JSON オブジェクトで答えてください。 \"iterator_chain\", \"yielded_type\""
+  topic: rust
+  lang: ja
+  register: formal
+  format: json
+  stem: 1
+  split: B
+  sha1: bab0e3554704
+- prompt_id: 88
+  text: "以下を検討してください。\n\nfn longest<'a>(a: &'a str, b: &'a str) -> &'a str {\n    if a.len() > b.len() { a } else { b }\n}\n\nここでのライフタイム注釈が何を保証するのか説明してください。\n次の項目を箇条書きで答えてください。 guarantee, counterexample"
+  topic: rust
+  lang: ja
+  register: formal
+  format: bulleted
+  stem: 0
+  split: A
+  sha1: c66d02673de3
+- prompt_id: 89
+  text: "以下を検討してください。\n\nlet total: u32 = values\n    .iter()\n    .filter(|v| **v % 2 == 0)\n    .sum();\n\n明示的なループなしでコンパイルできる理由と iter() が返すものを説明してください。\n次の項目を箇条書きで答えてください。 chain, type"
+  topic: rust
+  lang: ja
+  register: formal
+  format: bulleted
+  stem: 1
+  split: B
+  sha1: 49c15d44a0f7
+- prompt_id: 90
+  text: "これなんだけど：\n\nfn longest<'a>(a: &'a str, b: &'a str) -> &'a str {\n    if a.len() > b.len() { a } else { b }\n}\n\nここでのライフタイム注釈が何を保証するのか説明してください。\nどう思う？"
+  topic: rust
+  lang: ja
+  register: casual
+  format: prose
+  stem: 0
+  split: A
+  sha1: 1a7087f4c284
+- prompt_id: 91
+  text: "これなんだけど：\n\nlet total: u32 = values\n    .iter()\n    .filter(|v| **v % 2 == 0)\n    .sum();\n\n明示的なループなしでコンパイルできる理由と iter() が返すものを説明してください。\nどう思う？"
+  topic: rust
+  lang: ja
+  register: casual
+  format: prose
+  stem: 1
+  split: B
+  sha1: d91c3bffbc5f
+- prompt_id: 92
+  text: "これなんだけど：\n\nfn longest<'a>(a: &'a str, b: &'a str) -> &'a str {\n    if a.len() > b.len() { a } else { b }\n}\n\nここでのライフタイム注釈が何を保証するのか説明してください。\n次のキーを持つ JSON オブジェクトで答えてください。 \"guarantee\", \"without_annotation\"\nどう思う？"
+  topic: rust
+  lang: ja
+  register: casual
+  format: json
+  stem: 0
+  split: A
+  sha1: 97b5f7e8f970
+- prompt_id: 93
+  text: "これなんだけど：\n\nlet total: u32 = values\n    .iter()\n    .filter(|v| **v % 2 == 0)\n    .sum();\n\n明示的なループなしでコンパイルできる理由と iter() が返すものを説明してください。\n次のキーを持つ JSON オブジェクトで答えてください。 \"iterator_chain\", \"yielded_type\"\nどう思う？"
+  topic: rust
+  lang: ja
+  register: casual
+  format: json
+  stem: 1
+  split: B
+  sha1: 11fc80792f04
+- prompt_id: 94
+  text: "これなんだけど：\n\nfn longest<'a>(a: &'a str, b: &'a str) -> &'a str {\n    if a.len() > b.len() { a } else { b }\n}\n\nここでのライフタイム注釈が何を保証するのか説明してください。\n次の項目を箇条書きで答えてください。 guarantee, counterexample\nどう思う？"
+  topic: rust
+  lang: ja
+  register: casual
+  format: bulleted
+  stem: 0
+  split: A
+  sha1: 58b1b2d2b04d
+- prompt_id: 95
+  text: "これなんだけど：\n\nlet total: u32 = values\n    .iter()\n    .filter(|v| **v % 2 == 0)\n    .sum();\n\n明示的なループなしでコンパイルできる理由と iter() が返すものを説明してください。\n次の項目を箇条書きで答えてください。 chain, type\nどう思う？"
+  topic: rust
+  lang: ja
+  register: casual
+  format: bulleted
+  stem: 1
+  split: B
+  sha1: aff089433ffc
+- prompt_id: 96
+  text: 'Consider the following:
+
+
+    SELECT c.name, COUNT(o.id) AS n_orders
+
+    FROM customers c
+
+    LEFT JOIN orders o ON o.customer_id = c.id
+
+    GROUP BY c.name
+
+    HAVING COUNT(o.id) > 3;
+
+
+    Explain what rows this returns and why LEFT JOIN matters here.'
+  topic: sql
+  lang: en
+  register: formal
+  format: prose
+  stem: 0
+  split: A
+  sha1: b37045d68779
+- prompt_id: 97
+  text: "Consider the following:\n\nSELECT id, amount,\n       SUM(amount) OVER (PARTITION BY user_id ORDER BY ts) AS running\nFROM payments;\n\nExplain the window function and what PARTITION BY changes."
+  topic: sql
+  lang: en
+  register: formal
+  format: prose
+  stem: 1
+  split: B
+  sha1: 90429f2cbb50
+- prompt_id: 98
+  text: 'Consider the following:
+
+
+    SELECT c.name, COUNT(o.id) AS n_orders
+
+    FROM customers c
+
+    LEFT JOIN orders o ON o.customer_id = c.id
+
+    GROUP BY c.name
+
+    HAVING COUNT(o.id) > 3;
+
+
+    Explain what rows this returns and why LEFT JOIN matters here.
+
+    Answer as a JSON object with keys: "rows_returned", "join_rationale"'
+  topic: sql
+  lang: en
+  register: formal
+  format: json
+  stem: 0
+  split: A
+  sha1: 77541b6b2a44
+- prompt_id: 99
+  text: "Consider the following:\n\nSELECT id, amount,\n       SUM(amount) OVER (PARTITION BY user_id ORDER BY ts) AS running\nFROM payments;\n\nExplain the window function and what PARTITION BY changes.\nAnswer as a JSON object with keys: \"window_meaning\", \"partition_effect\""
+  topic: sql
+  lang: en
+  register: formal
+  format: json
+  stem: 1
+  split: B
+  sha1: d041dc3ddf85
+- prompt_id: 100
+  text: 'Consider the following:
+
+
+    SELECT c.name, COUNT(o.id) AS n_orders
+
+    FROM customers c
+
+    LEFT JOIN orders o ON o.customer_id = c.id
+
+    GROUP BY c.name
+
+    HAVING COUNT(o.id) > 3;
+
+
+    Explain what rows this returns and why LEFT JOIN matters here.
+
+    Answer as a bulleted list covering: result, join_choice'
+  topic: sql
+  lang: en
+  register: formal
+  format: bulleted
+  stem: 0
+  split: A
+  sha1: 5347176e3dd0
+- prompt_id: 101
+  text: "Consider the following:\n\nSELECT id, amount,\n       SUM(amount) OVER (PARTITION BY user_id ORDER BY ts) AS running\nFROM payments;\n\nExplain the window function and what PARTITION BY changes.\nAnswer as a bulleted list covering: window, partition"
+  topic: sql
+  lang: en
+  register: formal
+  format: bulleted
+  stem: 1
+  split: B
+  sha1: 653d594a433a
+- prompt_id: 102
+  text: 'ok so i''ve got this:
+
+
+    SELECT c.name, COUNT(o.id) AS n_orders
+
+    FROM customers c
+
+    LEFT JOIN orders o ON o.customer_id = c.id
+
+    GROUP BY c.name
+
+    HAVING COUNT(o.id) > 3;
+
+
+    Explain what rows this returns and why LEFT JOIN matters here.
+
+    any idea?'
+  topic: sql
+  lang: en
+  register: casual
+  format: prose
+  stem: 0
+  split: A
+  sha1: f47fb34f3abe
+- prompt_id: 103
+  text: "ok so i've got this:\n\nSELECT id, amount,\n       SUM(amount) OVER (PARTITION BY user_id ORDER BY ts) AS running\nFROM payments;\n\nExplain the window function and what PARTITION BY changes.\nany idea?"
+  topic: sql
+  lang: en
+  register: casual
+  format: prose
+  stem: 1
+  split: B
+  sha1: 78c6441057b0
+- prompt_id: 104
+  text: 'ok so i''ve got this:
+
+
+    SELECT c.name, COUNT(o.id) AS n_orders
+
+    FROM customers c
+
+    LEFT JOIN orders o ON o.customer_id = c.id
+
+    GROUP BY c.name
+
+    HAVING COUNT(o.id) > 3;
+
+
+    Explain what rows this returns and why LEFT JOIN matters here.
+
+    Answer as a JSON object with keys: "rows_returned", "join_rationale"
+
+    any idea?'
+  topic: sql
+  lang: en
+  register: casual
+  format: json
+  stem: 0
+  split: A
+  sha1: cab172de553c
+- prompt_id: 105
+  text: "ok so i've got this:\n\nSELECT id, amount,\n       SUM(amount) OVER (PARTITION BY user_id ORDER BY ts) AS running\nFROM payments;\n\nExplain the window function and what PARTITION BY changes.\nAnswer as a JSON object with keys: \"window_meaning\", \"partition_effect\"\nany idea?"
+  topic: sql
+  lang: en
+  register: casual
+  format: json
+  stem: 1
+  split: B
+  sha1: 04324aacc042
+- prompt_id: 106
+  text: 'ok so i''ve got this:
+
+
+    SELECT c.name, COUNT(o.id) AS n_orders
+
+    FROM customers c
+
+    LEFT JOIN orders o ON o.customer_id = c.id
+
+    GROUP BY c.name
+
+    HAVING COUNT(o.id) > 3;
+
+
+    Explain what rows this returns and why LEFT JOIN matters here.
+
+    Answer as a bulleted list covering: result, join_choice
+
+    any idea?'
+  topic: sql
+  lang: en
+  register: casual
+  format: bulleted
+  stem: 0
+  split: A
+  sha1: e8094b548b89
+- prompt_id: 107
+  text: "ok so i've got this:\n\nSELECT id, amount,\n       SUM(amount) OVER (PARTITION BY user_id ORDER BY ts) AS running\nFROM payments;\n\nExplain the window function and what PARTITION BY changes.\nAnswer as a bulleted list covering: window, partition\nany idea?"
+  topic: sql
+  lang: en
+  register: casual
+  format: bulleted
+  stem: 1
+  split: B
+  sha1: 85fc9005df4f
+- prompt_id: 108
+  text: '请看以下内容：
+
+
+    SELECT c.name, COUNT(o.id) AS n_orders
+
+    FROM customers c
+
+    LEFT JOIN orders o ON o.customer_id = c.id
+
+    GROUP BY c.name
+
+    HAVING COUNT(o.id) > 3;
+
+
+    请解释它返回哪些行，以及为什么这里 LEFT JOIN 很重要。'
+  topic: sql
+  lang: zh
+  register: formal
+  format: prose
+  stem: 0
+  split: A
+  sha1: 0631efe2237f
+- prompt_id: 109
+  text: "请看以下内容：\n\nSELECT id, amount,\n       SUM(amount) OVER (PARTITION BY user_id ORDER BY ts) AS running\nFROM payments;\n\n请解释这个窗口函数，以及 PARTITION BY 改变了什么。"
+  topic: sql
+  lang: zh
+  register: formal
+  format: prose
+  stem: 1
+  split: B
+  sha1: 17b8d73e1e06
+- prompt_id: 110
+  text: '请看以下内容：
+
+
+    SELECT c.name, COUNT(o.id) AS n_orders
+
+    FROM customers c
+
+    LEFT JOIN orders o ON o.customer_id = c.id
+
+    GROUP BY c.name
+
+    HAVING COUNT(o.id) > 3;
+
+
+    请解释它返回哪些行，以及为什么这里 LEFT JOIN 很重要。
+
+    请用带以下键的 JSON 对象回答： "rows_returned", "join_rationale"'
+  topic: sql
+  lang: zh
+  register: formal
+  format: json
+  stem: 0
+  split: A
+  sha1: 079465c0740b
+- prompt_id: 111
+  text: "请看以下内容：\n\nSELECT id, amount,\n       SUM(amount) OVER (PARTITION BY user_id ORDER BY ts) AS running\nFROM payments;\n\n请解释这个窗口函数，以及 PARTITION BY 改变了什么。\n请用带以下键的 JSON 对象回答： \"window_meaning\", \"partition_effect\""
+  topic: sql
+  lang: zh
+  register: formal
+  format: json
+  stem: 1
+  split: B
+  sha1: 1369516564f4
+- prompt_id: 112
+  text: '请看以下内容：
+
+
+    SELECT c.name, COUNT(o.id) AS n_orders
+
+    FROM customers c
+
+    LEFT JOIN orders o ON o.customer_id = c.id
+
+    GROUP BY c.name
+
+    HAVING COUNT(o.id) > 3;
+
+
+    请解释它返回哪些行，以及为什么这里 LEFT JOIN 很重要。
+
+    请用要点列表回答，涵盖： result, join_choice'
+  topic: sql
+  lang: zh
+  register: formal
+  format: bulleted
+  stem: 0
+  split: A
+  sha1: fa934f1a9fc7
+- prompt_id: 113
+  text: "请看以下内容：\n\nSELECT id, amount,\n       SUM(amount) OVER (PARTITION BY user_id ORDER BY ts) AS running\nFROM payments;\n\n请解释这个窗口函数，以及 PARTITION BY 改变了什么。\n请用要点列表回答，涵盖： window, partition"
+  topic: sql
+  lang: zh
+  register: formal
+  format: bulleted
+  stem: 1
+  split: B
+  sha1: 2439ef28cb24
+- prompt_id: 114
+  text: '我这有个东西：
+
+
+    SELECT c.name, COUNT(o.id) AS n_orders
+
+    FROM customers c
+
+    LEFT JOIN orders o ON o.customer_id = c.id
+
+    GROUP BY c.name
+
+    HAVING COUNT(o.id) > 3;
+
+
+    请解释它返回哪些行，以及为什么这里 LEFT JOIN 很重要。
+
+    有什么想法吗？'
+  topic: sql
+  lang: zh
+  register: casual
+  format: prose
+  stem: 0
+  split: A
+  sha1: 8bbce36eb2c9
+- prompt_id: 115
+  text: "我这有个东西：\n\nSELECT id, amount,\n       SUM(amount) OVER (PARTITION BY user_id ORDER BY ts) AS running\nFROM payments;\n\n请解释这个窗口函数，以及 PARTITION BY 改变了什么。\n有什么想法吗？"
+  topic: sql
+  lang: zh
+  register: casual
+  format: prose
+  stem: 1
+  split: B
+  sha1: 97ba20a955e7
+- prompt_id: 116
+  text: '我这有个东西：
+
+
+    SELECT c.name, COUNT(o.id) AS n_orders
+
+    FROM customers c
+
+    LEFT JOIN orders o ON o.customer_id = c.id
+
+    GROUP BY c.name
+
+    HAVING COUNT(o.id) > 3;
+
+
+    请解释它返回哪些行，以及为什么这里 LEFT JOIN 很重要。
+
+    请用带以下键的 JSON 对象回答： "rows_returned", "join_rationale"
+
+    有什么想法吗？'
+  topic: sql
+  lang: zh
+  register: casual
+  format: json
+  stem: 0
+  split: A
+  sha1: 959fcea3cfe3
+- prompt_id: 117
+  text: "我这有个东西：\n\nSELECT id, amount,\n       SUM(amount) OVER (PARTITION BY user_id ORDER BY ts) AS running\nFROM payments;\n\n请解释这个窗口函数，以及 PARTITION BY 改变了什么。\n请用带以下键的 JSON 对象回答： \"window_meaning\", \"partition_effect\"\n有什么想法吗？"
+  topic: sql
+  lang: zh
+  register: casual
+  format: json
+  stem: 1
+  split: B
+  sha1: e5b2001551ec
+- prompt_id: 118
+  text: '我这有个东西：
+
+
+    SELECT c.name, COUNT(o.id) AS n_orders
+
+    FROM customers c
+
+    LEFT JOIN orders o ON o.customer_id = c.id
+
+    GROUP BY c.name
+
+    HAVING COUNT(o.id) > 3;
+
+
+    请解释它返回哪些行，以及为什么这里 LEFT JOIN 很重要。
+
+    请用要点列表回答，涵盖： result, join_choice
+
+    有什么想法吗？'
+  topic: sql
+  lang: zh
+  register: casual
+  format: bulleted
+  stem: 0
+  split: A
+  sha1: dedf3997f43e
+- prompt_id: 119
+  text: "我这有个东西：\n\nSELECT id, amount,\n       SUM(amount) OVER (PARTITION BY user_id ORDER BY ts) AS running\nFROM payments;\n\n请解释这个窗口函数，以及 PARTITION BY 改变了什么。\n请用要点列表回答，涵盖： window, partition\n有什么想法吗？"
+  topic: sql
+  lang: zh
+  register: casual
+  format: bulleted
+  stem: 1
+  split: B
+  sha1: 94402e8e062a
+- prompt_id: 120
+  text: 'Betrachten Sie Folgendes:
+
+
+    SELECT c.name, COUNT(o.id) AS n_orders
+
+    FROM customers c
+
+    LEFT JOIN orders o ON o.customer_id = c.id
+
+    GROUP BY c.name
+
+    HAVING COUNT(o.id) > 3;
+
+
+    Erkläre, welche Zeilen zurückkommen und warum LEFT JOIN hier wichtig ist.'
+  topic: sql
+  lang: de
+  register: formal
+  format: prose
+  stem: 0
+  split: A
+  sha1: 0d3149ba380a
+- prompt_id: 121
+  text: "Betrachten Sie Folgendes:\n\nSELECT id, amount,\n       SUM(amount) OVER (PARTITION BY user_id ORDER BY ts) AS running\nFROM payments;\n\nErkläre die Fensterfunktion und was PARTITION BY ändert."
+  topic: sql
+  lang: de
+  register: formal
+  format: prose
+  stem: 1
+  split: B
+  sha1: bbdea8744da1
+- prompt_id: 122
+  text: 'Betrachten Sie Folgendes:
+
+
+    SELECT c.name, COUNT(o.id) AS n_orders
+
+    FROM customers c
+
+    LEFT JOIN orders o ON o.customer_id = c.id
+
+    GROUP BY c.name
+
+    HAVING COUNT(o.id) > 3;
+
+
+    Erkläre, welche Zeilen zurückkommen und warum LEFT JOIN hier wichtig ist.
+
+    Antworte als JSON-Objekt mit den Schlüsseln: "rows_returned", "join_rationale"'
+  topic: sql
+  lang: de
+  register: formal
+  format: json
+  stem: 0
+  split: A
+  sha1: 888372f54985
+- prompt_id: 123
+  text: "Betrachten Sie Folgendes:\n\nSELECT id, amount,\n       SUM(amount) OVER (PARTITION BY user_id ORDER BY ts) AS running\nFROM payments;\n\nErkläre die Fensterfunktion und was PARTITION BY ändert.\nAntworte als JSON-Objekt mit den Schlüsseln: \"window_meaning\", \"partition_effect\""
+  topic: sql
+  lang: de
+  register: formal
+  format: json
+  stem: 1
+  split: B
+  sha1: fc65903aa6af
+- prompt_id: 124
+  text: 'Betrachten Sie Folgendes:
+
+
+    SELECT c.name, COUNT(o.id) AS n_orders
+
+    FROM customers c
+
+    LEFT JOIN orders o ON o.customer_id = c.id
+
+    GROUP BY c.name
+
+    HAVING COUNT(o.id) > 3;
+
+
+    Erkläre, welche Zeilen zurückkommen und warum LEFT JOIN hier wichtig ist.
+
+    Antworte als Aufzählung zu: result, join_choice'
+  topic: sql
+  lang: de
+  register: formal
+  format: bulleted
+  stem: 0
+  split: A
+  sha1: 88535e79174c
+- prompt_id: 125
+  text: "Betrachten Sie Folgendes:\n\nSELECT id, amount,\n       SUM(amount) OVER (PARTITION BY user_id ORDER BY ts) AS running\nFROM payments;\n\nErkläre die Fensterfunktion und was PARTITION BY ändert.\nAntworte als Aufzählung zu: window, partition"
+  topic: sql
+  lang: de
+  register: formal
+  format: bulleted
+  stem: 1
+  split: B
+  sha1: b8458cb8ccae
+- prompt_id: 126
+  text: 'also ich hab hier das:
+
+
+    SELECT c.name, COUNT(o.id) AS n_orders
+
+    FROM customers c
+
+    LEFT JOIN orders o ON o.customer_id = c.id
+
+    GROUP BY c.name
+
+    HAVING COUNT(o.id) > 3;
+
+
+    Erkläre, welche Zeilen zurückkommen und warum LEFT JOIN hier wichtig ist.
+
+    irgendeine Idee?'
+  topic: sql
+  lang: de
+  register: casual
+  format: prose
+  stem: 0
+  split: A
+  sha1: 58eec196357f
+- prompt_id: 127
+  text: "also ich hab hier das:\n\nSELECT id, amount,\n       SUM(amount) OVER (PARTITION BY user_id ORDER BY ts) AS running\nFROM payments;\n\nErkläre die Fensterfunktion und was PARTITION BY ändert.\nirgendeine Idee?"
+  topic: sql
+  lang: de
+  register: casual
+  format: prose
+  stem: 1
+  split: B
+  sha1: 98f72f8d530f
+- prompt_id: 128
+  text: 'also ich hab hier das:
+
+
+    SELECT c.name, COUNT(o.id) AS n_orders
+
+    FROM customers c
+
+    LEFT JOIN orders o ON o.customer_id = c.id
+
+    GROUP BY c.name
+
+    HAVING COUNT(o.id) > 3;
+
+
+    Erkläre, welche Zeilen zurückkommen und warum LEFT JOIN hier wichtig ist.
+
+    Antworte als JSON-Objekt mit den Schlüsseln: "rows_returned", "join_rationale"
+
+    irgendeine Idee?'
+  topic: sql
+  lang: de
+  register: casual
+  format: json
+  stem: 0
+  split: A
+  sha1: 7b260bf93e52
+- prompt_id: 129
+  text: "also ich hab hier das:\n\nSELECT id, amount,\n       SUM(amount) OVER (PARTITION BY user_id ORDER BY ts) AS running\nFROM payments;\n\nErkläre die Fensterfunktion und was PARTITION BY ändert.\nAntworte als JSON-Objekt mit den Schlüsseln: \"window_meaning\", \"partition_effect\"\nirgendeine Idee?"
+  topic: sql
+  lang: de
+  register: casual
+  format: json
+  stem: 1
+  split: B
+  sha1: 2709000265a3
+- prompt_id: 130
+  text: 'also ich hab hier das:
+
+
+    SELECT c.name, COUNT(o.id) AS n_orders
+
+    FROM customers c
+
+    LEFT JOIN orders o ON o.customer_id = c.id
+
+    GROUP BY c.name
+
+    HAVING COUNT(o.id) > 3;
+
+
+    Erkläre, welche Zeilen zurückkommen und warum LEFT JOIN hier wichtig ist.
+
+    Antworte als Aufzählung zu: result, join_choice
+
+    irgendeine Idee?'
+  topic: sql
+  lang: de
+  register: casual
+  format: bulleted
+  stem: 0
+  split: A
+  sha1: 8cd44e6ccde7
+- prompt_id: 131
+  text: "also ich hab hier das:\n\nSELECT id, amount,\n       SUM(amount) OVER (PARTITION BY user_id ORDER BY ts) AS running\nFROM payments;\n\nErkläre die Fensterfunktion und was PARTITION BY ändert.\nAntworte als Aufzählung zu: window, partition\nirgendeine Idee?"
+  topic: sql
+  lang: de
+  register: casual
+  format: bulleted
+  stem: 1
+  split: B
+  sha1: df9e1af2ccb6
+- prompt_id: 132
+  text: '以下を検討してください。
+
+
+    SELECT c.name, COUNT(o.id) AS n_orders
+
+    FROM customers c
+
+    LEFT JOIN orders o ON o.customer_id = c.id
+
+    GROUP BY c.name
+
+    HAVING COUNT(o.id) > 3;
+
+
+    どの行が返るか、なぜ LEFT JOIN が重要かを説明してください。'
+  topic: sql
+  lang: ja
+  register: formal
+  format: prose
+  stem: 0
+  split: A
+  sha1: c77c65b15d7d
+- prompt_id: 133
+  text: "以下を検討してください。\n\nSELECT id, amount,\n       SUM(amount) OVER (PARTITION BY user_id ORDER BY ts) AS running\nFROM payments;\n\nこのウィンドウ関数と PARTITION BY が変えるものを説明してください。"
+  topic: sql
+  lang: ja
+  register: formal
+  format: prose
+  stem: 1
+  split: B
+  sha1: cd0068ff922f
+- prompt_id: 134
+  text: '以下を検討してください。
+
+
+    SELECT c.name, COUNT(o.id) AS n_orders
+
+    FROM customers c
+
+    LEFT JOIN orders o ON o.customer_id = c.id
+
+    GROUP BY c.name
+
+    HAVING COUNT(o.id) > 3;
+
+
+    どの行が返るか、なぜ LEFT JOIN が重要かを説明してください。
+
+    次のキーを持つ JSON オブジェクトで答えてください。 "rows_returned", "join_rationale"'
+  topic: sql
+  lang: ja
+  register: formal
+  format: json
+  stem: 0
+  split: A
+  sha1: 7eb0713e7c2d
+- prompt_id: 135
+  text: "以下を検討してください。\n\nSELECT id, amount,\n       SUM(amount) OVER (PARTITION BY user_id ORDER BY ts) AS running\nFROM payments;\n\nこのウィンドウ関数と PARTITION BY が変えるものを説明してください。\n次のキーを持つ JSON オブジェクトで答えてください。 \"window_meaning\", \"partition_effect\""
+  topic: sql
+  lang: ja
+  register: formal
+  format: json
+  stem: 1
+  split: B
+  sha1: 6122af4f71b1
+- prompt_id: 136
+  text: '以下を検討してください。
+
+
+    SELECT c.name, COUNT(o.id) AS n_orders
+
+    FROM customers c
+
+    LEFT JOIN orders o ON o.customer_id = c.id
+
+    GROUP BY c.name
+
+    HAVING COUNT(o.id) > 3;
+
+
+    どの行が返るか、なぜ LEFT JOIN が重要かを説明してください。
+
+    次の項目を箇条書きで答えてください。 result, join_choice'
+  topic: sql
+  lang: ja
+  register: formal
+  format: bulleted
+  stem: 0
+  split: A
+  sha1: 8fbe76df086c
+- prompt_id: 137
+  text: "以下を検討してください。\n\nSELECT id, amount,\n       SUM(amount) OVER (PARTITION BY user_id ORDER BY ts) AS running\nFROM payments;\n\nこのウィンドウ関数と PARTITION BY が変えるものを説明してください。\n次の項目を箇条書きで答えてください。 window, partition"
+  topic: sql
+  lang: ja
+  register: formal
+  format: bulleted
+  stem: 1
+  split: B
+  sha1: 6215d8d94a7c
+- prompt_id: 138
+  text: 'これなんだけど：
+
+
+    SELECT c.name, COUNT(o.id) AS n_orders
+
+    FROM customers c
+
+    LEFT JOIN orders o ON o.customer_id = c.id
+
+    GROUP BY c.name
+
+    HAVING COUNT(o.id) > 3;
+
+
+    どの行が返るか、なぜ LEFT JOIN が重要かを説明してください。
+
+    どう思う？'
+  topic: sql
+  lang: ja
+  register: casual
+  format: prose
+  stem: 0
+  split: A
+  sha1: 091f7cc395a4
+- prompt_id: 139
+  text: "これなんだけど：\n\nSELECT id, amount,\n       SUM(amount) OVER (PARTITION BY user_id ORDER BY ts) AS running\nFROM payments;\n\nこのウィンドウ関数と PARTITION BY が変えるものを説明してください。\nどう思う？"
+  topic: sql
+  lang: ja
+  register: casual
+  format: prose
+  stem: 1
+  split: B
+  sha1: 8fb932ada112
+- prompt_id: 140
+  text: 'これなんだけど：
+
+
+    SELECT c.name, COUNT(o.id) AS n_orders
+
+    FROM customers c
+
+    LEFT JOIN orders o ON o.customer_id = c.id
+
+    GROUP BY c.name
+
+    HAVING COUNT(o.id) > 3;
+
+
+    どの行が返るか、なぜ LEFT JOIN が重要かを説明してください。
+
+    次のキーを持つ JSON オブジェクトで答えてください。 "rows_returned", "join_rationale"
+
+    どう思う？'
+  topic: sql
+  lang: ja
+  register: casual
+  format: json
+  stem: 0
+  split: A
+  sha1: 9c59ec69a307
+- prompt_id: 141
+  text: "これなんだけど：\n\nSELECT id, amount,\n       SUM(amount) OVER (PARTITION BY user_id ORDER BY ts) AS running\nFROM payments;\n\nこのウィンドウ関数と PARTITION BY が変えるものを説明してください。\n次のキーを持つ JSON オブジェクトで答えてください。 \"window_meaning\", \"partition_effect\"\nどう思う？"
+  topic: sql
+  lang: ja
+  register: casual
+  format: json
+  stem: 1
+  split: B
+  sha1: da4c97289890
+- prompt_id: 142
+  text: 'これなんだけど：
+
+
+    SELECT c.name, COUNT(o.id) AS n_orders
+
+    FROM customers c
+
+    LEFT JOIN orders o ON o.customer_id = c.id
+
+    GROUP BY c.name
+
+    HAVING COUNT(o.id) > 3;
+
+
+    どの行が返るか、なぜ LEFT JOIN が重要かを説明してください。
+
+    次の項目を箇条書きで答えてください。 result, join_choice
+
+    どう思う？'
+  topic: sql
+  lang: ja
+  register: casual
+  format: bulleted
+  stem: 0
+  split: A
+  sha1: 42075d1b9a8c
+- prompt_id: 143
+  text: "これなんだけど：\n\nSELECT id, amount,\n       SUM(amount) OVER (PARTITION BY user_id ORDER BY ts) AS running\nFROM payments;\n\nこのウィンドウ関数と PARTITION BY が変えるものを説明してください。\n次の項目を箇条書きで答えてください。 window, partition\nどう思う？"
+  topic: sql
+  lang: ja
+  register: casual
+  format: bulleted
+  stem: 1
+  split: B
+  sha1: ee2c835c45ea
+- prompt_id: 144
+  text: 'Consider the following:
+
+
+    Suppose sqrt(2) = p/q in lowest terms.
+
+    Then p^2 = 2 q^2, so p is even; write p = 2k.
+
+    Then 4k^2 = 2q^2, so q^2 = 2k^2 and q is even.
+
+    But then p and q share a factor 2.
+
+
+    Identify the proof technique and state where the contradiction arises.'
+  topic: math_proof
+  lang: en
+  register: formal
+  format: prose
+  stem: 0
+  split: A
+  sha1: f8057668bb03
+- prompt_id: 145
+  text: 'Consider the following:
+
+
+    Claim: 1 + 2 + ... + n = n(n+1)/2.
+
+    Base: n = 1 gives 1 = 1(2)/2.
+
+    Step: assume for n; then adding (n+1) gives
+
+    n(n+1)/2 + (n+1) = (n+1)(n+2)/2.
+
+
+    State the induction hypothesis and verify the inductive step.'
+  topic: math_proof
+  lang: en
+  register: formal
+  format: prose
+  stem: 1
+  split: B
+  sha1: 0bf9050c4bec
+- prompt_id: 146
+  text: 'Consider the following:
+
+
+    Suppose sqrt(2) = p/q in lowest terms.
+
+    Then p^2 = 2 q^2, so p is even; write p = 2k.
+
+    Then 4k^2 = 2q^2, so q^2 = 2k^2 and q is even.
+
+    But then p and q share a factor 2.
+
+
+    Identify the proof technique and state where the contradiction arises.
+
+    Answer as a JSON object with keys: "technique", "contradiction_point"'
+  topic: math_proof
+  lang: en
+  register: formal
+  format: json
+  stem: 0
+  split: A
+  sha1: cbaf5dfe05e6
+- prompt_id: 147
+  text: 'Consider the following:
+
+
+    Claim: 1 + 2 + ... + n = n(n+1)/2.
+
+    Base: n = 1 gives 1 = 1(2)/2.
+
+    Step: assume for n; then adding (n+1) gives
+
+    n(n+1)/2 + (n+1) = (n+1)(n+2)/2.
+
+
+    State the induction hypothesis and verify the inductive step.
+
+    Answer as a JSON object with keys: "hypothesis", "step_valid"'
+  topic: math_proof
+  lang: en
+  register: formal
+  format: json
+  stem: 1
+  split: B
+  sha1: ef83074ce5bc
+- prompt_id: 148
+  text: 'Consider the following:
+
+
+    Suppose sqrt(2) = p/q in lowest terms.
+
+    Then p^2 = 2 q^2, so p is even; write p = 2k.
+
+    Then 4k^2 = 2q^2, so q^2 = 2k^2 and q is even.
+
+    But then p and q share a factor 2.
+
+
+    Identify the proof technique and state where the contradiction arises.
+
+    Answer as a bulleted list covering: technique, contradiction'
+  topic: math_proof
+  lang: en
+  register: formal
+  format: bulleted
+  stem: 0
+  split: A
+  sha1: 9839483448b4
+- prompt_id: 149
+  text: 'Consider the following:
+
+
+    Claim: 1 + 2 + ... + n = n(n+1)/2.
+
+    Base: n = 1 gives 1 = 1(2)/2.
+
+    Step: assume for n; then adding (n+1) gives
+
+    n(n+1)/2 + (n+1) = (n+1)(n+2)/2.
+
+
+    State the induction hypothesis and verify the inductive step.
+
+    Answer as a bulleted list covering: hypothesis, step'
+  topic: math_proof
+  lang: en
+  register: formal
+  format: bulleted
+  stem: 1
+  split: B
+  sha1: 12b8961ef414
+- prompt_id: 150
+  text: 'ok so i''ve got this:
+
+
+    Suppose sqrt(2) = p/q in lowest terms.
+
+    Then p^2 = 2 q^2, so p is even; write p = 2k.
+
+    Then 4k^2 = 2q^2, so q^2 = 2k^2 and q is even.
+
+    But then p and q share a factor 2.
+
+
+    Identify the proof technique and state where the contradiction arises.
+
+    any idea?'
+  topic: math_proof
+  lang: en
+  register: casual
+  format: prose
+  stem: 0
+  split: A
+  sha1: da7d7288793a
+- prompt_id: 151
+  text: 'ok so i''ve got this:
+
+
+    Claim: 1 + 2 + ... + n = n(n+1)/2.
+
+    Base: n = 1 gives 1 = 1(2)/2.
+
+    Step: assume for n; then adding (n+1) gives
+
+    n(n+1)/2 + (n+1) = (n+1)(n+2)/2.
+
+
+    State the induction hypothesis and verify the inductive step.
+
+    any idea?'
+  topic: math_proof
+  lang: en
+  register: casual
+  format: prose
+  stem: 1
+  split: B
+  sha1: 61f6cae7fbf9
+- prompt_id: 152
+  text: 'ok so i''ve got this:
+
+
+    Suppose sqrt(2) = p/q in lowest terms.
+
+    Then p^2 = 2 q^2, so p is even; write p = 2k.
+
+    Then 4k^2 = 2q^2, so q^2 = 2k^2 and q is even.
+
+    But then p and q share a factor 2.
+
+
+    Identify the proof technique and state where the contradiction arises.
+
+    Answer as a JSON object with keys: "technique", "contradiction_point"
+
+    any idea?'
+  topic: math_proof
+  lang: en
+  register: casual
+  format: json
+  stem: 0
+  split: A
+  sha1: 419ff7518c53
+- prompt_id: 153
+  text: 'ok so i''ve got this:
+
+
+    Claim: 1 + 2 + ... + n = n(n+1)/2.
+
+    Base: n = 1 gives 1 = 1(2)/2.
+
+    Step: assume for n; then adding (n+1) gives
+
+    n(n+1)/2 + (n+1) = (n+1)(n+2)/2.
+
+
+    State the induction hypothesis and verify the inductive step.
+
+    Answer as a JSON object with keys: "hypothesis", "step_valid"
+
+    any idea?'
+  topic: math_proof
+  lang: en
+  register: casual
+  format: json
+  stem: 1
+  split: B
+  sha1: 8afb6d203962
+- prompt_id: 154
+  text: 'ok so i''ve got this:
+
+
+    Suppose sqrt(2) = p/q in lowest terms.
+
+    Then p^2 = 2 q^2, so p is even; write p = 2k.
+
+    Then 4k^2 = 2q^2, so q^2 = 2k^2 and q is even.
+
+    But then p and q share a factor 2.
+
+
+    Identify the proof technique and state where the contradiction arises.
+
+    Answer as a bulleted list covering: technique, contradiction
+
+    any idea?'
+  topic: math_proof
+  lang: en
+  register: casual
+  format: bulleted
+  stem: 0
+  split: A
+  sha1: 22a00b91b012
+- prompt_id: 155
+  text: 'ok so i''ve got this:
+
+
+    Claim: 1 + 2 + ... + n = n(n+1)/2.
+
+    Base: n = 1 gives 1 = 1(2)/2.
+
+    Step: assume for n; then adding (n+1) gives
+
+    n(n+1)/2 + (n+1) = (n+1)(n+2)/2.
+
+
+    State the induction hypothesis and verify the inductive step.
+
+    Answer as a bulleted list covering: hypothesis, step
+
+    any idea?'
+  topic: math_proof
+  lang: en
+  register: casual
+  format: bulleted
+  stem: 1
+  split: B
+  sha1: 755e0ceab547
+- prompt_id: 156
+  text: '请看以下内容：
+
+
+    Suppose sqrt(2) = p/q in lowest terms.
+
+    Then p^2 = 2 q^2, so p is even; write p = 2k.
+
+    Then 4k^2 = 2q^2, so q^2 = 2k^2 and q is even.
+
+    But then p and q share a factor 2.
+
+
+    指出这个证明使用的方法，并说明矛盾出现在哪里。'
+  topic: math_proof
+  lang: zh
+  register: formal
+  format: prose
+  stem: 0
+  split: A
+  sha1: c8f482b4072a
+- prompt_id: 157
+  text: '请看以下内容：
+
+
+    Claim: 1 + 2 + ... + n = n(n+1)/2.
+
+    Base: n = 1 gives 1 = 1(2)/2.
+
+    Step: assume for n; then adding (n+1) gives
+
+    n(n+1)/2 + (n+1) = (n+1)(n+2)/2.
+
+
+    写出归纳假设并验证归纳步骤。'
+  topic: math_proof
+  lang: zh
+  register: formal
+  format: prose
+  stem: 1
+  split: B
+  sha1: 817fb6441b35
+- prompt_id: 158
+  text: '请看以下内容：
+
+
+    Suppose sqrt(2) = p/q in lowest terms.
+
+    Then p^2 = 2 q^2, so p is even; write p = 2k.
+
+    Then 4k^2 = 2q^2, so q^2 = 2k^2 and q is even.
+
+    But then p and q share a factor 2.
+
+
+    指出这个证明使用的方法，并说明矛盾出现在哪里。
+
+    请用带以下键的 JSON 对象回答： "technique", "contradiction_point"'
+  topic: math_proof
+  lang: zh
+  register: formal
+  format: json
+  stem: 0
+  split: A
+  sha1: 6f2fd4d3de05
+- prompt_id: 159
+  text: '请看以下内容：
+
+
+    Claim: 1 + 2 + ... + n = n(n+1)/2.
+
+    Base: n = 1 gives 1 = 1(2)/2.
+
+    Step: assume for n; then adding (n+1) gives
+
+    n(n+1)/2 + (n+1) = (n+1)(n+2)/2.
+
+
+    写出归纳假设并验证归纳步骤。
+
+    请用带以下键的 JSON 对象回答： "hypothesis", "step_valid"'
+  topic: math_proof
+  lang: zh
+  register: formal
+  format: json
+  stem: 1
+  split: B
+  sha1: 37e844f5b614
+- prompt_id: 160
+  text: '请看以下内容：
+
+
+    Suppose sqrt(2) = p/q in lowest terms.
+
+    Then p^2 = 2 q^2, so p is even; write p = 2k.
+
+    Then 4k^2 = 2q^2, so q^2 = 2k^2 and q is even.
+
+    But then p and q share a factor 2.
+
+
+    指出这个证明使用的方法，并说明矛盾出现在哪里。
+
+    请用要点列表回答，涵盖： technique, contradiction'
+  topic: math_proof
+  lang: zh
+  register: formal
+  format: bulleted
+  stem: 0
+  split: A
+  sha1: c3b58838793b
+- prompt_id: 161
+  text: '请看以下内容：
+
+
+    Claim: 1 + 2 + ... + n = n(n+1)/2.
+
+    Base: n = 1 gives 1 = 1(2)/2.
+
+    Step: assume for n; then adding (n+1) gives
+
+    n(n+1)/2 + (n+1) = (n+1)(n+2)/2.
+
+
+    写出归纳假设并验证归纳步骤。
+
+    请用要点列表回答，涵盖： hypothesis, step'
+  topic: math_proof
+  lang: zh
+  register: formal
+  format: bulleted
+  stem: 1
+  split: B
+  sha1: 889529ab27be
+- prompt_id: 162
+  text: '我这有个东西：
+
+
+    Suppose sqrt(2) = p/q in lowest terms.
+
+    Then p^2 = 2 q^2, so p is even; write p = 2k.
+
+    Then 4k^2 = 2q^2, so q^2 = 2k^2 and q is even.
+
+    But then p and q share a factor 2.
+
+
+    指出这个证明使用的方法，并说明矛盾出现在哪里。
+
+    有什么想法吗？'
+  topic: math_proof
+  lang: zh
+  register: casual
+  format: prose
+  stem: 0
+  split: A
+  sha1: 57d74fa68e64
+- prompt_id: 163
+  text: '我这有个东西：
+
+
+    Claim: 1 + 2 + ... + n = n(n+1)/2.
+
+    Base: n = 1 gives 1 = 1(2)/2.
+
+    Step: assume for n; then adding (n+1) gives
+
+    n(n+1)/2 + (n+1) = (n+1)(n+2)/2.
+
+
+    写出归纳假设并验证归纳步骤。
+
+    有什么想法吗？'
+  topic: math_proof
+  lang: zh
+  register: casual
+  format: prose
+  stem: 1
+  split: B
+  sha1: c8b9e83ca0a0
+- prompt_id: 164
+  text: '我这有个东西：
+
+
+    Suppose sqrt(2) = p/q in lowest terms.
+
+    Then p^2 = 2 q^2, so p is even; write p = 2k.
+
+    Then 4k^2 = 2q^2, so q^2 = 2k^2 and q is even.
+
+    But then p and q share a factor 2.
+
+
+    指出这个证明使用的方法，并说明矛盾出现在哪里。
+
+    请用带以下键的 JSON 对象回答： "technique", "contradiction_point"
+
+    有什么想法吗？'
+  topic: math_proof
+  lang: zh
+  register: casual
+  format: json
+  stem: 0
+  split: A
+  sha1: 4a377940c5ff
+- prompt_id: 165
+  text: '我这有个东西：
+
+
+    Claim: 1 + 2 + ... + n = n(n+1)/2.
+
+    Base: n = 1 gives 1 = 1(2)/2.
+
+    Step: assume for n; then adding (n+1) gives
+
+    n(n+1)/2 + (n+1) = (n+1)(n+2)/2.
+
+
+    写出归纳假设并验证归纳步骤。
+
+    请用带以下键的 JSON 对象回答： "hypothesis", "step_valid"
+
+    有什么想法吗？'
+  topic: math_proof
+  lang: zh
+  register: casual
+  format: json
+  stem: 1
+  split: B
+  sha1: 5ab05a548244
+- prompt_id: 166
+  text: '我这有个东西：
+
+
+    Suppose sqrt(2) = p/q in lowest terms.
+
+    Then p^2 = 2 q^2, so p is even; write p = 2k.
+
+    Then 4k^2 = 2q^2, so q^2 = 2k^2 and q is even.
+
+    But then p and q share a factor 2.
+
+
+    指出这个证明使用的方法，并说明矛盾出现在哪里。
+
+    请用要点列表回答，涵盖： technique, contradiction
+
+    有什么想法吗？'
+  topic: math_proof
+  lang: zh
+  register: casual
+  format: bulleted
+  stem: 0
+  split: A
+  sha1: 3bfbae3c4e86
+- prompt_id: 167
+  text: '我这有个东西：
+
+
+    Claim: 1 + 2 + ... + n = n(n+1)/2.
+
+    Base: n = 1 gives 1 = 1(2)/2.
+
+    Step: assume for n; then adding (n+1) gives
+
+    n(n+1)/2 + (n+1) = (n+1)(n+2)/2.
+
+
+    写出归纳假设并验证归纳步骤。
+
+    请用要点列表回答，涵盖： hypothesis, step
+
+    有什么想法吗？'
+  topic: math_proof
+  lang: zh
+  register: casual
+  format: bulleted
+  stem: 1
+  split: B
+  sha1: 4a07ce1ad0e2
+- prompt_id: 168
+  text: 'Betrachten Sie Folgendes:
+
+
+    Suppose sqrt(2) = p/q in lowest terms.
+
+    Then p^2 = 2 q^2, so p is even; write p = 2k.
+
+    Then 4k^2 = 2q^2, so q^2 = 2k^2 and q is even.
+
+    But then p and q share a factor 2.
+
+
+    Nenne die Beweistechnik und wo der Widerspruch entsteht.'
+  topic: math_proof
+  lang: de
+  register: formal
+  format: prose
+  stem: 0
+  split: A
+  sha1: 5087e3870201
+- prompt_id: 169
+  text: 'Betrachten Sie Folgendes:
+
+
+    Claim: 1 + 2 + ... + n = n(n+1)/2.
+
+    Base: n = 1 gives 1 = 1(2)/2.
+
+    Step: assume for n; then adding (n+1) gives
+
+    n(n+1)/2 + (n+1) = (n+1)(n+2)/2.
+
+
+    Nenne die Induktionsannahme und prüfe den Induktionsschritt.'
+  topic: math_proof
+  lang: de
+  register: formal
+  format: prose
+  stem: 1
+  split: B
+  sha1: 8d1b99589a3e
+- prompt_id: 170
+  text: 'Betrachten Sie Folgendes:
+
+
+    Suppose sqrt(2) = p/q in lowest terms.
+
+    Then p^2 = 2 q^2, so p is even; write p = 2k.
+
+    Then 4k^2 = 2q^2, so q^2 = 2k^2 and q is even.
+
+    But then p and q share a factor 2.
+
+
+    Nenne die Beweistechnik und wo der Widerspruch entsteht.
+
+    Antworte als JSON-Objekt mit den Schlüsseln: "technique", "contradiction_point"'
+  topic: math_proof
+  lang: de
+  register: formal
+  format: json
+  stem: 0
+  split: A
+  sha1: 4de6ab405d71
+- prompt_id: 171
+  text: 'Betrachten Sie Folgendes:
+
+
+    Claim: 1 + 2 + ... + n = n(n+1)/2.
+
+    Base: n = 1 gives 1 = 1(2)/2.
+
+    Step: assume for n; then adding (n+1) gives
+
+    n(n+1)/2 + (n+1) = (n+1)(n+2)/2.
+
+
+    Nenne die Induktionsannahme und prüfe den Induktionsschritt.
+
+    Antworte als JSON-Objekt mit den Schlüsseln: "hypothesis", "step_valid"'
+  topic: math_proof
+  lang: de
+  register: formal
+  format: json
+  stem: 1
+  split: B
+  sha1: 0936e616786d
+- prompt_id: 172
+  text: 'Betrachten Sie Folgendes:
+
+
+    Suppose sqrt(2) = p/q in lowest terms.
+
+    Then p^2 = 2 q^2, so p is even; write p = 2k.
+
+    Then 4k^2 = 2q^2, so q^2 = 2k^2 and q is even.
+
+    But then p and q share a factor 2.
+
+
+    Nenne die Beweistechnik und wo der Widerspruch entsteht.
+
+    Antworte als Aufzählung zu: technique, contradiction'
+  topic: math_proof
+  lang: de
+  register: formal
+  format: bulleted
+  stem: 0
+  split: A
+  sha1: 6b57f7919823
+- prompt_id: 173
+  text: 'Betrachten Sie Folgendes:
+
+
+    Claim: 1 + 2 + ... + n = n(n+1)/2.
+
+    Base: n = 1 gives 1 = 1(2)/2.
+
+    Step: assume for n; then adding (n+1) gives
+
+    n(n+1)/2 + (n+1) = (n+1)(n+2)/2.
+
+
+    Nenne die Induktionsannahme und prüfe den Induktionsschritt.
+
+    Antworte als Aufzählung zu: hypothesis, step'
+  topic: math_proof
+  lang: de
+  register: formal
+  format: bulleted
+  stem: 1
+  split: B
+  sha1: f150cd64f677
+- prompt_id: 174
+  text: 'also ich hab hier das:
+
+
+    Suppose sqrt(2) = p/q in lowest terms.
+
+    Then p^2 = 2 q^2, so p is even; write p = 2k.
+
+    Then 4k^2 = 2q^2, so q^2 = 2k^2 and q is even.
+
+    But then p and q share a factor 2.
+
+
+    Nenne die Beweistechnik und wo der Widerspruch entsteht.
+
+    irgendeine Idee?'
+  topic: math_proof
+  lang: de
+  register: casual
+  format: prose
+  stem: 0
+  split: A
+  sha1: 87d4df63408d
+- prompt_id: 175
+  text: 'also ich hab hier das:
+
+
+    Claim: 1 + 2 + ... + n = n(n+1)/2.
+
+    Base: n = 1 gives 1 = 1(2)/2.
+
+    Step: assume for n; then adding (n+1) gives
+
+    n(n+1)/2 + (n+1) = (n+1)(n+2)/2.
+
+
+    Nenne die Induktionsannahme und prüfe den Induktionsschritt.
+
+    irgendeine Idee?'
+  topic: math_proof
+  lang: de
+  register: casual
+  format: prose
+  stem: 1
+  split: B
+  sha1: 9befff3042b1
+- prompt_id: 176
+  text: 'also ich hab hier das:
+
+
+    Suppose sqrt(2) = p/q in lowest terms.
+
+    Then p^2 = 2 q^2, so p is even; write p = 2k.
+
+    Then 4k^2 = 2q^2, so q^2 = 2k^2 and q is even.
+
+    But then p and q share a factor 2.
+
+
+    Nenne die Beweistechnik und wo der Widerspruch entsteht.
+
+    Antworte als JSON-Objekt mit den Schlüsseln: "technique", "contradiction_point"
+
+    irgendeine Idee?'
+  topic: math_proof
+  lang: de
+  register: casual
+  format: json
+  stem: 0
+  split: A
+  sha1: 6b30c0ef53ec
+- prompt_id: 177
+  text: 'also ich hab hier das:
+
+
+    Claim: 1 + 2 + ... + n = n(n+1)/2.
+
+    Base: n = 1 gives 1 = 1(2)/2.
+
+    Step: assume for n; then adding (n+1) gives
+
+    n(n+1)/2 + (n+1) = (n+1)(n+2)/2.
+
+
+    Nenne die Induktionsannahme und prüfe den Induktionsschritt.
+
+    Antworte als JSON-Objekt mit den Schlüsseln: "hypothesis", "step_valid"
+
+    irgendeine Idee?'
+  topic: math_proof
+  lang: de
+  register: casual
+  format: json
+  stem: 1
+  split: B
+  sha1: 6de8029ceb80
+- prompt_id: 178
+  text: 'also ich hab hier das:
+
+
+    Suppose sqrt(2) = p/q in lowest terms.
+
+    Then p^2 = 2 q^2, so p is even; write p = 2k.
+
+    Then 4k^2 = 2q^2, so q^2 = 2k^2 and q is even.
+
+    But then p and q share a factor 2.
+
+
+    Nenne die Beweistechnik und wo der Widerspruch entsteht.
+
+    Antworte als Aufzählung zu: technique, contradiction
+
+    irgendeine Idee?'
+  topic: math_proof
+  lang: de
+  register: casual
+  format: bulleted
+  stem: 0
+  split: A
+  sha1: 99b22b3fa61d
+- prompt_id: 179
+  text: 'also ich hab hier das:
+
+
+    Claim: 1 + 2 + ... + n = n(n+1)/2.
+
+    Base: n = 1 gives 1 = 1(2)/2.
+
+    Step: assume for n; then adding (n+1) gives
+
+    n(n+1)/2 + (n+1) = (n+1)(n+2)/2.
+
+
+    Nenne die Induktionsannahme und prüfe den Induktionsschritt.
+
+    Antworte als Aufzählung zu: hypothesis, step
+
+    irgendeine Idee?'
+  topic: math_proof
+  lang: de
+  register: casual
+  format: bulleted
+  stem: 1
+  split: B
+  sha1: b3fa84ff2b1e
+- prompt_id: 180
+  text: '以下を検討してください。
+
+
+    Suppose sqrt(2) = p/q in lowest terms.
+
+    Then p^2 = 2 q^2, so p is even; write p = 2k.
+
+    Then 4k^2 = 2q^2, so q^2 = 2k^2 and q is even.
+
+    But then p and q share a factor 2.
+
+
+    証明技法を示し、矛盾がどこで生じるか述べてください。'
+  topic: math_proof
+  lang: ja
+  register: formal
+  format: prose
+  stem: 0
+  split: A
+  sha1: 4bd5b2506c35
+- prompt_id: 181
+  text: '以下を検討してください。
+
+
+    Claim: 1 + 2 + ... + n = n(n+1)/2.
+
+    Base: n = 1 gives 1 = 1(2)/2.
+
+    Step: assume for n; then adding (n+1) gives
+
+    n(n+1)/2 + (n+1) = (n+1)(n+2)/2.
+
+
+    帰納法の仮定を述べ、帰納ステップを検証してください。'
+  topic: math_proof
+  lang: ja
+  register: formal
+  format: prose
+  stem: 1
+  split: B
+  sha1: d35db7ad1dfa
+- prompt_id: 182
+  text: '以下を検討してください。
+
+
+    Suppose sqrt(2) = p/q in lowest terms.
+
+    Then p^2 = 2 q^2, so p is even; write p = 2k.
+
+    Then 4k^2 = 2q^2, so q^2 = 2k^2 and q is even.
+
+    But then p and q share a factor 2.
+
+
+    証明技法を示し、矛盾がどこで生じるか述べてください。
+
+    次のキーを持つ JSON オブジェクトで答えてください。 "technique", "contradiction_point"'
+  topic: math_proof
+  lang: ja
+  register: formal
+  format: json
+  stem: 0
+  split: A
+  sha1: d230608ea37a
+- prompt_id: 183
+  text: '以下を検討してください。
+
+
+    Claim: 1 + 2 + ... + n = n(n+1)/2.
+
+    Base: n = 1 gives 1 = 1(2)/2.
+
+    Step: assume for n; then adding (n+1) gives
+
+    n(n+1)/2 + (n+1) = (n+1)(n+2)/2.
+
+
+    帰納法の仮定を述べ、帰納ステップを検証してください。
+
+    次のキーを持つ JSON オブジェクトで答えてください。 "hypothesis", "step_valid"'
+  topic: math_proof
+  lang: ja
+  register: formal
+  format: json
+  stem: 1
+  split: B
+  sha1: 527d9d0cea29
+- prompt_id: 184
+  text: '以下を検討してください。
+
+
+    Suppose sqrt(2) = p/q in lowest terms.
+
+    Then p^2 = 2 q^2, so p is even; write p = 2k.
+
+    Then 4k^2 = 2q^2, so q^2 = 2k^2 and q is even.
+
+    But then p and q share a factor 2.
+
+
+    証明技法を示し、矛盾がどこで生じるか述べてください。
+
+    次の項目を箇条書きで答えてください。 technique, contradiction'
+  topic: math_proof
+  lang: ja
+  register: formal
+  format: bulleted
+  stem: 0
+  split: A
+  sha1: 77ef27cf3acf
+- prompt_id: 185
+  text: '以下を検討してください。
+
+
+    Claim: 1 + 2 + ... + n = n(n+1)/2.
+
+    Base: n = 1 gives 1 = 1(2)/2.
+
+    Step: assume for n; then adding (n+1) gives
+
+    n(n+1)/2 + (n+1) = (n+1)(n+2)/2.
+
+
+    帰納法の仮定を述べ、帰納ステップを検証してください。
+
+    次の項目を箇条書きで答えてください。 hypothesis, step'
+  topic: math_proof
+  lang: ja
+  register: formal
+  format: bulleted
+  stem: 1
+  split: B
+  sha1: 332d5d7a85cb
+- prompt_id: 186
+  text: 'これなんだけど：
+
+
+    Suppose sqrt(2) = p/q in lowest terms.
+
+    Then p^2 = 2 q^2, so p is even; write p = 2k.
+
+    Then 4k^2 = 2q^2, so q^2 = 2k^2 and q is even.
+
+    But then p and q share a factor 2.
+
+
+    証明技法を示し、矛盾がどこで生じるか述べてください。
+
+    どう思う？'
+  topic: math_proof
+  lang: ja
+  register: casual
+  format: prose
+  stem: 0
+  split: A
+  sha1: 8ff6a2eec406
+- prompt_id: 187
+  text: 'これなんだけど：
+
+
+    Claim: 1 + 2 + ... + n = n(n+1)/2.
+
+    Base: n = 1 gives 1 = 1(2)/2.
+
+    Step: assume for n; then adding (n+1) gives
+
+    n(n+1)/2 + (n+1) = (n+1)(n+2)/2.
+
+
+    帰納法の仮定を述べ、帰納ステップを検証してください。
+
+    どう思う？'
+  topic: math_proof
+  lang: ja
+  register: casual
+  format: prose
+  stem: 1
+  split: B
+  sha1: 092682b9ff5a
+- prompt_id: 188
+  text: 'これなんだけど：
+
+
+    Suppose sqrt(2) = p/q in lowest terms.
+
+    Then p^2 = 2 q^2, so p is even; write p = 2k.
+
+    Then 4k^2 = 2q^2, so q^2 = 2k^2 and q is even.
+
+    But then p and q share a factor 2.
+
+
+    証明技法を示し、矛盾がどこで生じるか述べてください。
+
+    次のキーを持つ JSON オブジェクトで答えてください。 "technique", "contradiction_point"
+
+    どう思う？'
+  topic: math_proof
+  lang: ja
+  register: casual
+  format: json
+  stem: 0
+  split: A
+  sha1: f1c1a2d692a2
+- prompt_id: 189
+  text: 'これなんだけど：
+
+
+    Claim: 1 + 2 + ... + n = n(n+1)/2.
+
+    Base: n = 1 gives 1 = 1(2)/2.
+
+    Step: assume for n; then adding (n+1) gives
+
+    n(n+1)/2 + (n+1) = (n+1)(n+2)/2.
+
+
+    帰納法の仮定を述べ、帰納ステップを検証してください。
+
+    次のキーを持つ JSON オブジェクトで答えてください。 "hypothesis", "step_valid"
+
+    どう思う？'
+  topic: math_proof
+  lang: ja
+  register: casual
+  format: json
+  stem: 1
+  split: B
+  sha1: 645f47e6701f
+- prompt_id: 190
+  text: 'これなんだけど：
+
+
+    Suppose sqrt(2) = p/q in lowest terms.
+
+    Then p^2 = 2 q^2, so p is even; write p = 2k.
+
+    Then 4k^2 = 2q^2, so q^2 = 2k^2 and q is even.
+
+    But then p and q share a factor 2.
+
+
+    証明技法を示し、矛盾がどこで生じるか述べてください。
+
+    次の項目を箇条書きで答えてください。 technique, contradiction
+
+    どう思う？'
+  topic: math_proof
+  lang: ja
+  register: casual
+  format: bulleted
+  stem: 0
+  split: A
+  sha1: cdf16fc5bfb1
+- prompt_id: 191
+  text: 'これなんだけど：
+
+
+    Claim: 1 + 2 + ... + n = n(n+1)/2.
+
+    Base: n = 1 gives 1 = 1(2)/2.
+
+    Step: assume for n; then adding (n+1) gives
+
+    n(n+1)/2 + (n+1) = (n+1)(n+2)/2.
+
+
+    帰納法の仮定を述べ、帰納ステップを検証してください。
+
+    次の項目を箇条書きで答えてください。 hypothesis, step
+
+    どう思う？'
+  topic: math_proof
+  lang: ja
+  register: casual
+  format: bulleted
+  stem: 1
+  split: B
+  sha1: 5a06c582b34a
+- prompt_id: 192
+  text: 'Consider the following:
+
+
+    A tenant remains in a flat after the lease expires. The landlord continues to accept monthly rent without signing a new agreement.
+
+
+    Explain what tenancy status this creates and the notice implications.'
+  topic: law
+  lang: en
+  register: formal
+  format: prose
+  stem: 0
+  split: A
+  sha1: 1cd39fa84f52
+- prompt_id: 193
+  text: 'Consider the following:
+
+
+    Two parties sign a contract. One clause says disputes go to arbitration; another says courts of a named city have exclusive jurisdiction.
+
+
+    Explain how such conflicting clauses are typically resolved.'
+  topic: law
+  lang: en
+  register: formal
+  format: prose
+  stem: 1
+  split: B
+  sha1: a35089407d69
+- prompt_id: 194
+  text: 'Consider the following:
+
+
+    A tenant remains in a flat after the lease expires. The landlord continues to accept monthly rent without signing a new agreement.
+
+
+    Explain what tenancy status this creates and the notice implications.
+
+    Answer as a JSON object with keys: "tenancy_type", "notice_period"'
+  topic: law
+  lang: en
+  register: formal
+  format: json
+  stem: 0
+  split: A
+  sha1: 57caae1bfcd2
+- prompt_id: 195
+  text: 'Consider the following:
+
+
+    Two parties sign a contract. One clause says disputes go to arbitration; another says courts of a named city have exclusive jurisdiction.
+
+
+    Explain how such conflicting clauses are typically resolved.
+
+    Answer as a JSON object with keys: "conflict", "resolution_principle"'
+  topic: law
+  lang: en
+  register: formal
+  format: json
+  stem: 1
+  split: B
+  sha1: ab1a3df5d18d
+- prompt_id: 196
+  text: 'Consider the following:
+
+
+    A tenant remains in a flat after the lease expires. The landlord continues to accept monthly rent without signing a new agreement.
+
+
+    Explain what tenancy status this creates and the notice implications.
+
+    Answer as a bulleted list covering: status, notice'
+  topic: law
+  lang: en
+  register: formal
+  format: bulleted
+  stem: 0
+  split: A
+  sha1: db91ccf4b592
+- prompt_id: 197
+  text: 'Consider the following:
+
+
+    Two parties sign a contract. One clause says disputes go to arbitration; another says courts of a named city have exclusive jurisdiction.
+
+
+    Explain how such conflicting clauses are typically resolved.
+
+    Answer as a bulleted list covering: conflict, principle'
+  topic: law
+  lang: en
+  register: formal
+  format: bulleted
+  stem: 1
+  split: B
+  sha1: 209bec8bcccc
+- prompt_id: 198
+  text: 'ok so i''ve got this:
+
+
+    A tenant remains in a flat after the lease expires. The landlord continues to accept monthly rent without signing a new agreement.
+
+
+    Explain what tenancy status this creates and the notice implications.
+
+    any idea?'
+  topic: law
+  lang: en
+  register: casual
+  format: prose
+  stem: 0
+  split: A
+  sha1: 3ac0c84d042d
+- prompt_id: 199
+  text: 'ok so i''ve got this:
+
+
+    Two parties sign a contract. One clause says disputes go to arbitration; another says courts of a named city have exclusive jurisdiction.
+
+
+    Explain how such conflicting clauses are typically resolved.
+
+    any idea?'
+  topic: law
+  lang: en
+  register: casual
+  format: prose
+  stem: 1
+  split: B
+  sha1: 6fe45fa1adc5
+- prompt_id: 200
+  text: 'ok so i''ve got this:
+
+
+    A tenant remains in a flat after the lease expires. The landlord continues to accept monthly rent without signing a new agreement.
+
+
+    Explain what tenancy status this creates and the notice implications.
+
+    Answer as a JSON object with keys: "tenancy_type", "notice_period"
+
+    any idea?'
+  topic: law
+  lang: en
+  register: casual
+  format: json
+  stem: 0
+  split: A
+  sha1: 18fb232bd526
+- prompt_id: 201
+  text: 'ok so i''ve got this:
+
+
+    Two parties sign a contract. One clause says disputes go to arbitration; another says courts of a named city have exclusive jurisdiction.
+
+
+    Explain how such conflicting clauses are typically resolved.
+
+    Answer as a JSON object with keys: "conflict", "resolution_principle"
+
+    any idea?'
+  topic: law
+  lang: en
+  register: casual
+  format: json
+  stem: 1
+  split: B
+  sha1: 201a33c3bd7b
+- prompt_id: 202
+  text: 'ok so i''ve got this:
+
+
+    A tenant remains in a flat after the lease expires. The landlord continues to accept monthly rent without signing a new agreement.
+
+
+    Explain what tenancy status this creates and the notice implications.
+
+    Answer as a bulleted list covering: status, notice
+
+    any idea?'
+  topic: law
+  lang: en
+  register: casual
+  format: bulleted
+  stem: 0
+  split: A
+  sha1: 7dc10d08fbc6
+- prompt_id: 203
+  text: 'ok so i''ve got this:
+
+
+    Two parties sign a contract. One clause says disputes go to arbitration; another says courts of a named city have exclusive jurisdiction.
+
+
+    Explain how such conflicting clauses are typically resolved.
+
+    Answer as a bulleted list covering: conflict, principle
+
+    any idea?'
+  topic: law
+  lang: en
+  register: casual
+  format: bulleted
+  stem: 1
+  split: B
+  sha1: 5be7c951abe9
+- prompt_id: 204
+  text: '请看以下内容：
+
+
+    A tenant remains in a flat after the lease expires. The landlord continues to accept monthly rent without signing a new agreement.
+
+
+    请解释这会形成何种租赁关系，以及在通知方面的含义。'
+  topic: law
+  lang: zh
+  register: formal
+  format: prose
+  stem: 0
+  split: A
+  sha1: a61d7dffe4a0
+- prompt_id: 205
+  text: '请看以下内容：
+
+
+    Two parties sign a contract. One clause says disputes go to arbitration; another says courts of a named city have exclusive jurisdiction.
+
+
+    请解释通常如何处理这种相互冲突的条款。'
+  topic: law
+  lang: zh
+  register: formal
+  format: prose
+  stem: 1
+  split: B
+  sha1: 81f8d95e58e8
+- prompt_id: 206
+  text: '请看以下内容：
+
+
+    A tenant remains in a flat after the lease expires. The landlord continues to accept monthly rent without signing a new agreement.
+
+
+    请解释这会形成何种租赁关系，以及在通知方面的含义。
+
+    请用带以下键的 JSON 对象回答： "tenancy_type", "notice_period"'
+  topic: law
+  lang: zh
+  register: formal
+  format: json
+  stem: 0
+  split: A
+  sha1: ba4a3b5ae149
+- prompt_id: 207
+  text: '请看以下内容：
+
+
+    Two parties sign a contract. One clause says disputes go to arbitration; another says courts of a named city have exclusive jurisdiction.
+
+
+    请解释通常如何处理这种相互冲突的条款。
+
+    请用带以下键的 JSON 对象回答： "conflict", "resolution_principle"'
+  topic: law
+  lang: zh
+  register: formal
+  format: json
+  stem: 1
+  split: B
+  sha1: 8dcd03e3f987
+- prompt_id: 208
+  text: '请看以下内容：
+
+
+    A tenant remains in a flat after the lease expires. The landlord continues to accept monthly rent without signing a new agreement.
+
+
+    请解释这会形成何种租赁关系，以及在通知方面的含义。
+
+    请用要点列表回答，涵盖： status, notice'
+  topic: law
+  lang: zh
+  register: formal
+  format: bulleted
+  stem: 0
+  split: A
+  sha1: 15deec83bb64
+- prompt_id: 209
+  text: '请看以下内容：
+
+
+    Two parties sign a contract. One clause says disputes go to arbitration; another says courts of a named city have exclusive jurisdiction.
+
+
+    请解释通常如何处理这种相互冲突的条款。
+
+    请用要点列表回答，涵盖： conflict, principle'
+  topic: law
+  lang: zh
+  register: formal
+  format: bulleted
+  stem: 1
+  split: B
+  sha1: 5cd4f689f7a2
+- prompt_id: 210
+  text: '我这有个东西：
+
+
+    A tenant remains in a flat after the lease expires. The landlord continues to accept monthly rent without signing a new agreement.
+
+
+    请解释这会形成何种租赁关系，以及在通知方面的含义。
+
+    有什么想法吗？'
+  topic: law
+  lang: zh
+  register: casual
+  format: prose
+  stem: 0
+  split: A
+  sha1: 997ad0300c56
+- prompt_id: 211
+  text: '我这有个东西：
+
+
+    Two parties sign a contract. One clause says disputes go to arbitration; another says courts of a named city have exclusive jurisdiction.
+
+
+    请解释通常如何处理这种相互冲突的条款。
+
+    有什么想法吗？'
+  topic: law
+  lang: zh
+  register: casual
+  format: prose
+  stem: 1
+  split: B
+  sha1: b63f92eaadcb
+- prompt_id: 212
+  text: '我这有个东西：
+
+
+    A tenant remains in a flat after the lease expires. The landlord continues to accept monthly rent without signing a new agreement.
+
+
+    请解释这会形成何种租赁关系，以及在通知方面的含义。
+
+    请用带以下键的 JSON 对象回答： "tenancy_type", "notice_period"
+
+    有什么想法吗？'
+  topic: law
+  lang: zh
+  register: casual
+  format: json
+  stem: 0
+  split: A
+  sha1: 30ddeb7f9413
+- prompt_id: 213
+  text: '我这有个东西：
+
+
+    Two parties sign a contract. One clause says disputes go to arbitration; another says courts of a named city have exclusive jurisdiction.
+
+
+    请解释通常如何处理这种相互冲突的条款。
+
+    请用带以下键的 JSON 对象回答： "conflict", "resolution_principle"
+
+    有什么想法吗？'
+  topic: law
+  lang: zh
+  register: casual
+  format: json
+  stem: 1
+  split: B
+  sha1: 2ef19f7ad262
+- prompt_id: 214
+  text: '我这有个东西：
+
+
+    A tenant remains in a flat after the lease expires. The landlord continues to accept monthly rent without signing a new agreement.
+
+
+    请解释这会形成何种租赁关系，以及在通知方面的含义。
+
+    请用要点列表回答，涵盖： status, notice
+
+    有什么想法吗？'
+  topic: law
+  lang: zh
+  register: casual
+  format: bulleted
+  stem: 0
+  split: A
+  sha1: 45ee800ee627
+- prompt_id: 215
+  text: '我这有个东西：
+
+
+    Two parties sign a contract. One clause says disputes go to arbitration; another says courts of a named city have exclusive jurisdiction.
+
+
+    请解释通常如何处理这种相互冲突的条款。
+
+    请用要点列表回答，涵盖： conflict, principle
+
+    有什么想法吗？'
+  topic: law
+  lang: zh
+  register: casual
+  format: bulleted
+  stem: 1
+  split: B
+  sha1: d6e476806bb4
+- prompt_id: 216
+  text: 'Betrachten Sie Folgendes:
+
+
+    A tenant remains in a flat after the lease expires. The landlord continues to accept monthly rent without signing a new agreement.
+
+
+    Erkläre, welches Mietverhältnis entsteht und was das für Kündigungsfristen heißt.'
+  topic: law
+  lang: de
+  register: formal
+  format: prose
+  stem: 0
+  split: A
+  sha1: eb9a0c05c40c
+- prompt_id: 217
+  text: 'Betrachten Sie Folgendes:
+
+
+    Two parties sign a contract. One clause says disputes go to arbitration; another says courts of a named city have exclusive jurisdiction.
+
+
+    Erkläre, wie solche widersprüchlichen Klauseln üblicherweise aufgelöst werden.'
+  topic: law
+  lang: de
+  register: formal
+  format: prose
+  stem: 1
+  split: B
+  sha1: 961936db9ac0
+- prompt_id: 218
+  text: 'Betrachten Sie Folgendes:
+
+
+    A tenant remains in a flat after the lease expires. The landlord continues to accept monthly rent without signing a new agreement.
+
+
+    Erkläre, welches Mietverhältnis entsteht und was das für Kündigungsfristen heißt.
+
+    Antworte als JSON-Objekt mit den Schlüsseln: "tenancy_type", "notice_period"'
+  topic: law
+  lang: de
+  register: formal
+  format: json
+  stem: 0
+  split: A
+  sha1: a70b62754109
+- prompt_id: 219
+  text: 'Betrachten Sie Folgendes:
+
+
+    Two parties sign a contract. One clause says disputes go to arbitration; another says courts of a named city have exclusive jurisdiction.
+
+
+    Erkläre, wie solche widersprüchlichen Klauseln üblicherweise aufgelöst werden.
+
+    Antworte als JSON-Objekt mit den Schlüsseln: "conflict", "resolution_principle"'
+  topic: law
+  lang: de
+  register: formal
+  format: json
+  stem: 1
+  split: B
+  sha1: 81fe426b98a7
+- prompt_id: 220
+  text: 'Betrachten Sie Folgendes:
+
+
+    A tenant remains in a flat after the lease expires. The landlord continues to accept monthly rent without signing a new agreement.
+
+
+    Erkläre, welches Mietverhältnis entsteht und was das für Kündigungsfristen heißt.
+
+    Antworte als Aufzählung zu: status, notice'
+  topic: law
+  lang: de
+  register: formal
+  format: bulleted
+  stem: 0
+  split: A
+  sha1: 109eef7af2b6
+- prompt_id: 221
+  text: 'Betrachten Sie Folgendes:
+
+
+    Two parties sign a contract. One clause says disputes go to arbitration; another says courts of a named city have exclusive jurisdiction.
+
+
+    Erkläre, wie solche widersprüchlichen Klauseln üblicherweise aufgelöst werden.
+
+    Antworte als Aufzählung zu: conflict, principle'
+  topic: law
+  lang: de
+  register: formal
+  format: bulleted
+  stem: 1
+  split: B
+  sha1: 1840c64f133d
+- prompt_id: 222
+  text: 'also ich hab hier das:
+
+
+    A tenant remains in a flat after the lease expires. The landlord continues to accept monthly rent without signing a new agreement.
+
+
+    Erkläre, welches Mietverhältnis entsteht und was das für Kündigungsfristen heißt.
+
+    irgendeine Idee?'
+  topic: law
+  lang: de
+  register: casual
+  format: prose
+  stem: 0
+  split: A
+  sha1: 42eef3852d46
+- prompt_id: 223
+  text: 'also ich hab hier das:
+
+
+    Two parties sign a contract. One clause says disputes go to arbitration; another says courts of a named city have exclusive jurisdiction.
+
+
+    Erkläre, wie solche widersprüchlichen Klauseln üblicherweise aufgelöst werden.
+
+    irgendeine Idee?'
+  topic: law
+  lang: de
+  register: casual
+  format: prose
+  stem: 1
+  split: B
+  sha1: c944a04b5ba3
+- prompt_id: 224
+  text: 'also ich hab hier das:
+
+
+    A tenant remains in a flat after the lease expires. The landlord continues to accept monthly rent without signing a new agreement.
+
+
+    Erkläre, welches Mietverhältnis entsteht und was das für Kündigungsfristen heißt.
+
+    Antworte als JSON-Objekt mit den Schlüsseln: "tenancy_type", "notice_period"
+
+    irgendeine Idee?'
+  topic: law
+  lang: de
+  register: casual
+  format: json
+  stem: 0
+  split: A
+  sha1: b1193347a882
+- prompt_id: 225
+  text: 'also ich hab hier das:
+
+
+    Two parties sign a contract. One clause says disputes go to arbitration; another says courts of a named city have exclusive jurisdiction.
+
+
+    Erkläre, wie solche widersprüchlichen Klauseln üblicherweise aufgelöst werden.
+
+    Antworte als JSON-Objekt mit den Schlüsseln: "conflict", "resolution_principle"
+
+    irgendeine Idee?'
+  topic: law
+  lang: de
+  register: casual
+  format: json
+  stem: 1
+  split: B
+  sha1: d25edde77c14
+- prompt_id: 226
+  text: 'also ich hab hier das:
+
+
+    A tenant remains in a flat after the lease expires. The landlord continues to accept monthly rent without signing a new agreement.
+
+
+    Erkläre, welches Mietverhältnis entsteht und was das für Kündigungsfristen heißt.
+
+    Antworte als Aufzählung zu: status, notice
+
+    irgendeine Idee?'
+  topic: law
+  lang: de
+  register: casual
+  format: bulleted
+  stem: 0
+  split: A
+  sha1: f5432f4fa4f7
+- prompt_id: 227
+  text: 'also ich hab hier das:
+
+
+    Two parties sign a contract. One clause says disputes go to arbitration; another says courts of a named city have exclusive jurisdiction.
+
+
+    Erkläre, wie solche widersprüchlichen Klauseln üblicherweise aufgelöst werden.
+
+    Antworte als Aufzählung zu: conflict, principle
+
+    irgendeine Idee?'
+  topic: law
+  lang: de
+  register: casual
+  format: bulleted
+  stem: 1
+  split: B
+  sha1: db9c200d992e
+- prompt_id: 228
+  text: '以下を検討してください。
+
+
+    A tenant remains in a flat after the lease expires. The landlord continues to accept monthly rent without signing a new agreement.
+
+
+    どのような賃貸関係が生じるか、解約通知への影響を説明してください。'
+  topic: law
+  lang: ja
+  register: formal
+  format: prose
+  stem: 0
+  split: A
+  sha1: e34e5e1ec5a0
+- prompt_id: 229
+  text: '以下を検討してください。
+
+
+    Two parties sign a contract. One clause says disputes go to arbitration; another says courts of a named city have exclusive jurisdiction.
+
+
+    このように矛盾する条項が通常どう解決されるか説明してください。'
+  topic: law
+  lang: ja
+  register: formal
+  format: prose
+  stem: 1
+  split: B
+  sha1: 48559830c893
+- prompt_id: 230
+  text: '以下を検討してください。
+
+
+    A tenant remains in a flat after the lease expires. The landlord continues to accept monthly rent without signing a new agreement.
+
+
+    どのような賃貸関係が生じるか、解約通知への影響を説明してください。
+
+    次のキーを持つ JSON オブジェクトで答えてください。 "tenancy_type", "notice_period"'
+  topic: law
+  lang: ja
+  register: formal
+  format: json
+  stem: 0
+  split: A
+  sha1: 6443b6c7ce8c
+- prompt_id: 231
+  text: '以下を検討してください。
+
+
+    Two parties sign a contract. One clause says disputes go to arbitration; another says courts of a named city have exclusive jurisdiction.
+
+
+    このように矛盾する条項が通常どう解決されるか説明してください。
+
+    次のキーを持つ JSON オブジェクトで答えてください。 "conflict", "resolution_principle"'
+  topic: law
+  lang: ja
+  register: formal
+  format: json
+  stem: 1
+  split: B
+  sha1: ea40eb5460d0
+- prompt_id: 232
+  text: '以下を検討してください。
+
+
+    A tenant remains in a flat after the lease expires. The landlord continues to accept monthly rent without signing a new agreement.
+
+
+    どのような賃貸関係が生じるか、解約通知への影響を説明してください。
+
+    次の項目を箇条書きで答えてください。 status, notice'
+  topic: law
+  lang: ja
+  register: formal
+  format: bulleted
+  stem: 0
+  split: A
+  sha1: 0fb4e1f3e6ea
+- prompt_id: 233
+  text: '以下を検討してください。
+
+
+    Two parties sign a contract. One clause says disputes go to arbitration; another says courts of a named city have exclusive jurisdiction.
+
+
+    このように矛盾する条項が通常どう解決されるか説明してください。
+
+    次の項目を箇条書きで答えてください。 conflict, principle'
+  topic: law
+  lang: ja
+  register: formal
+  format: bulleted
+  stem: 1
+  split: B
+  sha1: 5a1b789cfebb
+- prompt_id: 234
+  text: 'これなんだけど：
+
+
+    A tenant remains in a flat after the lease expires. The landlord continues to accept monthly rent without signing a new agreement.
+
+
+    どのような賃貸関係が生じるか、解約通知への影響を説明してください。
+
+    どう思う？'
+  topic: law
+  lang: ja
+  register: casual
+  format: prose
+  stem: 0
+  split: A
+  sha1: 61c35f27b421
+- prompt_id: 235
+  text: 'これなんだけど：
+
+
+    Two parties sign a contract. One clause says disputes go to arbitration; another says courts of a named city have exclusive jurisdiction.
+
+
+    このように矛盾する条項が通常どう解決されるか説明してください。
+
+    どう思う？'
+  topic: law
+  lang: ja
+  register: casual
+  format: prose
+  stem: 1
+  split: B
+  sha1: 21fcbfb215df
+- prompt_id: 236
+  text: 'これなんだけど：
+
+
+    A tenant remains in a flat after the lease expires. The landlord continues to accept monthly rent without signing a new agreement.
+
+
+    どのような賃貸関係が生じるか、解約通知への影響を説明してください。
+
+    次のキーを持つ JSON オブジェクトで答えてください。 "tenancy_type", "notice_period"
+
+    どう思う？'
+  topic: law
+  lang: ja
+  register: casual
+  format: json
+  stem: 0
+  split: A
+  sha1: 45438c496121
+- prompt_id: 237
+  text: 'これなんだけど：
+
+
+    Two parties sign a contract. One clause says disputes go to arbitration; another says courts of a named city have exclusive jurisdiction.
+
+
+    このように矛盾する条項が通常どう解決されるか説明してください。
+
+    次のキーを持つ JSON オブジェクトで答えてください。 "conflict", "resolution_principle"
+
+    どう思う？'
+  topic: law
+  lang: ja
+  register: casual
+  format: json
+  stem: 1
+  split: B
+  sha1: bb741e9ff91d
+- prompt_id: 238
+  text: 'これなんだけど：
+
+
+    A tenant remains in a flat after the lease expires. The landlord continues to accept monthly rent without signing a new agreement.
+
+
+    どのような賃貸関係が生じるか、解約通知への影響を説明してください。
+
+    次の項目を箇条書きで答えてください。 status, notice
+
+    どう思う？'
+  topic: law
+  lang: ja
+  register: casual
+  format: bulleted
+  stem: 0
+  split: A
+  sha1: 0ed908aac0f2
+- prompt_id: 239
+  text: 'これなんだけど：
+
+
+    Two parties sign a contract. One clause says disputes go to arbitration; another says courts of a named city have exclusive jurisdiction.
+
+
+    このように矛盾する条項が通常どう解決されるか説明してください。
+
+    次の項目を箇条書きで答えてください。 conflict, principle
+
+    どう思う？'
+  topic: law
+  lang: ja
+  register: casual
+  format: bulleted
+  stem: 1
+  split: B
+  sha1: 1a76c59e08fe
+- prompt_id: 240
+  text: 'Consider the following:
+
+
+    A patient reports sudden one-sided facial weakness, unable to raise the eyebrow on that side, with normal limb strength.
+
+
+    Explain what the forehead involvement indicates about the lesion site.'
+  topic: medicine
+  lang: en
+  register: formal
+  format: prose
+  stem: 0
+  split: A
+  sha1: 4194840006c3
+- prompt_id: 241
+  text: 'Consider the following:
+
+
+    A patient on a new medication develops a dry persistent cough several weeks after starting treatment for high blood pressure.
+
+
+    Explain the likely drug class involved and the mechanism.'
+  topic: medicine
+  lang: en
+  register: formal
+  format: prose
+  stem: 1
+  split: B
+  sha1: f676993a60be
+- prompt_id: 242
+  text: 'Consider the following:
+
+
+    A patient reports sudden one-sided facial weakness, unable to raise the eyebrow on that side, with normal limb strength.
+
+
+    Explain what the forehead involvement indicates about the lesion site.
+
+    Answer as a JSON object with keys: "lesion_site", "reasoning"'
+  topic: medicine
+  lang: en
+  register: formal
+  format: json
+  stem: 0
+  split: A
+  sha1: 0fd0f19d5d19
+- prompt_id: 243
+  text: 'Consider the following:
+
+
+    A patient on a new medication develops a dry persistent cough several weeks after starting treatment for high blood pressure.
+
+
+    Explain the likely drug class involved and the mechanism.
+
+    Answer as a JSON object with keys: "drug_class", "mechanism"'
+  topic: medicine
+  lang: en
+  register: formal
+  format: json
+  stem: 1
+  split: B
+  sha1: a0bf207e4124
+- prompt_id: 244
+  text: 'Consider the following:
+
+
+    A patient reports sudden one-sided facial weakness, unable to raise the eyebrow on that side, with normal limb strength.
+
+
+    Explain what the forehead involvement indicates about the lesion site.
+
+    Answer as a bulleted list covering: localisation, reasoning'
+  topic: medicine
+  lang: en
+  register: formal
+  format: bulleted
+  stem: 0
+  split: A
+  sha1: c9a26f5aaff7
+- prompt_id: 245
+  text: 'Consider the following:
+
+
+    A patient on a new medication develops a dry persistent cough several weeks after starting treatment for high blood pressure.
+
+
+    Explain the likely drug class involved and the mechanism.
+
+    Answer as a bulleted list covering: class, mechanism'
+  topic: medicine
+  lang: en
+  register: formal
+  format: bulleted
+  stem: 1
+  split: B
+  sha1: b648420f10c5
+- prompt_id: 246
+  text: 'ok so i''ve got this:
+
+
+    A patient reports sudden one-sided facial weakness, unable to raise the eyebrow on that side, with normal limb strength.
+
+
+    Explain what the forehead involvement indicates about the lesion site.
+
+    any idea?'
+  topic: medicine
+  lang: en
+  register: casual
+  format: prose
+  stem: 0
+  split: A
+  sha1: c65653ef4356
+- prompt_id: 247
+  text: 'ok so i''ve got this:
+
+
+    A patient on a new medication develops a dry persistent cough several weeks after starting treatment for high blood pressure.
+
+
+    Explain the likely drug class involved and the mechanism.
+
+    any idea?'
+  topic: medicine
+  lang: en
+  register: casual
+  format: prose
+  stem: 1
+  split: B
+  sha1: 1e074c687714
+- prompt_id: 248
+  text: 'ok so i''ve got this:
+
+
+    A patient reports sudden one-sided facial weakness, unable to raise the eyebrow on that side, with normal limb strength.
+
+
+    Explain what the forehead involvement indicates about the lesion site.
+
+    Answer as a JSON object with keys: "lesion_site", "reasoning"
+
+    any idea?'
+  topic: medicine
+  lang: en
+  register: casual
+  format: json
+  stem: 0
+  split: A
+  sha1: 601300bee2eb
+- prompt_id: 249
+  text: 'ok so i''ve got this:
+
+
+    A patient on a new medication develops a dry persistent cough several weeks after starting treatment for high blood pressure.
+
+
+    Explain the likely drug class involved and the mechanism.
+
+    Answer as a JSON object with keys: "drug_class", "mechanism"
+
+    any idea?'
+  topic: medicine
+  lang: en
+  register: casual
+  format: json
+  stem: 1
+  split: B
+  sha1: f76ce5afcc0e
+- prompt_id: 250
+  text: 'ok so i''ve got this:
+
+
+    A patient reports sudden one-sided facial weakness, unable to raise the eyebrow on that side, with normal limb strength.
+
+
+    Explain what the forehead involvement indicates about the lesion site.
+
+    Answer as a bulleted list covering: localisation, reasoning
+
+    any idea?'
+  topic: medicine
+  lang: en
+  register: casual
+  format: bulleted
+  stem: 0
+  split: A
+  sha1: 0125b907f1e5
+- prompt_id: 251
+  text: 'ok so i''ve got this:
+
+
+    A patient on a new medication develops a dry persistent cough several weeks after starting treatment for high blood pressure.
+
+
+    Explain the likely drug class involved and the mechanism.
+
+    Answer as a bulleted list covering: class, mechanism
+
+    any idea?'
+  topic: medicine
+  lang: en
+  register: casual
+  format: bulleted
+  stem: 1
+  split: B
+  sha1: 1d86a714b82a
+- prompt_id: 252
+  text: '请看以下内容：
+
+
+    A patient reports sudden one-sided facial weakness, unable to raise the eyebrow on that side, with normal limb strength.
+
+
+    请解释前额受累说明病变位置在哪里。'
+  topic: medicine
+  lang: zh
+  register: formal
+  format: prose
+  stem: 0
+  split: A
+  sha1: 8032963b1400
+- prompt_id: 253
+  text: '请看以下内容：
+
+
+    A patient on a new medication develops a dry persistent cough several weeks after starting treatment for high blood pressure.
+
+
+    请解释可能涉及的药物类别及其机制。'
+  topic: medicine
+  lang: zh
+  register: formal
+  format: prose
+  stem: 1
+  split: B
+  sha1: 42183e9eaa5a
+- prompt_id: 254
+  text: '请看以下内容：
+
+
+    A patient reports sudden one-sided facial weakness, unable to raise the eyebrow on that side, with normal limb strength.
+
+
+    请解释前额受累说明病变位置在哪里。
+
+    请用带以下键的 JSON 对象回答： "lesion_site", "reasoning"'
+  topic: medicine
+  lang: zh
+  register: formal
+  format: json
+  stem: 0
+  split: A
+  sha1: 96eddc49bd02
+- prompt_id: 255
+  text: '请看以下内容：
+
+
+    A patient on a new medication develops a dry persistent cough several weeks after starting treatment for high blood pressure.
+
+
+    请解释可能涉及的药物类别及其机制。
+
+    请用带以下键的 JSON 对象回答： "drug_class", "mechanism"'
+  topic: medicine
+  lang: zh
+  register: formal
+  format: json
+  stem: 1
+  split: B
+  sha1: ffe335309749
+- prompt_id: 256
+  text: '请看以下内容：
+
+
+    A patient reports sudden one-sided facial weakness, unable to raise the eyebrow on that side, with normal limb strength.
+
+
+    请解释前额受累说明病变位置在哪里。
+
+    请用要点列表回答，涵盖： localisation, reasoning'
+  topic: medicine
+  lang: zh
+  register: formal
+  format: bulleted
+  stem: 0
+  split: A
+  sha1: 2caf4fa1848d
+- prompt_id: 257
+  text: '请看以下内容：
+
+
+    A patient on a new medication develops a dry persistent cough several weeks after starting treatment for high blood pressure.
+
+
+    请解释可能涉及的药物类别及其机制。
+
+    请用要点列表回答，涵盖： class, mechanism'
+  topic: medicine
+  lang: zh
+  register: formal
+  format: bulleted
+  stem: 1
+  split: B
+  sha1: 0eddfdbc4c3e
+- prompt_id: 258
+  text: '我这有个东西：
+
+
+    A patient reports sudden one-sided facial weakness, unable to raise the eyebrow on that side, with normal limb strength.
+
+
+    请解释前额受累说明病变位置在哪里。
+
+    有什么想法吗？'
+  topic: medicine
+  lang: zh
+  register: casual
+  format: prose
+  stem: 0
+  split: A
+  sha1: cd7416d049ad
+- prompt_id: 259
+  text: '我这有个东西：
+
+
+    A patient on a new medication develops a dry persistent cough several weeks after starting treatment for high blood pressure.
+
+
+    请解释可能涉及的药物类别及其机制。
+
+    有什么想法吗？'
+  topic: medicine
+  lang: zh
+  register: casual
+  format: prose
+  stem: 1
+  split: B
+  sha1: 8d50f4500a51
+- prompt_id: 260
+  text: '我这有个东西：
+
+
+    A patient reports sudden one-sided facial weakness, unable to raise the eyebrow on that side, with normal limb strength.
+
+
+    请解释前额受累说明病变位置在哪里。
+
+    请用带以下键的 JSON 对象回答： "lesion_site", "reasoning"
+
+    有什么想法吗？'
+  topic: medicine
+  lang: zh
+  register: casual
+  format: json
+  stem: 0
+  split: A
+  sha1: 9cbfd5b61d88
+- prompt_id: 261
+  text: '我这有个东西：
+
+
+    A patient on a new medication develops a dry persistent cough several weeks after starting treatment for high blood pressure.
+
+
+    请解释可能涉及的药物类别及其机制。
+
+    请用带以下键的 JSON 对象回答： "drug_class", "mechanism"
+
+    有什么想法吗？'
+  topic: medicine
+  lang: zh
+  register: casual
+  format: json
+  stem: 1
+  split: B
+  sha1: f45d603baed1
+- prompt_id: 262
+  text: '我这有个东西：
+
+
+    A patient reports sudden one-sided facial weakness, unable to raise the eyebrow on that side, with normal limb strength.
+
+
+    请解释前额受累说明病变位置在哪里。
+
+    请用要点列表回答，涵盖： localisation, reasoning
+
+    有什么想法吗？'
+  topic: medicine
+  lang: zh
+  register: casual
+  format: bulleted
+  stem: 0
+  split: A
+  sha1: be90d2d88564
+- prompt_id: 263
+  text: '我这有个东西：
+
+
+    A patient on a new medication develops a dry persistent cough several weeks after starting treatment for high blood pressure.
+
+
+    请解释可能涉及的药物类别及其机制。
+
+    请用要点列表回答，涵盖： class, mechanism
+
+    有什么想法吗？'
+  topic: medicine
+  lang: zh
+  register: casual
+  format: bulleted
+  stem: 1
+  split: B
+  sha1: 8feae80c843a
+- prompt_id: 264
+  text: 'Betrachten Sie Folgendes:
+
+
+    A patient reports sudden one-sided facial weakness, unable to raise the eyebrow on that side, with normal limb strength.
+
+
+    Erkläre, was die Beteiligung der Stirn über den Läsionsort aussagt.'
+  topic: medicine
+  lang: de
+  register: formal
+  format: prose
+  stem: 0
+  split: A
+  sha1: 23be83b77cf7
+- prompt_id: 265
+  text: 'Betrachten Sie Folgendes:
+
+
+    A patient on a new medication develops a dry persistent cough several weeks after starting treatment for high blood pressure.
+
+
+    Erkläre die wahrscheinliche Wirkstoffklasse und den Mechanismus.'
+  topic: medicine
+  lang: de
+  register: formal
+  format: prose
+  stem: 1
+  split: B
+  sha1: e442849c0734
+- prompt_id: 266
+  text: 'Betrachten Sie Folgendes:
+
+
+    A patient reports sudden one-sided facial weakness, unable to raise the eyebrow on that side, with normal limb strength.
+
+
+    Erkläre, was die Beteiligung der Stirn über den Läsionsort aussagt.
+
+    Antworte als JSON-Objekt mit den Schlüsseln: "lesion_site", "reasoning"'
+  topic: medicine
+  lang: de
+  register: formal
+  format: json
+  stem: 0
+  split: A
+  sha1: 9d96c5e31177
+- prompt_id: 267
+  text: 'Betrachten Sie Folgendes:
+
+
+    A patient on a new medication develops a dry persistent cough several weeks after starting treatment for high blood pressure.
+
+
+    Erkläre die wahrscheinliche Wirkstoffklasse und den Mechanismus.
+
+    Antworte als JSON-Objekt mit den Schlüsseln: "drug_class", "mechanism"'
+  topic: medicine
+  lang: de
+  register: formal
+  format: json
+  stem: 1
+  split: B
+  sha1: 892802d7402f
+- prompt_id: 268
+  text: 'Betrachten Sie Folgendes:
+
+
+    A patient reports sudden one-sided facial weakness, unable to raise the eyebrow on that side, with normal limb strength.
+
+
+    Erkläre, was die Beteiligung der Stirn über den Läsionsort aussagt.
+
+    Antworte als Aufzählung zu: localisation, reasoning'
+  topic: medicine
+  lang: de
+  register: formal
+  format: bulleted
+  stem: 0
+  split: A
+  sha1: d3431ef2bf8d
+- prompt_id: 269
+  text: 'Betrachten Sie Folgendes:
+
+
+    A patient on a new medication develops a dry persistent cough several weeks after starting treatment for high blood pressure.
+
+
+    Erkläre die wahrscheinliche Wirkstoffklasse und den Mechanismus.
+
+    Antworte als Aufzählung zu: class, mechanism'
+  topic: medicine
+  lang: de
+  register: formal
+  format: bulleted
+  stem: 1
+  split: B
+  sha1: 9fed6a632fa5
+- prompt_id: 270
+  text: 'also ich hab hier das:
+
+
+    A patient reports sudden one-sided facial weakness, unable to raise the eyebrow on that side, with normal limb strength.
+
+
+    Erkläre, was die Beteiligung der Stirn über den Läsionsort aussagt.
+
+    irgendeine Idee?'
+  topic: medicine
+  lang: de
+  register: casual
+  format: prose
+  stem: 0
+  split: A
+  sha1: a6d7bd734cba
+- prompt_id: 271
+  text: 'also ich hab hier das:
+
+
+    A patient on a new medication develops a dry persistent cough several weeks after starting treatment for high blood pressure.
+
+
+    Erkläre die wahrscheinliche Wirkstoffklasse und den Mechanismus.
+
+    irgendeine Idee?'
+  topic: medicine
+  lang: de
+  register: casual
+  format: prose
+  stem: 1
+  split: B
+  sha1: 0279c0ec21bb
+- prompt_id: 272
+  text: 'also ich hab hier das:
+
+
+    A patient reports sudden one-sided facial weakness, unable to raise the eyebrow on that side, with normal limb strength.
+
+
+    Erkläre, was die Beteiligung der Stirn über den Läsionsort aussagt.
+
+    Antworte als JSON-Objekt mit den Schlüsseln: "lesion_site", "reasoning"
+
+    irgendeine Idee?'
+  topic: medicine
+  lang: de
+  register: casual
+  format: json
+  stem: 0
+  split: A
+  sha1: 1d002f9a4bee
+- prompt_id: 273
+  text: 'also ich hab hier das:
+
+
+    A patient on a new medication develops a dry persistent cough several weeks after starting treatment for high blood pressure.
+
+
+    Erkläre die wahrscheinliche Wirkstoffklasse und den Mechanismus.
+
+    Antworte als JSON-Objekt mit den Schlüsseln: "drug_class", "mechanism"
+
+    irgendeine Idee?'
+  topic: medicine
+  lang: de
+  register: casual
+  format: json
+  stem: 1
+  split: B
+  sha1: 16922e329b17
+- prompt_id: 274
+  text: 'also ich hab hier das:
+
+
+    A patient reports sudden one-sided facial weakness, unable to raise the eyebrow on that side, with normal limb strength.
+
+
+    Erkläre, was die Beteiligung der Stirn über den Läsionsort aussagt.
+
+    Antworte als Aufzählung zu: localisation, reasoning
+
+    irgendeine Idee?'
+  topic: medicine
+  lang: de
+  register: casual
+  format: bulleted
+  stem: 0
+  split: A
+  sha1: 82a242bcb309
+- prompt_id: 275
+  text: 'also ich hab hier das:
+
+
+    A patient on a new medication develops a dry persistent cough several weeks after starting treatment for high blood pressure.
+
+
+    Erkläre die wahrscheinliche Wirkstoffklasse und den Mechanismus.
+
+    Antworte als Aufzählung zu: class, mechanism
+
+    irgendeine Idee?'
+  topic: medicine
+  lang: de
+  register: casual
+  format: bulleted
+  stem: 1
+  split: B
+  sha1: cafb15cbef99
+- prompt_id: 276
+  text: '以下を検討してください。
+
+
+    A patient reports sudden one-sided facial weakness, unable to raise the eyebrow on that side, with normal limb strength.
+
+
+    前額部の関与が病変部位について何を示すか説明してください。'
+  topic: medicine
+  lang: ja
+  register: formal
+  format: prose
+  stem: 0
+  split: A
+  sha1: e7129152f4a5
+- prompt_id: 277
+  text: '以下を検討してください。
+
+
+    A patient on a new medication develops a dry persistent cough several weeks after starting treatment for high blood pressure.
+
+
+    関与しうる薬剤クラスとその機序を説明してください。'
+  topic: medicine
+  lang: ja
+  register: formal
+  format: prose
+  stem: 1
+  split: B
+  sha1: 9b178cfd4151
+- prompt_id: 278
+  text: '以下を検討してください。
+
+
+    A patient reports sudden one-sided facial weakness, unable to raise the eyebrow on that side, with normal limb strength.
+
+
+    前額部の関与が病変部位について何を示すか説明してください。
+
+    次のキーを持つ JSON オブジェクトで答えてください。 "lesion_site", "reasoning"'
+  topic: medicine
+  lang: ja
+  register: formal
+  format: json
+  stem: 0
+  split: A
+  sha1: 11972978a6cc
+- prompt_id: 279
+  text: '以下を検討してください。
+
+
+    A patient on a new medication develops a dry persistent cough several weeks after starting treatment for high blood pressure.
+
+
+    関与しうる薬剤クラスとその機序を説明してください。
+
+    次のキーを持つ JSON オブジェクトで答えてください。 "drug_class", "mechanism"'
+  topic: medicine
+  lang: ja
+  register: formal
+  format: json
+  stem: 1
+  split: B
+  sha1: 1f3628b427f6
+- prompt_id: 280
+  text: '以下を検討してください。
+
+
+    A patient reports sudden one-sided facial weakness, unable to raise the eyebrow on that side, with normal limb strength.
+
+
+    前額部の関与が病変部位について何を示すか説明してください。
+
+    次の項目を箇条書きで答えてください。 localisation, reasoning'
+  topic: medicine
+  lang: ja
+  register: formal
+  format: bulleted
+  stem: 0
+  split: A
+  sha1: 247b5079b745
+- prompt_id: 281
+  text: '以下を検討してください。
+
+
+    A patient on a new medication develops a dry persistent cough several weeks after starting treatment for high blood pressure.
+
+
+    関与しうる薬剤クラスとその機序を説明してください。
+
+    次の項目を箇条書きで答えてください。 class, mechanism'
+  topic: medicine
+  lang: ja
+  register: formal
+  format: bulleted
+  stem: 1
+  split: B
+  sha1: 28222ffdce16
+- prompt_id: 282
+  text: 'これなんだけど：
+
+
+    A patient reports sudden one-sided facial weakness, unable to raise the eyebrow on that side, with normal limb strength.
+
+
+    前額部の関与が病変部位について何を示すか説明してください。
+
+    どう思う？'
+  topic: medicine
+  lang: ja
+  register: casual
+  format: prose
+  stem: 0
+  split: A
+  sha1: 211f683e78be
+- prompt_id: 283
+  text: 'これなんだけど：
+
+
+    A patient on a new medication develops a dry persistent cough several weeks after starting treatment for high blood pressure.
+
+
+    関与しうる薬剤クラスとその機序を説明してください。
+
+    どう思う？'
+  topic: medicine
+  lang: ja
+  register: casual
+  format: prose
+  stem: 1
+  split: B
+  sha1: 376f0a7be2e1
+- prompt_id: 284
+  text: 'これなんだけど：
+
+
+    A patient reports sudden one-sided facial weakness, unable to raise the eyebrow on that side, with normal limb strength.
+
+
+    前額部の関与が病変部位について何を示すか説明してください。
+
+    次のキーを持つ JSON オブジェクトで答えてください。 "lesion_site", "reasoning"
+
+    どう思う？'
+  topic: medicine
+  lang: ja
+  register: casual
+  format: json
+  stem: 0
+  split: A
+  sha1: 1379659066af
+- prompt_id: 285
+  text: 'これなんだけど：
+
+
+    A patient on a new medication develops a dry persistent cough several weeks after starting treatment for high blood pressure.
+
+
+    関与しうる薬剤クラスとその機序を説明してください。
+
+    次のキーを持つ JSON オブジェクトで答えてください。 "drug_class", "mechanism"
+
+    どう思う？'
+  topic: medicine
+  lang: ja
+  register: casual
+  format: json
+  stem: 1
+  split: B
+  sha1: bb361898980f
+- prompt_id: 286
+  text: 'これなんだけど：
+
+
+    A patient reports sudden one-sided facial weakness, unable to raise the eyebrow on that side, with normal limb strength.
+
+
+    前額部の関与が病変部位について何を示すか説明してください。
+
+    次の項目を箇条書きで答えてください。 localisation, reasoning
+
+    どう思う？'
+  topic: medicine
+  lang: ja
+  register: casual
+  format: bulleted
+  stem: 0
+  split: A
+  sha1: 23ef956aa355
+- prompt_id: 287
+  text: 'これなんだけど：
+
+
+    A patient on a new medication develops a dry persistent cough several weeks after starting treatment for high blood pressure.
+
+
+    関与しうる薬剤クラスとその機序を説明してください。
+
+    次の項目を箇条書きで答えてください。 class, mechanism
+
+    どう思う？'
+  topic: medicine
+  lang: ja
+  register: casual
+  format: bulleted
+  stem: 1
+  split: B
+  sha1: ccd30255589c
+- prompt_id: 288
+  text: 'Consider the following:
+
+
+    A progression moves ii - V - I in C major, then repeats the same shape a whole step lower.
+
+
+    Explain the function of each chord and what the transposition implies.'
+  topic: music_theory
+  lang: en
+  register: formal
+  format: prose
+  stem: 0
+  split: A
+  sha1: dcdbc09e168e
+- prompt_id: 289
+  text: 'Consider the following:
+
+
+    A melody uses the notes of A minor but consistently raises the seventh degree when ascending.
+
+
+    Identify the scale and explain why the seventh is raised.'
+  topic: music_theory
+  lang: en
+  register: formal
+  format: prose
+  stem: 1
+  split: B
+  sha1: 3e5e36561c92
+- prompt_id: 290
+  text: 'Consider the following:
+
+
+    A progression moves ii - V - I in C major, then repeats the same shape a whole step lower.
+
+
+    Explain the function of each chord and what the transposition implies.
+
+    Answer as a JSON object with keys: "chord_functions", "transposition_effect"'
+  topic: music_theory
+  lang: en
+  register: formal
+  format: json
+  stem: 0
+  split: A
+  sha1: 1c295850f468
+- prompt_id: 291
+  text: 'Consider the following:
+
+
+    A melody uses the notes of A minor but consistently raises the seventh degree when ascending.
+
+
+    Identify the scale and explain why the seventh is raised.
+
+    Answer as a JSON object with keys: "scale_name", "raised_seventh_reason"'
+  topic: music_theory
+  lang: en
+  register: formal
+  format: json
+  stem: 1
+  split: B
+  sha1: 073a920bf99c
+- prompt_id: 292
+  text: 'Consider the following:
+
+
+    A progression moves ii - V - I in C major, then repeats the same shape a whole step lower.
+
+
+    Explain the function of each chord and what the transposition implies.
+
+    Answer as a bulleted list covering: functions, transposition'
+  topic: music_theory
+  lang: en
+  register: formal
+  format: bulleted
+  stem: 0
+  split: A
+  sha1: ada82999525d
+- prompt_id: 293
+  text: 'Consider the following:
+
+
+    A melody uses the notes of A minor but consistently raises the seventh degree when ascending.
+
+
+    Identify the scale and explain why the seventh is raised.
+
+    Answer as a bulleted list covering: scale, reason'
+  topic: music_theory
+  lang: en
+  register: formal
+  format: bulleted
+  stem: 1
+  split: B
+  sha1: 5c2745a4d4cc
+- prompt_id: 294
+  text: 'ok so i''ve got this:
+
+
+    A progression moves ii - V - I in C major, then repeats the same shape a whole step lower.
+
+
+    Explain the function of each chord and what the transposition implies.
+
+    any idea?'
+  topic: music_theory
+  lang: en
+  register: casual
+  format: prose
+  stem: 0
+  split: A
+  sha1: 784ffdba1baa
+- prompt_id: 295
+  text: 'ok so i''ve got this:
+
+
+    A melody uses the notes of A minor but consistently raises the seventh degree when ascending.
+
+
+    Identify the scale and explain why the seventh is raised.
+
+    any idea?'
+  topic: music_theory
+  lang: en
+  register: casual
+  format: prose
+  stem: 1
+  split: B
+  sha1: b2f97676cf1b
+- prompt_id: 296
+  text: 'ok so i''ve got this:
+
+
+    A progression moves ii - V - I in C major, then repeats the same shape a whole step lower.
+
+
+    Explain the function of each chord and what the transposition implies.
+
+    Answer as a JSON object with keys: "chord_functions", "transposition_effect"
+
+    any idea?'
+  topic: music_theory
+  lang: en
+  register: casual
+  format: json
+  stem: 0
+  split: A
+  sha1: df7d3c017373
+- prompt_id: 297
+  text: 'ok so i''ve got this:
+
+
+    A melody uses the notes of A minor but consistently raises the seventh degree when ascending.
+
+
+    Identify the scale and explain why the seventh is raised.
+
+    Answer as a JSON object with keys: "scale_name", "raised_seventh_reason"
+
+    any idea?'
+  topic: music_theory
+  lang: en
+  register: casual
+  format: json
+  stem: 1
+  split: B
+  sha1: 748fd9fbb8d4
+- prompt_id: 298
+  text: 'ok so i''ve got this:
+
+
+    A progression moves ii - V - I in C major, then repeats the same shape a whole step lower.
+
+
+    Explain the function of each chord and what the transposition implies.
+
+    Answer as a bulleted list covering: functions, transposition
+
+    any idea?'
+  topic: music_theory
+  lang: en
+  register: casual
+  format: bulleted
+  stem: 0
+  split: A
+  sha1: 791184a59cf2
+- prompt_id: 299
+  text: 'ok so i''ve got this:
+
+
+    A melody uses the notes of A minor but consistently raises the seventh degree when ascending.
+
+
+    Identify the scale and explain why the seventh is raised.
+
+    Answer as a bulleted list covering: scale, reason
+
+    any idea?'
+  topic: music_theory
+  lang: en
+  register: casual
+  format: bulleted
+  stem: 1
+  split: B
+  sha1: b863ee9d1554
+- prompt_id: 300
+  text: '请看以下内容：
+
+
+    A progression moves ii - V - I in C major, then repeats the same shape a whole step lower.
+
+
+    请解释每个和弦的功能，以及移调意味着什么。'
+  topic: music_theory
+  lang: zh
+  register: formal
+  format: prose
+  stem: 0
+  split: A
+  sha1: 7cd041e0d546
+- prompt_id: 301
+  text: '请看以下内容：
+
+
+    A melody uses the notes of A minor but consistently raises the seventh degree when ascending.
+
+
+    指出这是什么音阶，并解释为何升高第七级。'
+  topic: music_theory
+  lang: zh
+  register: formal
+  format: prose
+  stem: 1
+  split: B
+  sha1: c4f8d7ff4025
+- prompt_id: 302
+  text: '请看以下内容：
+
+
+    A progression moves ii - V - I in C major, then repeats the same shape a whole step lower.
+
+
+    请解释每个和弦的功能，以及移调意味着什么。
+
+    请用带以下键的 JSON 对象回答： "chord_functions", "transposition_effect"'
+  topic: music_theory
+  lang: zh
+  register: formal
+  format: json
+  stem: 0
+  split: A
+  sha1: b545ae3b35a4
+- prompt_id: 303
+  text: '请看以下内容：
+
+
+    A melody uses the notes of A minor but consistently raises the seventh degree when ascending.
+
+
+    指出这是什么音阶，并解释为何升高第七级。
+
+    请用带以下键的 JSON 对象回答： "scale_name", "raised_seventh_reason"'
+  topic: music_theory
+  lang: zh
+  register: formal
+  format: json
+  stem: 1
+  split: B
+  sha1: 71979cd38c03
+- prompt_id: 304
+  text: '请看以下内容：
+
+
+    A progression moves ii - V - I in C major, then repeats the same shape a whole step lower.
+
+
+    请解释每个和弦的功能，以及移调意味着什么。
+
+    请用要点列表回答，涵盖： functions, transposition'
+  topic: music_theory
+  lang: zh
+  register: formal
+  format: bulleted
+  stem: 0
+  split: A
+  sha1: 10a2552aa481
+- prompt_id: 305
+  text: '请看以下内容：
+
+
+    A melody uses the notes of A minor but consistently raises the seventh degree when ascending.
+
+
+    指出这是什么音阶，并解释为何升高第七级。
+
+    请用要点列表回答，涵盖： scale, reason'
+  topic: music_theory
+  lang: zh
+  register: formal
+  format: bulleted
+  stem: 1
+  split: B
+  sha1: b27975afe11f
+- prompt_id: 306
+  text: '我这有个东西：
+
+
+    A progression moves ii - V - I in C major, then repeats the same shape a whole step lower.
+
+
+    请解释每个和弦的功能，以及移调意味着什么。
+
+    有什么想法吗？'
+  topic: music_theory
+  lang: zh
+  register: casual
+  format: prose
+  stem: 0
+  split: A
+  sha1: 1cc876ffc214
+- prompt_id: 307
+  text: '我这有个东西：
+
+
+    A melody uses the notes of A minor but consistently raises the seventh degree when ascending.
+
+
+    指出这是什么音阶，并解释为何升高第七级。
+
+    有什么想法吗？'
+  topic: music_theory
+  lang: zh
+  register: casual
+  format: prose
+  stem: 1
+  split: B
+  sha1: 6961651f791b
+- prompt_id: 308
+  text: '我这有个东西：
+
+
+    A progression moves ii - V - I in C major, then repeats the same shape a whole step lower.
+
+
+    请解释每个和弦的功能，以及移调意味着什么。
+
+    请用带以下键的 JSON 对象回答： "chord_functions", "transposition_effect"
+
+    有什么想法吗？'
+  topic: music_theory
+  lang: zh
+  register: casual
+  format: json
+  stem: 0
+  split: A
+  sha1: ef7f8b78b5e8
+- prompt_id: 309
+  text: '我这有个东西：
+
+
+    A melody uses the notes of A minor but consistently raises the seventh degree when ascending.
+
+
+    指出这是什么音阶，并解释为何升高第七级。
+
+    请用带以下键的 JSON 对象回答： "scale_name", "raised_seventh_reason"
+
+    有什么想法吗？'
+  topic: music_theory
+  lang: zh
+  register: casual
+  format: json
+  stem: 1
+  split: B
+  sha1: cc73033b5378
+- prompt_id: 310
+  text: '我这有个东西：
+
+
+    A progression moves ii - V - I in C major, then repeats the same shape a whole step lower.
+
+
+    请解释每个和弦的功能，以及移调意味着什么。
+
+    请用要点列表回答，涵盖： functions, transposition
+
+    有什么想法吗？'
+  topic: music_theory
+  lang: zh
+  register: casual
+  format: bulleted
+  stem: 0
+  split: A
+  sha1: 8116276d2bc9
+- prompt_id: 311
+  text: '我这有个东西：
+
+
+    A melody uses the notes of A minor but consistently raises the seventh degree when ascending.
+
+
+    指出这是什么音阶，并解释为何升高第七级。
+
+    请用要点列表回答，涵盖： scale, reason
+
+    有什么想法吗？'
+  topic: music_theory
+  lang: zh
+  register: casual
+  format: bulleted
+  stem: 1
+  split: B
+  sha1: b35815e883ed
+- prompt_id: 312
+  text: 'Betrachten Sie Folgendes:
+
+
+    A progression moves ii - V - I in C major, then repeats the same shape a whole step lower.
+
+
+    Erkläre die Funktion jedes Akkords und was die Transposition bedeutet.'
+  topic: music_theory
+  lang: de
+  register: formal
+  format: prose
+  stem: 0
+  split: A
+  sha1: a41c54399a6d
+- prompt_id: 313
+  text: 'Betrachten Sie Folgendes:
+
+
+    A melody uses the notes of A minor but consistently raises the seventh degree when ascending.
+
+
+    Nenne die Tonleiter und erkläre, warum die Septime erhöht wird.'
+  topic: music_theory
+  lang: de
+  register: formal
+  format: prose
+  stem: 1
+  split: B
+  sha1: 241012fd8b87
+- prompt_id: 314
+  text: 'Betrachten Sie Folgendes:
+
+
+    A progression moves ii - V - I in C major, then repeats the same shape a whole step lower.
+
+
+    Erkläre die Funktion jedes Akkords und was die Transposition bedeutet.
+
+    Antworte als JSON-Objekt mit den Schlüsseln: "chord_functions", "transposition_effect"'
+  topic: music_theory
+  lang: de
+  register: formal
+  format: json
+  stem: 0
+  split: A
+  sha1: 6fa03182aa63
+- prompt_id: 315
+  text: 'Betrachten Sie Folgendes:
+
+
+    A melody uses the notes of A minor but consistently raises the seventh degree when ascending.
+
+
+    Nenne die Tonleiter und erkläre, warum die Septime erhöht wird.
+
+    Antworte als JSON-Objekt mit den Schlüsseln: "scale_name", "raised_seventh_reason"'
+  topic: music_theory
+  lang: de
+  register: formal
+  format: json
+  stem: 1
+  split: B
+  sha1: a5ba919f77ac
+- prompt_id: 316
+  text: 'Betrachten Sie Folgendes:
+
+
+    A progression moves ii - V - I in C major, then repeats the same shape a whole step lower.
+
+
+    Erkläre die Funktion jedes Akkords und was die Transposition bedeutet.
+
+    Antworte als Aufzählung zu: functions, transposition'
+  topic: music_theory
+  lang: de
+  register: formal
+  format: bulleted
+  stem: 0
+  split: A
+  sha1: 3de9d5b19291
+- prompt_id: 317
+  text: 'Betrachten Sie Folgendes:
+
+
+    A melody uses the notes of A minor but consistently raises the seventh degree when ascending.
+
+
+    Nenne die Tonleiter und erkläre, warum die Septime erhöht wird.
+
+    Antworte als Aufzählung zu: scale, reason'
+  topic: music_theory
+  lang: de
+  register: formal
+  format: bulleted
+  stem: 1
+  split: B
+  sha1: b24bc66a8daf
+- prompt_id: 318
+  text: 'also ich hab hier das:
+
+
+    A progression moves ii - V - I in C major, then repeats the same shape a whole step lower.
+
+
+    Erkläre die Funktion jedes Akkords und was die Transposition bedeutet.
+
+    irgendeine Idee?'
+  topic: music_theory
+  lang: de
+  register: casual
+  format: prose
+  stem: 0
+  split: A
+  sha1: e990ad4e1974
+- prompt_id: 319
+  text: 'also ich hab hier das:
+
+
+    A melody uses the notes of A minor but consistently raises the seventh degree when ascending.
+
+
+    Nenne die Tonleiter und erkläre, warum die Septime erhöht wird.
+
+    irgendeine Idee?'
+  topic: music_theory
+  lang: de
+  register: casual
+  format: prose
+  stem: 1
+  split: B
+  sha1: 186a487a8dbd
+- prompt_id: 320
+  text: 'also ich hab hier das:
+
+
+    A progression moves ii - V - I in C major, then repeats the same shape a whole step lower.
+
+
+    Erkläre die Funktion jedes Akkords und was die Transposition bedeutet.
+
+    Antworte als JSON-Objekt mit den Schlüsseln: "chord_functions", "transposition_effect"
+
+    irgendeine Idee?'
+  topic: music_theory
+  lang: de
+  register: casual
+  format: json
+  stem: 0
+  split: A
+  sha1: 2c7569d09c20
+- prompt_id: 321
+  text: 'also ich hab hier das:
+
+
+    A melody uses the notes of A minor but consistently raises the seventh degree when ascending.
+
+
+    Nenne die Tonleiter und erkläre, warum die Septime erhöht wird.
+
+    Antworte als JSON-Objekt mit den Schlüsseln: "scale_name", "raised_seventh_reason"
+
+    irgendeine Idee?'
+  topic: music_theory
+  lang: de
+  register: casual
+  format: json
+  stem: 1
+  split: B
+  sha1: 73e20e31ed8c
+- prompt_id: 322
+  text: 'also ich hab hier das:
+
+
+    A progression moves ii - V - I in C major, then repeats the same shape a whole step lower.
+
+
+    Erkläre die Funktion jedes Akkords und was die Transposition bedeutet.
+
+    Antworte als Aufzählung zu: functions, transposition
+
+    irgendeine Idee?'
+  topic: music_theory
+  lang: de
+  register: casual
+  format: bulleted
+  stem: 0
+  split: A
+  sha1: 554653cd98ea
+- prompt_id: 323
+  text: 'also ich hab hier das:
+
+
+    A melody uses the notes of A minor but consistently raises the seventh degree when ascending.
+
+
+    Nenne die Tonleiter und erkläre, warum die Septime erhöht wird.
+
+    Antworte als Aufzählung zu: scale, reason
+
+    irgendeine Idee?'
+  topic: music_theory
+  lang: de
+  register: casual
+  format: bulleted
+  stem: 1
+  split: B
+  sha1: 733ada928f06
+- prompt_id: 324
+  text: '以下を検討してください。
+
+
+    A progression moves ii - V - I in C major, then repeats the same shape a whole step lower.
+
+
+    各和音の機能と、移調が意味するものを説明してください。'
+  topic: music_theory
+  lang: ja
+  register: formal
+  format: prose
+  stem: 0
+  split: A
+  sha1: a3f79b7a3947
+- prompt_id: 325
+  text: '以下を検討してください。
+
+
+    A melody uses the notes of A minor but consistently raises the seventh degree when ascending.
+
+
+    この音階を特定し、第七音が上げられる理由を説明してください。'
+  topic: music_theory
+  lang: ja
+  register: formal
+  format: prose
+  stem: 1
+  split: B
+  sha1: 2eabbfb2a98c
+- prompt_id: 326
+  text: '以下を検討してください。
+
+
+    A progression moves ii - V - I in C major, then repeats the same shape a whole step lower.
+
+
+    各和音の機能と、移調が意味するものを説明してください。
+
+    次のキーを持つ JSON オブジェクトで答えてください。 "chord_functions", "transposition_effect"'
+  topic: music_theory
+  lang: ja
+  register: formal
+  format: json
+  stem: 0
+  split: A
+  sha1: 3867510ecf5a
+- prompt_id: 327
+  text: '以下を検討してください。
+
+
+    A melody uses the notes of A minor but consistently raises the seventh degree when ascending.
+
+
+    この音階を特定し、第七音が上げられる理由を説明してください。
+
+    次のキーを持つ JSON オブジェクトで答えてください。 "scale_name", "raised_seventh_reason"'
+  topic: music_theory
+  lang: ja
+  register: formal
+  format: json
+  stem: 1
+  split: B
+  sha1: e06251cdf5ad
+- prompt_id: 328
+  text: '以下を検討してください。
+
+
+    A progression moves ii - V - I in C major, then repeats the same shape a whole step lower.
+
+
+    各和音の機能と、移調が意味するものを説明してください。
+
+    次の項目を箇条書きで答えてください。 functions, transposition'
+  topic: music_theory
+  lang: ja
+  register: formal
+  format: bulleted
+  stem: 0
+  split: A
+  sha1: e2b183fa530c
+- prompt_id: 329
+  text: '以下を検討してください。
+
+
+    A melody uses the notes of A minor but consistently raises the seventh degree when ascending.
+
+
+    この音階を特定し、第七音が上げられる理由を説明してください。
+
+    次の項目を箇条書きで答えてください。 scale, reason'
+  topic: music_theory
+  lang: ja
+  register: formal
+  format: bulleted
+  stem: 1
+  split: B
+  sha1: a71f43e11408
+- prompt_id: 330
+  text: 'これなんだけど：
+
+
+    A progression moves ii - V - I in C major, then repeats the same shape a whole step lower.
+
+
+    各和音の機能と、移調が意味するものを説明してください。
+
+    どう思う？'
+  topic: music_theory
+  lang: ja
+  register: casual
+  format: prose
+  stem: 0
+  split: A
+  sha1: 84a0549d55ce
+- prompt_id: 331
+  text: 'これなんだけど：
+
+
+    A melody uses the notes of A minor but consistently raises the seventh degree when ascending.
+
+
+    この音階を特定し、第七音が上げられる理由を説明してください。
+
+    どう思う？'
+  topic: music_theory
+  lang: ja
+  register: casual
+  format: prose
+  stem: 1
+  split: B
+  sha1: ffb5620d856e
+- prompt_id: 332
+  text: 'これなんだけど：
+
+
+    A progression moves ii - V - I in C major, then repeats the same shape a whole step lower.
+
+
+    各和音の機能と、移調が意味するものを説明してください。
+
+    次のキーを持つ JSON オブジェクトで答えてください。 "chord_functions", "transposition_effect"
+
+    どう思う？'
+  topic: music_theory
+  lang: ja
+  register: casual
+  format: json
+  stem: 0
+  split: A
+  sha1: 099e7d5aece9
+- prompt_id: 333
+  text: 'これなんだけど：
+
+
+    A melody uses the notes of A minor but consistently raises the seventh degree when ascending.
+
+
+    この音階を特定し、第七音が上げられる理由を説明してください。
+
+    次のキーを持つ JSON オブジェクトで答えてください。 "scale_name", "raised_seventh_reason"
+
+    どう思う？'
+  topic: music_theory
+  lang: ja
+  register: casual
+  format: json
+  stem: 1
+  split: B
+  sha1: 5c4c3f458b54
+- prompt_id: 334
+  text: 'これなんだけど：
+
+
+    A progression moves ii - V - I in C major, then repeats the same shape a whole step lower.
+
+
+    各和音の機能と、移調が意味するものを説明してください。
+
+    次の項目を箇条書きで答えてください。 functions, transposition
+
+    どう思う？'
+  topic: music_theory
+  lang: ja
+  register: casual
+  format: bulleted
+  stem: 0
+  split: A
+  sha1: 5b971378b764
+- prompt_id: 335
+  text: 'これなんだけど：
+
+
+    A melody uses the notes of A minor but consistently raises the seventh degree when ascending.
+
+
+    この音階を特定し、第七音が上げられる理由を説明してください。
+
+    次の項目を箇条書きで答えてください。 scale, reason
+
+    どう思う？'
+  topic: music_theory
+  lang: ja
+  register: casual
+  format: bulleted
+  stem: 1
+  split: B
+  sha1: f966b0375f33
+- prompt_id: 336
+  text: 'Consider the following:
+
+
+    Onions are cooked slowly in fat for forty minutes until deep brown, stirred often, with a pinch of salt added early.
+
+
+    Explain the chemical process and why salt is added early.'
+  topic: cooking
+  lang: en
+  register: formal
+  format: prose
+  stem: 0
+  split: A
+  sha1: 177dd63837ea
+- prompt_id: 337
+  text: 'Consider the following:
+
+
+    A bread dough is left to rise overnight in a cold place rather than for two hours at room temperature.
+
+
+    Explain how the slow cold rise changes flavour and texture.'
+  topic: cooking
+  lang: en
+  register: formal
+  format: prose
+  stem: 1
+  split: B
+  sha1: a28e4d6a83af
+- prompt_id: 338
+  text: 'Consider the following:
+
+
+    Onions are cooked slowly in fat for forty minutes until deep brown, stirred often, with a pinch of salt added early.
+
+
+    Explain the chemical process and why salt is added early.
+
+    Answer as a JSON object with keys: "process", "salt_role"'
+  topic: cooking
+  lang: en
+  register: formal
+  format: json
+  stem: 0
+  split: A
+  sha1: 379156aeaf34
+- prompt_id: 339
+  text: 'Consider the following:
+
+
+    A bread dough is left to rise overnight in a cold place rather than for two hours at room temperature.
+
+
+    Explain how the slow cold rise changes flavour and texture.
+
+    Answer as a JSON object with keys: "flavour_change", "texture_change"'
+  topic: cooking
+  lang: en
+  register: formal
+  format: json
+  stem: 1
+  split: B
+  sha1: 34fce174e140
+- prompt_id: 340
+  text: 'Consider the following:
+
+
+    Onions are cooked slowly in fat for forty minutes until deep brown, stirred often, with a pinch of salt added early.
+
+
+    Explain the chemical process and why salt is added early.
+
+    Answer as a bulleted list covering: chemistry, salt'
+  topic: cooking
+  lang: en
+  register: formal
+  format: bulleted
+  stem: 0
+  split: A
+  sha1: d9bdd275c74c
+- prompt_id: 341
+  text: 'Consider the following:
+
+
+    A bread dough is left to rise overnight in a cold place rather than for two hours at room temperature.
+
+
+    Explain how the slow cold rise changes flavour and texture.
+
+    Answer as a bulleted list covering: flavour, texture'
+  topic: cooking
+  lang: en
+  register: formal
+  format: bulleted
+  stem: 1
+  split: B
+  sha1: e606c626807a
+- prompt_id: 342
+  text: 'ok so i''ve got this:
+
+
+    Onions are cooked slowly in fat for forty minutes until deep brown, stirred often, with a pinch of salt added early.
+
+
+    Explain the chemical process and why salt is added early.
+
+    any idea?'
+  topic: cooking
+  lang: en
+  register: casual
+  format: prose
+  stem: 0
+  split: A
+  sha1: 589f1be18f0e
+- prompt_id: 343
+  text: 'ok so i''ve got this:
+
+
+    A bread dough is left to rise overnight in a cold place rather than for two hours at room temperature.
+
+
+    Explain how the slow cold rise changes flavour and texture.
+
+    any idea?'
+  topic: cooking
+  lang: en
+  register: casual
+  format: prose
+  stem: 1
+  split: B
+  sha1: 41f3ff428538
+- prompt_id: 344
+  text: 'ok so i''ve got this:
+
+
+    Onions are cooked slowly in fat for forty minutes until deep brown, stirred often, with a pinch of salt added early.
+
+
+    Explain the chemical process and why salt is added early.
+
+    Answer as a JSON object with keys: "process", "salt_role"
+
+    any idea?'
+  topic: cooking
+  lang: en
+  register: casual
+  format: json
+  stem: 0
+  split: A
+  sha1: 22bebbda7520
+- prompt_id: 345
+  text: 'ok so i''ve got this:
+
+
+    A bread dough is left to rise overnight in a cold place rather than for two hours at room temperature.
+
+
+    Explain how the slow cold rise changes flavour and texture.
+
+    Answer as a JSON object with keys: "flavour_change", "texture_change"
+
+    any idea?'
+  topic: cooking
+  lang: en
+  register: casual
+  format: json
+  stem: 1
+  split: B
+  sha1: 54ed42288303
+- prompt_id: 346
+  text: 'ok so i''ve got this:
+
+
+    Onions are cooked slowly in fat for forty minutes until deep brown, stirred often, with a pinch of salt added early.
+
+
+    Explain the chemical process and why salt is added early.
+
+    Answer as a bulleted list covering: chemistry, salt
+
+    any idea?'
+  topic: cooking
+  lang: en
+  register: casual
+  format: bulleted
+  stem: 0
+  split: A
+  sha1: 20630b98ccc9
+- prompt_id: 347
+  text: 'ok so i''ve got this:
+
+
+    A bread dough is left to rise overnight in a cold place rather than for two hours at room temperature.
+
+
+    Explain how the slow cold rise changes flavour and texture.
+
+    Answer as a bulleted list covering: flavour, texture
+
+    any idea?'
+  topic: cooking
+  lang: en
+  register: casual
+  format: bulleted
+  stem: 1
+  split: B
+  sha1: dc39f02fb173
+- prompt_id: 348
+  text: '请看以下内容：
+
+
+    Onions are cooked slowly in fat for forty minutes until deep brown, stirred often, with a pinch of salt added early.
+
+
+    请解释其中的化学过程，以及为什么早加盐。'
+  topic: cooking
+  lang: zh
+  register: formal
+  format: prose
+  stem: 0
+  split: A
+  sha1: 2d9890474e36
+- prompt_id: 349
+  text: '请看以下内容：
+
+
+    A bread dough is left to rise overnight in a cold place rather than for two hours at room temperature.
+
+
+    请解释低温慢发酵如何改变风味和口感。'
+  topic: cooking
+  lang: zh
+  register: formal
+  format: prose
+  stem: 1
+  split: B
+  sha1: 0e56cb24cc28
+- prompt_id: 350
+  text: '请看以下内容：
+
+
+    Onions are cooked slowly in fat for forty minutes until deep brown, stirred often, with a pinch of salt added early.
+
+
+    请解释其中的化学过程，以及为什么早加盐。
+
+    请用带以下键的 JSON 对象回答： "process", "salt_role"'
+  topic: cooking
+  lang: zh
+  register: formal
+  format: json
+  stem: 0
+  split: A
+  sha1: 0dd9f2ab1e7a
+- prompt_id: 351
+  text: '请看以下内容：
+
+
+    A bread dough is left to rise overnight in a cold place rather than for two hours at room temperature.
+
+
+    请解释低温慢发酵如何改变风味和口感。
+
+    请用带以下键的 JSON 对象回答： "flavour_change", "texture_change"'
+  topic: cooking
+  lang: zh
+  register: formal
+  format: json
+  stem: 1
+  split: B
+  sha1: abc66dfad7c9
+- prompt_id: 352
+  text: '请看以下内容：
+
+
+    Onions are cooked slowly in fat for forty minutes until deep brown, stirred often, with a pinch of salt added early.
+
+
+    请解释其中的化学过程，以及为什么早加盐。
+
+    请用要点列表回答，涵盖： chemistry, salt'
+  topic: cooking
+  lang: zh
+  register: formal
+  format: bulleted
+  stem: 0
+  split: A
+  sha1: 53e65af5bb9c
+- prompt_id: 353
+  text: '请看以下内容：
+
+
+    A bread dough is left to rise overnight in a cold place rather than for two hours at room temperature.
+
+
+    请解释低温慢发酵如何改变风味和口感。
+
+    请用要点列表回答，涵盖： flavour, texture'
+  topic: cooking
+  lang: zh
+  register: formal
+  format: bulleted
+  stem: 1
+  split: B
+  sha1: 18cb7ffead00
+- prompt_id: 354
+  text: '我这有个东西：
+
+
+    Onions are cooked slowly in fat for forty minutes until deep brown, stirred often, with a pinch of salt added early.
+
+
+    请解释其中的化学过程，以及为什么早加盐。
+
+    有什么想法吗？'
+  topic: cooking
+  lang: zh
+  register: casual
+  format: prose
+  stem: 0
+  split: A
+  sha1: 507fc9f8a9bc
+- prompt_id: 355
+  text: '我这有个东西：
+
+
+    A bread dough is left to rise overnight in a cold place rather than for two hours at room temperature.
+
+
+    请解释低温慢发酵如何改变风味和口感。
+
+    有什么想法吗？'
+  topic: cooking
+  lang: zh
+  register: casual
+  format: prose
+  stem: 1
+  split: B
+  sha1: 745fcb80a49b
+- prompt_id: 356
+  text: '我这有个东西：
+
+
+    Onions are cooked slowly in fat for forty minutes until deep brown, stirred often, with a pinch of salt added early.
+
+
+    请解释其中的化学过程，以及为什么早加盐。
+
+    请用带以下键的 JSON 对象回答： "process", "salt_role"
+
+    有什么想法吗？'
+  topic: cooking
+  lang: zh
+  register: casual
+  format: json
+  stem: 0
+  split: A
+  sha1: e0c67fd6d96c
+- prompt_id: 357
+  text: '我这有个东西：
+
+
+    A bread dough is left to rise overnight in a cold place rather than for two hours at room temperature.
+
+
+    请解释低温慢发酵如何改变风味和口感。
+
+    请用带以下键的 JSON 对象回答： "flavour_change", "texture_change"
+
+    有什么想法吗？'
+  topic: cooking
+  lang: zh
+  register: casual
+  format: json
+  stem: 1
+  split: B
+  sha1: 154a5eec8c21
+- prompt_id: 358
+  text: '我这有个东西：
+
+
+    Onions are cooked slowly in fat for forty minutes until deep brown, stirred often, with a pinch of salt added early.
+
+
+    请解释其中的化学过程，以及为什么早加盐。
+
+    请用要点列表回答，涵盖： chemistry, salt
+
+    有什么想法吗？'
+  topic: cooking
+  lang: zh
+  register: casual
+  format: bulleted
+  stem: 0
+  split: A
+  sha1: aef58f502b7c
+- prompt_id: 359
+  text: '我这有个东西：
+
+
+    A bread dough is left to rise overnight in a cold place rather than for two hours at room temperature.
+
+
+    请解释低温慢发酵如何改变风味和口感。
+
+    请用要点列表回答，涵盖： flavour, texture
+
+    有什么想法吗？'
+  topic: cooking
+  lang: zh
+  register: casual
+  format: bulleted
+  stem: 1
+  split: B
+  sha1: 63e3fb160cc5
+- prompt_id: 360
+  text: 'Betrachten Sie Folgendes:
+
+
+    Onions are cooked slowly in fat for forty minutes until deep brown, stirred often, with a pinch of salt added early.
+
+
+    Erkläre den chemischen Prozess und warum das Salz früh zugegeben wird.'
+  topic: cooking
+  lang: de
+  register: formal
+  format: prose
+  stem: 0
+  split: A
+  sha1: c8c0da065264
+- prompt_id: 361
+  text: 'Betrachten Sie Folgendes:
+
+
+    A bread dough is left to rise overnight in a cold place rather than for two hours at room temperature.
+
+
+    Erkläre, wie die langsame kalte Gare Geschmack und Textur verändert.'
+  topic: cooking
+  lang: de
+  register: formal
+  format: prose
+  stem: 1
+  split: B
+  sha1: 1c8ed692b8da
+- prompt_id: 362
+  text: 'Betrachten Sie Folgendes:
+
+
+    Onions are cooked slowly in fat for forty minutes until deep brown, stirred often, with a pinch of salt added early.
+
+
+    Erkläre den chemischen Prozess und warum das Salz früh zugegeben wird.
+
+    Antworte als JSON-Objekt mit den Schlüsseln: "process", "salt_role"'
+  topic: cooking
+  lang: de
+  register: formal
+  format: json
+  stem: 0
+  split: A
+  sha1: 665f8ed0b178
+- prompt_id: 363
+  text: 'Betrachten Sie Folgendes:
+
+
+    A bread dough is left to rise overnight in a cold place rather than for two hours at room temperature.
+
+
+    Erkläre, wie die langsame kalte Gare Geschmack und Textur verändert.
+
+    Antworte als JSON-Objekt mit den Schlüsseln: "flavour_change", "texture_change"'
+  topic: cooking
+  lang: de
+  register: formal
+  format: json
+  stem: 1
+  split: B
+  sha1: 7824b712e797
+- prompt_id: 364
+  text: 'Betrachten Sie Folgendes:
+
+
+    Onions are cooked slowly in fat for forty minutes until deep brown, stirred often, with a pinch of salt added early.
+
+
+    Erkläre den chemischen Prozess und warum das Salz früh zugegeben wird.
+
+    Antworte als Aufzählung zu: chemistry, salt'
+  topic: cooking
+  lang: de
+  register: formal
+  format: bulleted
+  stem: 0
+  split: A
+  sha1: fbbde149febd
+- prompt_id: 365
+  text: 'Betrachten Sie Folgendes:
+
+
+    A bread dough is left to rise overnight in a cold place rather than for two hours at room temperature.
+
+
+    Erkläre, wie die langsame kalte Gare Geschmack und Textur verändert.
+
+    Antworte als Aufzählung zu: flavour, texture'
+  topic: cooking
+  lang: de
+  register: formal
+  format: bulleted
+  stem: 1
+  split: B
+  sha1: ba0ea6d2281d
+- prompt_id: 366
+  text: 'also ich hab hier das:
+
+
+    Onions are cooked slowly in fat for forty minutes until deep brown, stirred often, with a pinch of salt added early.
+
+
+    Erkläre den chemischen Prozess und warum das Salz früh zugegeben wird.
+
+    irgendeine Idee?'
+  topic: cooking
+  lang: de
+  register: casual
+  format: prose
+  stem: 0
+  split: A
+  sha1: 9db7522c8899
+- prompt_id: 367
+  text: 'also ich hab hier das:
+
+
+    A bread dough is left to rise overnight in a cold place rather than for two hours at room temperature.
+
+
+    Erkläre, wie die langsame kalte Gare Geschmack und Textur verändert.
+
+    irgendeine Idee?'
+  topic: cooking
+  lang: de
+  register: casual
+  format: prose
+  stem: 1
+  split: B
+  sha1: 1129b424a0b0
+- prompt_id: 368
+  text: 'also ich hab hier das:
+
+
+    Onions are cooked slowly in fat for forty minutes until deep brown, stirred often, with a pinch of salt added early.
+
+
+    Erkläre den chemischen Prozess und warum das Salz früh zugegeben wird.
+
+    Antworte als JSON-Objekt mit den Schlüsseln: "process", "salt_role"
+
+    irgendeine Idee?'
+  topic: cooking
+  lang: de
+  register: casual
+  format: json
+  stem: 0
+  split: A
+  sha1: 42dbd9659012
+- prompt_id: 369
+  text: 'also ich hab hier das:
+
+
+    A bread dough is left to rise overnight in a cold place rather than for two hours at room temperature.
+
+
+    Erkläre, wie die langsame kalte Gare Geschmack und Textur verändert.
+
+    Antworte als JSON-Objekt mit den Schlüsseln: "flavour_change", "texture_change"
+
+    irgendeine Idee?'
+  topic: cooking
+  lang: de
+  register: casual
+  format: json
+  stem: 1
+  split: B
+  sha1: c44a2da9ad36
+- prompt_id: 370
+  text: 'also ich hab hier das:
+
+
+    Onions are cooked slowly in fat for forty minutes until deep brown, stirred often, with a pinch of salt added early.
+
+
+    Erkläre den chemischen Prozess und warum das Salz früh zugegeben wird.
+
+    Antworte als Aufzählung zu: chemistry, salt
+
+    irgendeine Idee?'
+  topic: cooking
+  lang: de
+  register: casual
+  format: bulleted
+  stem: 0
+  split: A
+  sha1: f895e6b714b8
+- prompt_id: 371
+  text: 'also ich hab hier das:
+
+
+    A bread dough is left to rise overnight in a cold place rather than for two hours at room temperature.
+
+
+    Erkläre, wie die langsame kalte Gare Geschmack und Textur verändert.
+
+    Antworte als Aufzählung zu: flavour, texture
+
+    irgendeine Idee?'
+  topic: cooking
+  lang: de
+  register: casual
+  format: bulleted
+  stem: 1
+  split: B
+  sha1: 4982298b4cea
+- prompt_id: 372
+  text: '以下を検討してください。
+
+
+    Onions are cooked slowly in fat for forty minutes until deep brown, stirred often, with a pinch of salt added early.
+
+
+    この化学的過程と、塩を早く加える理由を説明してください。'
+  topic: cooking
+  lang: ja
+  register: formal
+  format: prose
+  stem: 0
+  split: A
+  sha1: 818d45981866
+- prompt_id: 373
+  text: '以下を検討してください。
+
+
+    A bread dough is left to rise overnight in a cold place rather than for two hours at room temperature.
+
+
+    低温長時間発酵が風味と食感をどう変えるか説明してください。'
+  topic: cooking
+  lang: ja
+  register: formal
+  format: prose
+  stem: 1
+  split: B
+  sha1: c6fe7f4b4772
+- prompt_id: 374
+  text: '以下を検討してください。
+
+
+    Onions are cooked slowly in fat for forty minutes until deep brown, stirred often, with a pinch of salt added early.
+
+
+    この化学的過程と、塩を早く加える理由を説明してください。
+
+    次のキーを持つ JSON オブジェクトで答えてください。 "process", "salt_role"'
+  topic: cooking
+  lang: ja
+  register: formal
+  format: json
+  stem: 0
+  split: A
+  sha1: 5301ef64b1fe
+- prompt_id: 375
+  text: '以下を検討してください。
+
+
+    A bread dough is left to rise overnight in a cold place rather than for two hours at room temperature.
+
+
+    低温長時間発酵が風味と食感をどう変えるか説明してください。
+
+    次のキーを持つ JSON オブジェクトで答えてください。 "flavour_change", "texture_change"'
+  topic: cooking
+  lang: ja
+  register: formal
+  format: json
+  stem: 1
+  split: B
+  sha1: 07bcb494daa3
+- prompt_id: 376
+  text: '以下を検討してください。
+
+
+    Onions are cooked slowly in fat for forty minutes until deep brown, stirred often, with a pinch of salt added early.
+
+
+    この化学的過程と、塩を早く加える理由を説明してください。
+
+    次の項目を箇条書きで答えてください。 chemistry, salt'
+  topic: cooking
+  lang: ja
+  register: formal
+  format: bulleted
+  stem: 0
+  split: A
+  sha1: 9eadee13ff14
+- prompt_id: 377
+  text: '以下を検討してください。
+
+
+    A bread dough is left to rise overnight in a cold place rather than for two hours at room temperature.
+
+
+    低温長時間発酵が風味と食感をどう変えるか説明してください。
+
+    次の項目を箇条書きで答えてください。 flavour, texture'
+  topic: cooking
+  lang: ja
+  register: formal
+  format: bulleted
+  stem: 1
+  split: B
+  sha1: 35ea327ab171
+- prompt_id: 378
+  text: 'これなんだけど：
+
+
+    Onions are cooked slowly in fat for forty minutes until deep brown, stirred often, with a pinch of salt added early.
+
+
+    この化学的過程と、塩を早く加える理由を説明してください。
+
+    どう思う？'
+  topic: cooking
+  lang: ja
+  register: casual
+  format: prose
+  stem: 0
+  split: A
+  sha1: 179293d6f397
+- prompt_id: 379
+  text: 'これなんだけど：
+
+
+    A bread dough is left to rise overnight in a cold place rather than for two hours at room temperature.
+
+
+    低温長時間発酵が風味と食感をどう変えるか説明してください。
+
+    どう思う？'
+  topic: cooking
+  lang: ja
+  register: casual
+  format: prose
+  stem: 1
+  split: B
+  sha1: d391c79490e3
+- prompt_id: 380
+  text: 'これなんだけど：
+
+
+    Onions are cooked slowly in fat for forty minutes until deep brown, stirred often, with a pinch of salt added early.
+
+
+    この化学的過程と、塩を早く加える理由を説明してください。
+
+    次のキーを持つ JSON オブジェクトで答えてください。 "process", "salt_role"
+
+    どう思う？'
+  topic: cooking
+  lang: ja
+  register: casual
+  format: json
+  stem: 0
+  split: A
+  sha1: 6215d02b8407
+- prompt_id: 381
+  text: 'これなんだけど：
+
+
+    A bread dough is left to rise overnight in a cold place rather than for two hours at room temperature.
+
+
+    低温長時間発酵が風味と食感をどう変えるか説明してください。
+
+    次のキーを持つ JSON オブジェクトで答えてください。 "flavour_change", "texture_change"
+
+    どう思う？'
+  topic: cooking
+  lang: ja
+  register: casual
+  format: json
+  stem: 1
+  split: B
+  sha1: 52ee66761a03
+- prompt_id: 382
+  text: 'これなんだけど：
+
+
+    Onions are cooked slowly in fat for forty minutes until deep brown, stirred often, with a pinch of salt added early.
+
+
+    この化学的過程と、塩を早く加える理由を説明してください。
+
+    次の項目を箇条書きで答えてください。 chemistry, salt
+
+    どう思う？'
+  topic: cooking
+  lang: ja
+  register: casual
+  format: bulleted
+  stem: 0
+  split: A
+  sha1: 38dda551e9b2
+- prompt_id: 383
+  text: 'これなんだけど：
+
+
+    A bread dough is left to rise overnight in a cold place rather than for two hours at room temperature.
+
+
+    低温長時間発酵が風味と食感をどう変えるか説明してください。
+
+    次の項目を箇条書きで答えてください。 flavour, texture
+
+    どう思う？'
+  topic: cooking
+  lang: ja
+  register: casual
+  format: bulleted
+  stem: 1
+  split: B
+  sha1: a77971f70f06
+- prompt_id: 384
+  text: 'Consider the following:
+
+
+    Between 1845 and 1852 Ireland''s population fell by roughly a quarter through death and emigration.
+
+
+    Explain the principal causes and one long-term consequence.'
+  topic: history
+  lang: en
+  register: formal
+  format: prose
+  stem: 0
+  split: A
+  sha1: 802fa131ca3a
+- prompt_id: 385
+  text: 'Consider the following:
+
+
+    The printing press spread across Europe in the decades after 1450, reaching most major cities within fifty years.
+
+
+    Explain one social effect and one economic effect of this spread.'
+  topic: history
+  lang: en
+  register: formal
+  format: prose
+  stem: 1
+  split: B
+  sha1: 8809075c4e7c
+- prompt_id: 386
+  text: 'Consider the following:
+
+
+    Between 1845 and 1852 Ireland''s population fell by roughly a quarter through death and emigration.
+
+
+    Explain the principal causes and one long-term consequence.
+
+    Answer as a JSON object with keys: "causes", "long_term_consequence"'
+  topic: history
+  lang: en
+  register: formal
+  format: json
+  stem: 0
+  split: A
+  sha1: e3b44b1e5a84
+- prompt_id: 387
+  text: 'Consider the following:
+
+
+    The printing press spread across Europe in the decades after 1450, reaching most major cities within fifty years.
+
+
+    Explain one social effect and one economic effect of this spread.
+
+    Answer as a JSON object with keys: "social_effect", "economic_effect"'
+  topic: history
+  lang: en
+  register: formal
+  format: json
+  stem: 1
+  split: B
+  sha1: b3f58ddabad9
+- prompt_id: 388
+  text: 'Consider the following:
+
+
+    Between 1845 and 1852 Ireland''s population fell by roughly a quarter through death and emigration.
+
+
+    Explain the principal causes and one long-term consequence.
+
+    Answer as a bulleted list covering: causes, consequence'
+  topic: history
+  lang: en
+  register: formal
+  format: bulleted
+  stem: 0
+  split: A
+  sha1: 6f06ba46c384
+- prompt_id: 389
+  text: 'Consider the following:
+
+
+    The printing press spread across Europe in the decades after 1450, reaching most major cities within fifty years.
+
+
+    Explain one social effect and one economic effect of this spread.
+
+    Answer as a bulleted list covering: social, economic'
+  topic: history
+  lang: en
+  register: formal
+  format: bulleted
+  stem: 1
+  split: B
+  sha1: eff5e9d89ae4
+- prompt_id: 390
+  text: 'ok so i''ve got this:
+
+
+    Between 1845 and 1852 Ireland''s population fell by roughly a quarter through death and emigration.
+
+
+    Explain the principal causes and one long-term consequence.
+
+    any idea?'
+  topic: history
+  lang: en
+  register: casual
+  format: prose
+  stem: 0
+  split: A
+  sha1: 575df1e07504
+- prompt_id: 391
+  text: 'ok so i''ve got this:
+
+
+    The printing press spread across Europe in the decades after 1450, reaching most major cities within fifty years.
+
+
+    Explain one social effect and one economic effect of this spread.
+
+    any idea?'
+  topic: history
+  lang: en
+  register: casual
+  format: prose
+  stem: 1
+  split: B
+  sha1: ee0b95465f79
+- prompt_id: 392
+  text: 'ok so i''ve got this:
+
+
+    Between 1845 and 1852 Ireland''s population fell by roughly a quarter through death and emigration.
+
+
+    Explain the principal causes and one long-term consequence.
+
+    Answer as a JSON object with keys: "causes", "long_term_consequence"
+
+    any idea?'
+  topic: history
+  lang: en
+  register: casual
+  format: json
+  stem: 0
+  split: A
+  sha1: d8ecff785f59
+- prompt_id: 393
+  text: 'ok so i''ve got this:
+
+
+    The printing press spread across Europe in the decades after 1450, reaching most major cities within fifty years.
+
+
+    Explain one social effect and one economic effect of this spread.
+
+    Answer as a JSON object with keys: "social_effect", "economic_effect"
+
+    any idea?'
+  topic: history
+  lang: en
+  register: casual
+  format: json
+  stem: 1
+  split: B
+  sha1: 2207f72bd003
+- prompt_id: 394
+  text: 'ok so i''ve got this:
+
+
+    Between 1845 and 1852 Ireland''s population fell by roughly a quarter through death and emigration.
+
+
+    Explain the principal causes and one long-term consequence.
+
+    Answer as a bulleted list covering: causes, consequence
+
+    any idea?'
+  topic: history
+  lang: en
+  register: casual
+  format: bulleted
+  stem: 0
+  split: A
+  sha1: fdb35410ae61
+- prompt_id: 395
+  text: 'ok so i''ve got this:
+
+
+    The printing press spread across Europe in the decades after 1450, reaching most major cities within fifty years.
+
+
+    Explain one social effect and one economic effect of this spread.
+
+    Answer as a bulleted list covering: social, economic
+
+    any idea?'
+  topic: history
+  lang: en
+  register: casual
+  format: bulleted
+  stem: 1
+  split: B
+  sha1: 85a056fdeb2a
+- prompt_id: 396
+  text: '请看以下内容：
+
+
+    Between 1845 and 1852 Ireland''s population fell by roughly a quarter through death and emigration.
+
+
+    请解释主要原因和一个长期后果。'
+  topic: history
+  lang: zh
+  register: formal
+  format: prose
+  stem: 0
+  split: A
+  sha1: 0ae62312560b
+- prompt_id: 397
+  text: '请看以下内容：
+
+
+    The printing press spread across Europe in the decades after 1450, reaching most major cities within fifty years.
+
+
+    请解释这一传播的一个社会影响和一个经济影响。'
+  topic: history
+  lang: zh
+  register: formal
+  format: prose
+  stem: 1
+  split: B
+  sha1: dc2ab8ed35a2
+- prompt_id: 398
+  text: '请看以下内容：
+
+
+    Between 1845 and 1852 Ireland''s population fell by roughly a quarter through death and emigration.
+
+
+    请解释主要原因和一个长期后果。
+
+    请用带以下键的 JSON 对象回答： "causes", "long_term_consequence"'
+  topic: history
+  lang: zh
+  register: formal
+  format: json
+  stem: 0
+  split: A
+  sha1: 21817ed74cd8
+- prompt_id: 399
+  text: '请看以下内容：
+
+
+    The printing press spread across Europe in the decades after 1450, reaching most major cities within fifty years.
+
+
+    请解释这一传播的一个社会影响和一个经济影响。
+
+    请用带以下键的 JSON 对象回答： "social_effect", "economic_effect"'
+  topic: history
+  lang: zh
+  register: formal
+  format: json
+  stem: 1
+  split: B
+  sha1: fec066cf1378
+- prompt_id: 400
+  text: '请看以下内容：
+
+
+    Between 1845 and 1852 Ireland''s population fell by roughly a quarter through death and emigration.
+
+
+    请解释主要原因和一个长期后果。
+
+    请用要点列表回答，涵盖： causes, consequence'
+  topic: history
+  lang: zh
+  register: formal
+  format: bulleted
+  stem: 0
+  split: A
+  sha1: 945b9c96abde
+- prompt_id: 401
+  text: '请看以下内容：
+
+
+    The printing press spread across Europe in the decades after 1450, reaching most major cities within fifty years.
+
+
+    请解释这一传播的一个社会影响和一个经济影响。
+
+    请用要点列表回答，涵盖： social, economic'
+  topic: history
+  lang: zh
+  register: formal
+  format: bulleted
+  stem: 1
+  split: B
+  sha1: 1dc78fb1170e
+- prompt_id: 402
+  text: '我这有个东西：
+
+
+    Between 1845 and 1852 Ireland''s population fell by roughly a quarter through death and emigration.
+
+
+    请解释主要原因和一个长期后果。
+
+    有什么想法吗？'
+  topic: history
+  lang: zh
+  register: casual
+  format: prose
+  stem: 0
+  split: A
+  sha1: e16825cfdd40
+- prompt_id: 403
+  text: '我这有个东西：
+
+
+    The printing press spread across Europe in the decades after 1450, reaching most major cities within fifty years.
+
+
+    请解释这一传播的一个社会影响和一个经济影响。
+
+    有什么想法吗？'
+  topic: history
+  lang: zh
+  register: casual
+  format: prose
+  stem: 1
+  split: B
+  sha1: c9c00003aa75
+- prompt_id: 404
+  text: '我这有个东西：
+
+
+    Between 1845 and 1852 Ireland''s population fell by roughly a quarter through death and emigration.
+
+
+    请解释主要原因和一个长期后果。
+
+    请用带以下键的 JSON 对象回答： "causes", "long_term_consequence"
+
+    有什么想法吗？'
+  topic: history
+  lang: zh
+  register: casual
+  format: json
+  stem: 0
+  split: A
+  sha1: 5e4753e9e04f
+- prompt_id: 405
+  text: '我这有个东西：
+
+
+    The printing press spread across Europe in the decades after 1450, reaching most major cities within fifty years.
+
+
+    请解释这一传播的一个社会影响和一个经济影响。
+
+    请用带以下键的 JSON 对象回答： "social_effect", "economic_effect"
+
+    有什么想法吗？'
+  topic: history
+  lang: zh
+  register: casual
+  format: json
+  stem: 1
+  split: B
+  sha1: ac9b304e5428
+- prompt_id: 406
+  text: '我这有个东西：
+
+
+    Between 1845 and 1852 Ireland''s population fell by roughly a quarter through death and emigration.
+
+
+    请解释主要原因和一个长期后果。
+
+    请用要点列表回答，涵盖： causes, consequence
+
+    有什么想法吗？'
+  topic: history
+  lang: zh
+  register: casual
+  format: bulleted
+  stem: 0
+  split: A
+  sha1: 7655f3077d61
+- prompt_id: 407
+  text: '我这有个东西：
+
+
+    The printing press spread across Europe in the decades after 1450, reaching most major cities within fifty years.
+
+
+    请解释这一传播的一个社会影响和一个经济影响。
+
+    请用要点列表回答，涵盖： social, economic
+
+    有什么想法吗？'
+  topic: history
+  lang: zh
+  register: casual
+  format: bulleted
+  stem: 1
+  split: B
+  sha1: 3ef5c17d27fa
+- prompt_id: 408
+  text: 'Betrachten Sie Folgendes:
+
+
+    Between 1845 and 1852 Ireland''s population fell by roughly a quarter through death and emigration.
+
+
+    Erkläre die Hauptursachen und eine langfristige Folge.'
+  topic: history
+  lang: de
+  register: formal
+  format: prose
+  stem: 0
+  split: A
+  sha1: a4f232a0b6db
+- prompt_id: 409
+  text: 'Betrachten Sie Folgendes:
+
+
+    The printing press spread across Europe in the decades after 1450, reaching most major cities within fifty years.
+
+
+    Erkläre je eine soziale und eine wirtschaftliche Folge dieser Verbreitung.'
+  topic: history
+  lang: de
+  register: formal
+  format: prose
+  stem: 1
+  split: B
+  sha1: 7f68be9259a7
+- prompt_id: 410
+  text: 'Betrachten Sie Folgendes:
+
+
+    Between 1845 and 1852 Ireland''s population fell by roughly a quarter through death and emigration.
+
+
+    Erkläre die Hauptursachen und eine langfristige Folge.
+
+    Antworte als JSON-Objekt mit den Schlüsseln: "causes", "long_term_consequence"'
+  topic: history
+  lang: de
+  register: formal
+  format: json
+  stem: 0
+  split: A
+  sha1: 51d421c531c4
+- prompt_id: 411
+  text: 'Betrachten Sie Folgendes:
+
+
+    The printing press spread across Europe in the decades after 1450, reaching most major cities within fifty years.
+
+
+    Erkläre je eine soziale und eine wirtschaftliche Folge dieser Verbreitung.
+
+    Antworte als JSON-Objekt mit den Schlüsseln: "social_effect", "economic_effect"'
+  topic: history
+  lang: de
+  register: formal
+  format: json
+  stem: 1
+  split: B
+  sha1: f8fd88eeb072
+- prompt_id: 412
+  text: 'Betrachten Sie Folgendes:
+
+
+    Between 1845 and 1852 Ireland''s population fell by roughly a quarter through death and emigration.
+
+
+    Erkläre die Hauptursachen und eine langfristige Folge.
+
+    Antworte als Aufzählung zu: causes, consequence'
+  topic: history
+  lang: de
+  register: formal
+  format: bulleted
+  stem: 0
+  split: A
+  sha1: 22998824aa56
+- prompt_id: 413
+  text: 'Betrachten Sie Folgendes:
+
+
+    The printing press spread across Europe in the decades after 1450, reaching most major cities within fifty years.
+
+
+    Erkläre je eine soziale und eine wirtschaftliche Folge dieser Verbreitung.
+
+    Antworte als Aufzählung zu: social, economic'
+  topic: history
+  lang: de
+  register: formal
+  format: bulleted
+  stem: 1
+  split: B
+  sha1: 66ef75f9e11c
+- prompt_id: 414
+  text: 'also ich hab hier das:
+
+
+    Between 1845 and 1852 Ireland''s population fell by roughly a quarter through death and emigration.
+
+
+    Erkläre die Hauptursachen und eine langfristige Folge.
+
+    irgendeine Idee?'
+  topic: history
+  lang: de
+  register: casual
+  format: prose
+  stem: 0
+  split: A
+  sha1: c6a9ab6383c1
+- prompt_id: 415
+  text: 'also ich hab hier das:
+
+
+    The printing press spread across Europe in the decades after 1450, reaching most major cities within fifty years.
+
+
+    Erkläre je eine soziale und eine wirtschaftliche Folge dieser Verbreitung.
+
+    irgendeine Idee?'
+  topic: history
+  lang: de
+  register: casual
+  format: prose
+  stem: 1
+  split: B
+  sha1: ea52704d188d
+- prompt_id: 416
+  text: 'also ich hab hier das:
+
+
+    Between 1845 and 1852 Ireland''s population fell by roughly a quarter through death and emigration.
+
+
+    Erkläre die Hauptursachen und eine langfristige Folge.
+
+    Antworte als JSON-Objekt mit den Schlüsseln: "causes", "long_term_consequence"
+
+    irgendeine Idee?'
+  topic: history
+  lang: de
+  register: casual
+  format: json
+  stem: 0
+  split: A
+  sha1: 40fe932ef7e5
+- prompt_id: 417
+  text: 'also ich hab hier das:
+
+
+    The printing press spread across Europe in the decades after 1450, reaching most major cities within fifty years.
+
+
+    Erkläre je eine soziale und eine wirtschaftliche Folge dieser Verbreitung.
+
+    Antworte als JSON-Objekt mit den Schlüsseln: "social_effect", "economic_effect"
+
+    irgendeine Idee?'
+  topic: history
+  lang: de
+  register: casual
+  format: json
+  stem: 1
+  split: B
+  sha1: ee572309d0f2
+- prompt_id: 418
+  text: 'also ich hab hier das:
+
+
+    Between 1845 and 1852 Ireland''s population fell by roughly a quarter through death and emigration.
+
+
+    Erkläre die Hauptursachen und eine langfristige Folge.
+
+    Antworte als Aufzählung zu: causes, consequence
+
+    irgendeine Idee?'
+  topic: history
+  lang: de
+  register: casual
+  format: bulleted
+  stem: 0
+  split: A
+  sha1: 08c45045b2a3
+- prompt_id: 419
+  text: 'also ich hab hier das:
+
+
+    The printing press spread across Europe in the decades after 1450, reaching most major cities within fifty years.
+
+
+    Erkläre je eine soziale und eine wirtschaftliche Folge dieser Verbreitung.
+
+    Antworte als Aufzählung zu: social, economic
+
+    irgendeine Idee?'
+  topic: history
+  lang: de
+  register: casual
+  format: bulleted
+  stem: 1
+  split: B
+  sha1: 7747600945eb
+- prompt_id: 420
+  text: '以下を検討してください。
+
+
+    Between 1845 and 1852 Ireland''s population fell by roughly a quarter through death and emigration.
+
+
+    主な原因と長期的な帰結を一つ説明してください。'
+  topic: history
+  lang: ja
+  register: formal
+  format: prose
+  stem: 0
+  split: A
+  sha1: e7c7d61926df
+- prompt_id: 421
+  text: '以下を検討してください。
+
+
+    The printing press spread across Europe in the decades after 1450, reaching most major cities within fifty years.
+
+
+    この普及の社会的影響と経済的影響を一つずつ説明してください。'
+  topic: history
+  lang: ja
+  register: formal
+  format: prose
+  stem: 1
+  split: B
+  sha1: 51a5fca7ab4d
+- prompt_id: 422
+  text: '以下を検討してください。
+
+
+    Between 1845 and 1852 Ireland''s population fell by roughly a quarter through death and emigration.
+
+
+    主な原因と長期的な帰結を一つ説明してください。
+
+    次のキーを持つ JSON オブジェクトで答えてください。 "causes", "long_term_consequence"'
+  topic: history
+  lang: ja
+  register: formal
+  format: json
+  stem: 0
+  split: A
+  sha1: a5640ad778e4
+- prompt_id: 423
+  text: '以下を検討してください。
+
+
+    The printing press spread across Europe in the decades after 1450, reaching most major cities within fifty years.
+
+
+    この普及の社会的影響と経済的影響を一つずつ説明してください。
+
+    次のキーを持つ JSON オブジェクトで答えてください。 "social_effect", "economic_effect"'
+  topic: history
+  lang: ja
+  register: formal
+  format: json
+  stem: 1
+  split: B
+  sha1: acaa1d8a61ec
+- prompt_id: 424
+  text: '以下を検討してください。
+
+
+    Between 1845 and 1852 Ireland''s population fell by roughly a quarter through death and emigration.
+
+
+    主な原因と長期的な帰結を一つ説明してください。
+
+    次の項目を箇条書きで答えてください。 causes, consequence'
+  topic: history
+  lang: ja
+  register: formal
+  format: bulleted
+  stem: 0
+  split: A
+  sha1: 588e8b61985f
+- prompt_id: 425
+  text: '以下を検討してください。
+
+
+    The printing press spread across Europe in the decades after 1450, reaching most major cities within fifty years.
+
+
+    この普及の社会的影響と経済的影響を一つずつ説明してください。
+
+    次の項目を箇条書きで答えてください。 social, economic'
+  topic: history
+  lang: ja
+  register: formal
+  format: bulleted
+  stem: 1
+  split: B
+  sha1: 56c202c51a62
+- prompt_id: 426
+  text: 'これなんだけど：
+
+
+    Between 1845 and 1852 Ireland''s population fell by roughly a quarter through death and emigration.
+
+
+    主な原因と長期的な帰結を一つ説明してください。
+
+    どう思う？'
+  topic: history
+  lang: ja
+  register: casual
+  format: prose
+  stem: 0
+  split: A
+  sha1: 8baf265b05e2
+- prompt_id: 427
+  text: 'これなんだけど：
+
+
+    The printing press spread across Europe in the decades after 1450, reaching most major cities within fifty years.
+
+
+    この普及の社会的影響と経済的影響を一つずつ説明してください。
+
+    どう思う？'
+  topic: history
+  lang: ja
+  register: casual
+  format: prose
+  stem: 1
+  split: B
+  sha1: 6a2af04f1530
+- prompt_id: 428
+  text: 'これなんだけど：
+
+
+    Between 1845 and 1852 Ireland''s population fell by roughly a quarter through death and emigration.
+
+
+    主な原因と長期的な帰結を一つ説明してください。
+
+    次のキーを持つ JSON オブジェクトで答えてください。 "causes", "long_term_consequence"
+
+    どう思う？'
+  topic: history
+  lang: ja
+  register: casual
+  format: json
+  stem: 0
+  split: A
+  sha1: 2536ce6a87f2
+- prompt_id: 429
+  text: 'これなんだけど：
+
+
+    The printing press spread across Europe in the decades after 1450, reaching most major cities within fifty years.
+
+
+    この普及の社会的影響と経済的影響を一つずつ説明してください。
+
+    次のキーを持つ JSON オブジェクトで答えてください。 "social_effect", "economic_effect"
+
+    どう思う？'
+  topic: history
+  lang: ja
+  register: casual
+  format: json
+  stem: 1
+  split: B
+  sha1: 6827957c9205
+- prompt_id: 430
+  text: 'これなんだけど：
+
+
+    Between 1845 and 1852 Ireland''s population fell by roughly a quarter through death and emigration.
+
+
+    主な原因と長期的な帰結を一つ説明してください。
+
+    次の項目を箇条書きで答えてください。 causes, consequence
+
+    どう思う？'
+  topic: history
+  lang: ja
+  register: casual
+  format: bulleted
+  stem: 0
+  split: A
+  sha1: 65be7afe0724
+- prompt_id: 431
+  text: 'これなんだけど：
+
+
+    The printing press spread across Europe in the decades after 1450, reaching most major cities within fifty years.
+
+
+    この普及の社会的影響と経済的影響を一つずつ説明してください。
+
+    次の項目を箇条書きで答えてください。 social, economic
+
+    どう思う？'
+  topic: history
+  lang: ja
+  register: casual
+  format: bulleted
+  stem: 1
+  split: B
+  sha1: 9f476e85865f
+- prompt_id: 432
+  text: 'Consider the following:
+
+
+    The sea is calm tonight.
+
+    The tide is full, the moon lies fair
+
+    Upon the straits.
+
+
+    Describe the metre and the mood established by these lines.'
+  topic: poetry
+  lang: en
+  register: formal
+  format: prose
+  stem: 0
+  split: A
+  sha1: 4dbeba2528e4
+- prompt_id: 433
+  text: 'Consider the following:
+
+
+    A poem repeats the same end-word at the close of each stanza, rotating through six such words in a fixed pattern.
+
+
+    Identify this form and explain the effect of the repetition.'
+  topic: poetry
+  lang: en
+  register: formal
+  format: prose
+  stem: 1
+  split: B
+  sha1: 5072dcef427e
+- prompt_id: 434
+  text: 'Consider the following:
+
+
+    The sea is calm tonight.
+
+    The tide is full, the moon lies fair
+
+    Upon the straits.
+
+
+    Describe the metre and the mood established by these lines.
+
+    Answer as a JSON object with keys: "metre", "mood"'
+  topic: poetry
+  lang: en
+  register: formal
+  format: json
+  stem: 0
+  split: A
+  sha1: d10a9e5888e0
+- prompt_id: 435
+  text: 'Consider the following:
+
+
+    A poem repeats the same end-word at the close of each stanza, rotating through six such words in a fixed pattern.
+
+
+    Identify this form and explain the effect of the repetition.
+
+    Answer as a JSON object with keys: "form_name", "repetition_effect"'
+  topic: poetry
+  lang: en
+  register: formal
+  format: json
+  stem: 1
+  split: B
+  sha1: 2fc047c3c0e0
+- prompt_id: 436
+  text: 'Consider the following:
+
+
+    The sea is calm tonight.
+
+    The tide is full, the moon lies fair
+
+    Upon the straits.
+
+
+    Describe the metre and the mood established by these lines.
+
+    Answer as a bulleted list covering: metre, mood'
+  topic: poetry
+  lang: en
+  register: formal
+  format: bulleted
+  stem: 0
+  split: A
+  sha1: 9d6dc53cd59d
+- prompt_id: 437
+  text: 'Consider the following:
+
+
+    A poem repeats the same end-word at the close of each stanza, rotating through six such words in a fixed pattern.
+
+
+    Identify this form and explain the effect of the repetition.
+
+    Answer as a bulleted list covering: form, effect'
+  topic: poetry
+  lang: en
+  register: formal
+  format: bulleted
+  stem: 1
+  split: B
+  sha1: caba40c311d1
+- prompt_id: 438
+  text: 'ok so i''ve got this:
+
+
+    The sea is calm tonight.
+
+    The tide is full, the moon lies fair
+
+    Upon the straits.
+
+
+    Describe the metre and the mood established by these lines.
+
+    any idea?'
+  topic: poetry
+  lang: en
+  register: casual
+  format: prose
+  stem: 0
+  split: A
+  sha1: c57402fc6782
+- prompt_id: 439
+  text: 'ok so i''ve got this:
+
+
+    A poem repeats the same end-word at the close of each stanza, rotating through six such words in a fixed pattern.
+
+
+    Identify this form and explain the effect of the repetition.
+
+    any idea?'
+  topic: poetry
+  lang: en
+  register: casual
+  format: prose
+  stem: 1
+  split: B
+  sha1: 8e4ad92dfef4
+- prompt_id: 440
+  text: 'ok so i''ve got this:
+
+
+    The sea is calm tonight.
+
+    The tide is full, the moon lies fair
+
+    Upon the straits.
+
+
+    Describe the metre and the mood established by these lines.
+
+    Answer as a JSON object with keys: "metre", "mood"
+
+    any idea?'
+  topic: poetry
+  lang: en
+  register: casual
+  format: json
+  stem: 0
+  split: A
+  sha1: 2e53ffb39f0f
+- prompt_id: 441
+  text: 'ok so i''ve got this:
+
+
+    A poem repeats the same end-word at the close of each stanza, rotating through six such words in a fixed pattern.
+
+
+    Identify this form and explain the effect of the repetition.
+
+    Answer as a JSON object with keys: "form_name", "repetition_effect"
+
+    any idea?'
+  topic: poetry
+  lang: en
+  register: casual
+  format: json
+  stem: 1
+  split: B
+  sha1: 75db26b13f83
+- prompt_id: 442
+  text: 'ok so i''ve got this:
+
+
+    The sea is calm tonight.
+
+    The tide is full, the moon lies fair
+
+    Upon the straits.
+
+
+    Describe the metre and the mood established by these lines.
+
+    Answer as a bulleted list covering: metre, mood
+
+    any idea?'
+  topic: poetry
+  lang: en
+  register: casual
+  format: bulleted
+  stem: 0
+  split: A
+  sha1: 03b2efd07191
+- prompt_id: 443
+  text: 'ok so i''ve got this:
+
+
+    A poem repeats the same end-word at the close of each stanza, rotating through six such words in a fixed pattern.
+
+
+    Identify this form and explain the effect of the repetition.
+
+    Answer as a bulleted list covering: form, effect
+
+    any idea?'
+  topic: poetry
+  lang: en
+  register: casual
+  format: bulleted
+  stem: 1
+  split: B
+  sha1: b20aebe3e1e9
+- prompt_id: 444
+  text: '请看以下内容：
+
+
+    The sea is calm tonight.
+
+    The tide is full, the moon lies fair
+
+    Upon the straits.
+
+
+    请描述这几行的格律和所营造的情绪。'
+  topic: poetry
+  lang: zh
+  register: formal
+  format: prose
+  stem: 0
+  split: A
+  sha1: f6908838dc73
+- prompt_id: 445
+  text: '请看以下内容：
+
+
+    A poem repeats the same end-word at the close of each stanza, rotating through six such words in a fixed pattern.
+
+
+    指出这种诗体，并解释重复所产生的效果。'
+  topic: poetry
+  lang: zh
+  register: formal
+  format: prose
+  stem: 1
+  split: B
+  sha1: de2ddb3a34f3
+- prompt_id: 446
+  text: '请看以下内容：
+
+
+    The sea is calm tonight.
+
+    The tide is full, the moon lies fair
+
+    Upon the straits.
+
+
+    请描述这几行的格律和所营造的情绪。
+
+    请用带以下键的 JSON 对象回答： "metre", "mood"'
+  topic: poetry
+  lang: zh
+  register: formal
+  format: json
+  stem: 0
+  split: A
+  sha1: dda2d3f6167d
+- prompt_id: 447
+  text: '请看以下内容：
+
+
+    A poem repeats the same end-word at the close of each stanza, rotating through six such words in a fixed pattern.
+
+
+    指出这种诗体，并解释重复所产生的效果。
+
+    请用带以下键的 JSON 对象回答： "form_name", "repetition_effect"'
+  topic: poetry
+  lang: zh
+  register: formal
+  format: json
+  stem: 1
+  split: B
+  sha1: 58e2aff62487
+- prompt_id: 448
+  text: '请看以下内容：
+
+
+    The sea is calm tonight.
+
+    The tide is full, the moon lies fair
+
+    Upon the straits.
+
+
+    请描述这几行的格律和所营造的情绪。
+
+    请用要点列表回答，涵盖： metre, mood'
+  topic: poetry
+  lang: zh
+  register: formal
+  format: bulleted
+  stem: 0
+  split: A
+  sha1: e8a9511fcb18
+- prompt_id: 449
+  text: '请看以下内容：
+
+
+    A poem repeats the same end-word at the close of each stanza, rotating through six such words in a fixed pattern.
+
+
+    指出这种诗体，并解释重复所产生的效果。
+
+    请用要点列表回答，涵盖： form, effect'
+  topic: poetry
+  lang: zh
+  register: formal
+  format: bulleted
+  stem: 1
+  split: B
+  sha1: 8d2527cf4747
+- prompt_id: 450
+  text: '我这有个东西：
+
+
+    The sea is calm tonight.
+
+    The tide is full, the moon lies fair
+
+    Upon the straits.
+
+
+    请描述这几行的格律和所营造的情绪。
+
+    有什么想法吗？'
+  topic: poetry
+  lang: zh
+  register: casual
+  format: prose
+  stem: 0
+  split: A
+  sha1: 7ff4d9daf0a4
+- prompt_id: 451
+  text: '我这有个东西：
+
+
+    A poem repeats the same end-word at the close of each stanza, rotating through six such words in a fixed pattern.
+
+
+    指出这种诗体，并解释重复所产生的效果。
+
+    有什么想法吗？'
+  topic: poetry
+  lang: zh
+  register: casual
+  format: prose
+  stem: 1
+  split: B
+  sha1: c69f1f74c062
+- prompt_id: 452
+  text: '我这有个东西：
+
+
+    The sea is calm tonight.
+
+    The tide is full, the moon lies fair
+
+    Upon the straits.
+
+
+    请描述这几行的格律和所营造的情绪。
+
+    请用带以下键的 JSON 对象回答： "metre", "mood"
+
+    有什么想法吗？'
+  topic: poetry
+  lang: zh
+  register: casual
+  format: json
+  stem: 0
+  split: A
+  sha1: 6b6da9970eb5
+- prompt_id: 453
+  text: '我这有个东西：
+
+
+    A poem repeats the same end-word at the close of each stanza, rotating through six such words in a fixed pattern.
+
+
+    指出这种诗体，并解释重复所产生的效果。
+
+    请用带以下键的 JSON 对象回答： "form_name", "repetition_effect"
+
+    有什么想法吗？'
+  topic: poetry
+  lang: zh
+  register: casual
+  format: json
+  stem: 1
+  split: B
+  sha1: 0f5fe0731560
+- prompt_id: 454
+  text: '我这有个东西：
+
+
+    The sea is calm tonight.
+
+    The tide is full, the moon lies fair
+
+    Upon the straits.
+
+
+    请描述这几行的格律和所营造的情绪。
+
+    请用要点列表回答，涵盖： metre, mood
+
+    有什么想法吗？'
+  topic: poetry
+  lang: zh
+  register: casual
+  format: bulleted
+  stem: 0
+  split: A
+  sha1: a122dca4d234
+- prompt_id: 455
+  text: '我这有个东西：
+
+
+    A poem repeats the same end-word at the close of each stanza, rotating through six such words in a fixed pattern.
+
+
+    指出这种诗体，并解释重复所产生的效果。
+
+    请用要点列表回答，涵盖： form, effect
+
+    有什么想法吗？'
+  topic: poetry
+  lang: zh
+  register: casual
+  format: bulleted
+  stem: 1
+  split: B
+  sha1: 5932deeb1258
+- prompt_id: 456
+  text: 'Betrachten Sie Folgendes:
+
+
+    The sea is calm tonight.
+
+    The tide is full, the moon lies fair
+
+    Upon the straits.
+
+
+    Beschreibe das Versmaß und die Stimmung dieser Zeilen.'
+  topic: poetry
+  lang: de
+  register: formal
+  format: prose
+  stem: 0
+  split: A
+  sha1: 9160f0a7a0f3
+- prompt_id: 457
+  text: 'Betrachten Sie Folgendes:
+
+
+    A poem repeats the same end-word at the close of each stanza, rotating through six such words in a fixed pattern.
+
+
+    Nenne diese Form und erkläre die Wirkung der Wiederholung.'
+  topic: poetry
+  lang: de
+  register: formal
+  format: prose
+  stem: 1
+  split: B
+  sha1: 72ac611e980b
+- prompt_id: 458
+  text: 'Betrachten Sie Folgendes:
+
+
+    The sea is calm tonight.
+
+    The tide is full, the moon lies fair
+
+    Upon the straits.
+
+
+    Beschreibe das Versmaß und die Stimmung dieser Zeilen.
+
+    Antworte als JSON-Objekt mit den Schlüsseln: "metre", "mood"'
+  topic: poetry
+  lang: de
+  register: formal
+  format: json
+  stem: 0
+  split: A
+  sha1: fc6e767c0d82
+- prompt_id: 459
+  text: 'Betrachten Sie Folgendes:
+
+
+    A poem repeats the same end-word at the close of each stanza, rotating through six such words in a fixed pattern.
+
+
+    Nenne diese Form und erkläre die Wirkung der Wiederholung.
+
+    Antworte als JSON-Objekt mit den Schlüsseln: "form_name", "repetition_effect"'
+  topic: poetry
+  lang: de
+  register: formal
+  format: json
+  stem: 1
+  split: B
+  sha1: fafa52e61773
+- prompt_id: 460
+  text: 'Betrachten Sie Folgendes:
+
+
+    The sea is calm tonight.
+
+    The tide is full, the moon lies fair
+
+    Upon the straits.
+
+
+    Beschreibe das Versmaß und die Stimmung dieser Zeilen.
+
+    Antworte als Aufzählung zu: metre, mood'
+  topic: poetry
+  lang: de
+  register: formal
+  format: bulleted
+  stem: 0
+  split: A
+  sha1: 1109ff77ee5a
+- prompt_id: 461
+  text: 'Betrachten Sie Folgendes:
+
+
+    A poem repeats the same end-word at the close of each stanza, rotating through six such words in a fixed pattern.
+
+
+    Nenne diese Form und erkläre die Wirkung der Wiederholung.
+
+    Antworte als Aufzählung zu: form, effect'
+  topic: poetry
+  lang: de
+  register: formal
+  format: bulleted
+  stem: 1
+  split: B
+  sha1: 5fd3d9ca2ad6
+- prompt_id: 462
+  text: 'also ich hab hier das:
+
+
+    The sea is calm tonight.
+
+    The tide is full, the moon lies fair
+
+    Upon the straits.
+
+
+    Beschreibe das Versmaß und die Stimmung dieser Zeilen.
+
+    irgendeine Idee?'
+  topic: poetry
+  lang: de
+  register: casual
+  format: prose
+  stem: 0
+  split: A
+  sha1: 8156f32d5a4d
+- prompt_id: 463
+  text: 'also ich hab hier das:
+
+
+    A poem repeats the same end-word at the close of each stanza, rotating through six such words in a fixed pattern.
+
+
+    Nenne diese Form und erkläre die Wirkung der Wiederholung.
+
+    irgendeine Idee?'
+  topic: poetry
+  lang: de
+  register: casual
+  format: prose
+  stem: 1
+  split: B
+  sha1: 4a7a7c14ee83
+- prompt_id: 464
+  text: 'also ich hab hier das:
+
+
+    The sea is calm tonight.
+
+    The tide is full, the moon lies fair
+
+    Upon the straits.
+
+
+    Beschreibe das Versmaß und die Stimmung dieser Zeilen.
+
+    Antworte als JSON-Objekt mit den Schlüsseln: "metre", "mood"
+
+    irgendeine Idee?'
+  topic: poetry
+  lang: de
+  register: casual
+  format: json
+  stem: 0
+  split: A
+  sha1: eb7a2b5011ff
+- prompt_id: 465
+  text: 'also ich hab hier das:
+
+
+    A poem repeats the same end-word at the close of each stanza, rotating through six such words in a fixed pattern.
+
+
+    Nenne diese Form und erkläre die Wirkung der Wiederholung.
+
+    Antworte als JSON-Objekt mit den Schlüsseln: "form_name", "repetition_effect"
+
+    irgendeine Idee?'
+  topic: poetry
+  lang: de
+  register: casual
+  format: json
+  stem: 1
+  split: B
+  sha1: 2fc7aa36d6cd
+- prompt_id: 466
+  text: 'also ich hab hier das:
+
+
+    The sea is calm tonight.
+
+    The tide is full, the moon lies fair
+
+    Upon the straits.
+
+
+    Beschreibe das Versmaß und die Stimmung dieser Zeilen.
+
+    Antworte als Aufzählung zu: metre, mood
+
+    irgendeine Idee?'
+  topic: poetry
+  lang: de
+  register: casual
+  format: bulleted
+  stem: 0
+  split: A
+  sha1: 9bea26c4d751
+- prompt_id: 467
+  text: 'also ich hab hier das:
+
+
+    A poem repeats the same end-word at the close of each stanza, rotating through six such words in a fixed pattern.
+
+
+    Nenne diese Form und erkläre die Wirkung der Wiederholung.
+
+    Antworte als Aufzählung zu: form, effect
+
+    irgendeine Idee?'
+  topic: poetry
+  lang: de
+  register: casual
+  format: bulleted
+  stem: 1
+  split: B
+  sha1: 3f494a5b92ee
+- prompt_id: 468
+  text: '以下を検討してください。
+
+
+    The sea is calm tonight.
+
+    The tide is full, the moon lies fair
+
+    Upon the straits.
+
+
+    これらの行の韻律と、生み出される雰囲気を述べてください。'
+  topic: poetry
+  lang: ja
+  register: formal
+  format: prose
+  stem: 0
+  split: A
+  sha1: 69b533505da2
+- prompt_id: 469
+  text: '以下を検討してください。
+
+
+    A poem repeats the same end-word at the close of each stanza, rotating through six such words in a fixed pattern.
+
+
+    この詩形を特定し、反復の効果を説明してください。'
+  topic: poetry
+  lang: ja
+  register: formal
+  format: prose
+  stem: 1
+  split: B
+  sha1: 3aabbd0daaae
+- prompt_id: 470
+  text: '以下を検討してください。
+
+
+    The sea is calm tonight.
+
+    The tide is full, the moon lies fair
+
+    Upon the straits.
+
+
+    これらの行の韻律と、生み出される雰囲気を述べてください。
+
+    次のキーを持つ JSON オブジェクトで答えてください。 "metre", "mood"'
+  topic: poetry
+  lang: ja
+  register: formal
+  format: json
+  stem: 0
+  split: A
+  sha1: 8c9c209279fd
+- prompt_id: 471
+  text: '以下を検討してください。
+
+
+    A poem repeats the same end-word at the close of each stanza, rotating through six such words in a fixed pattern.
+
+
+    この詩形を特定し、反復の効果を説明してください。
+
+    次のキーを持つ JSON オブジェクトで答えてください。 "form_name", "repetition_effect"'
+  topic: poetry
+  lang: ja
+  register: formal
+  format: json
+  stem: 1
+  split: B
+  sha1: 1e2261cedc71
+- prompt_id: 472
+  text: '以下を検討してください。
+
+
+    The sea is calm tonight.
+
+    The tide is full, the moon lies fair
+
+    Upon the straits.
+
+
+    これらの行の韻律と、生み出される雰囲気を述べてください。
+
+    次の項目を箇条書きで答えてください。 metre, mood'
+  topic: poetry
+  lang: ja
+  register: formal
+  format: bulleted
+  stem: 0
+  split: A
+  sha1: c75d12b24ee0
+- prompt_id: 473
+  text: '以下を検討してください。
+
+
+    A poem repeats the same end-word at the close of each stanza, rotating through six such words in a fixed pattern.
+
+
+    この詩形を特定し、反復の効果を説明してください。
+
+    次の項目を箇条書きで答えてください。 form, effect'
+  topic: poetry
+  lang: ja
+  register: formal
+  format: bulleted
+  stem: 1
+  split: B
+  sha1: 78e27235f143
+- prompt_id: 474
+  text: 'これなんだけど：
+
+
+    The sea is calm tonight.
+
+    The tide is full, the moon lies fair
+
+    Upon the straits.
+
+
+    これらの行の韻律と、生み出される雰囲気を述べてください。
+
+    どう思う？'
+  topic: poetry
+  lang: ja
+  register: casual
+  format: prose
+  stem: 0
+  split: A
+  sha1: e411cc3156ea
+- prompt_id: 475
+  text: 'これなんだけど：
+
+
+    A poem repeats the same end-word at the close of each stanza, rotating through six such words in a fixed pattern.
+
+
+    この詩形を特定し、反復の効果を説明してください。
+
+    どう思う？'
+  topic: poetry
+  lang: ja
+  register: casual
+  format: prose
+  stem: 1
+  split: B
+  sha1: 7fdc153b9f4e
+- prompt_id: 476
+  text: 'これなんだけど：
+
+
+    The sea is calm tonight.
+
+    The tide is full, the moon lies fair
+
+    Upon the straits.
+
+
+    これらの行の韻律と、生み出される雰囲気を述べてください。
+
+    次のキーを持つ JSON オブジェクトで答えてください。 "metre", "mood"
+
+    どう思う？'
+  topic: poetry
+  lang: ja
+  register: casual
+  format: json
+  stem: 0
+  split: A
+  sha1: 7966aaa5ddc6
+- prompt_id: 477
+  text: 'これなんだけど：
+
+
+    A poem repeats the same end-word at the close of each stanza, rotating through six such words in a fixed pattern.
+
+
+    この詩形を特定し、反復の効果を説明してください。
+
+    次のキーを持つ JSON オブジェクトで答えてください。 "form_name", "repetition_effect"
+
+    どう思う？'
+  topic: poetry
+  lang: ja
+  register: casual
+  format: json
+  stem: 1
+  split: B
+  sha1: c2092b1abaf3
+- prompt_id: 478
+  text: 'これなんだけど：
+
+
+    The sea is calm tonight.
+
+    The tide is full, the moon lies fair
+
+    Upon the straits.
+
+
+    これらの行の韻律と、生み出される雰囲気を述べてください。
+
+    次の項目を箇条書きで答えてください。 metre, mood
+
+    どう思う？'
+  topic: poetry
+  lang: ja
+  register: casual
+  format: bulleted
+  stem: 0
+  split: A
+  sha1: 791961beaf78
+- prompt_id: 479
+  text: 'これなんだけど：
+
+
+    A poem repeats the same end-word at the close of each stanza, rotating through six such words in a fixed pattern.
+
+
+    この詩形を特定し、反復の効果を説明してください。
+
+    次の項目を箇条書きで答えてください。 form, effect
+
+    どう思う？'
+  topic: poetry
+  lang: ja
+  register: casual
+  format: bulleted
+  stem: 1
+  split: B
+  sha1: 431c402115e6

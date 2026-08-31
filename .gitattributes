@@ -1,0 +1,6 @@
+# These are self-contained viewer/dashboard files, not source code that
+# characterizes the project — exclude them from GitHub's language stats so
+# the repo correctly shows as a Python project.
+viz/atlas.html linguist-vendored
+viz/template.html linguist-vendored
+docs/social/*.html linguist-vendored
