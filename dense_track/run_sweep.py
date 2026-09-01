@@ -15,6 +15,7 @@ Usage:
 
 from __future__ import annotations
 
+import argparse
 import json
 import sys
 import time
@@ -33,8 +34,14 @@ from dense_track.common import (
 
 
 def main() -> None:
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--probe-set", type=str, default=str(PROBE_SET))
+    ap.add_argument("--records", type=str, default=str(RECORDS))
+    ap.add_argument("--mass-out", type=str,
+                    default=str(DATA_DIR / "needle_mass.npz"))
+    args = ap.parse_args()
     DATA_DIR.mkdir(parents=True, exist_ok=True)
-    ps = yaml.safe_load(PROBE_SET.read_text())
+    ps = yaml.safe_load(Path(args.probe_set).read_text())
     model, tok = load_dense_model()
     candidate_ids = [tok(" " + w, add_special_tokens=False)["input_ids"][0]
                      for w in ps["candidate_words"]]
@@ -69,13 +76,16 @@ def main() -> None:
               f"ETA {(el / (i + 1)) * (len(prompts) - i - 1) / 60:.1f} min",
               flush=True)
 
-    RECORDS.write_text("\n".join(json.dumps(r) for r in rows) + "\n")
-    np.savez_compressed(DATA_DIR / "needle_mass.npz", **masses)
+    Path(args.records).write_text(
+        "\n".join(json.dumps(r) for r in rows) + "\n")
+    np.savez_compressed(args.mass_out, **masses)
 
     print("\naccuracy by bucket x distractors:")
     for b in ps["length_buckets"]:
-        for d in ps["distractor_levels"]:
+        for d in sorted({r["n_distractors"] for r in rows}):
             sel = [r for r in rows if r["bucket"] == b and r["n_distractors"] == d]
+            if not sel:
+                continue
             acc = float(np.mean([r["forced_choice_correct"] for r in sel]))
             print(f"  bucket {b:>5} dist {d}: acc={acc:.3f} (n={len(sel)})")
     for b in ps["length_buckets"]:

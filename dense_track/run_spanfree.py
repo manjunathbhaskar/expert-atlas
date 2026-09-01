@@ -16,6 +16,7 @@ Usage:
 
 from __future__ import annotations
 
+import argparse
 import json
 import sys
 import time
@@ -68,25 +69,43 @@ def detect_lexical(tok, text: str, rec: dict, width: int) -> tuple[int, int]:
 
 
 def main() -> None:
-    boost = json.loads((DATA_DIR / "boost.json").read_text())
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--eval-probe-set", type=str, default=str(PROBE_SET))
+    ap.add_argument("--eval-records", type=str, default=str(RECORDS))
+    ap.add_argument("--eval-boost", type=str,
+                    default=str(DATA_DIR / "boost.json"))
+    ap.add_argument("--out", type=str, default=str(DATA_DIR / "spanfree.json"))
+    args = ap.parse_args()
+
+    boost = json.loads(Path(args.eval_boost).read_text())
     top_cells = [tuple(c) for c in boost["design"]["top_cells"]]
     beta_star = boost["summary"]["beta_star"]
 
-    ps = yaml.safe_load(PROBE_SET.read_text())
+    # width selection ALWAYS uses the registered set's DEV bucket, so the
+    # hard-set evaluation never tunes anything on hard-set data
+    dev_ps = yaml.safe_load(PROBE_SET.read_text())
+    dev_prompts = {p["prompt_id"]: p for p in dev_ps["prompts"]}
+    dev_recs = {r["prompt_id"]: r for r in
+                (json.loads(l) for l in RECORDS.read_text().splitlines())}
+
+    ps = yaml.safe_load(Path(args.eval_probe_set).read_text())
     prompts = {p["prompt_id"]: p for p in ps["prompts"]}
     recs = {r["prompt_id"]: r for r in
-            (json.loads(l) for l in RECORDS.read_text().splitlines())}
+            (json.loads(l) for l in
+             Path(args.eval_records).read_text().splitlines())}
 
     model, tok = load_dense_model()
     candidate_ids = [tok(" " + w, add_special_tokens=False)["input_ids"][0]
                      for w in ps["candidate_words"]]
 
     # ---- width selection on the DEV bucket by span hit rate ----
-    dev = sorted(r for r in recs if recs[r]["bucket"] == DEV_BUCKET)[:N_DEV]
+    dev = sorted(r for r in dev_recs
+                 if dev_recs[r]["bucket"] == DEV_BUCKET)[:N_DEV]
     hit_rates = {}
     for w in WIDTHS:
-        hits = [overlaps(detect_lexical(tok, prompts[pid]["text"], recs[pid], w),
-                         tuple(recs[pid]["needle_token_span"]))
+        hits = [overlaps(detect_lexical(tok, dev_prompts[pid]["text"],
+                                        dev_recs[pid], w),
+                         tuple(dev_recs[pid]["needle_token_span"]))
                 for pid in dev]
         hit_rates[w] = float(np.mean(hits))
         print(f"width {w}: dev hit rate {hit_rates[w]:.3f}", flush=True)
@@ -150,7 +169,7 @@ def main() -> None:
         },
     }
     out = {"summary": summary, "rows": rows}
-    (DATA_DIR / "spanfree.json").write_text(json.dumps(out, indent=2))
+    Path(args.out).write_text(json.dumps(out, indent=2))
     print(json.dumps(summary, indent=2), flush=True)
 
 
