@@ -17,6 +17,7 @@ Usage:
 
 from __future__ import annotations
 
+import argparse
 import json
 import sys
 import time
@@ -55,14 +56,22 @@ def run_prompt(model, tok, prompt, rec, candidate_ids, cells, beta,
 
 
 def main() -> None:
-    transport = json.loads((DATA_DIR / "transport.json").read_text())
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--probe-set", type=str, default=str(PROBE_SET))
+    ap.add_argument("--records", type=str, default=str(RECORDS))
+    ap.add_argument("--transport", type=str,
+                    default=str(DATA_DIR / "transport.json"))
+    ap.add_argument("--out", type=str, default=str(DATA_DIR / "boost.json"))
+    args = ap.parse_args()
+    transport = json.loads(Path(args.transport).read_text())
     top_cells = [tuple(c) for c in transport["top_cells"]]
     print(f"identified cells: {top_cells}", flush=True)
 
-    ps = yaml.safe_load(PROBE_SET.read_text())
+    ps = yaml.safe_load(Path(args.probe_set).read_text())
     prompts = {p["prompt_id"]: p for p in ps["prompts"]}
     recs = {r["prompt_id"]: r for r in
-            (json.loads(l) for l in RECORDS.read_text().splitlines())}
+            (json.loads(l) for l in
+             Path(args.records).read_text().splitlines())}
 
     model, tok = load_dense_model()
     candidate_ids = [tok(" " + w, add_special_tokens=False)["input_ids"][0]
@@ -164,7 +173,7 @@ def main() -> None:
            "design": {"top_cells": top_cells, "betas": BETAS,
                       "dev_bucket": DEV_BUCKET, "eval_bucket": EVAL_BUCKET,
                       "wrong_width": WRONG_WIDTH, "seed": SEED}}
-    (DATA_DIR / "boost.json").write_text(json.dumps(out, indent=2))
+    Path(args.out).write_text(json.dumps(out, indent=2))
     print(json.dumps(summary, indent=2), flush=True)
 
 

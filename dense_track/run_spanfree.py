@@ -72,6 +72,8 @@ def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--eval-probe-set", type=str, default=str(PROBE_SET))
     ap.add_argument("--eval-records", type=str, default=str(RECORDS))
+    ap.add_argument("--dev-probe-set", type=str, default=str(PROBE_SET))
+    ap.add_argument("--dev-records", type=str, default=str(RECORDS))
     ap.add_argument("--eval-boost", type=str,
                     default=str(DATA_DIR / "boost.json"))
     ap.add_argument("--out", type=str, default=str(DATA_DIR / "spanfree.json"))
@@ -81,12 +83,13 @@ def main() -> None:
     top_cells = [tuple(c) for c in boost["design"]["top_cells"]]
     beta_star = boost["summary"]["beta_star"]
 
-    # width selection ALWAYS uses the registered set's DEV bucket, so the
-    # hard-set evaluation never tunes anything on hard-set data
-    dev_ps = yaml.safe_load(PROBE_SET.read_text())
+    # width selection uses the DEV bucket of --dev-probe-set (never the
+    # evaluation bucket), so evaluation-set long prompts tune nothing
+    dev_ps = yaml.safe_load(Path(args.dev_probe_set).read_text())
     dev_prompts = {p["prompt_id"]: p for p in dev_ps["prompts"]}
     dev_recs = {r["prompt_id"]: r for r in
-                (json.loads(l) for l in RECORDS.read_text().splitlines())}
+                (json.loads(l) for l in
+                 Path(args.dev_records).read_text().splitlines())}
 
     ps = yaml.safe_load(Path(args.eval_probe_set).read_text())
     prompts = {p["prompt_id"]: p for p in ps["prompts"]}

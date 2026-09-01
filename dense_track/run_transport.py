@@ -19,6 +19,7 @@ Usage:
 
 from __future__ import annotations
 
+import argparse
 import json
 import sys
 from pathlib import Path
@@ -44,9 +45,18 @@ def cohen_d(a: np.ndarray, b: np.ndarray) -> float:
 
 
 def main() -> None:
-    ps = yaml.safe_load(PROBE_SET.read_text())
-    recs = [json.loads(l) for l in RECORDS.read_text().splitlines()]
-    masses = np.load(DATA_DIR / "needle_mass.npz")
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--probe-set", type=str, default=str(PROBE_SET))
+    ap.add_argument("--records", type=str, default=str(RECORDS))
+    ap.add_argument("--mass", type=str,
+                    default=str(DATA_DIR / "needle_mass.npz"))
+    ap.add_argument("--out", type=str,
+                    default=str(DATA_DIR / "transport.json"))
+    args = ap.parse_args()
+    ps = yaml.safe_load(Path(args.probe_set).read_text())
+    recs = [json.loads(l) for l in
+            Path(args.records).read_text().splitlines()]
+    masses = np.load(args.mass)
     needle_len = {r["prompt_id"]: r["needle_token_span"][1]
                   - r["needle_token_span"][0] for r in recs}
 
@@ -149,7 +159,7 @@ def main() -> None:
                               "other": per_cell_drop_other,
                               "other_total": len(other_cells)},
     }
-    (DATA_DIR / "transport.json").write_text(json.dumps(summary, indent=2))
+    Path(args.out).write_text(json.dumps(summary, indent=2))
     print(json.dumps(summary, indent=2), flush=True)
 
 
