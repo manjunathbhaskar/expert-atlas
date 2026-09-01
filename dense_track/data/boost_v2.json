@@ -1,0 +1,1077 @@
+{
+  "summary": {
+    "beta_star": 4.0,
+    "calibration": {
+      "1.0": {
+        "acc": 0.9375,
+        "mean_prob": 0.6840990793922642
+      },
+      "2.0": {
+        "acc": 0.9375,
+        "mean_prob": 0.7787553352929395
+      },
+      "4.0": {
+        "acc": 1.0,
+        "mean_prob": 0.8778448228988031
+      }
+    },
+    "dev_baseline_acc": 0.875,
+    "acc": {
+      "baseline": 0.7708333333333334,
+      "heads": 1.0,
+      "random": 0.7916666666666666,
+      "wrong": 0.7708333333333334
+    },
+    "mean_prob": {
+      "baseline": 0.5876707665510096,
+      "heads": 0.8921673265931757,
+      "random": 0.6102771527582158,
+      "wrong": 0.5799156432380754
+    },
+    "heads_vs_baseline": {
+      "mean_delta": 0.30449656004216613,
+      "dz": 1.4363525731037958,
+      "perm_p": 0.0,
+      "n": 48
+    },
+    "heads_vs_random": {
+      "mean_delta": 0.2818901738349599,
+      "dz": 1.326513620180108,
+      "perm_p": 0.0,
+      "n": 48
+    },
+    "heads_vs_wrongspan": {
+      "mean_delta": 0.3122516833551003,
+      "dz": 1.4050634435030283,
+      "perm_p": 0.0,
+      "n": 48
+    },
+    "model_wrong_subset": {
+      "n": 11,
+      "acc": {
+        "baseline": 0.0,
+        "heads": 1.0,
+        "random": 0.18181818181818182,
+        "wrong": 0.0
+      },
+      "mean_prob": {
+        "baseline": 0.26019339974199457,
+        "heads": 0.8261665219918289,
+        "random": 0.28214773863468634,
+        "wrong": 0.2406678811167204
+      },
+      "heads_vs_baseline": {
+        "mean_delta": 0.5659731222498343,
+        "dz": 5.643674571233605,
+        "perm_p": 0.0,
+        "n": 11
+      },
+      "heads_vs_random": {
+        "mean_delta": 0.5440187833571427,
+        "dz": 3.8170731129107893,
+        "perm_p": 0.001,
+        "n": 11
+      }
+    },
+    "model_right_subset": {
+      "n": 37,
+      "heads_vs_baseline": {
+        "mean_delta": 0.22676028479123778,
+        "dz": 1.3367145069779762,
+        "perm_p": 0.0,
+        "n": 37
+      }
+    }
+  },
+  "rows": [
+    {
+      "prompt_id": 2,
+      "baseline": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.8204608226424406
+      },
+      "heads": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.9807894472580967
+      },
+      "random": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.8268296479722288
+      },
+      "wrong": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.817103422293863
+      }
+    },
+    {
+      "prompt_id": 5,
+      "baseline": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.9201050630562403
+      },
+      "heads": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.9793971177722404
+      },
+      "random": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.9071993181964954
+      },
+      "wrong": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.9217866490514794
+      }
+    },
+    {
+      "prompt_id": 8,
+      "baseline": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.9850283760971218
+      },
+      "heads": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.999677925628303
+      },
+      "random": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.9887048093617804
+      },
+      "wrong": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.9851049982895766
+      }
+    },
+    {
+      "prompt_id": 11,
+      "baseline": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.7601511812591146
+      },
+      "heads": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.9928168915607459
+      },
+      "random": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.6736965883992143
+      },
+      "wrong": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.525185749084492
+      }
+    },
+    {
+      "prompt_id": 14,
+      "baseline": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.4932699308738838
+      },
+      "heads": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.97286408521377
+      },
+      "random": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.5343329527451626
+      },
+      "wrong": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.5174551903151337
+      }
+    },
+    {
+      "prompt_id": 17,
+      "baseline": {
+        "forced_choice_correct": false,
+        "forced_choice_prob": 0.33868328573922624
+      },
+      "heads": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.8647925797131705
+      },
+      "random": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.45116985370070795
+      },
+      "wrong": {
+        "forced_choice_correct": false,
+        "forced_choice_prob": 0.3376523760611632
+      }
+    },
+    {
+      "prompt_id": 20,
+      "baseline": {
+        "forced_choice_correct": false,
+        "forced_choice_prob": 0.19765761852139602
+      },
+      "heads": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.8757067072657896
+      },
+      "random": {
+        "forced_choice_correct": false,
+        "forced_choice_prob": 0.11014945378633026
+      },
+      "wrong": {
+        "forced_choice_correct": false,
+        "forced_choice_prob": 0.200610638270265
+      }
+    },
+    {
+      "prompt_id": 23,
+      "baseline": {
+        "forced_choice_correct": false,
+        "forced_choice_prob": 0.2076299423485861
+      },
+      "heads": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.6459156461549058
+      },
+      "random": {
+        "forced_choice_correct": false,
+        "forced_choice_prob": 0.2318525234427303
+      },
+      "wrong": {
+        "forced_choice_correct": false,
+        "forced_choice_prob": 0.21389389758166288
+      }
+    },
+    {
+      "prompt_id": 26,
+      "baseline": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.8791469360548366
+      },
+      "heads": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.9359937364870247
+      },
+      "random": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.9011481846709474
+      },
+      "wrong": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.8872101520487177
+      }
+    },
+    {
+      "prompt_id": 29,
+      "baseline": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.5474411883345817
+      },
+      "heads": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.6860267217139475
+      },
+      "random": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.5566969330100024
+      },
+      "wrong": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.5521363165016508
+      }
+    },
+    {
+      "prompt_id": 32,
+      "baseline": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.4484841974645488
+      },
+      "heads": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.9367234712375738
+      },
+      "random": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.38130795607568435
+      },
+      "wrong": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.4797534340231666
+      }
+    },
+    {
+      "prompt_id": 35,
+      "baseline": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.5632672588446764
+      },
+      "heads": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.9590389022284572
+      },
+      "random": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.7973484239260007
+      },
+      "wrong": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.5628239320606854
+      }
+    },
+    {
+      "prompt_id": 38,
+      "baseline": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.6189153674160436
+      },
+      "heads": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.883171149838838
+      },
+      "random": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.7829698082089238
+      },
+      "wrong": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.6124610980965529
+      }
+    },
+    {
+      "prompt_id": 41,
+      "baseline": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.6068487307442487
+      },
+      "heads": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.7708707761128321
+      },
+      "random": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.6371346385302379
+      },
+      "wrong": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.609048123105562
+      }
+    },
+    {
+      "prompt_id": 44,
+      "baseline": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.8022078105375514
+      },
+      "heads": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.9667727726074352
+      },
+      "random": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.8190470563264264
+      },
+      "wrong": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.8057278485268557
+      }
+    },
+    {
+      "prompt_id": 47,
+      "baseline": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.44996334204625
+      },
+      "heads": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.9424903808431515
+      },
+      "random": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.5566066911641923
+      },
+      "wrong": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.45665071110389177
+      }
+    },
+    {
+      "prompt_id": 50,
+      "baseline": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.9873481299310962
+      },
+      "heads": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.9997212520805763
+      },
+      "random": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.9883467983391477
+      },
+      "wrong": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.9875765332448254
+      }
+    },
+    {
+      "prompt_id": 53,
+      "baseline": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.9016088497842685
+      },
+      "heads": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.9955390125811823
+      },
+      "random": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.912441294800063
+      },
+      "wrong": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.8999385811946659
+      }
+    },
+    {
+      "prompt_id": 56,
+      "baseline": {
+        "forced_choice_correct": false,
+        "forced_choice_prob": 0.2300478498768202
+      },
+      "heads": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.9009845780392789
+      },
+      "random": {
+        "forced_choice_correct": false,
+        "forced_choice_prob": 0.2535247552300485
+      },
+      "wrong": {
+        "forced_choice_correct": false,
+        "forced_choice_prob": 0.0060203914908594095
+      }
+    },
+    {
+      "prompt_id": 59,
+      "baseline": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.5944364058429781
+      },
+      "heads": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.87459067412888
+      },
+      "random": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.5392544534329621
+      },
+      "wrong": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.5992995519158021
+      }
+    },
+    {
+      "prompt_id": 62,
+      "baseline": {
+        "forced_choice_correct": false,
+        "forced_choice_prob": 0.17257735207311928
+      },
+      "heads": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.7991147124498931
+      },
+      "random": {
+        "forced_choice_correct": false,
+        "forced_choice_prob": 0.1538354388420184
+      },
+      "wrong": {
+        "forced_choice_correct": false,
+        "forced_choice_prob": 0.1744460502378133
+      }
+    },
+    {
+      "prompt_id": 65,
+      "baseline": {
+        "forced_choice_correct": false,
+        "forced_choice_prob": 0.2193231125276532
+      },
+      "heads": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.6756844812830268
+      },
+      "random": {
+        "forced_choice_correct": false,
+        "forced_choice_prob": 0.28042649290341387
+      },
+      "wrong": {
+        "forced_choice_correct": false,
+        "forced_choice_prob": 0.2189490575514
+      }
+    },
+    {
+      "prompt_id": 68,
+      "baseline": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.9529428817054273
+      },
+      "heads": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.9666042119889658
+      },
+      "random": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.9419779295458274
+      },
+      "wrong": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.9531004417331022
+      }
+    },
+    {
+      "prompt_id": 71,
+      "baseline": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.5418159486195817
+      },
+      "heads": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.7006075426439686
+      },
+      "random": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.5375008609659132
+      },
+      "wrong": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.5451300677788141
+      }
+    },
+    {
+      "prompt_id": 74,
+      "baseline": {
+        "forced_choice_correct": false,
+        "forced_choice_prob": 0.3641702079637973
+      },
+      "heads": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.9454533199512644
+      },
+      "random": {
+        "forced_choice_correct": false,
+        "forced_choice_prob": 0.3543220823966059
+      },
+      "wrong": {
+        "forced_choice_correct": false,
+        "forced_choice_prob": 0.36098760806657765
+      }
+    },
+    {
+      "prompt_id": 77,
+      "baseline": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.42897682422678735
+      },
+      "heads": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.9527676337536465
+      },
+      "random": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.40921695008870207
+      },
+      "wrong": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.42898918477469733
+      }
+    },
+    {
+      "prompt_id": 80,
+      "baseline": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.8474583801083784
+      },
+      "heads": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.9343954719479081
+      },
+      "random": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.8788273869687715
+      },
+      "wrong": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.8485451340601678
+      }
+    },
+    {
+      "prompt_id": 83,
+      "baseline": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.46660983336780143
+      },
+      "heads": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.7037666973106326
+      },
+      "random": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.4733227771404643
+      },
+      "wrong": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.46650076835991616
+      }
+    },
+    {
+      "prompt_id": 86,
+      "baseline": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.83463103815519
+      },
+      "heads": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.9644985368885659
+      },
+      "random": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.8901314711487074
+      },
+      "wrong": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.8388303210270875
+      }
+    },
+    {
+      "prompt_id": 89,
+      "baseline": {
+        "forced_choice_correct": false,
+        "forced_choice_prob": 0.3402260327363454
+      },
+      "heads": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.8827904984475599
+      },
+      "random": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.471334076949884
+      },
+      "wrong": {
+        "forced_choice_correct": false,
+        "forced_choice_prob": 0.3372926353474127
+      }
+    },
+    {
+      "prompt_id": 92,
+      "baseline": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.4708983807763311
+      },
+      "heads": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.978426716231054
+      },
+      "random": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.5444516372595035
+      },
+      "wrong": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.47856265597403497
+      }
+    },
+    {
+      "prompt_id": 95,
+      "baseline": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.6499765130570194
+      },
+      "heads": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.9302111054109492
+      },
+      "random": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.7468583188822732
+      },
+      "wrong": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.6455878421953484
+      }
+    },
+    {
+      "prompt_id": 98,
+      "baseline": {
+        "forced_choice_correct": false,
+        "forced_choice_prob": 0.2652887645114221
+      },
+      "heads": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.950286253293765
+      },
+      "random": {
+        "forced_choice_correct": false,
+        "forced_choice_prob": 0.2651954582828398
+      },
+      "wrong": {
+        "forced_choice_correct": false,
+        "forced_choice_prob": 0.2712720208878046
+      }
+    },
+    {
+      "prompt_id": 101,
+      "baseline": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.4542531542514437
+      },
+      "heads": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.8762438432971649
+      },
+      "random": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.5048220759402156
+      },
+      "wrong": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.4548734632980801
+      }
+    },
+    {
+      "prompt_id": 104,
+      "baseline": {
+        "forced_choice_correct": false,
+        "forced_choice_prob": 0.24001826278099736
+      },
+      "heads": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.8558189517486424
+      },
+      "random": {
+        "forced_choice_correct": false,
+        "forced_choice_prob": 0.21639431346647595
+      },
+      "wrong": {
+        "forced_choice_correct": false,
+        "forced_choice_prob": 0.23881530435998732
+      }
+    },
+    {
+      "prompt_id": 107,
+      "baseline": {
+        "forced_choice_correct": false,
+        "forced_choice_prob": 0.2865049680825772
+      },
+      "heads": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.6912840135628224
+      },
+      "random": {
+        "forced_choice_correct": false,
+        "forced_choice_prob": 0.31542067598049417
+      },
+      "wrong": {
+        "forced_choice_correct": false,
+        "forced_choice_prob": 0.2874067124289788
+      }
+    },
+    {
+      "prompt_id": 110,
+      "baseline": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.8549644812123128
+      },
+      "heads": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.8903682203405188
+      },
+      "random": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.8777600964592639
+      },
+      "wrong": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.8540848184133124
+      }
+    },
+    {
+      "prompt_id": 113,
+      "baseline": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.4685400325345676
+      },
+      "heads": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.6027262205645727
+      },
+      "random": {
+        "forced_choice_correct": false,
+        "forced_choice_prob": 0.30185700279578526
+      },
+      "wrong": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.4698685422240614
+      }
+    },
+    {
+      "prompt_id": 116,
+      "baseline": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.4433415022729287
+      },
+      "heads": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.9326879111920121
+      },
+      "random": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.5337663084472116
+      },
+      "wrong": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.4472961802591076
+      }
+    },
+    {
+      "prompt_id": 119,
+      "baseline": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.4079887589481811
+      },
+      "heads": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.9417404677102487
+      },
+      "random": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.5212292074015558
+      },
+      "wrong": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.40774406694758464
+      }
+    },
+    {
+      "prompt_id": 122,
+      "baseline": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.7558182290452752
+      },
+      "heads": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.9171221800741456
+      },
+      "random": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.7867306840706434
+      },
+      "wrong": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.7504132105641917
+      }
+    },
+    {
+      "prompt_id": 125,
+      "baseline": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.5039972049455969
+      },
+      "heads": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.7458459792331144
+      },
+      "random": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.5630150997188759
+      },
+      "wrong": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.503661051536634
+      }
+    },
+    {
+      "prompt_id": 128,
+      "baseline": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.7190974517964538
+      },
+      "heads": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.9607888910345558
+      },
+      "random": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.7077959513568002
+      },
+      "wrong": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.7186431002520997
+      }
+    },
+    {
+      "prompt_id": 131,
+      "baseline": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.5649191639715675
+      },
+      "heads": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.9363540136414853
+      },
+      "random": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.5253010534084699
+      },
+      "wrong": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.5612202146482114
+      }
+    },
+    {
+      "prompt_id": 134,
+      "baseline": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.8284576656545556
+      },
+      "heads": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.9631409887130236
+      },
+      "random": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.8237719193352503
+      },
+      "wrong": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.8318507178700827
+      }
+    },
+    {
+      "prompt_id": 137,
+      "baseline": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.8460846298727441
+      },
+      "heads": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.9631426852006125
+      },
+      "random": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.8675401965573902
+      },
+      "wrong": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.8355928734933997
+      }
+    },
+    {
+      "prompt_id": 140,
+      "baseline": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.9718742141475795
+      },
+      "heads": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.9996480082234556
+      },
+      "random": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.9712322751749485
+      },
+      "wrong": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.9724378897798645
+      }
+    },
+    {
+      "prompt_id": 143,
+      "baseline": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.9547395176869136
+      },
+      "heads": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.9986282918686608
+      },
+      "random": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.9795034495867668
+      },
+      "wrong": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.9564093470969761
+      }
+    }
+  ],
+  "design": {
+    "top_cells": [
+      [
+        11,
+        18
+      ],
+      [
+        13,
+        9
+      ],
+      [
+        26,
+        9
+      ],
+      [
+        14,
+        23
+      ],
+      [
+        13,
+        29
+      ],
+      [
+        13,
+        24
+      ],
+      [
+        13,
+        19
+      ],
+      [
+        14,
+        31
+      ],
+      [
+        13,
+        14
+      ],
+      [
+        15,
+        3
+      ],
+      [
+        15,
+        1
+      ],
+      [
+        18,
+        4
+      ],
+      [
+        17,
+        16
+      ],
+      [
+        13,
+        3
+      ],
+      [
+        15,
+        17
+      ],
+      [
+        13,
+        2
+      ]
+    ],
+    "betas": [
+      1.0,
+      2.0,
+      4.0
+    ],
+    "dev_bucket": 1024,
+    "eval_bucket": 1900,
+    "wrong_width": 16,
+    "seed": 0
+  }
+}
