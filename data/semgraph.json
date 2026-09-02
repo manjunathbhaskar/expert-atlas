@@ -1,0 +1,3023 @@
+{
+  "results": {
+    "paraphrase": {
+      "summary": {
+        "calibration": {
+          "h": 1,
+          "alpha": 1.0,
+          "dev_grid": {
+            "h1/a0.0": 0.875,
+            "h1/a0.5": 1.0,
+            "h1/a1.0": 1.0,
+            "h2/a0.0": 0.0,
+            "h2/a0.5": 0.0,
+            "h2/a1.0": 0.0,
+            "h3/a0.0": 0.0,
+            "h3/a0.5": 0.0,
+            "h3/a1.0": 0.0
+          },
+          "graph_dev_hit": 1.0,
+          "semantic_dev_hit": 1.0
+        },
+        "acc": {
+          "baseline": 0.0,
+          "oracle": 1.0,
+          "wrong": 0.0,
+          "semantic": 1.0,
+          "graph": 1.0
+        },
+        "mean_prob": {
+          "baseline": 0.06876067929937053,
+          "oracle": 0.8597470555119876,
+          "wrong": 0.0717486669437022,
+          "semantic": 0.8597470555119876,
+          "graph": 0.8597470555119876
+        },
+        "hit_rate": {
+          "semantic": 1.0,
+          "graph": 1.0
+        },
+        "failing_n": 32,
+        "semantic_vs_baseline": {
+          "mean_delta": 0.790986376212617,
+          "dz": 6.432253115056971,
+          "perm_p": 0.0,
+          "n": 32
+        },
+        "semantic_vs_wrong": {
+          "mean_delta": 0.7879983885682853,
+          "dz": 6.289481859532587,
+          "perm_p": 0.0,
+          "n": 32
+        },
+        "semantic_pct_of_oracle": 1.0,
+        "semantic_vs_wrong_failing": {
+          "mean_delta": 0.7879983885682853,
+          "dz": 6.289481859532587,
+          "perm_p": 0.0,
+          "n": 32
+        },
+        "semantic_failing_acc": 1.0,
+        "graph_vs_baseline": {
+          "mean_delta": 0.790986376212617,
+          "dz": 6.432253115056971,
+          "perm_p": 0.0,
+          "n": 32
+        },
+        "graph_vs_wrong": {
+          "mean_delta": 0.7879983885682853,
+          "dz": 6.289481859532587,
+          "perm_p": 0.0,
+          "n": 32
+        },
+        "graph_pct_of_oracle": 1.0,
+        "graph_vs_wrong_failing": {
+          "mean_delta": 0.7879983885682853,
+          "dz": 6.289481859532587,
+          "perm_p": 0.0,
+          "n": 32
+        },
+        "graph_failing_acc": 1.0,
+        "failing_acc": {
+          "baseline": 0.0,
+          "oracle": 1.0,
+          "wrong": 0.0,
+          "semantic": 1.0,
+          "graph": 1.0
+        }
+      },
+      "rows": [
+        {
+          "prompt_id": 1,
+          "needle_depth": 0.15,
+          "baseline": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.11827667653476119
+          },
+          "oracle": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.9609165830640579
+          },
+          "wrong": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.1347206871703229,
+            "span": [
+              3226,
+              3242
+            ]
+          },
+          "semantic": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.9609165830640579,
+            "span": [
+              598,
+              614
+            ],
+            "hit": true
+          },
+          "graph": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.9609165830640579,
+            "span": [
+              598,
+              614
+            ],
+            "hit": true,
+            "path": [
+              34
+            ]
+          }
+        },
+        {
+          "prompt_id": 4,
+          "needle_depth": 0.15,
+          "baseline": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.1511075485399976
+          },
+          "oracle": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.9864491491676562
+          },
+          "wrong": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.17404006731579866,
+            "span": [
+              2413,
+              2429
+            ]
+          },
+          "semantic": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.9864491491676562,
+            "span": [
+              594,
+              610
+            ],
+            "hit": true
+          },
+          "graph": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.9864491491676562,
+            "span": [
+              594,
+              610
+            ],
+            "hit": true,
+            "path": [
+              35
+            ]
+          }
+        },
+        {
+          "prompt_id": 7,
+          "needle_depth": 0.5,
+          "baseline": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.13790086430150225
+          },
+          "oracle": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.9773567319581311
+          },
+          "wrong": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.13087479383593567,
+            "span": [
+              1934,
+              1950
+            ]
+          },
+          "semantic": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.9773567319581311,
+            "span": [
+              1900,
+              1916
+            ],
+            "hit": true
+          },
+          "graph": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.9773567319581311,
+            "span": [
+              1900,
+              1916
+            ],
+            "hit": true,
+            "path": [
+              109
+            ]
+          }
+        },
+        {
+          "prompt_id": 9,
+          "needle_depth": 0.5,
+          "baseline": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.20586377269879078
+          },
+          "oracle": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.899272881543821
+          },
+          "wrong": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.23599411580571156,
+            "span": [
+              1020,
+              1036
+            ]
+          },
+          "semantic": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.899272881543821,
+            "span": [
+              1887,
+              1903
+            ],
+            "hit": true
+          },
+          "graph": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.899272881543821,
+            "span": [
+              1887,
+              1903
+            ],
+            "hit": true,
+            "path": [
+              110
+            ]
+          }
+        },
+        {
+          "prompt_id": 11,
+          "needle_depth": 0.15,
+          "baseline": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.04587192050765197
+          },
+          "oracle": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.9458661459936024
+          },
+          "wrong": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.04381489934300592,
+            "span": [
+              1164,
+              1180
+            ]
+          },
+          "semantic": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.9458661459936024,
+            "span": [
+              586,
+              602
+            ],
+            "hit": true
+          },
+          "graph": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.9458661459936024,
+            "span": [
+              586,
+              602
+            ],
+            "hit": true,
+            "path": [
+              35
+            ]
+          }
+        },
+        {
+          "prompt_id": 14,
+          "needle_depth": 0.15,
+          "baseline": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.04573226611291601
+          },
+          "oracle": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.9839212049832072
+          },
+          "wrong": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.041547696872861556,
+            "span": [
+              156,
+              172
+            ]
+          },
+          "semantic": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.9839212049832072,
+            "span": [
+              604,
+              620
+            ],
+            "hit": true
+          },
+          "graph": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.9839212049832072,
+            "span": [
+              604,
+              620
+            ],
+            "hit": true,
+            "path": [
+              35
+            ]
+          }
+        },
+        {
+          "prompt_id": 17,
+          "needle_depth": 0.5,
+          "baseline": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.2084858403488405
+          },
+          "oracle": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.9540152115312217
+          },
+          "wrong": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.22267124883812092,
+            "span": [
+              285,
+              301
+            ]
+          },
+          "semantic": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.9540152115312217,
+            "span": [
+              1894,
+              1910
+            ],
+            "hit": true
+          },
+          "graph": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.9540152115312217,
+            "span": [
+              1894,
+              1910
+            ],
+            "hit": true,
+            "path": [
+              109
+            ]
+          }
+        },
+        {
+          "prompt_id": 19,
+          "needle_depth": 0.5,
+          "baseline": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.14919674850571918
+          },
+          "oracle": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.979004124389709
+          },
+          "wrong": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.14002436046464128,
+            "span": [
+              63,
+              79
+            ]
+          },
+          "semantic": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.979004124389709,
+            "span": [
+              1890,
+              1906
+            ],
+            "hit": true
+          },
+          "graph": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.979004124389709,
+            "span": [
+              1890,
+              1906
+            ],
+            "hit": true,
+            "path": [
+              111
+            ]
+          }
+        },
+        {
+          "prompt_id": 21,
+          "needle_depth": 0.15,
+          "baseline": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.03615996064664526
+          },
+          "oracle": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.8020461237640841
+          },
+          "wrong": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.05050288399110378,
+            "span": [
+              663,
+              679
+            ]
+          },
+          "semantic": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.8020461237640841,
+            "span": [
+              586,
+              601
+            ],
+            "hit": true
+          },
+          "graph": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.8020461237640841,
+            "span": [
+              586,
+              601
+            ],
+            "hit": true,
+            "path": [
+              34
+            ]
+          }
+        },
+        {
+          "prompt_id": 24,
+          "needle_depth": 0.15,
+          "baseline": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.033157022901565573
+          },
+          "oracle": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.9455428457958558
+          },
+          "wrong": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.03314608620226154,
+            "span": [
+              3084,
+              3100
+            ]
+          },
+          "semantic": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.9455428457958558,
+            "span": [
+              590,
+              605
+            ],
+            "hit": true
+          },
+          "graph": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.9455428457958558,
+            "span": [
+              590,
+              605
+            ],
+            "hit": true,
+            "path": [
+              35
+            ]
+          }
+        },
+        {
+          "prompt_id": 27,
+          "needle_depth": 0.5,
+          "baseline": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.05904973017451035
+          },
+          "oracle": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.9701378460540928
+          },
+          "wrong": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.07712107732086382,
+            "span": [
+              2461,
+              2477
+            ]
+          },
+          "semantic": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.9701378460540928,
+            "span": [
+              1897,
+              1912
+            ],
+            "hit": true
+          },
+          "graph": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.9701378460540928,
+            "span": [
+              1897,
+              1912
+            ],
+            "hit": true,
+            "path": [
+              109
+            ]
+          }
+        },
+        {
+          "prompt_id": 29,
+          "needle_depth": 0.5,
+          "baseline": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.07573984404215772
+          },
+          "oracle": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.853371871005803
+          },
+          "wrong": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.06711660268600188,
+            "span": [
+              3457,
+              3473
+            ]
+          },
+          "semantic": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.853371871005803,
+            "span": [
+              1887,
+              1902
+            ],
+            "hit": true
+          },
+          "graph": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.853371871005803,
+            "span": [
+              1887,
+              1902
+            ],
+            "hit": true,
+            "path": [
+              111
+            ]
+          }
+        },
+        {
+          "prompt_id": 31,
+          "needle_depth": 0.15,
+          "baseline": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.021248985675646172
+          },
+          "oracle": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.7749156403935648
+          },
+          "wrong": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.016780181280477063,
+            "span": [
+              1911,
+              1927
+            ]
+          },
+          "semantic": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.7749156403935648,
+            "span": [
+              593,
+              608
+            ],
+            "hit": true
+          },
+          "graph": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.7749156403935648,
+            "span": [
+              593,
+              608
+            ],
+            "hit": true,
+            "path": [
+              34
+            ]
+          }
+        },
+        {
+          "prompt_id": 34,
+          "needle_depth": 0.15,
+          "baseline": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.009125215586849849
+          },
+          "oracle": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.8177643407037731
+          },
+          "wrong": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.009853625170403831,
+            "span": [
+              2301,
+              2317
+            ]
+          },
+          "semantic": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.8177643407037731,
+            "span": [
+              602,
+              617
+            ],
+            "hit": true
+          },
+          "graph": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.8177643407037731,
+            "span": [
+              602,
+              617
+            ],
+            "hit": true,
+            "path": [
+              35
+            ]
+          }
+        },
+        {
+          "prompt_id": 37,
+          "needle_depth": 0.5,
+          "baseline": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.026412049728990233
+          },
+          "oracle": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.5999652419302463
+          },
+          "wrong": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.034526111156458976,
+            "span": [
+              3685,
+              3701
+            ]
+          },
+          "semantic": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.5999652419302463,
+            "span": [
+              1897,
+              1912
+            ],
+            "hit": true
+          },
+          "graph": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.5999652419302463,
+            "span": [
+              1897,
+              1912
+            ],
+            "hit": true,
+            "path": [
+              108
+            ]
+          }
+        },
+        {
+          "prompt_id": 39,
+          "needle_depth": 0.5,
+          "baseline": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.01895614226920168
+          },
+          "oracle": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.7874592517226153
+          },
+          "wrong": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.02136222312172276,
+            "span": [
+              2759,
+              2775
+            ]
+          },
+          "semantic": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.7874592517226153,
+            "span": [
+              1882,
+              1897
+            ],
+            "hit": true
+          },
+          "graph": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.7874592517226153,
+            "span": [
+              1882,
+              1897
+            ],
+            "hit": true,
+            "path": [
+              110
+            ]
+          }
+        },
+        {
+          "prompt_id": 41,
+          "needle_depth": 0.15,
+          "baseline": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.07367630359307287
+          },
+          "oracle": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.6907663447622732
+          },
+          "wrong": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.08134965721122989,
+            "span": [
+              2387,
+              2403
+            ]
+          },
+          "semantic": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.6907663447622732,
+            "span": [
+              601,
+              618
+            ],
+            "hit": true
+          },
+          "graph": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.6907663447622732,
+            "span": [
+              601,
+              618
+            ],
+            "hit": true,
+            "path": [
+              34
+            ]
+          }
+        },
+        {
+          "prompt_id": 44,
+          "needle_depth": 0.15,
+          "baseline": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.10566783351576386
+          },
+          "oracle": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.7948316473895753
+          },
+          "wrong": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.10733632548488449,
+            "span": [
+              2058,
+              2074
+            ]
+          },
+          "semantic": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.7948316473895753,
+            "span": [
+              602,
+              619
+            ],
+            "hit": true
+          },
+          "graph": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.7948316473895753,
+            "span": [
+              602,
+              619
+            ],
+            "hit": true,
+            "path": [
+              35
+            ]
+          }
+        },
+        {
+          "prompt_id": 47,
+          "needle_depth": 0.5,
+          "baseline": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.17699463282249372
+          },
+          "oracle": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.6925681612470368
+          },
+          "wrong": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.1955235254191076,
+            "span": [
+              2121,
+              2137
+            ]
+          },
+          "semantic": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.6925681612470368,
+            "span": [
+              1892,
+              1909
+            ],
+            "hit": true
+          },
+          "graph": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.6925681612470368,
+            "span": [
+              1892,
+              1909
+            ],
+            "hit": true,
+            "path": [
+              107
+            ]
+          }
+        },
+        {
+          "prompt_id": 49,
+          "needle_depth": 0.5,
+          "baseline": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.13441708279025097
+          },
+          "oracle": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.7117018374765305
+          },
+          "wrong": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.1567622059636823,
+            "span": [
+              3542,
+              3558
+            ]
+          },
+          "semantic": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.7117018374765305,
+            "span": [
+              1907,
+              1924
+            ],
+            "hit": true
+          },
+          "graph": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.7117018374765305,
+            "span": [
+              1907,
+              1924
+            ],
+            "hit": true,
+            "path": [
+              110
+            ]
+          }
+        },
+        {
+          "prompt_id": 51,
+          "needle_depth": 0.15,
+          "baseline": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.006352675690864772
+          },
+          "oracle": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.9856395794231594
+          },
+          "wrong": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.007522594373609681,
+            "span": [
+              1052,
+              1068
+            ]
+          },
+          "semantic": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.9856395794231594,
+            "span": [
+              573,
+              588
+            ],
+            "hit": true
+          },
+          "graph": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.9856395794231594,
+            "span": [
+              573,
+              588
+            ],
+            "hit": true,
+            "path": [
+              34
+            ]
+          }
+        },
+        {
+          "prompt_id": 54,
+          "needle_depth": 0.15,
+          "baseline": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.01885462426760377
+          },
+          "oracle": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.9908690956345294
+          },
+          "wrong": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.01666585019012843,
+            "span": [
+              3096,
+              3112
+            ]
+          },
+          "semantic": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.9908690956345294,
+            "span": [
+              605,
+              620
+            ],
+            "hit": true
+          },
+          "graph": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.9908690956345294,
+            "span": [
+              605,
+              620
+            ],
+            "hit": true,
+            "path": [
+              35
+            ]
+          }
+        },
+        {
+          "prompt_id": 57,
+          "needle_depth": 0.5,
+          "baseline": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.010546727269205212
+          },
+          "oracle": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.9687256050128584
+          },
+          "wrong": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.010547367917738823,
+            "span": [
+              2536,
+              2552
+            ]
+          },
+          "semantic": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.9687256050128584,
+            "span": [
+              1889,
+              1904
+            ],
+            "hit": true
+          },
+          "graph": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.9687256050128584,
+            "span": [
+              1889,
+              1904
+            ],
+            "hit": true,
+            "path": [
+              109
+            ]
+          }
+        },
+        {
+          "prompt_id": 59,
+          "needle_depth": 0.5,
+          "baseline": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.013316246157220626
+          },
+          "oracle": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.9419367238749345
+          },
+          "wrong": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.03896969878199324,
+            "span": [
+              11,
+              27
+            ]
+          },
+          "semantic": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.9419367238749345,
+            "span": [
+              1886,
+              1901
+            ],
+            "hit": true
+          },
+          "graph": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.9419367238749345,
+            "span": [
+              1886,
+              1901
+            ],
+            "hit": true,
+            "path": [
+              111
+            ]
+          }
+        },
+        {
+          "prompt_id": 61,
+          "needle_depth": 0.15,
+          "baseline": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.03568287653200307
+          },
+          "oracle": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.7847501367761632
+          },
+          "wrong": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.04039046095643809,
+            "span": [
+              1491,
+              1507
+            ]
+          },
+          "semantic": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.7847501367761632,
+            "span": [
+              589,
+              604
+            ],
+            "hit": true
+          },
+          "graph": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.7847501367761632,
+            "span": [
+              589,
+              604
+            ],
+            "hit": true,
+            "path": [
+              34
+            ]
+          }
+        },
+        {
+          "prompt_id": 64,
+          "needle_depth": 0.15,
+          "baseline": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.03113217470671509
+          },
+          "oracle": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.8313354170531999
+          },
+          "wrong": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.031860238953231805,
+            "span": [
+              3252,
+              3268
+            ]
+          },
+          "semantic": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.8313354170531999,
+            "span": [
+              591,
+              606
+            ],
+            "hit": true
+          },
+          "graph": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.8313354170531999,
+            "span": [
+              591,
+              606
+            ],
+            "hit": true,
+            "path": [
+              35
+            ]
+          }
+        },
+        {
+          "prompt_id": 67,
+          "needle_depth": 0.5,
+          "baseline": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.0496712018171948
+          },
+          "oracle": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.7845942582654436
+          },
+          "wrong": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.06382959158311534,
+            "span": [
+              2096,
+              2112
+            ]
+          },
+          "semantic": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.7845942582654436,
+            "span": [
+              1885,
+              1900
+            ],
+            "hit": true
+          },
+          "graph": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.7845942582654436,
+            "span": [
+              1885,
+              1900
+            ],
+            "hit": true,
+            "path": [
+              109
+            ]
+          }
+        },
+        {
+          "prompt_id": 69,
+          "needle_depth": 0.5,
+          "baseline": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.03992076843377543
+          },
+          "oracle": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.6828310846209938
+          },
+          "wrong": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.027312468829817253,
+            "span": [
+              127,
+              143
+            ]
+          },
+          "semantic": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.6828310846209938,
+            "span": [
+              1898,
+              1913
+            ],
+            "hit": true
+          },
+          "graph": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.6828310846209938,
+            "span": [
+              1898,
+              1913
+            ],
+            "hit": true,
+            "path": [
+              110
+            ]
+          }
+        },
+        {
+          "prompt_id": 71,
+          "needle_depth": 0.15,
+          "baseline": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.01650790529301052
+          },
+          "oracle": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.8994800780494208
+          },
+          "wrong": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.019691860329039808,
+            "span": [
+              2899,
+              2915
+            ]
+          },
+          "semantic": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.8994800780494208,
+            "span": [
+              600,
+              616
+            ],
+            "hit": true
+          },
+          "graph": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.8994800780494208,
+            "span": [
+              600,
+              616
+            ],
+            "hit": true,
+            "path": [
+              34
+            ]
+          }
+        },
+        {
+          "prompt_id": 74,
+          "needle_depth": 0.15,
+          "baseline": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.026634186696619256
+          },
+          "oracle": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.9399558882419493
+          },
+          "wrong": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.02389833108662824,
+            "span": [
+              2760,
+              2776
+            ]
+          },
+          "semantic": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.9399558882419493,
+            "span": [
+              579,
+              595
+            ],
+            "hit": true
+          },
+          "graph": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.9399558882419493,
+            "span": [
+              579,
+              595
+            ],
+            "hit": true,
+            "path": [
+              35
+            ]
+          }
+        },
+        {
+          "prompt_id": 77,
+          "needle_depth": 0.5,
+          "baseline": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.06903878503564825
+          },
+          "oracle": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.8026762910190337
+          },
+          "wrong": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.03824325131952627,
+            "span": [
+              3209,
+              3225
+            ]
+          },
+          "semantic": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.8026762910190337,
+            "span": [
+              1878,
+              1894
+            ],
+            "hit": true
+          },
+          "graph": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.8026762910190337,
+            "span": [
+              1878,
+              1894
+            ],
+            "hit": true,
+            "path": [
+              109
+            ]
+          }
+        },
+        {
+          "prompt_id": 79,
+          "needle_depth": 0.5,
+          "baseline": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.04964312438266817
+          },
+          "oracle": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.7712384335350584
+          },
+          "wrong": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.0019572532226072832,
+            "span": [
+              664,
+              680
+            ]
+          },
+          "semantic": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.7712384335350584,
+            "span": [
+              1901,
+              1917
+            ],
+            "hit": true
+          },
+          "graph": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.7712384335350584,
+            "span": [
+              1901,
+              1917
+            ],
+            "hit": true,
+            "path": [
+              111
+            ]
+          }
+        }
+      ]
+    },
+    "multihop": {
+      "summary": {
+        "calibration": {
+          "h": 2,
+          "alpha": 0.0,
+          "dev_grid": {
+            "h1/a0.0": 0.0,
+            "h1/a0.5": 0.0625,
+            "h1/a1.0": 0.0625,
+            "h2/a0.0": 0.5,
+            "h2/a0.5": 0.4375,
+            "h2/a1.0": 0.4375,
+            "h3/a0.0": 0.0,
+            "h3/a0.5": 0.0,
+            "h3/a1.0": 0.0
+          },
+          "graph_dev_hit": 0.5,
+          "semantic_dev_hit": 0.0
+        },
+        "acc": {
+          "baseline": 0.03125,
+          "oracle": 1.0,
+          "wrong": 0.03125,
+          "semantic": 0.03125,
+          "graph": 0.53125
+        },
+        "mean_prob": {
+          "baseline": 0.07874260110711495,
+          "oracle": 0.7443939983439003,
+          "wrong": 0.08089910487894908,
+          "semantic": 0.10169933629822517,
+          "graph": 0.39831009985558097
+        },
+        "hit_rate": {
+          "semantic": 0.0,
+          "graph": 0.5
+        },
+        "failing_n": 31,
+        "bridge_hit_rate": {
+          "semantic": 0.875,
+          "graph": 0.0
+        },
+        "graph_path_bridge_hit_rate": 0.5625,
+        "semantic_vs_baseline": {
+          "mean_delta": 0.022956735191110203,
+          "dz": 0.253437038239737,
+          "perm_p": 0.168,
+          "n": 32
+        },
+        "semantic_vs_wrong": {
+          "mean_delta": 0.020800231419276085,
+          "dz": 0.23402705925564435,
+          "perm_p": 0.2125,
+          "n": 32
+        },
+        "semantic_pct_of_oracle": 0.03448762413240162,
+        "semantic_vs_wrong_failing": {
+          "mean_delta": 0.024199360358984137,
+          "dz": 0.27434081442829145,
+          "perm_p": 0.146,
+          "n": 31
+        },
+        "semantic_failing_acc": 0.03225806451612903,
+        "graph_vs_baseline": {
+          "mean_delta": 0.3195674987484661,
+          "dz": 1.035449131366965,
+          "perm_p": 0.0,
+          "n": 32
+        },
+        "graph_vs_wrong": {
+          "mean_delta": 0.31741099497663194,
+          "dz": 1.0129488195816632,
+          "perm_p": 0.0,
+          "n": 32
+        },
+        "graph_pct_of_oracle": 0.48008236755009703,
+        "graph_vs_wrong_failing": {
+          "mean_delta": 0.3105226743706185,
+          "dz": 0.9824777492804264,
+          "perm_p": 0.0,
+          "n": 31
+        },
+        "graph_failing_acc": 0.5161290322580645,
+        "failing_acc": {
+          "baseline": 0.0,
+          "oracle": 1.0,
+          "wrong": 0.0,
+          "semantic": 0.03225806451612903,
+          "graph": 0.5161290322580645
+        }
+      },
+      "rows": [
+        {
+          "prompt_id": 81,
+          "needle_depth": 0.15,
+          "baseline": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.12309284986995131
+          },
+          "oracle": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.7554375195231321
+          },
+          "wrong": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.11076350388719856,
+            "span": [
+              339,
+              355
+            ]
+          },
+          "semantic": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.18422671338631882,
+            "span": [
+              1705,
+              1716
+            ],
+            "hit": false,
+            "bridge_hit": true
+          },
+          "graph": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.7554375195231321,
+            "span": [
+              606,
+              618
+            ],
+            "hit": true,
+            "bridge_hit": false,
+            "path_bridge_hit": true,
+            "path": [
+              100,
+              35
+            ]
+          }
+        },
+        {
+          "prompt_id": 84,
+          "needle_depth": 0.15,
+          "baseline": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.17289336324982554
+          },
+          "oracle": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.8284329213097424
+          },
+          "wrong": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.17483104825654072,
+            "span": [
+              3273,
+              3289
+            ]
+          },
+          "semantic": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.14267312049127995,
+            "span": [
+              1728,
+              1739
+            ],
+            "hit": false,
+            "bridge_hit": true
+          },
+          "graph": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.8284329213097424,
+            "span": [
+              586,
+              598
+            ],
+            "hit": true,
+            "bridge_hit": false,
+            "path_bridge_hit": true,
+            "path": [
+              102,
+              35
+            ]
+          }
+        },
+        {
+          "prompt_id": 87,
+          "needle_depth": 0.5,
+          "baseline": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.3284737628943043
+          },
+          "oracle": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.9275956764159561
+          },
+          "wrong": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.3178662714854659,
+            "span": [
+              84,
+              100
+            ]
+          },
+          "semantic": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.3633882176077004,
+            "span": [
+              3017,
+              3028
+            ],
+            "hit": false,
+            "bridge_hit": true
+          },
+          "graph": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.9275956764159561,
+            "span": [
+              1878,
+              1890
+            ],
+            "hit": true,
+            "bridge_hit": false,
+            "path_bridge_hit": true,
+            "path": [
+              175,
+              109
+            ]
+          }
+        },
+        {
+          "prompt_id": 89,
+          "needle_depth": 0.5,
+          "baseline": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.4155091968926541
+          },
+          "oracle": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.9420726450714173
+          },
+          "wrong": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.41112371130836783,
+            "span": [
+              2046,
+              2062
+            ]
+          },
+          "semantic": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.32655094559669434,
+            "span": [
+              3029,
+              3040
+            ],
+            "hit": false,
+            "bridge_hit": true
+          },
+          "graph": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.9420726450714173,
+            "span": [
+              1884,
+              1896
+            ],
+            "hit": true,
+            "bridge_hit": false,
+            "path_bridge_hit": true,
+            "path": [
+              178,
+              111
+            ]
+          }
+        },
+        {
+          "prompt_id": 91,
+          "needle_depth": 0.15,
+          "baseline": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.03332005970820039
+          },
+          "oracle": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.6769854828312162
+          },
+          "wrong": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.03644826188747932,
+            "span": [
+              305,
+              321
+            ]
+          },
+          "semantic": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.02830463431414031,
+            "span": [
+              1715,
+              1726
+            ],
+            "hit": false,
+            "bridge_hit": true
+          },
+          "graph": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.6769854828312162,
+            "span": [
+              578,
+              590
+            ],
+            "hit": true,
+            "bridge_hit": false,
+            "path_bridge_hit": true,
+            "path": [
+              102,
+              35
+            ]
+          }
+        },
+        {
+          "prompt_id": 94,
+          "needle_depth": 0.15,
+          "baseline": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.024029623964063048
+          },
+          "oracle": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.8341928731716757
+          },
+          "wrong": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.021437308196988927,
+            "span": [
+              1136,
+              1152
+            ]
+          },
+          "semantic": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.06993499474490016,
+            "span": [
+              1726,
+              1737
+            ],
+            "hit": false,
+            "bridge_hit": true
+          },
+          "graph": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.05830182046064226,
+            "span": [
+              3134,
+              3145
+            ],
+            "hit": false,
+            "bridge_hit": false,
+            "path_bridge_hit": false,
+            "path": [
+              213,
+              185
+            ]
+          }
+        },
+        {
+          "prompt_id": 97,
+          "needle_depth": 0.5,
+          "baseline": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.07048387588862746
+          },
+          "oracle": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.9464810543582761
+          },
+          "wrong": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.05112506521375509,
+            "span": [
+              1822,
+              1838
+            ]
+          },
+          "semantic": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.021938973082119752,
+            "span": [
+              3034,
+              3045
+            ],
+            "hit": false,
+            "bridge_hit": true
+          },
+          "graph": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.9464810543582761,
+            "span": [
+              1890,
+              1902
+            ],
+            "hit": true,
+            "bridge_hit": false,
+            "path_bridge_hit": true,
+            "path": [
+              176,
+              110
+            ]
+          }
+        },
+        {
+          "prompt_id": 99,
+          "needle_depth": 0.5,
+          "baseline": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.22797642730108497
+          },
+          "oracle": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.9233635531831725
+          },
+          "wrong": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.2556565474402071,
+            "span": [
+              1604,
+              1620
+            ]
+          },
+          "semantic": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.5424337293452665,
+            "span": [
+              3036,
+              3047
+            ],
+            "hit": false,
+            "bridge_hit": true
+          },
+          "graph": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.06966679557725741,
+            "span": [
+              3112,
+              3123
+            ],
+            "hit": false,
+            "bridge_hit": false,
+            "path_bridge_hit": false,
+            "path": [
+              215,
+              186
+            ]
+          }
+        },
+        {
+          "prompt_id": 101,
+          "needle_depth": 0.15,
+          "baseline": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.009669084677990002
+          },
+          "oracle": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.38153754115572225
+          },
+          "wrong": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.010714442899653565,
+            "span": [
+              1527,
+              1543
+            ]
+          },
+          "semantic": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.010142199167393768,
+            "span": [
+              1716,
+              1724
+            ],
+            "hit": false,
+            "bridge_hit": true
+          },
+          "graph": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.38153754115572225,
+            "span": [
+              597,
+              607
+            ],
+            "hit": true,
+            "bridge_hit": false,
+            "path_bridge_hit": true,
+            "path": [
+              100,
+              35
+            ]
+          }
+        },
+        {
+          "prompt_id": 104,
+          "needle_depth": 0.15,
+          "baseline": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.015847770102288654
+          },
+          "oracle": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.7611065436880521
+          },
+          "wrong": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.018027953362167663,
+            "span": [
+              108,
+              124
+            ]
+          },
+          "semantic": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.02144301539210208,
+            "span": [
+              1705,
+              1713
+            ],
+            "hit": false,
+            "bridge_hit": true
+          },
+          "graph": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.053238301194499314,
+            "span": [
+              3125,
+              3136
+            ],
+            "hit": false,
+            "bridge_hit": false,
+            "path_bridge_hit": false,
+            "path": [
+              213,
+              185
+            ]
+          }
+        },
+        {
+          "prompt_id": 107,
+          "needle_depth": 0.5,
+          "baseline": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.0930003562328491
+          },
+          "oracle": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.8528866210039325
+          },
+          "wrong": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.08887029636704134,
+            "span": [
+              21,
+              37
+            ]
+          },
+          "semantic": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.035492694144249735,
+            "span": [
+              3019,
+              3027
+            ],
+            "hit": false,
+            "bridge_hit": true
+          },
+          "graph": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.8528866210039325,
+            "span": [
+              1901,
+              1911
+            ],
+            "hit": true,
+            "bridge_hit": false,
+            "path_bridge_hit": true,
+            "path": [
+              176,
+              110
+            ]
+          }
+        },
+        {
+          "prompt_id": 109,
+          "needle_depth": 0.5,
+          "baseline": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.0636344310852586
+          },
+          "oracle": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.8962546107236565
+          },
+          "wrong": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.07610020797022259,
+            "span": [
+              471,
+              487
+            ]
+          },
+          "semantic": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.032186810117018454,
+            "span": [
+              3019,
+              3027
+            ],
+            "hit": false,
+            "bridge_hit": true
+          },
+          "graph": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.08638388695846794,
+            "span": [
+              3113,
+              3124
+            ],
+            "hit": false,
+            "bridge_hit": false,
+            "path_bridge_hit": false,
+            "path": [
+              214,
+              186
+            ]
+          }
+        },
+        {
+          "prompt_id": 111,
+          "needle_depth": 0.15,
+          "baseline": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.003421903477902789
+          },
+          "oracle": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.38063075160486437
+          },
+          "wrong": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.0028896965948883874,
+            "span": [
+              32,
+              48
+            ]
+          },
+          "semantic": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.0031489641375107213,
+            "span": [
+              1728,
+              1737
+            ],
+            "hit": false,
+            "bridge_hit": true
+          },
+          "graph": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.38063075160486437,
+            "span": [
+              604,
+              615
+            ],
+            "hit": true,
+            "bridge_hit": false,
+            "path_bridge_hit": true,
+            "path": [
+              101,
+              35
+            ]
+          }
+        },
+        {
+          "prompt_id": 114,
+          "needle_depth": 0.15,
+          "baseline": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.0028010372915894294
+          },
+          "oracle": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.42596589211253993
+          },
+          "wrong": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.003008974718928444,
+            "span": [
+              2542,
+              2558
+            ]
+          },
+          "semantic": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.006143336281162239,
+            "span": [
+              1701,
+              1710
+            ],
+            "hit": false,
+            "bridge_hit": true
+          },
+          "graph": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.003733124823168997,
+            "span": [
+              3109,
+              3120
+            ],
+            "hit": false,
+            "bridge_hit": false,
+            "path_bridge_hit": false,
+            "path": [
+              213,
+              185
+            ]
+          }
+        },
+        {
+          "prompt_id": 117,
+          "needle_depth": 0.5,
+          "baseline": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.012420850996936619
+          },
+          "oracle": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.5904863199299187
+          },
+          "wrong": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.017323781253468545,
+            "span": [
+              1996,
+              2012
+            ]
+          },
+          "semantic": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.009115139641324335,
+            "span": [
+              3029,
+              3038
+            ],
+            "hit": false,
+            "bridge_hit": true
+          },
+          "graph": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.5904863199299187,
+            "span": [
+              1896,
+              1907
+            ],
+            "hit": true,
+            "bridge_hit": false,
+            "path_bridge_hit": true,
+            "path": [
+              174,
+              109
+            ]
+          }
+        },
+        {
+          "prompt_id": 119,
+          "needle_depth": 0.5,
+          "baseline": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.005718845591985291
+          },
+          "oracle": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.7234089169317278
+          },
+          "wrong": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.0064298692918856246,
+            "span": [
+              2448,
+              2464
+            ]
+          },
+          "semantic": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.0055979453179393875,
+            "span": [
+              3042,
+              3051
+            ],
+            "hit": false,
+            "bridge_hit": true
+          },
+          "graph": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.010010801151939058,
+            "span": [
+              3118,
+              3129
+            ],
+            "hit": false,
+            "bridge_hit": false,
+            "path_bridge_hit": false,
+            "path": [
+              211,
+              183
+            ]
+          }
+        },
+        {
+          "prompt_id": 121,
+          "needle_depth": 0.15,
+          "baseline": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.043057446977841
+          },
+          "oracle": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.48440522708631334
+          },
+          "wrong": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.04547199499442119,
+            "span": [
+              972,
+              988
+            ]
+          },
+          "semantic": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.03405314074083567,
+            "span": [
+              1715,
+              1726
+            ],
+            "hit": false,
+            "bridge_hit": true
+          },
+          "graph": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.48440522708631334,
+            "span": [
+              608,
+              619
+            ],
+            "hit": true,
+            "bridge_hit": false,
+            "path_bridge_hit": true,
+            "path": [
+              100,
+              35
+            ]
+          }
+        },
+        {
+          "prompt_id": 124,
+          "needle_depth": 0.15,
+          "baseline": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.06443020134332784
+          },
+          "oracle": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.6626000908887827
+          },
+          "wrong": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.08527246534735367,
+            "span": [
+              2333,
+              2349
+            ]
+          },
+          "semantic": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.023802266577216333,
+            "span": [
+              1725,
+              1736
+            ],
+            "hit": false,
+            "bridge_hit": true
+          },
+          "graph": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.09376722131338026,
+            "span": [
+              3121,
+              3130
+            ],
+            "hit": false,
+            "bridge_hit": false,
+            "path_bridge_hit": false,
+            "path": [
+              212,
+              184
+            ]
+          }
+        },
+        {
+          "prompt_id": 127,
+          "needle_depth": 0.5,
+          "baseline": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.192294799764083
+          },
+          "oracle": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.7254591498806516
+          },
+          "wrong": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.14044835909417427,
+            "span": [
+              2893,
+              2909
+            ]
+          },
+          "semantic": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.2081140512348377,
+            "span": [
+              3037,
+              3048
+            ],
+            "hit": false,
+            "bridge_hit": true
+          },
+          "graph": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.7254591498806516,
+            "span": [
+              1914,
+              1925
+            ],
+            "hit": true,
+            "bridge_hit": false,
+            "path_bridge_hit": true,
+            "path": [
+              174,
+              109
+            ]
+          }
+        },
+        {
+          "prompt_id": 129,
+          "needle_depth": 0.5,
+          "baseline": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.17219209402255453
+          },
+          "oracle": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.8092657617958819
+          },
+          "wrong": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.1817401710198814,
+            "span": [
+              1454,
+              1470
+            ]
+          },
+          "semantic": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.23471552838144696,
+            "span": [
+              3044,
+              3055
+            ],
+            "hit": false,
+            "bridge_hit": true
+          },
+          "graph": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.1588310760365614,
+            "span": [
+              3132,
+              3141
+            ],
+            "hit": false,
+            "bridge_hit": false,
+            "path_bridge_hit": false,
+            "path": [
+              211,
+              183
+            ]
+          }
+        },
+        {
+          "prompt_id": 131,
+          "needle_depth": 0.15,
+          "baseline": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.0017349714024644763
+          },
+          "oracle": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.5669586582517169
+          },
+          "wrong": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.0015798959207674445,
+            "span": [
+              1748,
+              1764
+            ]
+          },
+          "semantic": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.00396415254072795,
+            "span": [
+              1723,
+              1732
+            ],
+            "hit": false,
+            "bridge_hit": true
+          },
+          "graph": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.5669586582517169,
+            "span": [
+              585,
+              596
+            ],
+            "hit": true,
+            "bridge_hit": false,
+            "path_bridge_hit": true,
+            "path": [
+              100,
+              35
+            ]
+          }
+        },
+        {
+          "prompt_id": 134,
+          "needle_depth": 0.15,
+          "baseline": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.00179566010378932
+          },
+          "oracle": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.9656601351662009
+          },
+          "wrong": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.0017704094553576393,
+            "span": [
+              3780,
+              3796
+            ]
+          },
+          "semantic": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.0029579087667862035,
+            "span": [
+              1712,
+              1721
+            ],
+            "hit": false,
+            "bridge_hit": true
+          },
+          "graph": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.006402284872206772,
+            "span": [
+              3126,
+              3135
+            ],
+            "hit": false,
+            "bridge_hit": false,
+            "path_bridge_hit": false,
+            "path": [
+              213,
+              185
+            ]
+          }
+        },
+        {
+          "prompt_id": 137,
+          "needle_depth": 0.5,
+          "baseline": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.00447554810245719
+          },
+          "oracle": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.9492832754918639
+          },
+          "wrong": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.037278276656254224,
+            "span": [
+              3055,
+              3071
+            ]
+          },
+          "semantic": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.036904036332311346,
+            "span": [
+              3052,
+              3061
+            ],
+            "hit": false,
+            "bridge_hit": true
+          },
+          "graph": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.9492832754918639,
+            "span": [
+              1910,
+              1921
+            ],
+            "hit": true,
+            "bridge_hit": false,
+            "path_bridge_hit": true,
+            "path": [
+              177,
+              111
+            ]
+          }
+        },
+        {
+          "prompt_id": 139,
+          "needle_depth": 0.5,
+          "baseline": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.008768415348384868
+          },
+          "oracle": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.9869362961189537
+          },
+          "wrong": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.007445194855094587,
+            "span": [
+              3717,
+              3733
+            ]
+          },
+          "semantic": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.01744487045041698,
+            "span": [
+              3019,
+              3028
+            ],
+            "hit": false,
+            "bridge_hit": true
+          },
+          "graph": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.012953917742266905,
+            "span": [
+              3116,
+              3125
+            ],
+            "hit": false,
+            "bridge_hit": false,
+            "path_bridge_hit": false,
+            "path": [
+              212,
+              184
+            ]
+          }
+        },
+        {
+          "prompt_id": 141,
+          "needle_depth": 0.15,
+          "baseline": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.020658581959964485
+          },
+          "oracle": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.5048754928590398
+          },
+          "wrong": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.02320439845754794,
+            "span": [
+              1436,
+              1452
+            ]
+          },
+          "semantic": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.007199822865311841,
+            "span": [
+              2656,
+              2666
+            ],
+            "hit": false,
+            "bridge_hit": false
+          },
+          "graph": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.5048754928590398,
+            "span": [
+              599,
+              610
+            ],
+            "hit": true,
+            "bridge_hit": false,
+            "path_bridge_hit": true,
+            "path": [
+              100,
+              35
+            ]
+          }
+        },
+        {
+          "prompt_id": 144,
+          "needle_depth": 0.15,
+          "baseline": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.03338780695744965
+          },
+          "oracle": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.8280546995046242
+          },
+          "wrong": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.03769866292818749,
+            "span": [
+              2599,
+              2615
+            ]
+          },
+          "semantic": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.003839601578038507,
+            "span": [
+              2657,
+              2667
+            ],
+            "hit": false,
+            "bridge_hit": false
+          },
+          "graph": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.15008062897027255,
+            "span": [
+              3144,
+              3153
+            ],
+            "hit": false,
+            "bridge_hit": false,
+            "path_bridge_hit": false,
+            "path": [
+              214,
+              186
+            ]
+          }
+        },
+        {
+          "prompt_id": 147,
+          "needle_depth": 0.5,
+          "baseline": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.06390367823640465
+          },
+          "oracle": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.6407338611577238
+          },
+          "wrong": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.06240958905688253,
+            "span": [
+              3593,
+              3609
+            ]
+          },
+          "semantic": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.013281445549682497,
+            "span": [
+              2638,
+              2648
+            ],
+            "hit": false,
+            "bridge_hit": false
+          },
+          "graph": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.6407338611577238,
+            "span": [
+              1887,
+              1898
+            ],
+            "hit": true,
+            "bridge_hit": false,
+            "path_bridge_hit": true,
+            "path": [
+              176,
+              110
+            ]
+          }
+        },
+        {
+          "prompt_id": 149,
+          "needle_depth": 0.5,
+          "baseline": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.11957484906641307
+          },
+          "oracle": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.8637060773539392
+          },
+          "wrong": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.14962651761019313,
+            "span": [
+              2460,
+              2476
+            ]
+          },
+          "semantic": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.010575667845601777,
+            "span": [
+              2618,
+              2628
+            ],
+            "hit": false,
+            "bridge_hit": false
+          },
+          "graph": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.3295606311864246,
+            "span": [
+              3092,
+              3101
+            ],
+            "hit": false,
+            "bridge_hit": false,
+            "path_bridge_hit": false,
+            "path": [
+              211,
+              183
+            ]
+          }
+        },
+        {
+          "prompt_id": 151,
+          "needle_depth": 0.15,
+          "baseline": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.013590242159651343
+          },
+          "oracle": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.6123436688857317
+          },
+          "wrong": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.014314905223410264,
+            "span": [
+              3184,
+              3200
+            ]
+          },
+          "semantic": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.0916331569898183,
+            "span": [
+              1737,
+              1748
+            ],
+            "hit": false,
+            "bridge_hit": true
+          },
+          "graph": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.07682650095427547,
+            "span": [
+              3140,
+              3149
+            ],
+            "hit": false,
+            "bridge_hit": false,
+            "path_bridge_hit": true,
+            "path": [
+              100,
+              181
+            ]
+          }
+        },
+        {
+          "prompt_id": 154,
+          "needle_depth": 0.15,
+          "baseline": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.01714541119586584
+          },
+          "oracle": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.6712918500974617
+          },
+          "wrong": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.017624281860303778,
+            "span": [
+              2605,
+              2621
+            ]
+          },
+          "semantic": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.14500417451381908,
+            "span": [
+              1721,
+              1732
+            ],
+            "hit": false,
+            "bridge_hit": true
+          },
+          "graph": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.0948743401183882,
+            "span": [
+              3132,
+              3141
+            ],
+            "hit": false,
+            "bridge_hit": false,
+            "path_bridge_hit": false,
+            "path": [
+              216,
+              187
+            ]
+          }
+        },
+        {
+          "prompt_id": 157,
+          "needle_depth": 0.5,
+          "baseline": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.04436858944998074
+          },
+          "oracle": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.8043239237409163
+          },
+          "wrong": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.04687864972373465,
+            "span": [
+              2667,
+              2683
+            ]
+          },
+          "semantic": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.2714649133368208,
+            "span": [
+              3031,
+              3042
+            ],
+            "hit": false,
+            "bridge_hit": true
+          },
+          "graph": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.15498900589955192,
+            "span": [
+              3114,
+              3123
+            ],
+            "hit": false,
+            "bridge_hit": false,
+            "path_bridge_hit": true,
+            "path": [
+              176,
+              181
+            ]
+          }
+        },
+        {
+          "prompt_id": 159,
+          "needle_depth": 0.5,
+          "baseline": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.11609150011153496
+          },
+          "oracle": {
+            "forced_choice_correct": true,
+            "forced_choice_prob": 0.8978708557100031
+          },
+          "wrong": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.13339064378854665,
+            "span": [
+              1475,
+              1491
+            ]
+          },
+          "semantic": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.34670259107241236,
+            "span": [
+              3049,
+              3060
+            ],
+            "hit": false,
+            "bridge_hit": true
+          },
+          "graph": {
+            "forced_choice_correct": false,
+            "forced_choice_prob": 0.2320406601878026,
+            "span": [
+              3150,
+              3159
+            ],
+            "hit": false,
+            "bridge_hit": false,
+            "path_bridge_hit": false,
+            "path": [
+              213,
+              185
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "design": {
+    "top_cells": [
+      [
+        12,
+        14
+      ],
+      [
+        9,
+        6
+      ],
+      [
+        9,
+        1
+      ],
+      [
+        12,
+        15
+      ],
+      [
+        3,
+        15
+      ],
+      [
+        7,
+        15
+      ],
+      [
+        12,
+        3
+      ],
+      [
+        12,
+        10
+      ],
+      [
+        11,
+        8
+      ],
+      [
+        9,
+        8
+      ],
+      [
+        14,
+        1
+      ],
+      [
+        13,
+        8
+      ],
+      [
+        6,
+        1
+      ],
+      [
+        10,
+        13
+      ],
+      [
+        11,
+        0
+      ],
+      [
+        10,
+        1
+      ]
+    ],
+    "beta": 4.0,
+    "wrong_width": 16,
+    "eval_bucket": 3840,
+    "n_perm": 2000,
+    "seed": 0,
+    "embedder": "sentence-transformers/all-MiniLM-L6-v2",
+    "hops_grid": [
+      1,
+      2,
+      3
+    ],
+    "alphas_grid": [
+      0.0,
+      0.5,
+      1.0
+    ]
+  }
+}

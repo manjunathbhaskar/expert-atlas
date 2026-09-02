@@ -1,0 +1,1986 @@
+{
+  "summary": {
+    "calibration": {
+      "h": 2,
+      "alpha": 0.0,
+      "gamma": 1.0,
+      "dev_grid": {
+        "h1/a0.0/g0.0": 0.0,
+        "h1/a0.0/g0.5": 0.0,
+        "h1/a0.0/g1.0": 0.0,
+        "h1/a0.5/g0.0": 0.0,
+        "h1/a0.5/g0.5": 0.0,
+        "h1/a0.5/g1.0": 0.0,
+        "h1/a1.0/g0.0": 0.0,
+        "h1/a1.0/g0.5": 0.0,
+        "h1/a1.0/g1.0": 0.0,
+        "h2/a0.0/g0.0": 0.0,
+        "h2/a0.0/g0.5": 0.0,
+        "h2/a0.0/g1.0": 1.0,
+        "h2/a0.5/g0.0": 0.0,
+        "h2/a0.5/g0.5": 0.0,
+        "h2/a0.5/g1.0": 0.5,
+        "h2/a1.0/g0.0": 0.0,
+        "h2/a1.0/g0.5": 0.0,
+        "h2/a1.0/g1.0": 0.0,
+        "h3/a0.0/g0.0": 0.0,
+        "h3/a0.0/g0.5": 0.0,
+        "h3/a0.0/g1.0": 0.0,
+        "h3/a0.5/g0.0": 0.0,
+        "h3/a0.5/g0.5": 0.0,
+        "h3/a0.5/g1.0": 0.0,
+        "h3/a1.0/g0.0": 0.0,
+        "h3/a1.0/g0.5": 0.0,
+        "h3/a1.0/g1.0": 0.0
+      },
+      "graph_dev_hit": 1.0,
+      "semantic_dev_hit": 0.0
+    },
+    "acc": {
+      "baseline": 0.3125,
+      "oracle": 1.0,
+      "wrong": 0.28125,
+      "lexical": 0.78125,
+      "semantic": 0.21875,
+      "graph": 1.0
+    },
+    "mean_prob": {
+      "baseline": 0.2707924063311017,
+      "oracle": 0.9479760957849485,
+      "wrong": 0.24544546778986176,
+      "lexical": 0.7278568917018382,
+      "semantic": 0.20530416831017304,
+      "graph": 0.9479760957849485
+    },
+    "hit_rate": {
+      "lexical": 1.0,
+      "semantic": 0.0,
+      "graph": 1.0
+    },
+    "anchor_hit_rate": {
+      "lexical": 1.0,
+      "semantic": 1.0,
+      "graph": 0.0
+    },
+    "graph_path_anchor_hit_rate": 1.0,
+    "failing_n": 22,
+    "lexical_vs_baseline": {
+      "mean_delta": 0.4570644853707364,
+      "dz": 1.1046517931403963,
+      "perm_p": 0.0,
+      "n": 32
+    },
+    "lexical_vs_wrong": {
+      "mean_delta": 0.48241142391197633,
+      "dz": 1.1956207200315536,
+      "perm_p": 0.0,
+      "n": 32
+    },
+    "lexical_pct_of_oracle": 0.674949046305829,
+    "lexical_vs_wrong_failing": {
+      "mean_delta": 0.5880412598441523,
+      "dz": 1.3817078317516922,
+      "perm_p": 0.0,
+      "n": 22
+    },
+    "lexical_failing_acc": 0.7272727272727273,
+    "semantic_vs_baseline": {
+      "mean_delta": -0.0654882380209287,
+      "dz": -0.43824058151974615,
+      "perm_p": 0.017,
+      "n": 32
+    },
+    "semantic_vs_wrong": {
+      "mean_delta": -0.04014129947968874,
+      "dz": -0.3732401327013237,
+      "perm_p": 0.046,
+      "n": 32
+    },
+    "semantic_pct_of_oracle": -0.09670675629199717,
+    "semantic_vs_wrong_failing": {
+      "mean_delta": -0.0339158387526407,
+      "dz": -0.5737049482411284,
+      "perm_p": 0.0105,
+      "n": 22
+    },
+    "semantic_failing_acc": 0.0,
+    "graph_vs_baseline": {
+      "mean_delta": 0.6771836894538468,
+      "dz": 2.806400531908407,
+      "perm_p": 0.0,
+      "n": 32
+    },
+    "graph_vs_wrong": {
+      "mean_delta": 0.7025306279950867,
+      "dz": 3.374986525533274,
+      "perm_p": 0.0,
+      "n": 32
+    },
+    "graph_pct_of_oracle": 1.0,
+    "graph_vs_wrong_failing": {
+      "mean_delta": 0.8013112220204437,
+      "dz": 5.593519972769922,
+      "perm_p": 0.0,
+      "n": 22
+    },
+    "graph_failing_acc": 1.0,
+    "failing_acc": {
+      "baseline": 0.0,
+      "oracle": 1.0,
+      "wrong": 0.0,
+      "lexical": 0.7272727272727273,
+      "semantic": 0.0,
+      "graph": 1.0
+    }
+  },
+  "rows": [
+    {
+      "prompt_id": 1,
+      "needle_depth": 0.15,
+      "baseline": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.4326189068334094
+      },
+      "oracle": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.9848056593275222
+      },
+      "wrong": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.4125263050755743,
+        "span": [
+          3215,
+          3231
+        ]
+      },
+      "lexical": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.5457987775807585,
+        "span": [
+          623,
+          639
+        ],
+        "hit": true,
+        "anchor_hit": true
+      },
+      "semantic": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.5730875313318916,
+        "span": [
+          622,
+          634
+        ],
+        "hit": false,
+        "anchor_hit": true
+      },
+      "graph": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.9848056593275222,
+        "span": [
+          634,
+          647
+        ],
+        "hit": true,
+        "anchor_hit": false,
+        "path": [
+          37,
+          38
+        ],
+        "path_anchor_hit": true
+      }
+    },
+    {
+      "prompt_id": 4,
+      "needle_depth": 0.15,
+      "baseline": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.6607689481269706
+      },
+      "oracle": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.9971142551598868
+      },
+      "wrong": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.3768765175578891,
+        "span": [
+          2406,
+          2422
+        ]
+      },
+      "lexical": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.5355481289982779,
+        "span": [
+          605,
+          621
+        ],
+        "hit": true,
+        "anchor_hit": true
+      },
+      "semantic": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.5214670827431497,
+        "span": [
+          604,
+          616
+        ],
+        "hit": false,
+        "anchor_hit": true
+      },
+      "graph": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.9971142551598868,
+        "span": [
+          616,
+          629
+        ],
+        "hit": true,
+        "anchor_hit": false,
+        "path": [
+          37,
+          38
+        ],
+        "path_anchor_hit": true
+      }
+    },
+    {
+      "prompt_id": 7,
+      "needle_depth": 0.5,
+      "baseline": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.6429335016570973
+      },
+      "oracle": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.9937625596031449
+      },
+      "wrong": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.6757851264804933,
+        "span": [
+          1934,
+          1950
+        ]
+      },
+      "lexical": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.8234535115723236,
+        "span": [
+          1952,
+          1968
+        ],
+        "hit": true,
+        "anchor_hit": true
+      },
+      "semantic": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.7982595155601859,
+        "span": [
+          1951,
+          1963
+        ],
+        "hit": false,
+        "anchor_hit": true
+      },
+      "graph": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.9937625596031449,
+        "span": [
+          1963,
+          1976
+        ],
+        "hit": true,
+        "anchor_hit": false,
+        "path": [
+          115,
+          116
+        ],
+        "path_anchor_hit": true
+      }
+    },
+    {
+      "prompt_id": 9,
+      "needle_depth": 0.5,
+      "baseline": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.6143616467566756
+      },
+      "oracle": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.9949579710323917
+      },
+      "wrong": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.6320964856441783,
+        "span": [
+          1024,
+          1040
+        ]
+      },
+      "lexical": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.6734095575712722,
+        "span": [
+          1941,
+          1957
+        ],
+        "hit": true,
+        "anchor_hit": true
+      },
+      "semantic": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.6415597608228506,
+        "span": [
+          1940,
+          1952
+        ],
+        "hit": false,
+        "anchor_hit": true
+      },
+      "graph": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.9949579710323917,
+        "span": [
+          1952,
+          1965
+        ],
+        "hit": true,
+        "anchor_hit": false,
+        "path": [
+          116,
+          117
+        ],
+        "path_anchor_hit": true
+      }
+    },
+    {
+      "prompt_id": 11,
+      "needle_depth": 0.15,
+      "baseline": {
+        "forced_choice_correct": false,
+        "forced_choice_prob": 0.21867123861902213
+      },
+      "oracle": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.7830189882598527
+      },
+      "wrong": {
+        "forced_choice_correct": false,
+        "forced_choice_prob": 0.1371102859347121,
+        "span": [
+          1164,
+          1180
+        ]
+      },
+      "lexical": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.9712200520790186,
+        "span": [
+          609,
+          625
+        ],
+        "hit": true,
+        "anchor_hit": true
+      },
+      "semantic": {
+        "forced_choice_correct": false,
+        "forced_choice_prob": 0.18095038946745823,
+        "span": [
+          607,
+          619
+        ],
+        "hit": false,
+        "anchor_hit": true
+      },
+      "graph": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.7830189882598527,
+        "span": [
+          619,
+          632
+        ],
+        "hit": true,
+        "anchor_hit": false,
+        "path": [
+          37,
+          38
+        ],
+        "path_anchor_hit": true
+      }
+    },
+    {
+      "prompt_id": 14,
+      "needle_depth": 0.15,
+      "baseline": {
+        "forced_choice_correct": false,
+        "forced_choice_prob": 0.05998498658352658
+      },
+      "oracle": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.9833847228675884
+      },
+      "wrong": {
+        "forced_choice_correct": false,
+        "forced_choice_prob": 0.14431731260362327,
+        "span": [
+          156,
+          172
+        ]
+      },
+      "lexical": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.9964762278248741,
+        "span": [
+          627,
+          643
+        ],
+        "hit": true,
+        "anchor_hit": true
+      },
+      "semantic": {
+        "forced_choice_correct": false,
+        "forced_choice_prob": 0.1649251730966088,
+        "span": [
+          625,
+          637
+        ],
+        "hit": false,
+        "anchor_hit": true
+      },
+      "graph": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.9833847228675884,
+        "span": [
+          637,
+          650
+        ],
+        "hit": true,
+        "anchor_hit": false,
+        "path": [
+          37,
+          38
+        ],
+        "path_anchor_hit": true
+      }
+    },
+    {
+      "prompt_id": 17,
+      "needle_depth": 0.5,
+      "baseline": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.7768953998631621
+      },
+      "oracle": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.9673364032245403
+      },
+      "wrong": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.7415672142496279,
+        "span": [
+          286,
+          302
+        ]
+      },
+      "lexical": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.9812403839565793,
+        "span": [
+          1957,
+          1973
+        ],
+        "hit": true,
+        "anchor_hit": true
+      },
+      "semantic": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.615935880860267,
+        "span": [
+          1955,
+          1967
+        ],
+        "hit": false,
+        "anchor_hit": true
+      },
+      "graph": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.9673364032245403,
+        "span": [
+          1967,
+          1980
+        ],
+        "hit": true,
+        "anchor_hit": false,
+        "path": [
+          114,
+          115
+        ],
+        "path_anchor_hit": true
+      }
+    },
+    {
+      "prompt_id": 19,
+      "needle_depth": 0.5,
+      "baseline": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.8124525274912241
+      },
+      "oracle": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.9884878242710177
+      },
+      "wrong": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.4945010278753204,
+        "span": [
+          63,
+          79
+        ]
+      },
+      "lexical": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.9956067801433449,
+        "span": [
+          1946,
+          1962
+        ],
+        "hit": true,
+        "anchor_hit": true
+      },
+      "semantic": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.4645670637888573,
+        "span": [
+          1944,
+          1956
+        ],
+        "hit": false,
+        "anchor_hit": true
+      },
+      "graph": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.9884878242710177,
+        "span": [
+          1956,
+          1969
+        ],
+        "hit": true,
+        "anchor_hit": false,
+        "path": [
+          116,
+          117
+        ],
+        "path_anchor_hit": true
+      }
+    },
+    {
+      "prompt_id": 21,
+      "needle_depth": 0.15,
+      "baseline": {
+        "forced_choice_correct": false,
+        "forced_choice_prob": 0.045368692447210694
+      },
+      "oracle": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.9759447245389182
+      },
+      "wrong": {
+        "forced_choice_correct": false,
+        "forced_choice_prob": 0.04646731899280887,
+        "span": [
+          665,
+          681
+        ]
+      },
+      "lexical": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.950883676100501,
+        "span": [
+          605,
+          621
+        ],
+        "hit": true,
+        "anchor_hit": true
+      },
+      "semantic": {
+        "forced_choice_correct": false,
+        "forced_choice_prob": 0.04623336088324127,
+        "span": [
+          604,
+          615
+        ],
+        "hit": false,
+        "anchor_hit": true
+      },
+      "graph": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.9759447245389182,
+        "span": [
+          615,
+          628
+        ],
+        "hit": true,
+        "anchor_hit": false,
+        "path": [
+          36,
+          37
+        ],
+        "path_anchor_hit": true
+      }
+    },
+    {
+      "prompt_id": 24,
+      "needle_depth": 0.15,
+      "baseline": {
+        "forced_choice_correct": false,
+        "forced_choice_prob": 0.07372217111642035
+      },
+      "oracle": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.9933869055438305
+      },
+      "wrong": {
+        "forced_choice_correct": false,
+        "forced_choice_prob": 0.07062084926158851,
+        "span": [
+          3086,
+          3102
+        ]
+      },
+      "lexical": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.9848997847646401,
+        "span": [
+          612,
+          628
+        ],
+        "hit": true,
+        "anchor_hit": true
+      },
+      "semantic": {
+        "forced_choice_correct": false,
+        "forced_choice_prob": 0.03468968009341342,
+        "span": [
+          611,
+          622
+        ],
+        "hit": false,
+        "anchor_hit": true
+      },
+      "graph": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.9933869055438305,
+        "span": [
+          622,
+          635
+        ],
+        "hit": true,
+        "anchor_hit": false,
+        "path": [
+          37,
+          38
+        ],
+        "path_anchor_hit": true
+      }
+    },
+    {
+      "prompt_id": 27,
+      "needle_depth": 0.5,
+      "baseline": {
+        "forced_choice_correct": false,
+        "forced_choice_prob": 0.13628616743785596
+      },
+      "oracle": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.9604179729707791
+      },
+      "wrong": {
+        "forced_choice_correct": false,
+        "forced_choice_prob": 0.32232452325915617,
+        "span": [
+          2457,
+          2473
+        ]
+      },
+      "lexical": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.965237635562806,
+        "span": [
+          1971,
+          1987
+        ],
+        "hit": true,
+        "anchor_hit": true
+      },
+      "semantic": {
+        "forced_choice_correct": false,
+        "forced_choice_prob": 0.2874725608722281,
+        "span": [
+          1970,
+          1981
+        ],
+        "hit": false,
+        "anchor_hit": true
+      },
+      "graph": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.9604179729707791,
+        "span": [
+          1981,
+          1994
+        ],
+        "hit": true,
+        "anchor_hit": false,
+        "path": [
+          113,
+          114
+        ],
+        "path_anchor_hit": true
+      }
+    },
+    {
+      "prompt_id": 29,
+      "needle_depth": 0.5,
+      "baseline": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.3597883137271609
+      },
+      "oracle": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.9981133441427262
+      },
+      "wrong": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.3381891390921022,
+        "span": [
+          3465,
+          3481
+        ]
+      },
+      "lexical": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.9875150369387306,
+        "span": [
+          1946,
+          1962
+        ],
+        "hit": true,
+        "anchor_hit": true
+      },
+      "semantic": {
+        "forced_choice_correct": false,
+        "forced_choice_prob": 0.04687680314163899,
+        "span": [
+          1945,
+          1956
+        ],
+        "hit": false,
+        "anchor_hit": true
+      },
+      "graph": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.9981133441427262,
+        "span": [
+          1956,
+          1969
+        ],
+        "hit": true,
+        "anchor_hit": false,
+        "path": [
+          117,
+          118
+        ],
+        "path_anchor_hit": true
+      }
+    },
+    {
+      "prompt_id": 31,
+      "needle_depth": 0.15,
+      "baseline": {
+        "forced_choice_correct": false,
+        "forced_choice_prob": 0.01734727989772904
+      },
+      "oracle": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.9309201170034535
+      },
+      "wrong": {
+        "forced_choice_correct": false,
+        "forced_choice_prob": 0.02082536779845471,
+        "span": [
+          1905,
+          1921
+        ]
+      },
+      "lexical": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.9183113164148006,
+        "span": [
+          614,
+          630
+        ],
+        "hit": true,
+        "anchor_hit": true
+      },
+      "semantic": {
+        "forced_choice_correct": false,
+        "forced_choice_prob": 0.020648197137311624,
+        "span": [
+          613,
+          624
+        ],
+        "hit": false,
+        "anchor_hit": true
+      },
+      "graph": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.9309201170034535,
+        "span": [
+          624,
+          637
+        ],
+        "hit": true,
+        "anchor_hit": false,
+        "path": [
+          37,
+          38
+        ],
+        "path_anchor_hit": true
+      }
+    },
+    {
+      "prompt_id": 34,
+      "needle_depth": 0.15,
+      "baseline": {
+        "forced_choice_correct": false,
+        "forced_choice_prob": 0.012403486590465704
+      },
+      "oracle": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.9625633690050802
+      },
+      "wrong": {
+        "forced_choice_correct": false,
+        "forced_choice_prob": 0.01079658344431398,
+        "span": [
+          2303,
+          2319
+        ]
+      },
+      "lexical": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.8791707010923971,
+        "span": [
+          610,
+          626
+        ],
+        "hit": true,
+        "anchor_hit": true
+      },
+      "semantic": {
+        "forced_choice_correct": false,
+        "forced_choice_prob": 0.01647608695234813,
+        "span": [
+          609,
+          620
+        ],
+        "hit": false,
+        "anchor_hit": true
+      },
+      "graph": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.9625633690050802,
+        "span": [
+          620,
+          633
+        ],
+        "hit": true,
+        "anchor_hit": false,
+        "path": [
+          37,
+          38
+        ],
+        "path_anchor_hit": true
+      }
+    },
+    {
+      "prompt_id": 37,
+      "needle_depth": 0.5,
+      "baseline": {
+        "forced_choice_correct": false,
+        "forced_choice_prob": 0.17493091842100933
+      },
+      "oracle": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.8895914605813875
+      },
+      "wrong": {
+        "forced_choice_correct": false,
+        "forced_choice_prob": 0.18090048852040214,
+        "span": [
+          3673,
+          3689
+        ]
+      },
+      "lexical": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.7934080694766849,
+        "span": [
+          1951,
+          1967
+        ],
+        "hit": true,
+        "anchor_hit": true
+      },
+      "semantic": {
+        "forced_choice_correct": false,
+        "forced_choice_prob": 0.10046909600028593,
+        "span": [
+          1950,
+          1961
+        ],
+        "hit": false,
+        "anchor_hit": true
+      },
+      "graph": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.8895914605813875,
+        "span": [
+          1961,
+          1974
+        ],
+        "hit": true,
+        "anchor_hit": false,
+        "path": [
+          113,
+          114
+        ],
+        "path_anchor_hit": true
+      }
+    },
+    {
+      "prompt_id": 39,
+      "needle_depth": 0.5,
+      "baseline": {
+        "forced_choice_correct": false,
+        "forced_choice_prob": 0.1708238047824714
+      },
+      "oracle": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.9717840870367364
+      },
+      "wrong": {
+        "forced_choice_correct": false,
+        "forced_choice_prob": 0.0701466035992678,
+        "span": [
+          2764,
+          2780
+        ]
+      },
+      "lexical": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.8868342390031675,
+        "span": [
+          1908,
+          1924
+        ],
+        "hit": true,
+        "anchor_hit": true
+      },
+      "semantic": {
+        "forced_choice_correct": false,
+        "forced_choice_prob": 0.03402801183598235,
+        "span": [
+          1907,
+          1918
+        ],
+        "hit": false,
+        "anchor_hit": true
+      },
+      "graph": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.9717840870367364,
+        "span": [
+          1918,
+          1931
+        ],
+        "hit": true,
+        "anchor_hit": false,
+        "path": [
+          115,
+          116
+        ],
+        "path_anchor_hit": true
+      }
+    },
+    {
+      "prompt_id": 41,
+      "needle_depth": 0.15,
+      "baseline": {
+        "forced_choice_correct": false,
+        "forced_choice_prob": 0.08437026327279847
+      },
+      "oracle": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.7124382530908134
+      },
+      "wrong": {
+        "forced_choice_correct": false,
+        "forced_choice_prob": 0.0895409329848049,
+        "span": [
+          2396,
+          2412
+        ]
+      },
+      "lexical": {
+        "forced_choice_correct": false,
+        "forced_choice_prob": 0.1176887719603984,
+        "span": [
+          618,
+          634
+        ],
+        "hit": true,
+        "anchor_hit": true
+      },
+      "semantic": {
+        "forced_choice_correct": false,
+        "forced_choice_prob": 0.10471177793715823,
+        "span": [
+          616,
+          629
+        ],
+        "hit": false,
+        "anchor_hit": true
+      },
+      "graph": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.7124382530908134,
+        "span": [
+          629,
+          642
+        ],
+        "hit": true,
+        "anchor_hit": false,
+        "path": [
+          37,
+          38
+        ],
+        "path_anchor_hit": true
+      }
+    },
+    {
+      "prompt_id": 44,
+      "needle_depth": 0.15,
+      "baseline": {
+        "forced_choice_correct": false,
+        "forced_choice_prob": 0.18410482454628135
+      },
+      "oracle": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.8231155080691127
+      },
+      "wrong": {
+        "forced_choice_correct": false,
+        "forced_choice_prob": 0.2581805252106814,
+        "span": [
+          2061,
+          2077
+        ]
+      },
+      "lexical": {
+        "forced_choice_correct": false,
+        "forced_choice_prob": 0.07938867135035002,
+        "span": [
+          611,
+          627
+        ],
+        "hit": true,
+        "anchor_hit": true
+      },
+      "semantic": {
+        "forced_choice_correct": false,
+        "forced_choice_prob": 0.1033730942404976,
+        "span": [
+          609,
+          622
+        ],
+        "hit": false,
+        "anchor_hit": true
+      },
+      "graph": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.8231155080691127,
+        "span": [
+          622,
+          635
+        ],
+        "hit": true,
+        "anchor_hit": false,
+        "path": [
+          37,
+          38
+        ],
+        "path_anchor_hit": true
+      }
+    },
+    {
+      "prompt_id": 47,
+      "needle_depth": 0.5,
+      "baseline": {
+        "forced_choice_correct": false,
+        "forced_choice_prob": 0.2519431634668331
+      },
+      "oracle": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.8374668584831623
+      },
+      "wrong": {
+        "forced_choice_correct": false,
+        "forced_choice_prob": 0.25828569868900325,
+        "span": [
+          2118,
+          2134
+        ]
+      },
+      "lexical": {
+        "forced_choice_correct": false,
+        "forced_choice_prob": 0.17361806700596613,
+        "span": [
+          1935,
+          1951
+        ],
+        "hit": true,
+        "anchor_hit": true
+      },
+      "semantic": {
+        "forced_choice_correct": false,
+        "forced_choice_prob": 0.14652293711293154,
+        "span": [
+          1933,
+          1946
+        ],
+        "hit": false,
+        "anchor_hit": true
+      },
+      "graph": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.8374668584831623,
+        "span": [
+          1946,
+          1959
+        ],
+        "hit": true,
+        "anchor_hit": false,
+        "path": [
+          113,
+          114
+        ],
+        "path_anchor_hit": true
+      }
+    },
+    {
+      "prompt_id": 49,
+      "needle_depth": 0.5,
+      "baseline": {
+        "forced_choice_correct": false,
+        "forced_choice_prob": 0.28159498497437946
+      },
+      "oracle": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.899862001812861
+      },
+      "wrong": {
+        "forced_choice_correct": false,
+        "forced_choice_prob": 0.34480842835802855,
+        "span": [
+          3543,
+          3559
+        ]
+      },
+      "lexical": {
+        "forced_choice_correct": false,
+        "forced_choice_prob": 0.13066097476302016,
+        "span": [
+          1925,
+          1941
+        ],
+        "hit": true,
+        "anchor_hit": true
+      },
+      "semantic": {
+        "forced_choice_correct": false,
+        "forced_choice_prob": 0.15666725684445862,
+        "span": [
+          1923,
+          1936
+        ],
+        "hit": false,
+        "anchor_hit": true
+      },
+      "graph": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.899862001812861,
+        "span": [
+          1936,
+          1949
+        ],
+        "hit": true,
+        "anchor_hit": false,
+        "path": [
+          115,
+          116
+        ],
+        "path_anchor_hit": true
+      }
+    },
+    {
+      "prompt_id": 51,
+      "needle_depth": 0.15,
+      "baseline": {
+        "forced_choice_correct": false,
+        "forced_choice_prob": 0.038459661614255125
+      },
+      "oracle": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.9942801270554346
+      },
+      "wrong": {
+        "forced_choice_correct": false,
+        "forced_choice_prob": 0.053351474213017946,
+        "span": [
+          1053,
+          1069
+        ]
+      },
+      "lexical": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.9883435841376219,
+        "span": [
+          618,
+          634
+        ],
+        "hit": true,
+        "anchor_hit": true
+      },
+      "semantic": {
+        "forced_choice_correct": false,
+        "forced_choice_prob": 0.03313724936972682,
+        "span": [
+          617,
+          628
+        ],
+        "hit": false,
+        "anchor_hit": true
+      },
+      "graph": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.9942801270554346,
+        "span": [
+          628,
+          641
+        ],
+        "hit": true,
+        "anchor_hit": false,
+        "path": [
+          37,
+          38
+        ],
+        "path_anchor_hit": true
+      }
+    },
+    {
+      "prompt_id": 54,
+      "needle_depth": 0.15,
+      "baseline": {
+        "forced_choice_correct": false,
+        "forced_choice_prob": 0.03374334119438406
+      },
+      "oracle": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.9953928838518533
+      },
+      "wrong": {
+        "forced_choice_correct": false,
+        "forced_choice_prob": 0.05382973230124718,
+        "span": [
+          3086,
+          3102
+        ]
+      },
+      "lexical": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.9908352011603635,
+        "span": [
+          632,
+          648
+        ],
+        "hit": true,
+        "anchor_hit": true
+      },
+      "semantic": {
+        "forced_choice_correct": false,
+        "forced_choice_prob": 0.058557024855245866,
+        "span": [
+          631,
+          642
+        ],
+        "hit": false,
+        "anchor_hit": true
+      },
+      "graph": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.9953928838518533,
+        "span": [
+          642,
+          655
+        ],
+        "hit": true,
+        "anchor_hit": false,
+        "path": [
+          37,
+          38
+        ],
+        "path_anchor_hit": true
+      }
+    },
+    {
+      "prompt_id": 57,
+      "needle_depth": 0.5,
+      "baseline": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.6986410777861184
+      },
+      "oracle": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.9941663739088968
+      },
+      "wrong": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.4938281279731665,
+        "span": [
+          2544,
+          2560
+        ]
+      },
+      "lexical": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.9918061062443537,
+        "span": [
+          1941,
+          1957
+        ],
+        "hit": true,
+        "anchor_hit": true
+      },
+      "semantic": {
+        "forced_choice_correct": false,
+        "forced_choice_prob": 0.14332220733361373,
+        "span": [
+          1940,
+          1951
+        ],
+        "hit": false,
+        "anchor_hit": true
+      },
+      "graph": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.9941663739088968,
+        "span": [
+          1951,
+          1964
+        ],
+        "hit": true,
+        "anchor_hit": false,
+        "path": [
+          112,
+          113
+        ],
+        "path_anchor_hit": true
+      }
+    },
+    {
+      "prompt_id": 59,
+      "needle_depth": 0.5,
+      "baseline": {
+        "forced_choice_correct": false,
+        "forced_choice_prob": 0.26453281436363174
+      },
+      "oracle": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.9983684443292036
+      },
+      "wrong": {
+        "forced_choice_correct": false,
+        "forced_choice_prob": 0.09350126489102667,
+        "span": [
+          11,
+          27
+        ]
+      },
+      "lexical": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.9947526425553148,
+        "span": [
+          1929,
+          1945
+        ],
+        "hit": true,
+        "anchor_hit": true
+      },
+      "semantic": {
+        "forced_choice_correct": false,
+        "forced_choice_prob": 0.06866185436777048,
+        "span": [
+          1928,
+          1939
+        ],
+        "hit": false,
+        "anchor_hit": true
+      },
+      "graph": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.9983684443292036,
+        "span": [
+          1939,
+          1952
+        ],
+        "hit": true,
+        "anchor_hit": false,
+        "path": [
+          116,
+          117
+        ],
+        "path_anchor_hit": true
+      }
+    },
+    {
+      "prompt_id": 61,
+      "needle_depth": 0.15,
+      "baseline": {
+        "forced_choice_correct": false,
+        "forced_choice_prob": 0.1291920171842357
+      },
+      "oracle": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.9396948380997057
+      },
+      "wrong": {
+        "forced_choice_correct": false,
+        "forced_choice_prob": 0.07099538401128466,
+        "span": [
+          1495,
+          1511
+        ]
+      },
+      "lexical": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.9509797847048085,
+        "span": [
+          623,
+          639
+        ],
+        "hit": true,
+        "anchor_hit": true
+      },
+      "semantic": {
+        "forced_choice_correct": false,
+        "forced_choice_prob": 0.1006778890668823,
+        "span": [
+          622,
+          633
+        ],
+        "hit": false,
+        "anchor_hit": true
+      },
+      "graph": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.9396948380997057,
+        "span": [
+          633,
+          646
+        ],
+        "hit": true,
+        "anchor_hit": false,
+        "path": [
+          37,
+          38
+        ],
+        "path_anchor_hit": true
+      }
+    },
+    {
+      "prompt_id": 64,
+      "needle_depth": 0.15,
+      "baseline": {
+        "forced_choice_correct": false,
+        "forced_choice_prob": 0.08074360595521414
+      },
+      "oracle": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.9735833882771803
+      },
+      "wrong": {
+        "forced_choice_correct": false,
+        "forced_choice_prob": 0.08558020246633996,
+        "span": [
+          3250,
+          3266
+        ]
+      },
+      "lexical": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.9649596908591627,
+        "span": [
+          606,
+          622
+        ],
+        "hit": true,
+        "anchor_hit": true
+      },
+      "semantic": {
+        "forced_choice_correct": false,
+        "forced_choice_prob": 0.051431127360026724,
+        "span": [
+          605,
+          616
+        ],
+        "hit": false,
+        "anchor_hit": true
+      },
+      "graph": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.9735833882771803,
+        "span": [
+          616,
+          629
+        ],
+        "hit": true,
+        "anchor_hit": false,
+        "path": [
+          37,
+          38
+        ],
+        "path_anchor_hit": true
+      }
+    },
+    {
+      "prompt_id": 67,
+      "needle_depth": 0.5,
+      "baseline": {
+        "forced_choice_correct": false,
+        "forced_choice_prob": 0.11436816679829007
+      },
+      "oracle": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.8887173725149553
+      },
+      "wrong": {
+        "forced_choice_correct": false,
+        "forced_choice_prob": 0.20731733028771165,
+        "span": [
+          2099,
+          2115
+        ]
+      },
+      "lexical": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.8797676193916617,
+        "span": [
+          1952,
+          1968
+        ],
+        "hit": true,
+        "anchor_hit": true
+      },
+      "semantic": {
+        "forced_choice_correct": false,
+        "forced_choice_prob": 0.12603326738783346,
+        "span": [
+          1951,
+          1962
+        ],
+        "hit": false,
+        "anchor_hit": true
+      },
+      "graph": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.8887173725149553,
+        "span": [
+          1962,
+          1975
+        ],
+        "hit": true,
+        "anchor_hit": false,
+        "path": [
+          113,
+          114
+        ],
+        "path_anchor_hit": true
+      }
+    },
+    {
+      "prompt_id": 69,
+      "needle_depth": 0.5,
+      "baseline": {
+        "forced_choice_correct": false,
+        "forced_choice_prob": 0.1432159929144945
+      },
+      "oracle": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.9630437854581966
+      },
+      "wrong": {
+        "forced_choice_correct": false,
+        "forced_choice_prob": 0.12764384947236573,
+        "span": [
+          128,
+          144
+        ]
+      },
+      "lexical": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.944680234953689,
+        "span": [
+          1947,
+          1963
+        ],
+        "hit": true,
+        "anchor_hit": true
+      },
+      "semantic": {
+        "forced_choice_correct": false,
+        "forced_choice_prob": 0.07103612850080161,
+        "span": [
+          1946,
+          1957
+        ],
+        "hit": false,
+        "anchor_hit": true
+      },
+      "graph": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.9630437854581966,
+        "span": [
+          1957,
+          1970
+        ],
+        "hit": true,
+        "anchor_hit": false,
+        "path": [
+          115,
+          116
+        ],
+        "path_anchor_hit": true
+      }
+    },
+    {
+      "prompt_id": 71,
+      "needle_depth": 0.15,
+      "baseline": {
+        "forced_choice_correct": false,
+        "forced_choice_prob": 0.05618945703015186
+      },
+      "oracle": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.9618819402237905
+      },
+      "wrong": {
+        "forced_choice_correct": false,
+        "forced_choice_prob": 0.05479382738295136,
+        "span": [
+          2893,
+          2909
+        ]
+      },
+      "lexical": {
+        "forced_choice_correct": false,
+        "forced_choice_prob": 0.10010857413243425,
+        "span": [
+          597,
+          613
+        ],
+        "hit": true,
+        "anchor_hit": true
+      },
+      "semantic": {
+        "forced_choice_correct": false,
+        "forced_choice_prob": 0.07432813209524029,
+        "span": [
+          596,
+          608
+        ],
+        "hit": false,
+        "anchor_hit": true
+      },
+      "graph": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.9618819402237905,
+        "span": [
+          608,
+          621
+        ],
+        "hit": true,
+        "anchor_hit": false,
+        "path": [
+          36,
+          37
+        ],
+        "path_anchor_hit": true
+      }
+    },
+    {
+      "prompt_id": 74,
+      "needle_depth": 0.15,
+      "baseline": {
+        "forced_choice_correct": false,
+        "forced_choice_prob": 0.07864761950075316
+      },
+      "oracle": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.9894435372454115
+      },
+      "wrong": {
+        "forced_choice_correct": false,
+        "forced_choice_prob": 0.09811641818675602,
+        "span": [
+          2769,
+          2785
+        ]
+      },
+      "lexical": {
+        "forced_choice_correct": false,
+        "forced_choice_prob": 0.0741365991472171,
+        "span": [
+          608,
+          624
+        ],
+        "hit": true,
+        "anchor_hit": true
+      },
+      "semantic": {
+        "forced_choice_correct": false,
+        "forced_choice_prob": 0.07227565383400009,
+        "span": [
+          607,
+          619
+        ],
+        "hit": false,
+        "anchor_hit": true
+      },
+      "graph": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.9894435372454115,
+        "span": [
+          619,
+          632
+        ],
+        "hit": true,
+        "anchor_hit": false,
+        "path": [
+          37,
+          38
+        ],
+        "path_anchor_hit": true
+      }
+    },
+    {
+      "prompt_id": 77,
+      "needle_depth": 0.5,
+      "baseline": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.6224707234940727
+      },
+      "oracle": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.9924382064407725
+      },
+      "wrong": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.6014696105550456,
+        "span": [
+          3211,
+          3227
+        ]
+      },
+      "lexical": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.788485001486726,
+        "span": [
+          1936,
+          1952
+        ],
+        "hit": true,
+        "anchor_hit": true
+      },
+      "semantic": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.5809897879352852,
+        "span": [
+          1935,
+          1947
+        ],
+        "hit": false,
+        "anchor_hit": true
+      },
+      "graph": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.9924382064407725,
+        "span": [
+          1947,
+          1960
+        ],
+        "hit": true,
+        "anchor_hit": false,
+        "path": [
+          113,
+          114
+        ],
+        "path_anchor_hit": true
+      }
+    },
+    {
+      "prompt_id": 79,
+      "needle_depth": 0.5,
+      "baseline": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.3937812981479497
+      },
+      "oracle": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.995751181688144
+      },
+      "wrong": {
+        "forced_choice_correct": false,
+        "forced_choice_prob": 0.28796101290263215,
+        "span": [
+          667,
+          683
+        ]
+      },
+      "lexical": {
+        "forced_choice_correct": false,
+        "forced_choice_prob": 0.2321951315255548,
+        "span": [
+          1925,
+          1941
+        ],
+        "hit": true,
+        "anchor_hit": true
+      },
+      "semantic": {
+        "forced_choice_correct": false,
+        "forced_choice_prob": 0.1303618030963454,
+        "span": [
+          1924,
+          1936
+        ],
+        "hit": false,
+        "anchor_hit": true
+      },
+      "graph": {
+        "forced_choice_correct": true,
+        "forced_choice_prob": 0.995751181688144,
+        "span": [
+          1936,
+          1949
+        ],
+        "hit": true,
+        "anchor_hit": false,
+        "path": [
+          116,
+          117
+        ],
+        "path_anchor_hit": true
+      }
+    }
+  ],
+  "design": {
+    "top_cells": [
+      [
+        12,
+        14
+      ],
+      [
+        9,
+        6
+      ],
+      [
+        9,
+        1
+      ],
+      [
+        12,
+        15
+      ],
+      [
+        3,
+        15
+      ],
+      [
+        7,
+        15
+      ],
+      [
+        12,
+        3
+      ],
+      [
+        12,
+        10
+      ],
+      [
+        11,
+        8
+      ],
+      [
+        9,
+        8
+      ],
+      [
+        14,
+        1
+      ],
+      [
+        13,
+        8
+      ],
+      [
+        6,
+        1
+      ],
+      [
+        10,
+        13
+      ],
+      [
+        11,
+        0
+      ],
+      [
+        10,
+        1
+      ]
+    ],
+    "beta": 4.0,
+    "wrong_width": 16,
+    "eval_bucket": 3840,
+    "n_perm": 2000,
+    "seed": 0,
+    "hops_grid": [
+      1,
+      2,
+      3
+    ],
+    "alphas_grid": [
+      0.0,
+      0.5,
+      1.0
+    ],
+    "gammas_grid": [
+      0.0,
+      0.5,
+      1.0
+    ]
+  }
+}
