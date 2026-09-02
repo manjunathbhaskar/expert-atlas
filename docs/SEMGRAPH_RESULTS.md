@@ -86,7 +86,19 @@ discourse-adjacency edge (gamma * adj, adj = 1 iff the candidate
 immediately follows the previously selected sentence), calibrated dev-only
 over hops x alpha x gamma.
 
-### Coreference — registered SUCCESS; the open question is answered
+### Coreference — registered SUCCESS on ADJACENT anaphora only (AMENDED)
+
+AMENDMENT (post-hoc review, result preserved unchanged): the v1 substrate
+constructs every needle and every distractor as anchor + next-sentence
+referent with no variation in distance and no competing antecedent. The
+walk's adjacency edge (`adj = 1 iff j == prev + 1`) is therefore
+guaranteed correct BY CONSTRUCTION once any anchor is found: the step is
+entity matching plus a hard-coded "next sentence", not coreference
+resolution the data could falsify. The v1 result below stands as recorded,
+but its claim is narrowed to: a discourse-adjacency prior solves ADJACENT,
+UNAMBIGUOUS anaphora. Variable-distance and multi-candidate coreference
+were NOT tested by v1; they are the subject of the registered v2 substrate
+(docs/COREF_V2_REGISTRATION.md), which removes the tautology.
 
 Dev calibration is decisive: the ONLY grid cell with a non-zero dev hit
 rate is h=2, alpha=0, gamma>0 (gamma=1.0: 100%; gamma=0.5: 50%; all 25
@@ -107,8 +119,10 @@ Primary endpoint graph-vs-wrong: dz = 3.37, perm p < 0.0005 (failing
 subset dz = 5.59); hit rate 1.00; 100.0% of oracle effect; 22/22 baseline
 failures repaired. Registered SUCCESS.
 
-The registered verdict question — does coreference behave like paraphrase
-or like multi-hop? — is answered cleanly: like MULTI-HOP. Semantic-only
+Within the adjacent-anaphora setting, the verdict question — does
+coreference behave like paraphrase or like multi-hop? — points to
+MULTI-HOP, but per the amendment above this does NOT answer the
+manuscript's general question. Semantic-only
 lands on the anchor 100% of the time but on the answer 0% of the time
 (and its boost is slightly WORSE than wrong-span: dz = -0.37, because it
 concentrates attention on the wrong sentence). Only the two-hop walk with
