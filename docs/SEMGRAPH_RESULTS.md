@@ -140,6 +140,56 @@ overlaps it. The partial coverage recovers just 67.5% of the oracle effect
 window spillover would not help; the walk's adjacency edge targets the
 resolved sentence directly.
 
+### Coreference v2, Experiment 1 — registered prediction CONFIRMED: the frozen v1 detector does NOT generalize past distance 1
+
+Registration: docs/COREF_V2_REGISTRATION.md (committed with the substrate
+before evaluation). Substrate: identical to v1 except the
+anchor-to-referent distance is drawn uniformly from {1,2,3} per pair, per
+emitted prompt (true pair and each of the 4 distractors independently),
+with d-1 haystack-domain filler sentences in between; buckets 384/3840
+(short bucket raised from 256 — disclosed deviation), dev arm 1024. A
+replicate-level-draw bug in the first generated set is disclosed in the
+registration; the corrected per-prompt-draw set is the registered result
+(prelim run preserved as data/semgraph_coref_v2_prelim_repdraw.json and
+shows the same pattern: graph hit 1.0 at d=1, 0.0 at d=2/3).
+
+The v1-calibrated detector ran EXACTLY as frozen (h=2, alpha=0, gamma=1,
+`adj = 1 iff j == prev + 1`), no recalibration.
+
+Evaluation (3840 bucket, 32 prompts; eval-arm true distances
+d=1: 6, d=2: 11, d=3: 15):
+
+| condition | acc | mean p(answer) | answer hit | anchor hit |
+|---|---:|---:|---:|---:|
+| baseline | 0.125 | 0.156 | | |
+| oracle boost | 1.000 | 0.940 | | |
+| wrong-span boost | 0.125 | 0.156 | | |
+| lexical boost | 0.250 | 0.230 | 0.188 | 1.000 |
+| semantic boost | 0.125 | 0.156 | 0.000 | 1.000 |
+| graph boost (frozen v1) | 0.281 | 0.311 | 0.188 | path 1.000 |
+
+Answer hit rate by true distance — graph (frozen): d=1 1.000,
+d=2 0.000, d=3 0.000. Lexical: 1.000 / 0.000 / 0.000 (its d=1 "hits" are
+the same window-spillover artifact as v1). Semantic: 0.000 everywhere.
+
+Primary endpoint graph-vs-wrong: dz = 0.48, perm p = 0.0015 — MISSES the
+registered bar (|dz| >= 0.8); only 19.7% of the oracle effect; 5/28
+baseline failures repaired (all at d=1). The walk still finds the anchor
+on 100% of paths, then steps to the literal next sentence, which is the
+referent only when d=1.
+
+VERDICT: the registered degradation prediction is CONFIRMED. The v1
+detector solves distance-1 (adjacent) anaphora specifically and falls to
+the semantic-only floor at d>=2. The v1 "coreference" result is
+substrate-dependent, exactly as the amendment states. General
+variable-distance coreference remains UNSOLVED by the frozen detector;
+a distance-tolerant edge is the subject of the separately registered
+Experiment 2 (docs/COREF_V2_EXP2_REGISTRATION.md), not run before this
+result was recorded.
+
+Raw artifacts: data/semgraph_coref_v2.json,
+data/semgraph/records_coref_v2.jsonl.
+
 ## Honest scope
 
 - All substrates are synthetic forced-choice needle tasks; no claim of
