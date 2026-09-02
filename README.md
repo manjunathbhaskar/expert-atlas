@@ -64,6 +64,7 @@ Full narrative with every intermediate step and failed intervention:
 | [`docs/CONTEXT_VARIANTS.md`](docs/CONTEXT_VARIANTS.md) | Paraphrase and multi-hop variants; detector scope limits |
 | [`docs/MULTIHOP_CHAIN.md`](docs/MULTIHOP_CHAIN.md) | Training-free two-stage lexical chain for the multi-hop case |
 | [`dense_track/REGISTRATION_V2.md`](dense_track/REGISTRATION_V2.md), [`dense_track/RESULTS_V2.md`](dense_track/RESULTS_V2.md) | Third-architecture (Pythia-2.8B, dense, no MoE) replication, registered substrate |
+| [`docs/SEMGRAPH_RESULTS.md`](docs/SEMGRAPH_RESULTS.md) | Extension track: semantic + graph-walk span detectors, incl. the coreference result and its harder-substrate follow-up (see below) |
 | [`docs/METHOD.md`](docs/METHOD.md) | The full experimental pipeline, both phases |
 | [`docs/REPRODUCIBILITY.md`](docs/REPRODUCIBILITY.md) | Models, seeds, hardware, non-obvious requirements |
 | [`docs/FINDINGS.md`](docs/FINDINGS.md), [`docs/UTILIZATION.md`](docs/UTILIZATION.md) | Specialization-atlas results (Phase 3) |
@@ -182,6 +183,37 @@ above:
   recovered context rot.
 - H4 co-activation communities are UNRELIABLE (usage skew 227× vs the tool's
   own 2× validity limit) and are reported as such.
+
+## Extension: semantic and graph-walk span discovery
+
+A separate, later track (not part of the main technical report above) tests
+whether replacing the lexical detector's IDF-overlap signal with sentence
+embeddings and a graph walk extends the label-free span-discovery result
+further. Full numbers: [`docs/SEMGRAPH_RESULTS.md`](docs/SEMGRAPH_RESULTS.md);
+registrations in `docs/SEMGRAPH_REGISTRATION.md`, `docs/COREF_REGISTRATION.md`,
+`docs/COREF_V2_REGISTRATION.md`, `docs/COREF_V2_EXP2_REGISTRATION.md`.
+
+- **Paraphrase**: the semantic detector matches the existing lexical
+  detector's result (100% of oracle) without relying on any shared token.
+- **Multi-hop**: the graph walk clears the registered bar but ties, rather
+  than beats, the existing two-stage lexical chain (48.0% vs. 45.0% of the
+  oracle effect).
+- **Coreference — the case this was really aimed at.** A discourse-adjacency
+  edge in the graph walk fully solves adjacent, unambiguous anaphora (100% of
+  the oracle effect, 22/22 repaired) — the one case a purely lexical detector
+  cannot reach in principle. A harder, registered follow-up then tested
+  whether this generalizes to variable antecedent distance. It does not: the
+  same detector, frozen, degrades to the semantic-only floor past distance 1,
+  and a distance-tolerant version built specifically to fix that also fails,
+  for a verified reason — nearby filler sentences carry no signal that
+  distinguishes them from the true referent, so a positional heuristic alone
+  cannot resolve them. Reported as a registered negative result, not
+  discarded, the same convention as every other negative finding in this
+  project.
+
+This track changes only the span locator; it makes no claim about the
+transport mechanism's strength, and it is intentionally kept separate from
+the main report rather than folded in after the fact.
 
 ## License
 
