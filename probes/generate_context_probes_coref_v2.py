@@ -62,28 +62,29 @@ def build(tokenizer) -> dict:
         other_e = [e for e in base.ENTITIES if e != entity]
         other_w = [w for w in base.CANDIDATE_WORDS if w != answer_word]
 
-        # One independent uniform draw per pair (true first, then each
-        # distractor), fixed for the replicate across depths/buckets.
-        true_d = rng.choice(DISTANCES)
-        dist_ds = [rng.choice(DISTANCES) for _ in range(N_DISTRACTORS)]
-
         for depth in DEPTHS:
             d_depths = _distractor_depths(depth)
             for haystack in base.HAYSTACK_DOMAINS:
                 stream = base._generate_haystack_stream(
                     haystack, random.Random(rng.randrange(1 << 30)), 420)
-                fillers = base._generate_haystack_stream(
-                    haystack, random.Random(rng.randrange(1 << 30)), 40)
-                pair = _pair(ANCHOR.format(entity=entity),
-                             COREF_NEEDLE.format(word=answer_word),
-                             true_d, fillers)
-                distractor_pool = [
-                    _pair(ANCHOR.format(entity=other_e[i % len(other_e)]),
-                          COREF_NEEDLE.format(word=other_w[i % len(other_w)]),
-                          dist_ds[i], fillers)
-                    for i in range(N_DISTRACTORS)]
                 for bucket in BUCKETS + ((DEV_BUCKET,)
                                              if depth == 0.15 else ()):
+                    # One independent uniform draw per pair, per emitted
+                    # prompt (true first, then each distractor).
+                    true_d = rng.choice(DISTANCES)
+                    dist_ds = [rng.choice(DISTANCES)
+                               for _ in range(N_DISTRACTORS)]
+                    fillers = base._generate_haystack_stream(
+                        haystack, random.Random(rng.randrange(1 << 30)), 40)
+                    pair = _pair(ANCHOR.format(entity=entity),
+                                 COREF_NEEDLE.format(word=answer_word),
+                                 true_d, fillers)
+                    distractor_pool = [
+                        _pair(ANCHOR.format(entity=other_e[i % len(other_e)]),
+                              COREF_NEEDLE.format(
+                                  word=other_w[i % len(other_w)]),
+                              dist_ds[i], fillers)
+                        for i in range(N_DISTRACTORS)]
                     inserts = [(depth, pair)]
                     for dd, d in zip(d_depths, distractor_pool):
                         inserts.append((dd, d))
