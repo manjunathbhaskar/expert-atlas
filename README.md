@@ -52,6 +52,8 @@ Full narrative with every intermediate step and failed intervention:
 
 ## Reading guide
 
+**Core mechanism (OLMoE)**
+
 | Document | Contents |
 |---|---|
 | [`docs/CONTEXT_ROT_STORY.md`](docs/CONTEXT_ROT_STORY.md) | The complete causal chain, in order, including the three failed intervention families |
@@ -59,15 +61,42 @@ Full narrative with every intermediate step and failed intervention:
 | [`docs/ATTENTION_BOOST_CAUSAL.md`](docs/ATTENTION_BOOST_CAUSAL.md) | The causal attention-boost repair vs matched controls |
 | [`docs/SPAN_DISCOVERY_SOLVED.md`](docs/SPAN_DISCOVERY_SOLVED.md) | Label-free span detection (incl. the failed v1, preserved) |
 | [`docs/SPANFREE_BOOST.md`](docs/SPANFREE_BOOST.md) | Earlier span-free attempts and their measured limits |
-| [`docs/GRANITE_TRANSPORT.md`](docs/GRANITE_TRANSPORT.md) | Second-architecture replication of the full chain |
 | [`docs/DISTANCE_ONLY.md`](docs/DISTANCE_ONLY.md) | Zero-distractor distance sweep: collapse is distractor-gated, not distance-driven |
 | [`docs/CONTEXT_VARIANTS.md`](docs/CONTEXT_VARIANTS.md) | Paraphrase and multi-hop variants; detector scope limits |
 | [`docs/MULTIHOP_CHAIN.md`](docs/MULTIHOP_CHAIN.md) | Training-free two-stage lexical chain for the multi-hop case |
+
+**Cross-architecture replication**
+
+| Document | Contents |
+|---|---|
+| [`docs/GRANITE_TRANSPORT.md`](docs/GRANITE_TRANSPORT.md) | Second-architecture replication of the full chain |
 | [`dense_track/REGISTRATION_V2.md`](dense_track/REGISTRATION_V2.md), [`dense_track/RESULTS_V2.md`](dense_track/RESULTS_V2.md) | Third-architecture (Pythia-2.8B, dense, no MoE) replication, registered substrate |
+
+**Semantic and graph-walk extension**
+
+| Document | Contents |
+|---|---|
 | [`docs/SEMGRAPH_RESULTS.md`](docs/SEMGRAPH_RESULTS.md) | Semantic + graph-walk span detectors (paper Sections 4.11–4.14): paraphrase, multi-hop, and the coreference result with its harder-substrate follow-up |
+
+**Methodology, reproducibility, and project origin**
+
+| Document | Contents |
+|---|---|
 | [`docs/METHOD.md`](docs/METHOD.md) | The full experimental pipeline, both phases |
 | [`docs/REPRODUCIBILITY.md`](docs/REPRODUCIBILITY.md) | Models, seeds, hardware, non-obvious requirements |
+| [`PLAN.md`](PLAN.md) | The original pre-registration: hypotheses, design, and the honest-prior-framing section, written before any capture ran |
+| [`PUBLIC_RELEASE_CHECKLIST.md`](PUBLIC_RELEASE_CHECKLIST.md) | The disclosure checklist this repo was released against — negatives, scope limits, and controls, itemized |
+
+**Specialization atlas (Phase 3)**
+
+| Document | Contents |
+|---|---|
 | [`docs/FINDINGS.md`](docs/FINDINGS.md), [`docs/UTILIZATION.md`](docs/UTILIZATION.md) | Specialization-atlas results (Phase 3) |
+
+**Engineering**
+
+| Document | Contents |
+|---|---|
 | [`docs/ONDEMAND.md`](docs/ONDEMAND.md) | The memory-efficient on-demand expert runtime |
 
 ## Reproducing the key results

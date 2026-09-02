@@ -42,8 +42,11 @@
 - [x] LICENSE (MIT) present; README links it.
 - [x] No agent/tooling-specific names in tracked files.
 - [x] logs/ and data/ untracked (results live in docs/, regenerable via scripts).
-- [ ] Owner: make repo public, set default branch to the clean release branch,
-      delete stale branches, create GitHub release for tag v1.0.
+- [x] Repo is public; default branch is `main`; stale PR/dev branches deleted.
+- [ ] Owner: create a tagged GitHub release. Content has grown past v1.0
+      (Pythia/dense-track replication, then the semantic + graph-walk +
+      coreference extension, both landed after), so tag current `main`
+      under whichever version label is current at release time, not v1.0.
 
 ## Final verification
 
