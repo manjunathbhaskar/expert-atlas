@@ -33,10 +33,18 @@ Identical to v1 except the anchor-to-referent distance:
   tokens; the registered evaluation bucket stays 3840), 16-prompt DEV
   arm at 1024 (calibration only), similar+dissimilar haystack split,
   8 replicates, 4 distractor pairs.
-- Realized true-pair distance draws under seed 13 (deterministic, noted
-  before any evaluation): d=1 for 5 replicates, d=2 for 1, d=3 for 2 —
-  so the per-distance decomposition at d=2 rests on 4 eval prompts and
-  is reported as descriptive only.
+- CORRECTION (disclosed): the first generated set drew distances once
+  per REPLICATE and reused them across depths/haystacks/buckets,
+  violating this registration's own per-prompt wording (realized eval-arm
+  counts d=1:20 / d=2:4 / d=3:8). A frozen-detector run on that set was
+  completed before the bug was noticed; its artifacts are preserved as
+  `data/semgraph_coref_v2_prelim_repdraw.json` and its records file, and
+  it showed the registered prediction holding (graph hit 1.0 at d=1, 0.0
+  at d=2/3). The generator was then corrected to one independent draw per
+  pair PER EMITTED PROMPT (realized true-pair counts over 80 prompts:
+  d=1:21 / d=2:23 / d=3:36) and Experiment 1 was re-run on the corrected
+  set; the corrected run is the registered result. No detector, head-set,
+  boost, or analysis parameter changed between the two runs.
 - Recorded per prompt: `coref_distance` (true pair),
   `distractor_distances`, `anchor_char_span`, `needle_char_span`.
 
