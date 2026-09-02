@@ -190,6 +190,39 @@ result was recorded.
 Raw artifacts: data/semgraph_coref_v2.json,
 data/semgraph/records_coref_v2.jsonl.
 
+### Coreference v2, Experiment 2 — registered FAILURE: a decaying proximity edge does NOT restore d >= 2
+
+Registration: docs/COREF_V2_EXP2_REGISTRATION.md (committed after Exp 1's
+result was recorded, before this evaluation). The only change: the hard
+adjacency term was replaced by prox(j) = decay^(j-(prev+1)) for j > prev,
+calibrated dev-only over h x alpha x gamma x decay in
+{1,2,3} x {0,0.5,1} x {0.5,1} x {0.3,0.5,0.7}.
+
+Dev calibration already told the story: the BEST grid cell hit only 3/16
+on the dev arm (selected h=2, alpha=0, gamma=1, decay=0.3 — i.e. nearly
+the hard adjacency it was meant to replace). Evaluation (3840 bucket, 32
+prompts): identical to the frozen v1 detector — answer hit 1.000 at d=1,
+0.000 at d=2 and d=3; overall hit 0.188; dz = 0.48 vs wrong (misses the
+bar); 19.7% of oracle; 5/28 failures repaired (all d=1).
+
+Why it fails (diagnosis, from the recorded paths): the walk still finds
+the anchor on 100% of paths, but the d-1 filler sentences between anchor
+and referent are ordinary haystack sentences carrying no lexical or
+semantic tie to the walk state, so with the decaying edge the nearest
+following sentence always outscores the true referent whenever d > 1 —
+proximity alone cannot distinguish a referent from a filler. A working
+detector needs a REFERENT cue (e.g. scoring sentences by
+pronoun/anaphor-bearing form), which would be a new detector requiring
+its own registration; it was NOT built or run here.
+
+VERDICT: registered FAILURE. Variable-distance coreference remains
+unsolved by both the frozen v1 walk (Exp 1) and the distance-tolerant
+proximity edge (Exp 2). Variant B (competing near-antecedent) is
+deferred: its premise — "once distance alone is handled" — does not hold.
+
+Raw artifacts: data/semgraph_coref_v2_exp2.json (baseline records shared
+with Exp 1).
+
 ## Honest scope
 
 - All substrates are synthetic forced-choice needle tasks; no claim of
