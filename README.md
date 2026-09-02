@@ -64,7 +64,7 @@ Full narrative with every intermediate step and failed intervention:
 | [`docs/CONTEXT_VARIANTS.md`](docs/CONTEXT_VARIANTS.md) | Paraphrase and multi-hop variants; detector scope limits |
 | [`docs/MULTIHOP_CHAIN.md`](docs/MULTIHOP_CHAIN.md) | Training-free two-stage lexical chain for the multi-hop case |
 | [`dense_track/REGISTRATION_V2.md`](dense_track/REGISTRATION_V2.md), [`dense_track/RESULTS_V2.md`](dense_track/RESULTS_V2.md) | Third-architecture (Pythia-2.8B, dense, no MoE) replication, registered substrate |
-| [`docs/SEMGRAPH_RESULTS.md`](docs/SEMGRAPH_RESULTS.md) | Extension track: semantic + graph-walk span detectors, incl. the coreference result and its harder-substrate follow-up (see below) |
+| [`docs/SEMGRAPH_RESULTS.md`](docs/SEMGRAPH_RESULTS.md) | Semantic + graph-walk span detectors (paper Sections 4.11–4.14): paraphrase, multi-hop, and the coreference result with its harder-substrate follow-up |
 | [`docs/METHOD.md`](docs/METHOD.md) | The full experimental pipeline, both phases |
 | [`docs/REPRODUCIBILITY.md`](docs/REPRODUCIBILITY.md) | Models, seeds, hardware, non-obvious requirements |
 | [`docs/FINDINGS.md`](docs/FINDINGS.md), [`docs/UTILIZATION.md`](docs/UTILIZATION.md) | Specialization-atlas results (Phase 3) |
@@ -184,12 +184,13 @@ above:
 - H4 co-activation communities are UNRELIABLE (usage skew 227× vs the tool's
   own 2× validity limit) and are reported as such.
 
-## Extension: semantic and graph-walk span discovery
+## Semantic and graph-walk span discovery
 
-A separate, later track (not part of the main technical report above) tests
-whether replacing the lexical detector's IDF-overlap signal with sentence
-embeddings and a graph walk extends the label-free span-discovery result
-further. Full numbers: [`docs/SEMGRAPH_RESULTS.md`](docs/SEMGRAPH_RESULTS.md);
+Sections 4.11–4.14 of the main report extend the label-free span-discovery
+result above by replacing the lexical detector's IDF-overlap signal with
+sentence embeddings and a graph walk, testing specifically whether this
+reaches coreference — the one case a purely lexical detector cannot reach
+by construction. Full numbers: [`docs/SEMGRAPH_RESULTS.md`](docs/SEMGRAPH_RESULTS.md);
 registrations in `docs/SEMGRAPH_REGISTRATION.md`, `docs/COREF_REGISTRATION.md`,
 `docs/COREF_V2_REGISTRATION.md`, `docs/COREF_V2_EXP2_REGISTRATION.md`.
 
@@ -212,8 +213,7 @@ registrations in `docs/SEMGRAPH_REGISTRATION.md`, `docs/COREF_REGISTRATION.md`,
   project.
 
 This track changes only the span locator; it makes no claim about the
-transport mechanism's strength, and it is intentionally kept separate from
-the main report rather than folded in after the fact.
+transport mechanism's strength.
 
 ## License
 
