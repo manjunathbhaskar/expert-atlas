@@ -9,6 +9,7 @@ dependencies = [
   "transformers>=4.44",
   "accelerate>=0.33",
   "safetensors>=0.4",
+  "sentence-transformers>=3.0",
   "pyarrow>=17.0",
   "numpy>=1.26",
   "scipy>=1.13",

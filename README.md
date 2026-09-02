@@ -73,7 +73,9 @@ Full narrative with every intermediate step and failed intervention:
 ## Reproducing the key results
 
 Setup (Python 3.13; models download once to `data/hf_cache`, ~14 GB for
-OLMoE + ~7 GB for Granite + ~11 GB for Pythia-2.8B in fp32):
+OLMoE + ~7 GB for Granite + ~11 GB for Pythia-2.8B in fp32; the semgraph
+scripts additionally pull the ~90 MB `sentence-transformers/all-MiniLM-L6-v2`
+embedding model to the same cache on first use):
 
 ```bash
 python3 -m venv .venv
