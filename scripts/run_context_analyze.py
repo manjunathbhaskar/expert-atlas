@@ -1,4 +1,4 @@
-"""Context-rot analysis -> `docs/CONTEXT_ROT.md`.
+"""Context-rot analysis (Workstream 1) -> `docs/CONTEXT_ROT.md`.
 
 Reads `data/context_traces/` and answers one question: **does the routing-level
 signal degrade with input length in step with task accuracy?**
@@ -420,7 +420,7 @@ def write_report(payload, tmap, trends, trap_trend, trap_null, stab, buckets,
         "",
         f"> \"{CHROMA_QUOTE}\"",
         "",
-        "This project runs that deeper investigation on one small, fully open MoE, "
+        "This workstream runs that deeper investigation on one small, fully open MoE, "
         "at the one place a MoE can degrade that a dense model cannot: **the router**. "
         "It asks whether the length-accuracy curve is accompanied by a length-routing "
         "curve — whether the router becomes less decisive, or less specialised, as "
@@ -621,7 +621,7 @@ def write_report(payload, tmap, trends, trap_trend, trap_null, stab, buckets,
             "trusted **in either direction** — neither as evidence that communities "
             "blur at long context nor as evidence that they are stable. This is the "
             "same call `docs/FINDINGS.md` made for H4, made here for the same reason "
-            "and against this analysis's interest.",
+            "and against this workstream's interest.",
         ]
     else:
         L += ["", "Skew is inside the documented validity limit at every bucket, so "
@@ -636,7 +636,7 @@ def write_report(payload, tmap, trends, trap_trend, trap_null, stab, buckets,
         ov = util["hot_specialist_overlap"]
         L += [
             "",
-            "`data/utilization.json` (the utilization analysis) was available. **Its headline result "
+            "`data/utilization.json` (Workstream 3) was available. **Its headline result "
             "reframes this section**: the hypothesised 'specialisation lives in hot "
             "experts' mechanism is refuted — specialists are disproportionately *cold* "
             f"(observed overlap {ov['observed_overlap']} vs null "
@@ -687,7 +687,7 @@ def write_report(payload, tmap, trends, trap_trend, trap_null, stab, buckets,
             f"(rho={prob_t.spearman_rho:+.3f}, d={prob_t.cohens_d:+.2f}, {prob_t.verdict})",
             "",
             "**This is a substrate limitation and it bounds every downstream claim in "
-            "this analysis.** It is reported here, not buried.",
+            "this workstream.** It is reported here, not buried.",
         ]
     elif verdict == "MECHANISM RULED OUT":
         L += [
@@ -727,7 +727,7 @@ def write_report(payload, tmap, trends, trap_trend, trap_null, stab, buckets,
             "mediation needs an intervention — e.g. forcing short-context routing at "
             "long context and measuring whether accuracy recovers — which "
             "`run_ablation_harness.py` is the natural starting point for and which this "
-            "analysis did not run.",
+            "workstream did not run.",
         ]
 
     L += [
@@ -735,8 +735,8 @@ def write_report(payload, tmap, trends, trap_trend, trap_null, stab, buckets,
         "## Limits",
         "",
         "1. **One model, one seed.** OLMoE-1B-7B-0924 has 64 experts per layer; frontier "
-        "MoEs have hundreds. A second-model generality check is not optional, "
-        "and it has not been run for this substrate either.",
+        "MoEs have hundreds. PLAN.md §9b flags the second-model check as not optional, "
+        "and it has not been run for this workstream either.",
         f"2. **{ps['n_replicates']} replicates per cell** "
         f"({payload['n_prompts']} prompts total). Sized to finish — see the wall-clock "
         "section below. Powered for the pooled length trend, not for per-condition "

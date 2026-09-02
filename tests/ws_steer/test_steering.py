@@ -42,7 +42,7 @@ SEQ = 12
 class _Cfg:
     num_experts_per_tok = TOP_K
     num_experts = N_EXPERTS
-    norm_topk_prob = False          # OLMoE's real setting -- top-k weights don't sum to 1
+    norm_topk_prob = False          # OLMoE's real setting -- see docs/ANALYSIS_GUARDRAILS.md §5
     hidden_size = HIDDEN
 
 

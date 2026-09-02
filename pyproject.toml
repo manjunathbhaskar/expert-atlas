@@ -7,19 +7,24 @@ readme = "README.md"
 dependencies = [
   "torch>=2.4",
   "transformers>=4.44",
+  "accelerate>=0.33",
+  "safetensors>=0.4",
   "pyarrow>=17.0",
   "numpy>=1.26",
   "scipy>=1.13",
   "statsmodels>=0.14",
+  "scikit-learn>=1.5",
   "umap-learn>=0.5",
   "networkx>=3.3",
   "python-louvain>=0.16",
   "typer>=0.12",
   "pydantic>=2.8",
+  "pyyaml>=6.0",
 ]
 
 [project.optional-dependencies]
 dev = ["pytest>=8.0", "pytest-cov>=5.0"]
+figures = ["matplotlib>=3.9"]
 
 [project.scripts]
 atlas = "expertatlas.cli:app"

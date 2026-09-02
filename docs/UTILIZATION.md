@@ -1,9 +1,9 @@
-# Expert utilization and the hot/specialist cross-reference
+# Workstream 3 — expert utilization and the hot/specialist cross-reference
 
 Run over the existing 480-prompt capture (662,048 rows, 5,296,384 expert
 selections). No new capture. Reproduce with `python scripts/run_utilization.py`.
 
-## The hypothesis this analysis was built to test
+## The hypothesis this workstream was built to test
 
 > *"If specialization concentrates load onto a small load-bearing subset, that's a
 > direct, cheap explanation for why adding more data/domains increases collapse
@@ -87,9 +87,9 @@ The load-bearing, non-circular part is the FDR-vs-usage null result: the
 *detection* of specialisation is usage-independent even though its *magnitude*
 is not.
 
-## Consequence for the other analyses
+## Consequence for Workstreams 1 and 2
 
-The cheap mechanism this analysis was meant to supply — *specialisation piles
+The cheap mechanism this workstream was meant to supply — *specialisation piles
 load onto a few experts, so more data means more collapse risk* — **is not
 available.** The 100 hot experts are largely generalists (only 34 are
 specialists, against 54.5 expected by chance).
@@ -102,4 +102,4 @@ rather than any domain's specialists — which would predict fairly uniform
 degradation across domains rather than domain-specific damage. WS2's
 multi-pair ablation is the natural test of that and it is not run here.
 
-`data/utilization.json` carries the full per-expert vectors for both analyses.
+`data/utilization.json` carries the full per-expert vectors for both workstreams.

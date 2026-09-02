@@ -34,8 +34,7 @@ top-8 share of a 64-way softmax — measured mean **0.416** (p5 0.287, p95
 0.622), with only **0.13%** of tokens reaching 0.9. Thresholds of
 0.90/0.95/0.99 on that scale are unreachable, so this run is a no-op by
 construction, not evidence that dynamic-k is lossless. This is exactly the
-`norm_topk_prob=False` trap noted in the README's methodology conventions
-(OLMoE's top-k gate weights do not sum to 1).
+`norm_topk_prob=False` trap docs/ANALYSIS_GUARDRAILS.md warns about (non-negotiable #5).
 `docs/DYNAMIC_K_RELATIVE.md` reruns this with thresholds measured relative
 to the top-8 mass, which is the reachable scale.
 

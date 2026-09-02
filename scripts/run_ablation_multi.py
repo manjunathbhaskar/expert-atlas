@@ -1,6 +1,6 @@
 """Multi-domain ablation sweep with a proper random-expert null.
 
-This is the expensive half of the interference analysis. It is the generalisation of
+This is the expensive half of Workstream 2. It is the generalisation of
 `scripts/run_ablation_harness.py` (ONE domain pair, n=6 held-out prompts, ONE
 random draw, no significance test) to:
 

@@ -1,5 +1,5 @@
 """Generate probes/probe_set_context.yaml — needle-in-haystack probes for the
-context-rot analysis.
+context-rot workstream (WS1).
 
 Modelled on Chroma's "Context Rot: How Increasing Input Tokens Impacts LLM
 Performance": task difficulty is held FIXED while input length is the only
@@ -176,7 +176,7 @@ def main() -> None:
         "probe_set_id": "probe_set_context",
         "version": "1.0",
         "purpose": (
-            "Needle-in-haystack sweep for the context-rot analysis. Task difficulty is "
+            "Needle-in-haystack sweep for the context-rot workstream. Task difficulty is "
             "held FIXED (identical needle, identical question, needle always at haystack "
             "midpoint); input LENGTH is the only independent variable. Modelled on Chroma's "
             "'Context Rot: How Increasing Input Tokens Impacts LLM Performance'."

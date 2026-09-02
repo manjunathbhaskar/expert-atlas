@@ -1,6 +1,6 @@
 """WS2: the matched-LOAD null, which separates 'which experts' from 'how much network'.
 
-The utilization analysis measured that H1 specialists are disproportionately cold, and that
+Workstream 3 measured that H1 specialists are disproportionately cold, and that
 per-domain load removed spans 5.3x. A size-matched null holds |S| fixed but lets
 total load float to ~|S| by construction, so it cannot distinguish "sql's experts
 matter" from "sql's ablation deleted twice as much routed traffic".

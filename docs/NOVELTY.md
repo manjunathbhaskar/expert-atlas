@@ -46,7 +46,7 @@ to *"what breaks when you feed the model more"* (open, and named as open).
 
 ## Verdicts
 
-Every thread gets one of: **mechanism found / mechanism ruled out /
+Every workstream gets one of: **mechanism found / mechanism ruled out /
 partial / null**. No result is upgraded beyond what its numbers support.
 
 | WS | Question | Verdict |

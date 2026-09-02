@@ -118,7 +118,7 @@ def fig1():
 # ---------------------------------------------------------------- Figure 2
 # (a) degradation curve, (b) collapse contrast on both models
 def fig2():
-    fig, (a, b) = plt.subplots(1, 2, figsize=(9, 3.4))
+    fig, (a, b) = plt.subplots(1, 2, figsize=(12, 4.4))
 
     buckets = [256, 512, 1024, 2048, 3072, 3840]
     acc_all = [0.938, 0.875, 0.812, 0.781, 0.781, 0.688]
@@ -142,36 +142,44 @@ def fig2():
              bbox_to_anchor=(0.02, 0.32))
 
     # collapse contrast
-    groups = ["OLMoE\nidentified 16", "OLMoE\nother 240",
-              "Granite\nidentified 16", "Granite\nother 752"]
-    right = [0.432, 0.022, 0.225, 0.0112]
-    wrong = [0.187, 0.012, 0.101, 0.0068]
-    x = range(4)
+    groups = ["OLMoE\nidentified", "OLMoE\nother",
+              "Granite\nidentified", "Granite\nother",
+              "Pythia\nidentified", "Pythia\nother"]
+    right = [0.432, 0.022, 0.225, 0.0112, 0.421, 0.0248]
+    wrong = [0.187, 0.012, 0.101, 0.0068, 0.372, 0.0220]
+    x = range(6)
     w = 0.36
     b.bar([i - w / 2 for i in x], right, w, color=BLUE,
           label="model-right prompts")
     b.bar([i + w / 2 for i in x], wrong, w, color=RED,
           label="model-wrong prompts")
     for i, (r, wv) in enumerate(zip(right, wrong)):
-        b.text(i - w / 2, r + 0.008, f"{r:.3f}", ha="center", fontsize=7)
-        b.text(i + w / 2, wv + 0.008, f"{wv:.3f}", ha="center", fontsize=7)
-    ds = ["d=1.55", "d=1.28", "d=2.17", "d=1.63"]
+        b.text(i - w / 2, r + 0.010, f"{r:.3f}", ha="center", fontsize=7.5)
+        b.text(i + w / 2, wv + 0.010, f"{wv:.3f}", ha="center", fontsize=7.5)
+    ds = ["d=1.55", "d=1.28", "d=2.17", "d=1.63", "d=0.70†", "d=0.52"]
     for i, d in enumerate(ds):
-        b.text(i, max(right[i], wrong[i]) + 0.05, d, ha="center",
-               fontsize=7.5, fontstyle="italic")
+        b.text(i, max(right[i], wrong[i]) + 0.045, d, ha="center",
+               fontsize=8, fontstyle="italic")
     b.set_xticks(list(x))
-    b.set_xticklabels(groups, fontsize=8)
+    b.set_xticklabels(groups, fontsize=8.5)
     b.set_ylabel("mean needle attention (final position)")
-    b.set_ylim(0, 0.54)
-    b.set_title("(b) Collapse is localized (3,840 tokens)")
-    b.legend(frameon=False, fontsize=7.5)
+    b.set_ylim(0, 0.62)
+    b.set_title("(b) Collapse is localized (long bucket, all 3 models)",
+                pad=34)
+    b.legend(frameon=False, fontsize=8, loc="upper center",
+              bbox_to_anchor=(0.5, 1.14), ncol=2)
+    fig.text(0.99, 0.01, "† significant (perm p = 0.048), specific "
+             "(p < 0.0005), but below the 0.8 effect floor — "
+             "suggestive, not confirmatory", ha="right", va="bottom",
+             fontsize=7.2, color="#4a5568", fontstyle="italic")
+    fig.subplots_adjust(bottom=0.22, top=0.80, wspace=0.28)
     save(fig, "fig2_degradation_collapse")
 
 
 # ---------------------------------------------------------------- Figure 3
 # Repair vs controls, three substrates
 def fig3():
-    fig, axes = plt.subplots(1, 3, figsize=(10, 3.2), sharey=True)
+    fig, axes = plt.subplots(1, 4, figsize=(13, 3.2), sharey=True)
     conds = ["baseline", "wrong\nspan", "random\nheads", "lexical\ndetector",
              "oracle\nspan"]
     colors = [GRAY, ORANGE, PURPLE, GREEN, BLUE]
@@ -183,6 +191,8 @@ def fig3():
          "10/10 failing repaired"),
         ("Granite hard set (n=16)", [0.644, 0.631, 0.561, 0.984, 0.988],
          "5/5 failing repaired"),
+        ("Pythia hard set (n=48)", [0.588, 0.580, 0.610, 0.742, 0.892],
+         "11/11 failing repaired"),
     ]
     for ax, (title, vals, note) in zip(axes, data):
         xs, vs, cs, ls = [], [], [], []
@@ -212,15 +222,16 @@ def fig3():
 # ---------------------------------------------------------------- Figure 4
 # Span detector comparison across substrates
 def fig4():
-    fig, (a, b) = plt.subplots(1, 2, figsize=(9, 3.3))
+    fig, (a, b) = plt.subplots(1, 2, figsize=(13, 3.6))
 
     # (a) hit rates per detector per substrate
-    subs = ["3,840\nneedle", "depth\n0.15", "para-\nphrase", "multi-\nhop"]
-    lex = [100, 100, 100, 0]
-    attn = [85.9, 37.5, None, None]
-    l8 = [None, None, None, 90.6]
-    expert = [0, None, None, None]
-    x = range(4)
+    subs = ["3,840\nneedle", "depth\n0.15", "para-\nphrase", "multi-\nhop",
+            "Pythia\nhard"]
+    lex = [100, 100, 100, 0, 50]
+    attn = [85.9, 37.5, None, None, None]
+    l8 = [None, None, None, 90.6, None]
+    expert = [0, None, None, None, None]
+    x = range(5)
     w = 0.2
     a.bar([i - 1.5 * w for i in x], [v if v is not None else 0 for v in lex],
           w, color=GREEN, label="lexical (training-free)")
@@ -242,21 +253,24 @@ def fig4():
     a.set_xticklabels(subs, fontsize=8)
     a.set_ylabel("span hit rate (%)")
     a.set_ylim(0, 118)
-    a.set_title("(a) Span detectors by substrate")
-    a.legend(frameon=False, fontsize=7)
+    a.set_title("(a) Span detectors by substrate", pad=34)
+    a.legend(frameon=False, fontsize=7.5, loc="upper center",
+             bbox_to_anchor=(0.5, 1.20), ncol=2)
+    fig.subplots_adjust(top=0.76, wspace=0.22)
 
     # (b) fraction of oracle effect recovered by the label-free pipeline
     subs2 = ["OLMoE\n3,840", "OLMoE\ndepth 0.15", "Granite\nhard",
-             "para-\nphrase", "multi-hop\n(L8 fallback)"]
-    frac = [100.8, 99.4, 99.1, 100.8, 61.4]
-    cs = [GREEN, GREEN, GREEN, GREEN, PURPLE]
-    b.bar(range(5), frac, color=cs, width=0.6)
+             "para-\nphrase", "multi-hop\nchain", "multi-hop\nL8 fallback",
+             "Pythia\nhard"]
+    frac = [100.8, 99.4, 99.1, 100.8, 45.0, 61.4, 51.0]
+    cs = [GREEN, GREEN, GREEN, GREEN, GREEN, PURPLE, GREEN]
+    b.bar(range(7), frac, color=cs, width=0.62)
     for j, v in enumerate(frac):
         b.text(j, v + 2, f"{v:g}%", ha="center", fontsize=7.5)
     b.axhline(100, color="k", lw=0.8, ls=":")
-    b.text(4.45, 108, "oracle ceiling", ha="right", fontsize=7.5)
-    b.set_xticks(range(5))
-    b.set_xticklabels(subs2, fontsize=7.5)
+    b.text(6.45, 108, "oracle ceiling", ha="right", fontsize=7.5)
+    b.set_xticks(range(7))
+    b.set_xticklabels(subs2, fontsize=8)
     b.set_ylabel("% of oracle repair effect")
     b.set_ylim(0, 122)
     b.set_title("(b) Label-free pipeline recovery")

@@ -12,11 +12,23 @@ in those heads far beyond random head sets), and re-opening those heads with a
 pre-softmax attention bias — targeted at a span located *without ground-truth
 labels* — repairs every failing prompt in the tested sets and recovers
 ~99–101% of the oracle-span effect wherever the question shares lexical
-anchors with the needle (~61% via a dev-trained residual probe where it does
-not). Router-level "specialist starvation" correlates with failure but is a
-downstream symptom: three preregistered router/residual interventions failed
-their controls. All results are under the tested conditions only: two small
-MoE models, contexts ≤ 4096 tokens, synthetic retrieval substrates.
+anchors with the needle (~61% via a dev-trained residual probe, or ~45% via a
+training-free two-stage lexical chain, where it does not). Router-level
+"specialist starvation" correlates with failure but is a downstream symptom:
+three preregistered router/residual interventions failed their controls. A
+zero-distractor distance sweep further shows the collapse is gated on
+distractor competition, not on distance-to-readout alone.
+
+The oracle-repair and label-free stages of the same causal chain replicate on
+a third, architecturally distinct model with **no Mixture-of-Experts
+component at all** — Pythia-2.8B, a dense GPT-NeoX model — on its own
+preregistered substrate (`dense_track/`): all 11 registered failures are
+repaired and the label-free detector recovers 51% of the oracle effect. The
+collapse measurement on that substrate is itself significant and specific but
+falls under the project's own preregistered effect-size floor, and is
+reported as suggestive rather than confirmatory for that reason. All results
+are under the tested conditions only: three small models (two MoE, one
+dense), contexts ≤ 4096 tokens, synthetic retrieval substrates.
 
 The repository also contains the project's earlier phases, kept because their
 instruments and negative results are load-bearing: a statistically controlled
@@ -48,7 +60,10 @@ Full narrative with every intermediate step and failed intervention:
 | [`docs/SPAN_DISCOVERY_SOLVED.md`](docs/SPAN_DISCOVERY_SOLVED.md) | Label-free span detection (incl. the failed v1, preserved) |
 | [`docs/SPANFREE_BOOST.md`](docs/SPANFREE_BOOST.md) | Earlier span-free attempts and their measured limits |
 | [`docs/GRANITE_TRANSPORT.md`](docs/GRANITE_TRANSPORT.md) | Second-architecture replication of the full chain |
+| [`docs/DISTANCE_ONLY.md`](docs/DISTANCE_ONLY.md) | Zero-distractor distance sweep: collapse is distractor-gated, not distance-driven |
 | [`docs/CONTEXT_VARIANTS.md`](docs/CONTEXT_VARIANTS.md) | Paraphrase and multi-hop variants; detector scope limits |
+| [`docs/MULTIHOP_CHAIN.md`](docs/MULTIHOP_CHAIN.md) | Training-free two-stage lexical chain for the multi-hop case |
+| [`dense_track/REGISTRATION_V2.md`](dense_track/REGISTRATION_V2.md), [`dense_track/RESULTS_V2.md`](dense_track/RESULTS_V2.md) | Third-architecture (Pythia-2.8B, dense, no MoE) replication, registered substrate |
 | [`docs/METHOD.md`](docs/METHOD.md) | The full experimental pipeline, both phases |
 | [`docs/REPRODUCIBILITY.md`](docs/REPRODUCIBILITY.md) | Models, seeds, hardware, non-obvious requirements |
 | [`docs/FINDINGS.md`](docs/FINDINGS.md), [`docs/UTILIZATION.md`](docs/UTILIZATION.md) | Specialization-atlas results (Phase 3) |
@@ -57,7 +72,7 @@ Full narrative with every intermediate step and failed intervention:
 ## Reproducing the key results
 
 Setup (Python 3.13; models download once to `data/hf_cache`, ~14 GB for
-OLMoE + ~7 GB for Granite):
+OLMoE + ~7 GB for Granite + ~11 GB for Pythia-2.8B in fp32):
 
 ```bash
 python3 -m venv .venv
@@ -84,7 +99,18 @@ $P scripts/run_attention_boost_causal.py       # oracle-span causal repair (14/1
 $P scripts/run_span_discovery.py               # label-free detector + boost (100.8% of oracle)
 $P scripts/run_spanfree_depth.py               # depth-0.15 transfer (10/10)
 $P scripts/run_granite_transport.py            # Granite replication (5/5)
+$P scripts/run_distance_only.py                # zero-distractor distance sweep (distractor-gated)
 $P scripts/run_context_variants.py             # paraphrase / multi-hop scope limits
+$P scripts/run_multihop_chain.py               # training-free two-stage chain (45% of oracle)
+```
+
+Dense-transformer replication (Pythia-2.8B, no MoE — CPU fp32, run from `dense_track/`):
+
+```bash
+$P dense_track/run_sweep.py         # length sweep + attention capture (registered v2 substrate)
+$P dense_track/run_transport.py     # head identification + collapse test
+$P dense_track/run_boost.py         # oracle-span causal repair (11/11)
+$P dense_track/run_spanfree.py      # label-free detector + boost (51% of oracle)
 ```
 
 Specialization atlas and runtime (Phase 3):
@@ -128,17 +154,29 @@ above:
 
 ## Scope and limitations
 
-- Two small MoE models (1B-active / 800M-active), contexts ≤ 4096 tokens,
-  synthetic forced-choice retrieval substrates. Not shown for dense models,
-  larger models, longer contexts, or naturalistic long-context tasks.
+- Three small models (two MoE, one dense — 1B-active / 800M-active /
+  2.8B-dense), contexts ≤ 4096 tokens, synthetic forced-choice retrieval
+  substrates. Not shown for larger models, longer contexts, or naturalistic
+  long-context tasks.
 - The substrate-level accuracy drop on OLMoE is significant but below the
   preregistered practical floor (d = −0.67 vs the |d| ≥ 0.8 bar).
 - The strongest repair uses the oracle needle span; the label-free lexical
   detector matches it only where the question shares lexical anchors with the
-  needle, fails on multi-hop composition (0% hit), and the L8 residual-probe
-  fallback there requires a small labeled dev set.
+  needle, fails on multi-hop composition as a single pass (0% hit) — a
+  training-free two-stage chain recovers 45% of the oracle effect there with
+  no labels, and the L8 residual-probe fallback recovers 61% with a small
+  labeled dev set.
 - Granite's failing subset is n=5; subset-only sign-flip significance bottoms
   out at p = 0.0625 by construction — full-set (n=16) tests carry inference.
+- Pythia's identified-head collapse contrast is itself significant
+  (perm p = 0.048) and specific against a random-cell null (p < 0.0005), but
+  its effect size (d = 0.70) misses the project's 0.8 floor — reported as
+  suggestive, not confirmatory, for that reason alone; the oracle-repair and
+  label-free results on the same substrate were evaluated independently and
+  clear their own floors.
+- The zero-distractor distance sweep (`docs/DISTANCE_ONLY.md`) is OLMoE-only
+  and bounded to ≤ 3,840 tokens; it does not speak to distance-driven failure
+  at the much longer contexts (32k–1M tokens) reported elsewhere.
 - Paraphrase/multi-hop variants sit at a capability floor (0–12.5% accuracy
   even at 256 tokens); boost results there are assisted capability, not
   recovered context rot.

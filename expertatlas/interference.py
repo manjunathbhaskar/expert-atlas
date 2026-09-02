@@ -1,5 +1,5 @@
 """Interference functional + the machinery to test whether it *predicts*
-cross-domain ablation damage (see docs/INTERFERENCE.md).
+cross-domain ablation damage (Workstream 2, docs/INTERFERENCE.md).
 
 The research question
 --------------------
@@ -270,7 +270,7 @@ def routing_mass_ratio(
 def load_removed(load_ratio: np.ndarray, expert_set_idx: set[int]) -> float:
     """Total utilisation removed by an ablation set, in units of 'fair shares'.
 
-    `load_ratio[e]` (from data/utilization.json) is expert e's
+    `load_ratio[e]` (from data/utilization.json, Workstream 3) is expert e's
     share of all selections divided by its fair share 1/|E|. Summing it over
     the ablated set gives how much of the model's actual routed traffic the
     ablation deletes. A size-matched random set has expectation |S| by
@@ -564,7 +564,7 @@ def mantel_test(
 def partial_correlation(y: np.ndarray, x: np.ndarray, z: np.ndarray) -> float:
     """Correlation of x with y after regressing the covariate z out of both.
 
-    Used for the utilization cross-check: if cross-domain damage is really driven
+    Used for Workstream 3's confound: if cross-domain damage is really driven
     by how much *load* an ablation removed rather than by routing overlap,
     the partial correlation of damage with overlap given load-removed
     collapses toward 0 while the raw one does not.
@@ -615,7 +615,7 @@ def multiple_regression(y: np.ndarray, X: np.ndarray, names: list[str]) -> dict:
 
 
 # ---------------------------------------------------------------------------
-# Matched-LOAD nulls (load/overlap disentanglement)
+# Matched-LOAD nulls (Workstream 2, load/overlap disentanglement)
 # ---------------------------------------------------------------------------
 
 
@@ -633,7 +633,7 @@ def matched_load_null_sets(
     Why this exists
     ---------------
     Every null in this project so far is **size**-matched: draw |S| experts
-    uniformly. But the utilization analysis measured that H1 specialists are
+    uniformly. But Workstream 3 measured that H1 specialists are
     disproportionately *cold* (enrichment 0.62x into the hot set), and the
     per-domain load actually removed spans **5.3x** across the six domains
     (sql 192.4 fair-shares vs history 36.3, against a random expectation of

@@ -1,12 +1,12 @@
-"""Interference-analysis driver: precompute the interference predictors, then
-(after scripts/run_ablation_multi.py has produced the measurements) fit and
+"""Workstream 2 driver: precompute the interference predictors, then (after
+scripts/run_ablation_multi.py has produced the measurements) fit and
 permutation-test whether they predict cross-domain ablation damage.
 
 Two stages, deliberately split because only the second one is expensive:
 
   precompute   pure routing statistics, no model load. Builds the domain
                overlap matrices, the per-domain ablation expert sets, and the
-               utilization-analysis load covariate. Writes data/interference_precompute.json.
+               Workstream-3 load covariate. Writes data/interference_precompute.json.
                EVERYTHING here is computed before any ablation happens -- that
                is the whole point of the experiment, so the file is written
                once and the ablation run only reads it.
@@ -198,7 +198,7 @@ def stage_precompute(args):
         print(f"    {d:12s} mean={s['mean']:.2f} median={s['median']:.2f} "
               f"lift@rank{m}={s['min_at_rank_m']:.2f} n(|lift|>=1)={s['n_clearing_lift_1']}")
 
-    # ---- utilization-analysis load covariate
+    # ---- Workstream 3 load covariate
     util = json.loads(UTILIZATION_PATH.read_text())
     assert util["utilization"]["uids"] == prof_a.expert_uids, \
         "utilization.json expert uid order does not match the count matrix"
@@ -437,7 +437,7 @@ def write_report(R):
     A = L.append
     A("# Interference — does a pre-computed routing-overlap number predict cross-domain ablation damage?")
     A("")
-    A("Model: OLMoE-1B-7B-0924 (16 layers x 64 experts, top-8). "
+    A("Workstream 2. Model: OLMoE-1B-7B-0924 (16 layers x 64 experts, top-8). "
       f"Domains: {', '.join(domains)}. Ablation-set size fixed at **m = {m} experts "
       "for every domain** (so the random null is size-matched by construction and no "
       "damage difference can come from having cut more of the network). Metric: mean "
@@ -660,8 +660,8 @@ def write_report(R):
           f"(full-sample r = {_fmt(r)}).")
     A("")
 
-    # ---------------------------------------------------------- utilization confound
-    A("## The utilization confound: is this just 'you deleted more of the model'?")
+    # ------------------------------------------------------------- WS3 confound
+    A("## Workstream 3's confound: is this just 'you deleted more of the model'?")
     A("")
     A("`docs/UTILIZATION.md` found H1 specialists are disproportionately COLD (enrichment "
       "0.624x into the hot set, permutation p < 0.0001), and that the hot experts are "

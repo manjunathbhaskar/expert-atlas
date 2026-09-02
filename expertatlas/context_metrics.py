@@ -1,4 +1,4 @@
-"""Routing metrics as a function of INPUT LENGTH (context rot).
+"""Routing metrics as a function of INPUT LENGTH (Workstream 1: context rot).
 
 Everything else in this repo treats length as a nuisance variable and destroys
 it: `aggregate.py::subsample_cells` equalises the token budget per factorial
@@ -410,7 +410,7 @@ class CommunityStability:
     documented 2.0x PMI validity limit. `docs/FINDINGS.md` measured 227x on the
     main run and reported H4 as UNRELIABLE rather than as evidence; the same
     gate is applied here and the same wording is used, against this
-    analysis's interest.
+    workstream's interest.
     """
     bucket: int
     usage_skew: float

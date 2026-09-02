@@ -9,7 +9,7 @@ Chroma's *Context Rot: How Increasing Input Tokens Impacts LLM Performance* (202
 
 > "we do not have a definitive answer for why that occurs... investigating these effects would require a deeper investigation into mechanistic interpretability, which is beyond the scope of this report"
 
-This project runs that deeper investigation on one small, fully open MoE, at the one place a MoE can degrade that a dense model cannot: **the router**. It asks whether the length-accuracy curve is accompanied by a length-routing curve — whether the router becomes less decisive, or less specialised, as context grows.
+This workstream runs that deeper investigation on one small, fully open MoE, at the one place a MoE can degrade that a dense model cannot: **the router**. It asks whether the length-accuracy curve is accompanied by a length-routing curve — whether the router becomes less decisive, or less specialised, as context grows.
 
 ## Design
 
@@ -160,11 +160,11 @@ Every trend below clears (or fails) BOTH a permutation null (2000 shuffles of th
 | 3072 | 383.0x | 0.9360 | 193 | 0.923 | **NO** |
 | 3840 | 414.0x | 0.9361 | 196 | 0.922 | **NO** |
 
-**verdict: UNRELIABLE.** `coactivation.py`'s own documented PMI validity limit is 2.0x usage skew (measured there: separation from noise collapses by ~10x). Skew here is far outside that range, so the community numbers are known-contaminated by base rate and must not be trusted **in either direction** — neither as evidence that communities blur at long context nor as evidence that they are stable. This is the same call `docs/FINDINGS.md` made for H4, made here for the same reason and against this analysis's interest.
+**verdict: UNRELIABLE.** `coactivation.py`'s own documented PMI validity limit is 2.0x usage skew (measured there: separation from noise collapses by ~10x). Skew here is far outside that range, so the community numbers are known-contaminated by base rate and must not be trusted **in either direction** — neither as evidence that communities blur at long context nor as evidence that they are stable. This is the same call `docs/FINDINGS.md` made for H4, made here for the same reason and against this workstream's interest.
 
 ## Hot-expert concentration vs length
 
-`data/utilization.json` (the utilization analysis) was available. **Its headline result reframes this section**: the hypothesised 'specialisation lives in hot experts' mechanism is refuted — specialists are disproportionately *cold* (observed overlap 34 vs null 54.5+/-4.7, enrichment 0.624x, p<0.0001). So hot-expert concentration is measured here **without** the prior that it is the mechanism; the prior is that hot experts are generalists.
+`data/utilization.json` (Workstream 3) was available. **Its headline result reframes this section**: the hypothesised 'specialisation lives in hot experts' mechanism is refuted — specialists are disproportionately *cold* (observed overlap 34 vs null 54.5+/-4.7, enrichment 0.624x, p<0.0001). So hot-expert concentration is measured here **without** the prior that it is the mechanism; the prior is that hot experts are generalists.
 
 WS-3's open question, which this sweep can speak to: if routing degrades with length, does it concentrate in the generalist (high-load) pathway or the specialist (low-load) one?
 
@@ -191,11 +191,11 @@ Task accuracy does **not** degrade with input length on this model under this de
 - `accuracy`: 0.688 at 128 tokens -> 0.812 at 3840 (rho=+0.039, d=+0.28, FLAT)
 - `answer_prob`: 0.634 -> 0.717 (rho=+0.019, d=+0.24, FLAT)
 
-**This is a substrate limitation and it bounds every downstream claim in this analysis.** It is reported here, not buried.
+**This is a substrate limitation and it bounds every downstream claim in this workstream.** It is reported here, not buried.
 
 ## Limits
 
-1. **One model, one seed.** OLMoE-1B-7B-0924 has 64 experts per layer; frontier MoEs have hundreds. A second-model generality check is not optional, and it has not been run for this substrate either.
+1. **One model, one seed.** OLMoE-1B-7B-0924 has 64 experts per layer; frontier MoEs have hundreds. PLAN.md §9b flags the second-model check as not optional, and it has not been run for this workstream either.
 2. **4 replicates per cell** (112 prompts total). Sized to finish — see the wall-clock section below. Powered for the pooled length trend, not for per-condition trends, which are shown for shape and should not be significance-tested individually at this n.
 3. **Needle depth fixed at 50%.** Depth is known to matter; it is held constant here so that length is the only independent variable.
 4. **A base model on a retrieval task.** OLMoE-1B-7B-0924 is not instruction-tuned. Forced-choice scoring is used precisely because it does not require the model to follow an instruction, but the task is still easier than what Chroma ran on instruction-tuned frontier models.

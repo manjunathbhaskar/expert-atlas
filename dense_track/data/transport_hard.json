@@ -1,0 +1,15 @@
+{
+  "n_right": 25,
+  "n_wrong": 7,
+  "identified_right": 0.4177984595298767,
+  "identified_wrong": 0.3521600663661957,
+  "cohen_d": 0.7968160510063171,
+  "perm_p": 0.0355,
+  "other_right": 0.024239856749773026,
+  "other_wrong": 0.023129519075155258,
+  "specificity_obs": 0.06563830375671387,
+  "specificity_null_mean": 0.0013316214317455888,
+  "specificity_null_p95": 0.014577238820493221,
+  "specificity_p": 0.0,
+  "exploratory": true
+}

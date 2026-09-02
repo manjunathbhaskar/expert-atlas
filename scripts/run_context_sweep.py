@@ -1,4 +1,4 @@
-"""Context-rot capture sweep.
+"""Context-rot capture sweep (Workstream 1).
 
 Runs `probes/probe_set_context.yaml` through OLMoE and records, per prompt:
 
@@ -9,7 +9,7 @@ Runs `probes/probe_set_context.yaml` through OLMoE and records, per prompt:
 
 Why this does not reuse `capture.py::capture_to_dir`
 ----------------------------------------------------
-`capture.py` belongs to the specialisation-capture pipeline and is not edited here. Its writer
+`capture.py` is owned by another workstream and is not edited here. Its writer
 records `expert_ids / gate_weights / topk_mass` but discards the raw router
 logits, so full-softmax entropy cannot be recovered from its output, and it
 does not surface LM logits at all. This script therefore drives its own forward

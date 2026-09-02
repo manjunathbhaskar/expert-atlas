@@ -1,7 +1,7 @@
-"""Expert utilization + hot/specialist cross-reference.
+"""Workstream 3: expert utilization + hot/specialist cross-reference.
 
 Uses only existing parquet traces and data/atlas.json — no new capture.
-Emits data/utilization.json, which the other analyses consume.
+Emits data/utilization.json, which Workstreams 1 and 2 consume.
 
     python scripts/run_utilization.py
 """

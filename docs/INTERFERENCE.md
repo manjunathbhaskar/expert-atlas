@@ -1,6 +1,6 @@
 # Interference — does a pre-computed routing-overlap number predict cross-domain ablation damage?
 
-Model: OLMoE-1B-7B-0924 (16 layers x 64 experts, top-8). Domains: python, rust, sql, math_proof, history, cooking. Ablation-set size fixed at **m = 100 experts for every domain** (so the random null is size-matched by construction and no damage difference can come from having cut more of the network). Metric: mean per-token teacher-forced cross-entropy (nats) on held-out `split=B` prompts, forward passes only.
+Workstream 2. Model: OLMoE-1B-7B-0924 (16 layers x 64 experts, top-8). Domains: python, rust, sql, math_proof, history, cooking. Ablation-set size fixed at **m = 100 experts for every domain** (so the random null is size-matched by construction and no damage difference can come from having cut more of the network). Metric: mean per-token teacher-forced cross-entropy (nats) on held-out `split=B` prompts, forward passes only.
 
 **Held-out sample size: 24 prompts per domain (144 scored per sweep).** `docs/ABLATION.md` flagged its n=6 as too small; this is 4x that and is the entire held-out supply the probe set has. **But see Limitations — those 24 prompts are 24 surface variants of ONE content stem, so the effective content-level n is 1, and this raise is smaller than it looks.**
 
@@ -192,7 +192,7 @@ Every predictor is computed from routing statistics only, before any ablation. E
 
 Range of r across the six leave-one-out fits: [0.765, 0.916] (full-sample r = 0.816).
 
-## The utilization confound: is this just 'you deleted more of the model'?
+## Workstream 3's confound: is this just 'you deleted more of the model'?
 
 `docs/UTILIZATION.md` found H1 specialists are disproportionately COLD (enrichment 0.624x into the hot set, permutation p < 0.0001), and that the hot experts are largely generalists. So a size-matched null controls set *size* but not set *load*. Load removed by each ablation set, in fair-share units (a random size-100 set has expectation 100):
 

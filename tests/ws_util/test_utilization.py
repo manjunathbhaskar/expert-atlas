@@ -113,7 +113,7 @@ def test_enrichment_untestable_when_no_hot_experts():
 def test_real_run_result_is_depletion_not_enrichment():
     """Pins the actual finding so it cannot silently flip without notice.
 
-    The brief that commissioned this analysis hypothesised ENRICHMENT
+    The brief that commissioned this workstream hypothesised ENRICHMENT
     (specialisation concentrating load). The measurement found the opposite.
     """
     d = json.loads((ROOT / "data" / "utilization.json").read_text())

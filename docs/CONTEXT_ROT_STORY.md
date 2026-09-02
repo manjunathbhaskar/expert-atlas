@@ -25,7 +25,7 @@ they wrote:
 > these effects would require a deeper investigation into mechanistic
 > interpretability, which is beyond the scope of this report"
 
-That is the question this project took up, on the one component a MoE has
+That is the question this workstream took up, on the one component a MoE has
 that a dense model does not: the router. A 192-prompt needle-in-a-haystack
 substrate reproducing two of Chroma's conditions (similar/dissimilar haystack,
 0/8 distractors) across six length buckets reproduced the phenomenon locally:

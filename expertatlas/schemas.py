@@ -1,19 +1,18 @@
-"""Frozen data contracts.
+"""Frozen data contracts (PLAN.md §3).
 
-These are the only interfaces the pipeline stages talk through: capture
-writes RoutingTrace parquet + meta.json; aggregation/statistics reads it and
-writes atlas.json; the visualiser reads *only* atlas.json and never touches
-the raw traces.
+These are the ONLY interfaces workstreams talk through. WS-A writes
+RoutingTrace parquet + meta.json; WS-C reads it and writes atlas.json;
+WS-D reads *only* atlas.json and never touches traces.
 
-Changing a field here after the initial capture run is a breaking change
-across the whole pipeline, so it is done deliberately rather than as a
-silent edit.
+Changing a field here after Phase 0 is a cross-team-breaking change — if a
+workstream needs a change, it goes through docs/interface-requests.md, not
+a silent edit.
 
-One deliberate addition vs. the original schema design: `topk_mass` on
-RoutingTraceRow. The sanity tests (test_topk_mass_is_recorded) require it —
-"routing confidence" (sum of the top-k gate weights before any
-renormalisation) is itself a signal, and the original design omitted the
-column it depends on. Fixed early rather than discovered mid-analysis.
+One deliberate addition vs. the PLAN.md §3 table: `topk_mass` on
+RoutingTraceRow. Section 6.1's own sanity tests (test_topk_mass_is_recorded)
+require it — "routing confidence" (sum of the top-k gate weights before
+any renormalisation) is itself a signal and the original table omitted the
+column it depends on. Fixed here in Phase 0 rather than discovered mid-WS-C.
 """
 
 from __future__ import annotations
@@ -141,7 +140,7 @@ class Atlas(BaseModel):
 
 
 # --------------------------------------------------------------------------
-# Small shared helpers
+# Small helpers shared across workstreams
 # --------------------------------------------------------------------------
 
 

@@ -1,4 +1,4 @@
-"""Context-rot probe set generator.
+"""Context-rot probe set generator (Workstream 1).
 
 Builds `probes/probe_set_context.yaml`: a needle-in-a-haystack set modelled on
 Chroma's *Context Rot: How Increasing Input Tokens Impacts LLM Performance*

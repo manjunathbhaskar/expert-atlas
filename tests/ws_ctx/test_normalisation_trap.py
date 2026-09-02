@@ -1,4 +1,4 @@
-"""The single most important test in this suite.
+"""The single most important test in this workstream.
 
 PLAN.md §6.2 calls the planted-structure test "the single most valuable test in
 the project" because it proves the instrument works before anything it says
@@ -14,7 +14,7 @@ and asserts two things:
      the same data.
 
 If (1) ever fails, the trap is not real and the elaborate defence in
-`context_metrics.py` is unnecessary. If (2) ever fails, this analysis is
+`context_metrics.py` is unnecessary. If (2) ever fails, the workstream is
 manufacturing its own headline and every number in CONTEXT_ROT.md is void.
 """
 

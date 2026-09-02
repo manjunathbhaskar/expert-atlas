@@ -1,4 +1,4 @@
-"""Expert utilization / routing-collapse diagnostics.
+"""Expert utilization / routing-collapse diagnostics (Workstream 3).
 
 The standard MoE routing-collapse diagnostic: with `n_experts` and top-`k`
 routing, a perfectly balanced router gives every expert an expected share of
@@ -6,7 +6,7 @@ routing, a perfectly balanced router gives every expert an expected share of
 known failure mode — a few "hot" experts absorb most of the load while "cold"
 experts idle.
 
-Why this matters for the other analyses
+Why this matters for the two other workstreams
 ----------------------------------------------
 `docs/FINDINGS.md` established that 557/1024 experts carry a real (>=2x lift),
 FDR-significant topic affinity. If those specialised experts are *also* the
@@ -128,7 +128,7 @@ def hot_specialist_overlap(
 ) -> dict:
     """Are lift-significant specialists over-represented among hot experts?
 
-    This is the load-bearing question of this analysis. It is tested against a
+    This is the load-bearing question of Workstream 3. It is tested against a
     permutation null (random expert sets of the same size), not asserted from a
     raw overlap count — a large overlap is expected by chance alone when 54% of
     experts are specialists, and reporting the raw count would be exactly the
